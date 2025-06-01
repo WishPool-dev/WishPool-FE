@@ -1,5 +1,4 @@
 @theme {
-
   --color-blue-primary: #0087ff;
   --color-blue-1: #0096ff;
   --color-blue-2: #07a6ff;
@@ -9,7 +8,7 @@
   --color-blue-6: #e2f3ff;
   --color-sub-blue: #88f3fe;
   
- --color-pink-primary: #ff5378;
+  --color-pink-primary: #ff5378;
   --color-pink-1: #ff7090;
   --color-pink-2: #ff98b0;
   --color-pink-3: #ffc0cf;
@@ -30,5 +29,4 @@
   --color-point-color: #ff6e1f;
   --color-background-01: #ffffff;
   --color-background-02: #f5f8ff;
-
 }
