@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import '@/styles/globals.css';
 import ReactQueryProvider from '@/components/ReactQueryProvider';
+import { suite } from '@/styles/font';
 
 export const metadata: Metadata = {
   title: 'WishPooL',
@@ -15,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-[var(--font-suite)">
+      <body className={suite.className}>
         <ReactQueryProvider>{children}</ReactQueryProvider>
       </body>
     </html>
