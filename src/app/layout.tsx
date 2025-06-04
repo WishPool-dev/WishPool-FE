@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import '@/styles/globals.css';
+import Header from '@/components/layout/Header';
 import ReactQueryProvider from '@/components/ReactQueryProvider';
 import { suite } from '@/styles/font';
 
@@ -18,7 +19,10 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${suite.className} bg-gray-100`}>
         <div className="mx-auto min-h-screen w-full max-w-[430px] bg-white shadow-md">
-          <ReactQueryProvider>{children}</ReactQueryProvider>
+          <ReactQueryProvider>
+            <Header />
+            {children}
+          </ReactQueryProvider>
         </div>
       </body>
     </html>
