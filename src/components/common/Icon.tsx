@@ -1,3 +1,5 @@
+'use client';
+
 import { iconMap } from '@/assets/icons/iconMap';
 
 type IconName = keyof typeof iconMap;

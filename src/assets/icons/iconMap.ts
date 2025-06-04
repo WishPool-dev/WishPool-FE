@@ -1,3 +1,5 @@
+'use client';
+
 import BackIcon from '@/assets/icons/svg/icon_back.svg';
 import CancelIcon from '@/assets/icons/svg/icon_cancel.svg';
 import HomeIcon from '@/assets/icons/svg/icon_home.svg';
