@@ -24,7 +24,7 @@ const NavSection = () => {
           return (
             <li
               key={label}
-              className={`h-16 ${isActive ? 'bg-background-02 text-blue-primary title1 w-full' : 'subtitle1'}`}
+              className={`flex h-16 items-center justify-center ${isActive ? 'bg-background-02 text-blue-primary title1 w-full' : 'subtitle1'}`}
             >
               <a href={href}>{label}</a>
             </li>
