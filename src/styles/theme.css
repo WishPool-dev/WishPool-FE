@@ -1,5 +1,47 @@
-/*
 .head1 {
   @apply text-[20px] leading-[160%] font-bold tracking-[-0.4px];
 }
-*/
+
+.title1 {
+  @apply text-[18px] leading-[160%] font-bold tracking-[-0.36px];
+}
+
+.title2 {
+  @apply text-[16px] leading-[150%] font-bold tracking-[-0.32px];
+}
+
+.title3 {
+  @apply text-[14px] leading-[150%] font-bold tracking-[-0.28px];
+}
+
+.subtitle1 {
+  @apply text-[18px] leading-[150%] font-semibold tracking-[-0.36px];
+}
+
+.subtitle2 {
+  @apply text-[16px] leading-[150%] font-semibold tracking-[-0.32px];
+}
+
+.subtitle3 {
+  @apply text-[14px] leading-[150%] font-semibold tracking-[-0.28px];
+}
+
+.body1 {
+  @apply text-[16px] leading-[150%] font-medium tracking-[-0.32px];
+}
+
+.body2 {
+  @apply text-[14px] leading-[150%] font-medium tracking-[-0.28px];
+}
+
+.caption1 {
+  @apply text-[12px] leading-[150%] font-semibold tracking-[-0.24px];
+}
+
+.caption2 {
+  @apply text-[12px] leading-[150%] font-medium tracking-[-0.24px];
+}
+
+.caption3 {
+  @apply text-[10px] leading-[150%] font-medium tracking-[-0.2px];
+}
