@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 import '@/styles/globals.css';
-import Header from '@/components/layout/Header';
+import Header from '@/components/layout/Header/Header';
 import ReactQueryProvider from '@/components/ReactQueryProvider';
 import { suite } from '@/styles/font';
 
