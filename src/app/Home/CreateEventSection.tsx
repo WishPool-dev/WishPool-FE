@@ -17,12 +17,19 @@ const CreateEventSection = ({ planType }: { planType: PlanType }) => {
   const { title, description } = CREATE_CONTENT[planType];
 
   return (
-    <button>
-      <div>
-        <p>{title}</p>
-        <p>{description}</p>
+    <button className="flex w-full items-center justify-between rounded-[12px] bg-white px-[1.6rem] py-[1.2rem]">
+      <img
+        src="/images/sample.jpeg"
+        className="h-[6.2rem] w-[6.2rem] object-cover"
+        alt="대표 이미지"
+      />
+      <div className="text-left">
+        <p className="title1 text-text">{title}</p>
+        <p className="caption2 text-gray-600">{description}</p>
       </div>
-      <span>만들기</span>
+      <span className="text-blue-primary title3 px-[1.2rem] py-[0.8rem]">
+        만들기
+      </span>
     </button>
   );
 };

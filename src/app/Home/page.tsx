@@ -16,7 +16,9 @@ const Home = () => {
     <>
       <PlanTypeSection planType={planType} onSelectType={handlePlanType} />
       <ActiveEventSection planType={planType} />
-      <CreateEventSection planType={planType} />
+      <div className="bg-background-02 -mx-[2rem] h-[100vh] p-[2rem]">
+        <CreateEventSection planType={planType} />
+      </div>
     </>
   );
 };
