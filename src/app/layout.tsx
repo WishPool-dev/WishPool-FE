@@ -18,10 +18,10 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={`${suite.className} bg-gray-100`}>
-        <div className="mx-auto min-h-screen max-w-[430px] bg-white shadow-md">
+        <div className="mx-auto min-h-screen w-full max-w-[430px] bg-white shadow-md">
           <ReactQueryProvider>
             <Header />
-            <main className="pt-[5.4rem]">{children}</main>
+            <main className="px-[2rem] pt-[5.4rem]">{children}</main>
           </ReactQueryProvider>
         </div>
       </body>

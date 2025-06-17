@@ -1,4 +1,5 @@
 'use client';
+
 import type { PlanType } from '@/types/planType';
 
 type planTypeProps = {
