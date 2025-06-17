@@ -5,14 +5,14 @@ import type { PlanType } from '@/types/planType';
 type planTypeProps = {
   planType: PlanType;
   onSelectType: (type: PlanType) => void;
+  planCount: Record<PlanType, number>;
 };
 
-const planCount = {
-  funding: 1,
-  wishpool: 0,
-};
-
-const PlanTypeSection = ({ planType, onSelectType }: planTypeProps) => {
+const PlanTypeSection = ({
+  planType,
+  onSelectType,
+  planCount,
+}: planTypeProps) => {
   return (
     <>
       <div className="relative m-auto flex w-[35.4rem] items-center justify-center gap-[1.2rem] after:absolute after:bottom-0 after:left-0 after:h-[0.3rem] after:w-full after:bg-gray-100 after:content-['']">

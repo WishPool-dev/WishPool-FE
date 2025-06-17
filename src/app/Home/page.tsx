@@ -5,6 +5,11 @@ import ActiveEventSection from '@/app/Home/ActiveEventSection';
 import CreateEventSection from '@/app/Home/CreateEventSection';
 import PlanTypeSection from '@/app/Home/PlanTypeSection';
 
+const planCount = {
+  funding: 1,
+  wishpool: 0,
+};
+
 const Home = () => {
   const [planType, setPlanType] = useState<'funding' | 'wishpool'>('funding');
 
@@ -14,7 +19,11 @@ const Home = () => {
 
   return (
     <>
-      <PlanTypeSection planType={planType} onSelectType={handlePlanType} />
+      <PlanTypeSection
+        planType={planType}
+        onSelectType={handlePlanType}
+        planCount={planCount}
+      />
       <ActiveEventSection planType={planType} />
       <div className="bg-background-02 -mx-[2rem] h-[100vh] p-[2rem]">
         <CreateEventSection planType={planType} />
