@@ -1,6 +1,8 @@
 'use client';
 import { useState } from 'react';
 
+import ActiveEventSection from '@/app/Home/ActiveEventSection';
+import CreateEventSection from '@/app/Home/CreateEventSection';
 import PlanTypeSection from '@/app/Home/PlanTypeSection';
 
 const Home = () => {
@@ -13,6 +15,8 @@ const Home = () => {
   return (
     <>
       <PlanTypeSection planType={planType} onSelectType={handlePlanType} />
+      <ActiveEventSection planType={planType} />
+      <CreateEventSection planType={planType} />
     </>
   );
 };

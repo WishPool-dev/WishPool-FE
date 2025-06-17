@@ -1,6 +1,5 @@
 'use client';
-
-type PlanType = 'funding' | 'wishpool';
+import type { PlanType } from '@/types/planType';
 
 type planTypeProps = {
   planType: PlanType;
