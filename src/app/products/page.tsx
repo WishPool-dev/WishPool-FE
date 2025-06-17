@@ -12,15 +12,15 @@ const Products = () => {
           <ProductCard
             brandName="브랜드명"
             productName="제품명"
-            price="10,000"
-            discountPercentage="20"
+            price={10000}
+            discountPercentage={20}
           />
         </div>
         <div className="mt-[1.6rem]">
           <ProductCard
             brandName="브랜드명"
             productName="제품명"
-            price="10,000"
+            price={10000}
           />
         </div>
       </div>

@@ -4,8 +4,8 @@ interface CardProps {
   // imgUrl?: string
   brandName: string;
   productName: string;
-  price: string;
-  discountPercentage?: string;
+  price: number;
+  discountPercentage?: number;
 }
 
 const ProductCard = ({
@@ -17,7 +17,7 @@ const ProductCard = ({
 }: CardProps) => {
   const onClick = () => {};
   return (
-    <div>
+    <>
       <div className="flex h-[27.1rem] w-[17.1rem] flex-col">
         <div className="relative">
           <img
@@ -34,16 +34,16 @@ const ProductCard = ({
         </div>
         <div className="caption2 pt-[0.8rem] text-gray-600">{brandName}</div>
         <div className="subtitle3">{productName}</div>
-        <div className="flex flex-row pt-[2.9rem]">
+        <div className="flex pt-[2.9rem]">
           {discountPercentage && (
             <div className="title2 text-pink-primary pr-[0.4rem]">
               {discountPercentage}%
             </div>
           )}
-          <div className="title2">{price}원</div>
+          <div className="title2">{price.toLocaleString()}원</div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
