@@ -15,5 +15,5 @@ export const iconMap = {
   wish: WishIcon,
   cancel: CancelIcon,
   gift: giftIcon,
-  photoIcon: photoIcon,
+  photo: photoIcon,
 } as const;
