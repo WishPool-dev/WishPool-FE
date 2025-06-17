@@ -16,12 +16,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="ko">
       <body className={`${suite.className} bg-gray-100`}>
         <div className="mx-auto min-h-screen w-full max-w-[430px] bg-white shadow-md">
           <ReactQueryProvider>
             <Header />
-            <main className="pt-14">{children}</main>
+            <main className="mt-[5.4rem]">{children}</main>
           </ReactQueryProvider>
         </div>
       </body>

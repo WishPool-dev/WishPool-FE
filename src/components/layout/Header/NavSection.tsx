@@ -15,7 +15,7 @@ const NavSection = () => {
   return (
     <nav
       aria-label="메인 메뉴"
-      className="mx-auto mt-14 max-w-[430px] bg-white text-center"
+      className="mx-auto mt-[5.4rem] max-w-[430px] bg-white text-center"
     >
       <ul>
         {NAV_LIST.map(({ label, href }) => {
@@ -24,7 +24,7 @@ const NavSection = () => {
           return (
             <li
               key={label}
-              className={`flex h-16 items-center justify-center ${isActive ? 'bg-background-02 text-blue-primary title1 w-full' : 'subtitle1'}`}
+              className={`flex h-[6.3rem] items-center justify-center p-[1rem] ${isActive ? 'bg-background-02 text-blue-primary title1 w-full' : 'subtitle1'}`}
             >
               <a href={href}>{label}</a>
             </li>
