@@ -8,4 +8,5 @@ html {
 
 @theme {
   --z-index-planType: 10;
+  --z-index-header: 50;
 }
