@@ -2,10 +2,10 @@ import Icon from '@/components/common/Icon';
 
 interface CardProps {
   // imgUrl?: string
-  brandName: string; //브랜드명
-  productName: string; //제품명
-  price: string; //가격
-  discountPercentage?: string; //할인률
+  brandName: string;
+  productName: string;
+  price: string;
+  discountPercentage?: string;
 }
 
 const ProductCard = ({
@@ -26,10 +26,10 @@ const ProductCard = ({
           />
           <button
             type="button"
-            className="absolute top-[13.5rem] left-[13.5rem] z-10 text-gray-600"
+            className="absolute top-[13.5rem] left-[13.5rem] z-10"
             onClick={onClick}
           >
-            <Icon name="wish" title="찜 아이콘" />
+            <Icon name="wish" title="찜 아이콘" className="text-gray-600" />
           </button>
         </div>
         <div className="caption2 pt-[0.8rem] text-gray-600">{brandName}</div>
