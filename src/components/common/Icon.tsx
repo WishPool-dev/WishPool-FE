@@ -1,4 +1,6 @@
-import { iconMap } from '@/components/common/Icon/iconMap';
+'use client';
+
+import { iconMap } from '@/assets/icons/iconMap';
 
 type IconName = keyof typeof iconMap;
 

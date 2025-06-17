@@ -1,5 +1,47 @@
-/*
 .head1 {
-  @apply text-[20px] leading-[160%] font-bold tracking-[-0.4px];
+  @apply text-[2rem] leading-[160%] font-bold tracking-[-0.04rem];
 }
-*/
+
+.title1 {
+  @apply text-[1.8rem] leading-[160%] font-bold tracking-[-0.036rem];
+}
+
+.title2 {
+  @apply text-[1.6rem] leading-[150%] font-bold tracking-[-0.032rem];
+}
+
+.title3 {
+  @apply text-[1.4rem] leading-[150%] font-bold tracking-[-0.028rem];
+}
+
+.subtitle1 {
+  @apply text-[1.8rem] leading-[150%] font-semibold tracking-[-0.036rem];
+}
+
+.subtitle2 {
+  @apply text-[1.6rem] leading-[150%] font-semibold tracking-[-0.032rem];
+}
+
+.subtitle3 {
+  @apply text-[1.4rem] leading-[150%] font-semibold tracking-[-0.028rem];
+}
+
+.body1 {
+  @apply text-[1.6rem] leading-[150%] font-medium tracking-[-0.032rem];
+}
+
+.body2 {
+  @apply text-[1.4rem] leading-[150%] font-medium tracking-[-0.028rem];
+}
+
+.caption1 {
+  @apply text-[1.2rem] leading-[150%] font-semibold tracking-[-0.024rem];
+}
+
+.caption2 {
+  @apply text-[1.2rem] leading-[150%] font-medium tracking-[-0.024rem];
+}
+
+.caption3 {
+  @apply text-[1rem] leading-[150%] font-medium tracking-[-0.02rem];
+}
