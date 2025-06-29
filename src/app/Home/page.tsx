@@ -6,8 +6,8 @@ import CreateEventSection from '@/app/Home/CreateEventSection';
 import PlanTypeSection from '@/app/Home/PlanTypeSection';
 
 const planCount = {
-  funding: 1,
-  wishpool: 0,
+  funding: 0,
+  wishpool: 1,
 };
 
 const Home = () => {
@@ -24,7 +24,7 @@ const Home = () => {
         onSelectType={handlePlanType}
         planCount={planCount}
       />
-      <ActiveEventSection planType={planType} />
+      <ActiveEventSection planType={planType} planCount={planCount} />
       <div className="bg-background-02 -mx-[2rem] h-[100vh] p-[2rem]">
         <CreateEventSection planType={planType} />
       </div>
