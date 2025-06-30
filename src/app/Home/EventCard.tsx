@@ -12,10 +12,12 @@ const EventCard = ({ planType }: { planType: PlanType }) => {
         src="/images/sample.jpeg"
         className="h-[18.7rem] w-full rounded-[12px] object-cover"
       />
-      <span className="caption1 bg-pink-primary absolute top-[1.6rem] left-[1.6rem] rounded-[4px] py-[0.6rem] pl-[0.4rem] text-center">
-        <span className="text-pink-primary rounded-[3px] bg-white px-[0.4rem] py-[0.2rem]">
-          참여자
-        </span>
+      <span className="caption1 bg-pink-primary absolute top-[1.6rem] left-[1.6rem] rounded-[4px] py-[0.6rem] text-center">
+        {planType === 'wishpool' && (
+          <span className="text-pink-primary ml-[0.4rem] rounded-[3px] bg-white px-[0.4rem] py-[0.2rem]">
+            참여자
+          </span>
+        )}
         <span className="px-[1.2rem] text-white">5일 뒤 마감</span>
       </span>
       <p className="body2 absolute bottom-[4.5rem] left-[1.6rem] text-white">

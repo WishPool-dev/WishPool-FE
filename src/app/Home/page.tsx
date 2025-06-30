@@ -6,7 +6,7 @@ import CreateEventSection from '@/app/Home/CreateEventSection';
 import PlanTypeSection from '@/app/Home/PlanTypeSection';
 
 const planCount = {
-  funding: 0,
+  funding: 1,
   wishpool: 1,
 };
 
