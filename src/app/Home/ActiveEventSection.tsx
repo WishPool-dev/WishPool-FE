@@ -20,9 +20,12 @@ const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
   return (
     <>
       {hasEvent ? (
-        <div className="flex flex-col gap-[1.6rem]">
+        <>
           <EventCard planType={planType} />
-        </div>
+          <div className="mt-[2rem] mb-[3rem] flex justify-center">
+            <Icon name="dot" width={8} height={8} className="text-gray-800" />
+          </div>
+        </>
       ) : (
         <>
           <div className="mt-[3.5rem] flex items-center justify-center py-[2.6rem]">
