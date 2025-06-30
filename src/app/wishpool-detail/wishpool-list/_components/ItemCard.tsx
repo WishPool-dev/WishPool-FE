@@ -6,7 +6,7 @@ type ItemCardProps = {
 const ItemCard = ({ name, item }: ItemCardProps) => {
   return (
     <>
-      <div className="flex h-[27.1rem] w-[17.1rem] flex-col">
+      <div className="flex max-h-[27.1rem] max-w-[17.1rem] flex-col">
         <img
           className="h-[17.1rem] rounded-[12px] object-cover"
           src="/images/sample.jpeg"
