@@ -42,7 +42,12 @@ const PlanTypeSection = ({
           >
             {label}
             {planCount[key] > 0 && (
-              <span className="caption3 bg-pink-primary flex h-[1.6rem] w-[1.6rem] items-center justify-center rounded-full text-center text-white">
+              <span
+                className={clsx(
+                  'caption3 bg-pink-primary flex h-[1.6rem] w-[1.6rem] items-center justify-center rounded-full text-center text-white',
+                  { 'pr-[0.1rem]': planCount[key] === 1 },
+                )}
+              >
                 {planCount[key]}
               </span>
             )}
