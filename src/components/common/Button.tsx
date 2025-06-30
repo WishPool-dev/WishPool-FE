@@ -3,6 +3,8 @@ import type { VariantProps } from 'class-variance-authority';
 
 type ButtonProps = {
   children: React.ReactNode;
+  disabled?: boolean;
+  type?: 'button' | 'submit';
   onClick?: () => void;
 } & VariantProps<typeof button>;
 
@@ -39,11 +41,15 @@ const Button = ({
   textSize,
   backgroundColor,
   textColor,
+  type = 'button',
+  disabled = false,
   onClick,
 }: ButtonProps) => {
   return (
     <button
       className={button({ textSize, backgroundColor, textColor })}
+      type={type}
+      disabled={disabled}
       onClick={onClick}
     >
       {children}
