@@ -3,16 +3,13 @@ import type { VariantProps } from 'class-variance-authority';
 
 type ButtonProps = {
   children: React.ReactNode;
+  onClick?: () => void;
 } & VariantProps<typeof button>;
 
 const button = cva(
-  'rounded-[12px] h-[5.6rem] flex justify-center items-center',
+  'rounded-[12px] w-full h-[5.6rem] flex justify-center items-center',
   {
     variants: {
-      size: {
-        sm: 'w-[17.1rem]',
-        lg: 'w-[35.3rem]',
-      },
       textSize: {
         sm: 'title1',
         lg: 'head1',
@@ -30,7 +27,6 @@ const button = cva(
       },
     },
     defaultVariants: {
-      size: 'lg',
       textSize: 'lg',
       backgroundColor: 'dark',
       textColor: 'white',
@@ -40,13 +36,16 @@ const button = cva(
 
 const Button = ({
   children,
-  size,
   textSize,
   backgroundColor,
   textColor,
+  onClick,
 }: ButtonProps) => {
   return (
-    <button className={button({ size, textSize, backgroundColor, textColor })}>
+    <button
+      className={button({ textSize, backgroundColor, textColor })}
+      onClick={onClick}
+    >
       {children}
     </button>
   );
