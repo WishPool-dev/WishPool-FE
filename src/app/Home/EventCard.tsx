@@ -1,4 +1,11 @@
-const EventCard = () => {
+import { PlanType } from '@/types/planType';
+
+const CARD_MESSAGE = {
+  funding: '나를 위한 펀딩 진행 중',
+  wishpool: '생일자를 위한 위시풀 만들기 진행 중',
+};
+
+const EventCard = ({ planType }: { planType: PlanType }) => {
   return (
     <div className="relative mt-[2.6rem]">
       <img
@@ -12,7 +19,7 @@ const EventCard = () => {
         <span className="px-[1.2rem] text-white">5일 뒤 마감</span>
       </span>
       <p className="body2 absolute bottom-[4.5rem] left-[1.6rem] text-white">
-        생일자를 위한 위시풀 만들기 진행 중
+        {CARD_MESSAGE[planType]}
       </p>
       <strong className="title1 absolute bottom-[1.6rem] left-[1.6rem] text-white">
         텍스트
