@@ -1,7 +1,12 @@
 @import 'tailwindcss';
 @import './colors.css';
-@import './theme.css';
+@import './typography.css';
 
 html {
   font-size: 62.5%; /* 16px * 0.625 = 10px */
+}
+
+@theme {
+  --z-index-planType: 10;
+  --z-index-header: 50;
 }
