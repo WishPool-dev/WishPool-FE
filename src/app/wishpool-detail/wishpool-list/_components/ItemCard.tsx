@@ -2,7 +2,10 @@ const ItemCard = () => {
   return (
     <>
       <div className="flex h-[27.1rem] w-[17.1rem] flex-col">
-        <img className="rounded-[12px]" src="https://placehold.co/171x171" />
+        <img
+          className="h-[17.1rem] rounded-[12px] object-cover"
+          src="/images/sample.jpeg"
+        />
 
         <div className="mt-[0.8rem] flex items-center gap-[0.8rem]">
           <div className="bg-button-color caption1 flex h-[2.3rem] w-[4.7rem] justify-center rounded-[4px] px-[0.8rem] py-[0.4rem] text-white">
