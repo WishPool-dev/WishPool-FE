@@ -21,7 +21,7 @@ export default function RootLayout({
         <div className="mx-auto min-h-screen w-full max-w-[430px] bg-white shadow-md">
           <ReactQueryProvider>
             <Header />
-            <main className="mt-[5.4rem]">{children}</main>
+            <main className="px-[2rem] pt-[5.4rem]">{children}</main>
           </ReactQueryProvider>
         </div>
       </body>

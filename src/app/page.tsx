@@ -1,3 +1,7 @@
-export default function Home() {
-  return <p>페이지</p>;
+'use client';
+
+import Home from '@/app/home/page';
+
+export default function Page() {
+  return <Home />;
 }
