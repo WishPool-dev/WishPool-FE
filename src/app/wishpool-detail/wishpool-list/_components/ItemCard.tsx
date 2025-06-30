@@ -1,4 +1,9 @@
-const ItemCard = () => {
+type ItemCardProps = {
+  name: string;
+  item: string;
+};
+
+const ItemCard = ({ name, item }: ItemCardProps) => {
   return (
     <>
       <div className="flex h-[27.1rem] w-[17.1rem] flex-col">
@@ -11,11 +16,11 @@ const ItemCard = () => {
           <div className="bg-button-color caption1 flex h-[2.3rem] w-[4.7rem] justify-center rounded-[4px] px-[0.8rem] py-[0.4rem] text-white">
             참여자
           </div>
-          <div className="subtitle3">이름</div>
+          <div className="subtitle3">{name}</div>
         </div>
 
         <div className="pt-[1.2rem]">
-          <div className="title2 line-clamp-2 h-[4.8rem]">선물 이름</div>
+          <div className="title2 line-clamp-2 h-[4.8rem]">{item}</div>
         </div>
       </div>
     </>
