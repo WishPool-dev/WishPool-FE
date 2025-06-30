@@ -1,5 +1,7 @@
 'use client';
 
+import clsx from 'clsx';
+
 import type { PlanType } from '@/types/planType';
 
 type PlanTypeSectionProps = {
@@ -27,11 +29,16 @@ const PlanTypeSection = ({
           <button
             key={key}
             onClick={() => onSelectType(key)}
-            className={`title1 z-planType relative flex h-[4.6rem] w-[17.1rem] items-center justify-center gap-[0.4rem] after:absolute after:bottom-0 after:left-0 after:h-[0.3rem] after:w-full after:content-[''] ${
-              isActive
-                ? `text-text after:bg-blue-2 ${key === 'funding' ? 'after:rounded-r-[100px]' : 'after:rounded-l-[100px]'}`
-                : 'text-gray-400'
-            }`}
+            className={clsx(
+              'title1 z-planType relative flex h-[4.6rem] w-[17.1rem] items-center justify-center gap-[0.4rem]',
+              "after:absolute after:bottom-0 after:left-0 after:h-[0.3rem] after:w-full after:content-['']",
+              {
+                'text-text after:bg-blue-2': isActive,
+                'after:rounded-r-[100px]': isActive && key === 'funding',
+                'after:rounded-l-[100px]': isActive && key === 'wishpool',
+                'text-gray-400': !isActive,
+              },
+            )}
           >
             {label}
             {planCount[key] > 0 && (
