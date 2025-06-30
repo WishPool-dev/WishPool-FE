@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
 
-import ActiveEventSection from '@/app/home/ActiveEventSection';
-import CreateEventSection from '@/app/home/CreateEventSection';
-import PlanTypeSection from '@/app/home/PlanTypeSection';
+import ActiveEventSection from '@/app/home/_components/ActiveEventSection';
+import CreateEventSection from '@/app/home/_components/CreateEventSection';
+import PlanTypeSection from '@/app/home/_components/PlanTypeSection';
 
 const planCount = {
   funding: 0,
