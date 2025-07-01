@@ -8,7 +8,7 @@ const ItemCard = ({ name, item }: ItemCardProps) => {
     <>
       <div className="flex max-h-[27.1rem] max-w-[17.1rem] flex-col">
         <img
-          className="h-[17.1rem] rounded-[12px] object-cover"
+          className="h-[17.1rem] w-[17.1rem] rounded-[12px] object-cover"
           src="/images/sample.jpeg"
         />
 
