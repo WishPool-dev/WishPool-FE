@@ -3,6 +3,7 @@
 import BackIcon from '@/assets/icons/svg/icon_back.svg';
 import CancelIcon from '@/assets/icons/svg/icon_cancel.svg';
 import DotIcon from '@/assets/icons/svg/icon_dot.svg';
+import DownIcon from '@/assets/icons/svg/icon_down.svg';
 import GiftIcon from '@/assets/icons/svg/icon_gift.svg';
 import HomeIcon from '@/assets/icons/svg/icon_home.svg';
 import MenuIcon from '@/assets/icons/svg/icon_menu.svg';
@@ -18,4 +19,5 @@ export const iconMap = {
   gift: GiftIcon,
   photo: PhotoIcon,
   dot: DotIcon,
+  down: DownIcon,
 } as const;
