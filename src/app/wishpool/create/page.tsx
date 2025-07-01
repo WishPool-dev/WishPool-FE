@@ -1,4 +1,4 @@
-import Icon from '@/components/common/Icon';
+import { InfoNotice } from '@/app/wishpool/create/_component/InfoNotice';
 
 const page = () => {
   return (
@@ -23,28 +23,8 @@ const page = () => {
           생일자가 그 중 원하는 상품을 고르는 공동 제작 위시리스트에요.
         </p>
         <div className="mt-[2rem] flex flex-col gap-[1.2rem]">
-          <div className="bg-blue-6 flex items-center rounded-[6px] py-[0.4rem] pr-[0.6rem] pl-[1.2rem]">
-            <Icon name="gift" title="선물 아이콘" className="text-white" />
-            <p className="text-blue-primary caption1 ml-[1.2rem]">
-              생일자는 진짜 필요한 걸 고를 수 있어요.
-            </p>
-            <Icon
-              name="down"
-              title="아래 방향 아이콘"
-              className="text-blue-primary ml-auto"
-            />
-          </div>
-          <div className="bg-blue-6 flex items-center rounded-[6px] py-[0.4rem] pr-[0.6rem] pl-[1.2rem]">
-            <Icon name="gift" title="선물 아이콘" className="text-white" />
-            <p className="text-blue-primary caption1 ml-[1.2rem]">
-              생일자는 진짜 필요한 걸 고를 수 있어요.
-            </p>
-            <Icon
-              name="down"
-              title="아래 방향 아이콘"
-              className="text-blue-primary ml-auto"
-            />
-          </div>
+          <InfoNotice>생일자는 진짜 필요한 걸 고를 수 있어요.</InfoNotice>
+          <InfoNotice>하나의 리스트, 여럿의 마음이 들어 있어요.</InfoNotice>
         </div>
       </div>
     </>
