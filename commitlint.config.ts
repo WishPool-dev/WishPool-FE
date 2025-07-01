@@ -33,6 +33,9 @@ const config: UserConfig = {
 
     // 커밋 메시지에 (#숫자) 필수 ➡️ 커스텀 룰
     'footer-issue-required': [2, 'always'],
+
+    // 대문자 포함 가능
+    'subject-case': [0],
   },
   plugins: [
     {
