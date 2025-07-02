@@ -1,4 +1,4 @@
-import { InfoNotice } from '@/app/wishpool/create/_component/InfoNotice';
+import { InfoNotice } from '@/app/wishpool/create/_components/InfoNotice';
 
 const page = () => {
   return (
