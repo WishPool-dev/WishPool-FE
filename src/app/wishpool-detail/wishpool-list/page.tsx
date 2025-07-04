@@ -1,5 +1,4 @@
 import ItemCard from './_components/ItemCard';
-import WishpoolLayout from './layout';
 
 const numberOfFriends = 4;
 const giftItems = [
@@ -14,7 +13,7 @@ const giftItems = [
 
 const page = () => {
   return (
-    <WishpoolLayout>
+    <>
       <div className="mt-[1.2rem]">
         <div className="text-text text-left">
           <div className="head1 py-[0.4rem]">위시풀 만들기 </div>
@@ -27,13 +26,13 @@ const page = () => {
           <span className="text-text">선물 리스트</span>
           <span className="text-blue-primary">{giftItems.length}개</span>
         </div>
-        <div className="mt-[1.6rem] grid grid-cols-2 justify-items-center gap-x-[1.1rem] gap-y-[1.6rem] pb-[15rem]">
+        <div className="mt-[1.6rem] grid grid-cols-2 justify-items-center gap-x-[1.1rem] gap-y-[1.6rem] pb-[2rem]">
           {giftItems.map((item) => (
             <ItemCard key={item.id} name={item.name} item={item.gift} />
           ))}
         </div>
       </div>
-    </WishpoolLayout>
+    </>
   );
 };
 
