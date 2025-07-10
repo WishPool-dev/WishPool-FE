@@ -30,7 +30,7 @@ const CreateEventSection = ({ planType }: { planType: PlanType }) => {
         <p className="caption2 text-gray-600">{description}</p>
       </div>
       <Link
-        href="/wishpool/create"
+        href="/wishpool/intro"
         className="text-blue-primary title3 px-[1.2rem] py-[0.8rem]"
       >
         만들기
