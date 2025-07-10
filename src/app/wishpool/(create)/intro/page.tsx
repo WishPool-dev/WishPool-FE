@@ -2,6 +2,7 @@ import Image from 'next/image';
 
 import { InfoNotice } from '@/app/wishpool/(create)/intro/_components/InfoNotice';
 import Button from '@/components/common/Button';
+import Icon from '@/components/common/Icon';
 
 import introEmptyBox from '../../../../assets/images/intro-empty-box.png';
 
@@ -35,7 +36,12 @@ const page = () => {
         </div>
 
         <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
-          <Button>시작</Button>
+          <Button>
+            <div className="flex items-center justify-center gap-[1rem]">
+              <Icon name="giftButton" title="선물 버튼 아이콘" />
+              <span>시작</span>
+            </div>
+          </Button>
         </div>
       </div>
     </>
