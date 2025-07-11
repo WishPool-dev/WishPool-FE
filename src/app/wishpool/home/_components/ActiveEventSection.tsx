@@ -1,6 +1,6 @@
 'use client';
 
-import EventCard from '@/app/home/_components/EventCard';
+import EventCard from '@/app/wishpool/home/_components/EventCard';
 import Icon from '@/components/common/Icon';
 import type { PlanType } from '@/types/planType';
 

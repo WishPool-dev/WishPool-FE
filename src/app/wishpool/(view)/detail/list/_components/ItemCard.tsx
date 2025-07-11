@@ -10,6 +10,7 @@ const ItemCard = ({ name, item }: ItemCardProps) => {
         <img
           className="h-[17.1rem] w-[17.1rem] rounded-[12px] object-cover"
           src="/images/sample.jpeg"
+          alt="상품 이미지"
         />
 
         <div className="mt-[0.8rem] flex items-center gap-[0.8rem]">
