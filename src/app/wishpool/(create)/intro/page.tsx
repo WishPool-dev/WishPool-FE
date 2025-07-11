@@ -29,9 +29,30 @@ const page = () => {
             위시풀은 참여자들이 생일자를 위해 각자의 선물을 제안하고, <br />
             생일자가 그 중 원하는 상품을 고르는 공동 제작 위시리스트에요.
           </p>
-          <div className="mt-[2rem] flex flex-col gap-[1.2rem]">
-            <InfoNotice>생일자는 진짜 필요한 걸 고를 수 있어요.</InfoNotice>
-            <InfoNotice>하나의 리스트, 여럿의 마음이 들어 있어요.</InfoNotice>
+          <div className="mt-[2rem]">
+            <InfoNotice
+              accordionContent={
+                <p className="caption2 text-gray-800">
+                  친구들이 제안한 선물 중에서 <br /> 생일자는 진짜 받고 싶은 걸
+                  직접 선택할 수 있어요. <br />
+                  선물받는 입장에서 더 솔직하고, 편안한 방식이에요.
+                </p>
+              }
+            >
+              생일자는 진짜 필요한 걸 고를 수 있어요.
+            </InfoNotice>
+          </div>
+          <div className="mt-[1.2rem]">
+            <InfoNotice
+              accordionContent={
+                <p className="caption2 text-gray-800">
+                  친구들이 제안한 선물들이 하나의 위시리스트로 모여요. <br />
+                  위시리스트를 함께 만드는 과정도 축하의 일부가 되죠.
+                </p>
+              }
+            >
+              하나의 리스트, 여럿의 마음이 들어 있어요.
+            </InfoNotice>
           </div>
         </div>
 
