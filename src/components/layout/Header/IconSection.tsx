@@ -1,13 +1,20 @@
+import { iconMap } from '@/assets/icons/iconMap';
 import Icon from '@/components/common/Icon';
 
-const IconSection = ({ onClick }: { onClick: () => void }) => {
+export type IconName = keyof typeof iconMap;
+
+interface IconSectionProps {
+  iconName: IconName;
+  onClick: () => void;
+  title: string;
+}
+
+const IconSection = ({ iconName, onClick, title }: IconSectionProps) => {
   return (
     <div className="flex gap-[2rem]">
-      <Icon name="wish" title="찜 아이콘" />
       <button type="button" onClick={onClick}>
-        <Icon name="menu" title="메뉴 아이콘" />
+        <Icon name={iconName} title={title} />
       </button>
-      {/* close 버튼 & home 버튼 넣기 */}
     </div>
   );
 };
