@@ -3,12 +3,18 @@ import Image from 'next/image';
 import { InfoNotice } from '@/app/wishpool/(create)/intro/_components/InfoNotice';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
+import BasicHeader from '@/components/layout/Header/BasicHeader';
 
 import introEmptyBox from '../../../../assets/images/intro-empty-box.png';
 
 const page = () => {
   return (
     <>
+      <BasicHeader
+        hasBackButton={true}
+        centerText="위시풀 만들기"
+        bgColor="bg-background-02"
+      />
       <div className="bg-background-02 relative -mx-[2rem] -mt-[5.4rem] min-h-[calc(100vh-5.4rem)] px-[2rem] pt-[5.4rem]">
         <div className="text-text mt-[2.8rem]">
           <p className="head1 mb-[0.4rem]">
