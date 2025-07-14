@@ -15,7 +15,7 @@ const NavSection = () => {
   return (
     <nav
       aria-label="메인 메뉴"
-      className="mx-auto mt-[5.4rem] max-w-[430px] bg-white text-center"
+      className="mx-auto max-w-[430px] bg-white text-center"
     >
       <ul>
         {NAV_LIST.map(({ label, href }) => {
