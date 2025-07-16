@@ -7,6 +7,7 @@ interface InputBoxProps {
   placeholder?: string;
   maxLength?: number;
   calendar?: boolean;
+  height?: string;
 }
 
 const InputBox = ({
@@ -14,10 +15,11 @@ const InputBox = ({
   placeholder,
   maxLength,
   calendar,
+  height = 'h-[5.6rem]',
 }: InputBoxProps) => {
   const [inputValue, setInputValue] = useState('');
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     if (maxLength && e.target.value.length > maxLength) {
       setInputValue(e.target.value.slice(0, maxLength));
     } else {
@@ -30,13 +32,12 @@ const InputBox = ({
         {content}
       </div>
       <div className="relative w-full">
-        <input
-          type="text"
+        <textarea
           value={inputValue}
           maxLength={maxLength}
           placeholder={placeholder}
           onChange={handleInputChange}
-          className="body1 flex h-[5.6rem] w-full rounded-[1.2rem] border-[0.1rem] border-gray-400 px-[1.6rem] py-[0.8rem] focus:border-gray-400 focus:outline-none"
+          className={`body1 ${height} flex w-full rounded-[1.2rem] border-[0.1rem] border-gray-400 px-[1.6rem] py-[0.8rem] focus:border-gray-400 focus:outline-none`}
         />
         {maxLength && (
           <div className="caption2 absolute right-[1.6rem] bottom-[2rem] mt-[0.4rem] text-gray-600">
