@@ -1,4 +1,6 @@
+'use client';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import { InfoNotice } from '@/app/wishpool/(create)/intro/_components/InfoNotice';
 import Button from '@/components/common/Button';
@@ -7,7 +9,12 @@ import BasicHeader from '@/components/layout/Header/BasicHeader';
 
 import introEmptyBox from '../../../../assets/images/intro-empty-box.png';
 
-const page = () => {
+const Page = () => {
+  const router = useRouter();
+
+  const handleStartClick = () => {
+    router.push('/wishpool/form');
+  };
   return (
     <>
       <BasicHeader
@@ -64,7 +71,7 @@ const page = () => {
           </div>
 
           <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
-            <Button>
+            <Button onClick={handleStartClick}>
               <div className="flex items-center justify-center gap-[1rem]">
                 <Icon name="giftButton" title="선물 버튼 아이콘" />
                 <span>시작</span>
@@ -77,4 +84,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
