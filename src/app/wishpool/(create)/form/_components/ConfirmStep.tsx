@@ -41,7 +41,7 @@ const Step5 = () => {
         </div>
 
         <div className="my-[2.8rem] w-full border-b border-gray-300"></div>
-        <div className="bg-background-02 text-text body1 mt-[3.8rem] flex h-[5.6rem] flex-row items-center justify-between rounded-[12px] px-[1.6rem] py-[0.8rem]">
+        <div className="bg-background-02 text-text body1 flex h-[5.6rem] flex-row items-center justify-between rounded-[12px] px-[1.6rem] py-[0.8rem]">
           <div className="flex flex-row gap-[1.2rem]">
             <div className="caption1 bg-button-color h-[2.3rem] w-[4.7rem] rounded-[4px] px-[0.8rem] py-[0.4rem] text-center text-white">
               참여자
