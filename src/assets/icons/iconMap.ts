@@ -1,6 +1,7 @@
 'use client';
 
 import BackIcon from '@/assets/icons/svg/icon_back.svg';
+import BirthdayIcon from '@/assets/icons/svg/icon_birthday.svg';
 import GiftButtonIcon from '@/assets/icons/svg/icon_button_gift.svg';
 import CalendarIcon from '@/assets/icons/svg/icon_calender.svg';
 import CameraIcon from '@/assets/icons/svg/icon_camera.svg';
@@ -13,7 +14,6 @@ import MenuIcon from '@/assets/icons/svg/icon_menu.svg';
 import PhotoIcon from '@/assets/icons/svg/icon_photo.svg';
 import UpIcon from '@/assets/icons/svg/icon_up.svg';
 import WishIcon from '@/assets/icons/svg/icon_wish.svg';
-
 export const iconMap = {
   back: BackIcon,
   home: HomeIcon,
@@ -28,4 +28,5 @@ export const iconMap = {
   giftButton: GiftButtonIcon,
   calendar: CalendarIcon,
   camera: CameraIcon,
+  birthday: BirthdayIcon,
 } as const;
