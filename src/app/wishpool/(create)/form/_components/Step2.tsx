@@ -1,5 +1,3 @@
-import React from 'react';
-
 import InputBox from './InputBox';
 import Question from './Question';
 

@@ -1,5 +1,3 @@
-import React from 'react';
-
 interface QuestionProps {
   required: boolean;
   question: string;

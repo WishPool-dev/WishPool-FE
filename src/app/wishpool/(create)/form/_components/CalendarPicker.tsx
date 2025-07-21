@@ -1,6 +1,6 @@
 'use client';
 
-import * as React from 'react';
+import { useState } from 'react';
 
 import Icon from '@/components/common/Icon';
 import { Calendar } from '@/components/ui/calendar';
@@ -18,9 +18,9 @@ interface InputDateBoxProps {
 }
 
 export function CalendarPicker({ setValue }: InputDateBoxProps) {
-  const [open, setOpen] = React.useState(false);
-  const [date, setDate] = React.useState<Date | undefined>(new Date());
-  const [month, setMonth] = React.useState<Date | undefined>(date);
+  const [open, setOpen] = useState(false);
+  const [date, setDate] = useState<Date | undefined>(new Date());
+  const [month, setMonth] = useState<Date | undefined>(date);
 
   return (
     <>
