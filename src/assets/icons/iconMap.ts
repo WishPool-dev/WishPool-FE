@@ -10,6 +10,7 @@ import DotIcon from '@/assets/icons/svg/icon_dot.svg';
 import DownIcon from '@/assets/icons/svg/icon_down.svg';
 import GiftIcon from '@/assets/icons/svg/icon_gift.svg';
 import HomeIcon from '@/assets/icons/svg/icon_home.svg';
+import KaKaoIcon from '@/assets/icons/svg/icon_kakao.svg';
 import MenuIcon from '@/assets/icons/svg/icon_menu.svg';
 import PhotoIcon from '@/assets/icons/svg/icon_photo.svg';
 import UpIcon from '@/assets/icons/svg/icon_up.svg';
@@ -29,4 +30,5 @@ export const iconMap = {
   calendar: CalendarIcon,
   camera: CameraIcon,
   birthday: BirthdayIcon,
+  kakao: KaKaoIcon,
 } as const;
