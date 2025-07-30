@@ -4,15 +4,20 @@ import { InfoNotice } from '@/app/wishpool/(create)/intro/_components/InfoNotice
 import introEmptyBox from '@/assets/images/intro-empty-box.png';
 import Icon from '@/components/common/Icon';
 import IconButton from '@/components/common/IconButton';
-import BasicHeader from '@/components/layout/Header/BasicHeader';
+import BaseHeader from '@/components/layout/Header/BaseHeader';
 
 const page = () => {
   return (
     <>
-      <BasicHeader
-        hasBackButton={true}
-        centerText="위시풀 만들기"
-        bgColor="bg-background-02"
+      <BaseHeader
+        centerSlot={
+          <h1 className="title2 text-text text-center">위시풀 만들기</h1>
+        }
+        leftSlot={
+          <button aria-label="이전 버튼">
+            <Icon name="back" title="이전 아이콘" />
+          </button>
+        }
       />
       <div className="bg-background-02 relative -mx-[2rem] -mt-[5.4rem] min-h-[calc(100vh-5.4rem)] px-[2rem] pt-[5.4rem]">
         <div className="text-text mt-[2.8rem]">
