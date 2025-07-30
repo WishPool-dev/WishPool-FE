@@ -4,10 +4,12 @@ import { InfoNotice } from '@/app/wishpool/(create)/intro/_components/InfoNotice
 import introEmptyBox from '@/assets/images/intro-empty-box.png';
 import Icon from '@/components/common/Icon';
 import IconButton from '@/components/common/IconButton';
+import BackHeader from '@/components/layout/Header/BackHeader';
 
 const page = () => {
   return (
     <>
+      <BackHeader title="위시풀 만들기" />
       <div className="bg-background-02 relative -mx-[2rem] -mt-[5.4rem] min-h-[calc(100vh-5.4rem)] px-[2rem] pt-[5.4rem]">
         <div className="text-text mt-[2.8rem]">
           <p className="head1 mb-[0.4rem]">
@@ -20,6 +22,7 @@ const page = () => {
           alt="위시풀 생성 예시 사진"
           className="mx-auto my-[4.2rem] h-[18rem] w-[18rem] object-cover"
         />
+
         <div className="bg-background-01 rounded-[16px] p-[2rem]">
           <p className="text-blue-primary title3 mb-[1.2rem]">
             WishpooL만의 위시풀 만들기란?
