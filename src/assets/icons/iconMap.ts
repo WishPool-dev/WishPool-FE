@@ -27,3 +27,5 @@ export const iconMap = {
   giftButton: GiftButtonIcon,
   more: MoreIcon,
 } as const;
+
+export type IconName = keyof typeof iconMap;
