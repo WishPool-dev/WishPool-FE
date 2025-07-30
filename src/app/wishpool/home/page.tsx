@@ -23,7 +23,7 @@ const Home = () => {
 
   return (
     <>
-      <HomeHeader />
+      <HomeHeader hasMenu />
       {/* {isOpen && <NavSection />} */}
 
       <PlanTypeSection
