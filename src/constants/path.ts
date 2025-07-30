@@ -1,4 +1,3 @@
-// path.ts
 export const PATH = {
   INTRO: '/intro',
   HOME: '/',

@@ -3,8 +3,8 @@ import { useState } from 'react';
 
 import ActiveEventSection from '@/app/wishpool/home/_components/ActiveEventSection';
 import CreateEventSection from '@/app/wishpool/home/_components/CreateEventSection';
-import HomeHeader from '@/app/wishpool/home/_components/HomeHeader';
 import PlanTypeSection from '@/app/wishpool/home/_components/PlanTypeSection';
+import HomeHeader from '@/components/layout/Header/HomeHeader';
 
 const planCount = {
   funding: 0,
