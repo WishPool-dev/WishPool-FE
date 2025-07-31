@@ -15,7 +15,7 @@ const Step3 = () => {
       <div className="relative mt-[4rem] h-[18.7rem] w-full rounded-[12px] border border-gray-300">
         <div className="absolute inset-0 flex flex-col items-center justify-center gap-[0.9rem]">
           <Icon name="photo" className="text-gray-400" />
-          <p className="subtitle3 text-gray-600">썸네일 이미지</p>
+          <span className="subtitle3 text-gray-600">썸네일 이미지</span>
         </div>
       </div>
 
