@@ -1,9 +1,9 @@
 'use client';
 import { useState } from 'react';
 
-import ActiveEventSection from '@/app/wishpool/home/_components/ActiveEventSection';
-import CreateEventSection from '@/app/wishpool/home/_components/CreateEventSection';
-import PlanTypeSection from '@/app/wishpool/home/_components/PlanTypeSection';
+import ActiveEventSection from '@/app/home/_components/ActiveEventSection';
+import CreateEventSection from '@/app/home/_components/CreateEventSection';
+import PlanTypeSection from '@/app/home/_components/PlanTypeSection';
 import HomeHeader from '@/components/layout/Header/HomeHeader';
 
 const planCount = {
