@@ -1,25 +1,14 @@
 'use client';
+
 import Button from '@/components/common/Button';
-import BasicHeader from '@/components/layout/Header/BasicHeader';
-import IconSection from '@/components/layout/Header/IconSection';
+import RightIconHeader from '@/components/layout/Header/RightIconHeader';
 
 import InvitationStep from './_components/InvitationStep';
 
 const page = () => {
-  const onClick = () => {};
   return (
     <>
-      <BasicHeader
-        hasBackButton={false}
-        centerText="위시풀 만들기"
-        rightSlot={
-          <IconSection
-            iconName="cancel"
-            title="취소 아이콘"
-            onClick={onClick}
-          />
-        }
-      />
+      <RightIconHeader title="위시풀 만들기" iconName="cancel" />
 
       <div className="bg-background-02 -mx-[2rem] mt-[5.4] h-[3.9rem]">
         <div className="subtitle3 flex items-center justify-around border-b-[3px] border-gray-300 text-gray-600">
