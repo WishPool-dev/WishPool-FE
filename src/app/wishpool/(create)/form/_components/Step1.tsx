@@ -1,3 +1,5 @@
+import Button from '@/components/common/Button';
+
 import InputBox from './InputBox';
 import Question from './Question';
 
@@ -24,6 +26,16 @@ const Step1 = () => {
           calendar={true}
           placeholder="YY/MM/DD"
         />
+      </div>
+      <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem]">
+        <div className="flex justify-between gap-[1rem] px-[2rem]">
+          <Button textColor="black" backgroundColor="light" textSize="sm">
+            이전
+          </Button>
+          <Button textColor="white" backgroundColor="disabled" textSize="sm">
+            다음
+          </Button>
+        </div>
       </div>
     </>
   );
