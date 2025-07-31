@@ -14,11 +14,11 @@ export const InfoNotice = ({
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleAccordion = () => {
-    setIsOpen(!isOpen);
+    setIsOpen((prev) => !prev);
   };
 
   return (
-    <>
+    <div>
       <div
         className={`bg-blue-6 flex items-center py-[0.4rem] pr-[0.6rem] pl-[1.2rem] ${isOpen ? 'rounded-t-[6px]' : 'rounded-[6px]'}`}
         onClick={toggleAccordion}
@@ -31,13 +31,12 @@ export const InfoNotice = ({
           className="text-blue-primary ml-auto"
         />
       </div>
-      <div
-        className={`overflow-hidden transition-all ${isOpen ? 'max-h-[500px]' : 'max-h-0'} `}
-      >
-        <div className="bg-background-02 rounded-b-[6px] p-[1.2rem]">
-          {accordionContent}
+
+      {isOpen && (
+        <div className="bg-background-02 caption2 rounded-b-[6px] p-[1.2rem] text-gray-800">
+          <p className="caption2 text-gray-800">{accordionContent}</p>
         </div>
-      </div>
-    </>
+      )}
+    </div>
   );
 };
