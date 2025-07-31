@@ -6,6 +6,7 @@ export const button = cva(
     variants: {
       textSize: {
         sm: 'title1',
+        md: 'title2',
         lg: 'head1',
       },
       backgroundColor: {

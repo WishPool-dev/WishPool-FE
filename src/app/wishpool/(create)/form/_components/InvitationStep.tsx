@@ -1,13 +1,13 @@
 import Image from 'next/image';
 
 import invite from '@/assets/images/invite.png';
-import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
+import IconButton from '@/components/common/IconButton';
 const InvitationStep = () => {
   return (
     <>
       <div className="mt-[2.8rem]">
-        <p className="text-text head1">생일자를 위한 위시풀이 열렸어요!</p>
+        <h3 className="text-text head1">생일자를 위한 위시풀이 열렸어요!</h3>
         <p className="text-text body1 mt-[0.4rem]">
           이제 리스트를 함께 만들 참여자들을 모집해요.
         </p>
@@ -31,12 +31,10 @@ const InvitationStep = () => {
           </button>
         </div>
         <div className="mt-[1.2rem]">
-          <Button>
-            <div className="flex items-center justify-center gap-[0.8rem]">
-              <Icon name="kakao" title="카카오 아이콘" />
-              <span className="title2">카카오톡으로 공유하기</span>
-            </div>
-          </Button>
+          <IconButton textSize="md">
+            <Icon name="kakao" title="카카오톡 아이콘" />
+            <span>카카오톡으로 공유하기</span>
+          </IconButton>
         </div>
       </div>
       <p className="body2 mt-[2.8rem] text-center text-gray-600">
