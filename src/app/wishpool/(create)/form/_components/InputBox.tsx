@@ -28,16 +28,14 @@ const InputBox = ({
   };
   return (
     <>
-      <div className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
-        {content}
-      </div>
+      <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">{content}</p>
       <div className="relative w-full">
         <textarea
           value={inputValue}
           maxLength={maxLength}
           placeholder={placeholder}
           onChange={handleInputChange}
-          className={`body1 ${height} flex w-full rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.5rem] focus:border-gray-400 focus:outline-none`}
+          className={`body1 ${height} flex w-full rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.5rem] placeholder:text-gray-400 focus:border-gray-400 focus:outline-none`}
           // 피그마에는 1.6rem인데 1.5로해야 드래그가 안생김
         />
         {maxLength && (
