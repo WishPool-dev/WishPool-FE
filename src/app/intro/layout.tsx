@@ -8,7 +8,9 @@ export default function IntroLayout({
   return (
     <>
       <HomeHeader hasMenu />
-      <main>{children}</main>
+      <main className="flex flex-col items-center justify-center pt-[8.2rem]">
+        {children}
+      </main>
     </>
   );
 }
