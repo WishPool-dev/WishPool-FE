@@ -3,4 +3,5 @@ export const PATH = {
   HOME: '/',
   WISHPOOL_CREATE: '/wishpool/create',
   WISHPOOL_DETAIL: (id: number) => `/wishpool/${id}`,
+  MYPAGE: '/mypage',
 };
