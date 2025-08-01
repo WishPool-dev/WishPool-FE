@@ -1,3 +1,4 @@
+import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
 
 type TextHeaderProps = {

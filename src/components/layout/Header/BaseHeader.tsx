@@ -1,3 +1,5 @@
+import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
+
 type BaseHeaderProps = {
   leftSlot?: React.ReactNode;
   centerSlot?: React.ReactNode;

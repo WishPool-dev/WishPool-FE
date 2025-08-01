@@ -1,5 +1,6 @@
 import { IconName } from '@/assets/icons/iconMap';
 import Icon from '@/components/common/Icon';
+import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
 
 type RightIconHeaderProps = {
