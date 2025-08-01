@@ -6,9 +6,10 @@ import { PATH } from '@/constants/path';
 
 type HomeHeaderProps = {
   hasMenu?: boolean;
+  bgColor?: HeaderColor;
 };
 
-const HomeHeader = ({ hasMenu = false }: HomeHeaderProps) => {
+const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
   return (
     <BaseHeader
       leftSlot={
@@ -23,6 +24,7 @@ const HomeHeader = ({ hasMenu = false }: HomeHeaderProps) => {
           </button>
         ) : null
       }
+      bgColor={bgColor}
     />
   );
 };

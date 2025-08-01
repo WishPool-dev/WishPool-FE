@@ -9,12 +9,14 @@ type BackMoreHeaderProps = {
   title: string;
   onBack?: () => void;
   onMoreClick?: () => void;
+  bgColor?: HeaderColor;
 };
 
 const BackMoreHeader = ({
   title,
   onBack,
   onMoreClick,
+  bgColor,
 }: BackMoreHeaderProps) => {
   const router = useRouter();
 
@@ -36,6 +38,7 @@ const BackMoreHeader = ({
           <Icon name="more" title="더보기 아이콘" />
         </button>
       }
+      bgColor={bgColor}
     />
   );
 };
