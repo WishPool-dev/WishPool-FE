@@ -1,17 +1,20 @@
 import { IconName } from '@/assets/icons/iconMap';
 import Icon from '@/components/common/Icon';
+import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
 
 type RightIconHeaderProps = {
   title: string;
   iconName: IconName;
   onClick?: () => void;
+  bgColor?: HeaderColor;
 };
 
 const RightIconHeader = ({
   title,
   iconName,
   onClick,
+  bgColor,
 }: RightIconHeaderProps) => {
   return (
     <BaseHeader
@@ -21,6 +24,7 @@ const RightIconHeader = ({
           <Icon name={iconName} title={`${iconName} 아이콘`} />
         </button>
       }
+      bgColor={bgColor}
     />
   );
 };

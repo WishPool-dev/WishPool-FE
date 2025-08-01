@@ -3,14 +3,16 @@
 import { useRouter } from 'next/navigation';
 
 import Icon from '@/components/common/Icon';
+import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
 
 type BackHeaderProps = {
   title: string;
   onBack?: () => void;
+  bgColor?: HeaderColor;
 };
 
-const BackHeader = ({ title, onBack }: BackHeaderProps) => {
+const BackHeader = ({ title, onBack, bgColor }: BackHeaderProps) => {
   const router = useRouter();
 
   const handleBack = () => {
@@ -29,6 +31,7 @@ const BackHeader = ({ title, onBack }: BackHeaderProps) => {
         </button>
       }
       centerSlot={<h1 className="title2 text-text text-center">{title}</h1>}
+      bgColor={bgColor}
     />
   );
 };

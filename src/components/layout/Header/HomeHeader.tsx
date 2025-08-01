@@ -1,14 +1,16 @@
 import Link from 'next/link';
 
 import Icon from '@/components/common/Icon';
+import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
 import { PATH } from '@/constants/path';
 
 type HomeHeaderProps = {
   hasMenu?: boolean;
+  bgColor?: HeaderColor;
 };
 
-const HomeHeader = ({ hasMenu = false }: HomeHeaderProps) => {
+const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
   return (
     <BaseHeader
       leftSlot={
@@ -23,6 +25,7 @@ const HomeHeader = ({ hasMenu = false }: HomeHeaderProps) => {
           </button>
         ) : null
       }
+      bgColor={bgColor}
     />
   );
 };
