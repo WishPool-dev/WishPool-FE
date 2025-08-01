@@ -18,9 +18,7 @@ export default function RootLayout({
     <html lang="ko">
       <body className={`${suite.className} bg-gray-100`}>
         <div className="mx-auto min-h-screen w-full max-w-[430px] bg-white shadow-md">
-          <ReactQueryProvider>
-            <main className="px-[2rem] pt-[5.4rem]">{children}</main>
-          </ReactQueryProvider>
+          <ReactQueryProvider>{children}</ReactQueryProvider>
         </div>
       </body>
     </html>
