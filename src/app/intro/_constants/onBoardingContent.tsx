@@ -10,6 +10,8 @@ export const ONBOARDING_CONTENT = [
         골라 선물 받을 수 있도록 돕는 기능이에요.
       </>
     ),
+    imageSrc: '/images/onboarding-2.svg',
+    imageAlt: '온보딩 - 위시풀 이미지',
   },
   {
     title: <>친구들의 선물 제안, 한 곳에 모여요</>,
@@ -21,6 +23,8 @@ export const ONBOARDING_CONTENT = [
         <br />그 과정 또한 축하의 일부가 되죠.
       </>
     ),
+    imageSrc: '/images/onboarding-3.svg',
+    imageAlt: '온보딩 - 위시리스트 이미지',
   },
   {
     title: (
@@ -39,5 +43,7 @@ export const ONBOARDING_CONTENT = [
         선물 고르기에 대한 부담은 덜고, 솔직함은 더해요.
       </>
     ),
+    imageSrc: '/images/onboarding-4.svg',
+    imageAlt: '온보딩 - 선물 제안 이미지',
   },
 ];
