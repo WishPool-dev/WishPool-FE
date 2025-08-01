@@ -1,7 +1,18 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 import { ONBOARDING_CONTENT } from '@/app/intro/_constants/onBoardingContent';
 import Button from '@/components/common/Button';
+import { PATH } from '@/constants/path';
 
-const page = () => {
+const OnBoardingPage = () => {
+  const router = useRouter();
+
+  const handleGoHome = () => {
+    router.push(PATH.HOME);
+  };
+
   return (
     <div className="w-full text-center">
       <div>
@@ -25,7 +36,7 @@ const page = () => {
 
       <div className="relative">
         <div className="absolute inset-x-0 bg-[linear-gradient(180deg,_rgba(255,255,255,0)_0%,_#fff_100%)] px-[2rem] pt-[3.6rem] pb-[2rem]">
-          <Button>WishpooL 시작하기</Button>
+          <Button onClick={handleGoHome}>WishpooL 시작하기</Button>
         </div>
 
         {ONBOARDING_CONTENT.map((section, idx) => (
@@ -46,4 +57,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default OnBoardingPage;
