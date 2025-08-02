@@ -3,7 +3,7 @@ import InputBox from '@/app/wishpool/create/(form)/_components/InputBox';
 import Question from '@/app/wishpool/create/(form)/_components/Question';
 import { StepProps } from '@/app/wishpool/create/(form)/_types/stepProps';
 
-const Step2 = ({ handleNext }: StepProps) => {
+const Step2 = ({ onPrev, onNext }: StepProps) => {
   return (
     <section className="px-[2rem]">
       <span className="bg-background-02 caption2 mt-[2.8rem] inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
@@ -33,7 +33,11 @@ const Step2 = ({ handleNext }: StepProps) => {
           </li>
         </ol>
       </div>
-      <ButtonContainer next="active" onClickNext={handleNext} />
+      <ButtonContainer
+        next="active"
+        onClickPrev={onPrev}
+        onClickNext={onNext}
+      />
     </section>
   );
 };

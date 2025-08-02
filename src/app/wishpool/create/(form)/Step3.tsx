@@ -3,7 +3,7 @@ import Question from '@/app/wishpool/create/(form)/_components/Question';
 import { StepProps } from '@/app/wishpool/create/(form)/_types/stepProps';
 import Icon from '@/components/common/Icon';
 
-const Step3 = ({ handleNext }: StepProps) => {
+const Step3 = ({ onPrev, onNext }: StepProps) => {
   return (
     <section className="px-[2rem]">
       <div className="mt-[2.8rem]">
@@ -28,7 +28,11 @@ const Step3 = ({ handleNext }: StepProps) => {
         <Icon name="camera" />
         사진 촬영
       </button>
-      <ButtonContainer next="active" onClickNext={handleNext} />
+      <ButtonContainer
+        next="active"
+        onClickPrev={onPrev}
+        onClickNext={onNext}
+      />
     </section>
   );
 };

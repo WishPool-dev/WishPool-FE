@@ -3,7 +3,7 @@ import InputBox from '@/app/wishpool/create/(form)/_components/InputBox';
 import Question from '@/app/wishpool/create/(form)/_components/Question';
 import { StepProps } from '@/app/wishpool/create/(form)/_types/stepProps';
 
-const Step4 = ({ handleNext }: StepProps) => {
+const Step4 = ({ onPrev, onNext }: StepProps) => {
   return (
     <section className="px-[2rem]">
       <div className="mt-[1.6rem]">
@@ -20,7 +20,11 @@ const Step4 = ({ handleNext }: StepProps) => {
           placeholder="YY/MM/DD"
         />
       </div>
-      <ButtonContainer next="active" onClickNext={handleNext} />
+      <ButtonContainer
+        next="active"
+        onClickPrev={onPrev}
+        onClickNext={onNext}
+      />
     </section>
   );
 };

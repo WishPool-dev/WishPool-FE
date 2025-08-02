@@ -1,18 +1,15 @@
-import { useRouter } from 'next/navigation';
-
 import Button from '@/components/common/Button';
 
 type ButtonContainerProps = {
   next: 'disabled' | 'active';
   onClickNext?: () => void;
+  onClickPrev?: () => void;
 };
-const ButtonContainer = ({ next, onClickNext }: ButtonContainerProps) => {
-  const router = useRouter();
-
-  const handleBack = () => {
-    router.back();
-  };
-
+const ButtonContainer = ({
+  next,
+  onClickNext,
+  onClickPrev,
+}: ButtonContainerProps) => {
   return (
     <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem]">
       <div className="flex justify-between gap-[1rem] px-[2rem]">
@@ -20,7 +17,7 @@ const ButtonContainer = ({ next, onClickNext }: ButtonContainerProps) => {
           textColor="black"
           backgroundColor="light"
           textSize="sm"
-          onClick={handleBack}
+          onClick={onClickPrev}
         >
           이전
         </Button>

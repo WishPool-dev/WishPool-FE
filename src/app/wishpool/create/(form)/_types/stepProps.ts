@@ -1,3 +1,4 @@
 export type StepProps = {
-  handleNext: () => void;
+  onPrev: () => void;
+  onNext: () => void;
 };
