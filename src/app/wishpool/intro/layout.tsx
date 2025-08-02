@@ -2,7 +2,7 @@
 
 import BackHeader from '@/components/layout/Header/BackHeader';
 
-const CreateLayout = ({ children }: { children: React.ReactNode }) => {
+const IntroLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <BackHeader title="위시풀 만들기" />
@@ -11,4 +11,4 @@ const CreateLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default CreateLayout;
+export default IntroLayout;
