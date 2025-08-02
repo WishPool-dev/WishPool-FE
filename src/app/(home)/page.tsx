@@ -13,7 +13,7 @@ const planCount = {
 };
 
 const Home = () => {
-  const isLoggedIn = false;
+  const isLoggedIn = true;
 
   if (!isLoggedIn) {
     redirect('/intro');
