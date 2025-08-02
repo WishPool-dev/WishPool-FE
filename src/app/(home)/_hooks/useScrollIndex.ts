@@ -19,5 +19,17 @@ export const useScrollIndex = () => {
     return () => container.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return { containerRef, currentIndex };
+  const scrollToIndex = (index: number) => {
+    const container = containerRef.current;
+    if (!container) return;
+
+    const cardWidth = container.clientWidth;
+    container.scrollTo({
+      left: cardWidth * index,
+      behavior: 'smooth',
+    });
+    setCurrentIndex(index);
+  };
+
+  return { containerRef, currentIndex, scrollToIndex };
 };
