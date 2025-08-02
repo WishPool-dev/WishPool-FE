@@ -19,7 +19,7 @@ const Home = () => {
     redirect('/intro');
   }
 
-  const [planType, setPlanType] = useState<'funding' | 'wishpool'>('funding');
+  const [planType, setPlanType] = useState<'funding' | 'wishpool'>('wishpool');
 
   const handlePlanType = (type: 'funding' | 'wishpool') => {
     setPlanType((prev) => (prev === type ? prev : type));

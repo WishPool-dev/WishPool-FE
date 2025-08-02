@@ -39,7 +39,10 @@ const PlanTypeSection = ({
         return (
           <button
             key={key}
-            onClick={() => onSelectType(key)}
+            onClick={() => {
+              if (key !== 'funding') onSelectType(key);
+            }}
+            disabled={key === 'funding'}
             className={clsx(
               'title1 z-planType relative flex h-[4.6rem] w-[17.1rem] items-center justify-center gap-[0.4rem]',
               {
