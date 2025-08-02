@@ -9,9 +9,7 @@ const page = () => {
   return (
     <>
       <RightIconHeader title="위시풀 만들기" iconName="cancel" />
-
       <ProgressBar currentStep={1} />
-
       <Step1 />
       <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem]">
         <div className="flex justify-between gap-[1rem] px-[2rem]">
