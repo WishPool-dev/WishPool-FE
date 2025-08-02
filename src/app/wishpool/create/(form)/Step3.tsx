@@ -1,9 +1,10 @@
+import ButtonContainer from '@/app/wishpool/create/(form)/_components/ButtonContainer';
 import Question from '@/app/wishpool/create/(form)/_components/Question';
 import Icon from '@/components/common/Icon';
 
 const Step3 = () => {
   return (
-    <>
+    <section className="px-[2rem]">
       <div className="mt-[2.8rem]">
         <Question
           required={false}
@@ -26,7 +27,8 @@ const Step3 = () => {
         <Icon name="camera" />
         사진 촬영
       </button>
-    </>
+      <ButtonContainer next="active" />
+    </section>
   );
 };
 

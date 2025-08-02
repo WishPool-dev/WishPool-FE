@@ -1,9 +1,10 @@
+import ButtonContainer from '@/app/wishpool/create/(form)/_components/ButtonContainer';
 import InputBox from '@/app/wishpool/create/(form)/_components/InputBox';
 import Question from '@/app/wishpool/create/(form)/_components/Question';
 
 const Step2 = () => {
   return (
-    <>
+    <section className="px-[2rem]">
       <span className="bg-background-02 caption2 mt-[2.8rem] inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
         <span className="text-blue-primary">홍길동</span>에게 보내는 위시풀
       </span>
@@ -22,7 +23,7 @@ const Step2 = () => {
         />
       </div>
 
-      <section className="bg-background-02 mt-[4rem] gap-[1rem] rounded-[12px] p-[1.6rem]">
+      <div className="bg-background-02 mt-[4rem] gap-[1rem] rounded-[12px] p-[1.6rem]">
         <p className="text-text caption1 mb-[0.4rem]">위시풀 소개 작성 TIP</p>
         <ol className="caption2 list-decimal pl-[1.6rem] text-gray-800">
           <li>왜 이 생일자를 위해 위시풀을 열었는지 이유를 알려줘요.</li>
@@ -30,8 +31,9 @@ const Step2 = () => {
             생일자를 위한 마음이 모일 수 있도록 부담 없는 참여를 독려해요.
           </li>
         </ol>
-      </section>
-    </>
+      </div>
+      <ButtonContainer next="active" />
+    </section>
   );
 };
 

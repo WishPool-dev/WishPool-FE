@@ -1,9 +1,10 @@
+import ButtonContainer from '@/app/wishpool/create/(form)/_components/ButtonContainer';
 import InputBox from '@/app/wishpool/create/(form)/_components/InputBox';
 import Question from '@/app/wishpool/create/(form)/_components/Question';
 
 const Step4 = () => {
   return (
-    <>
+    <section className="px-[2rem]">
       <div className="mt-[1.6rem]">
         <Question
           required={true}
@@ -18,7 +19,8 @@ const Step4 = () => {
           placeholder="YY/MM/DD"
         />
       </div>
-    </>
+      <ButtonContainer next="active" />
+    </section>
   );
 };
 
