@@ -19,7 +19,7 @@ const CreateLayout = ({ children }: { children: React.ReactNode }) => {
         onClick={handleClose}
       />
 
-      <main className="pt-[5.4rem]">{children}</main>
+      <main className="mx-[2rem] pt-[5.4rem]">{children}</main>
     </>
   );
 };
