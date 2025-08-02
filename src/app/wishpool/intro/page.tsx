@@ -1,13 +1,21 @@
 'use client';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 import { InfoNotice } from '@/app/wishpool/intro/_components/InfoNotice';
 import { INFO_NOTICE_LIST } from '@/app/wishpool/intro/_constants/infoNoticeList';
 import introEmptyBox from '@/assets/images/intro-empty-box.png';
 import Icon from '@/components/common/Icon';
 import IconButton from '@/components/common/IconButton';
+import { PATH } from '@/constants/path';
 
 const Page = () => {
+  const router = useRouter();
+
+  const handleClick = () => {
+    router.push(PATH.WISHPOOL_CREATE);
+  };
+
   return (
     <>
       <div className="px-[2rem]">
@@ -40,7 +48,7 @@ const Page = () => {
         </section>
 
         <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
-          <IconButton>
+          <IconButton onClick={handleClick}>
             <Icon name="giftButton" title="선물 버튼 아이콘" />
             <span>시작</span>
           </IconButton>
