@@ -1,7 +1,23 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
+import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
 import UserTag from '@/components/ui/UserTag';
+import { PATH } from '@/constants/path';
 
 const PreviewPage = () => {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+
+  const handleComplete = () => {
+    router.push(PATH.WISHPOOL_SHARE);
+  };
+
   return (
     <section className="mt-[2.8rem] pb-[15rem]">
       <p className="caption1 text-blue-primary h-[1.8rem] max-w-[430px]">
@@ -21,9 +37,11 @@ const PreviewPage = () => {
         </span>
       </div>
 
-      <div className="mt-[1.2rem] h-[19.9rem] w-full rounded-[12px] border border-gray-400">
-        {/* 이미지 넣기 */}
-      </div>
+      <img
+        src="/images/wishpool-card.svg"
+        className="mt-[1.2rem] h-[19.9rem] w-full rounded-[12px] object-cover"
+        alt="이벤트 카드 이미지"
+      />
 
       <div className="bg-background-02 body2 mt-[1.2rem] inline-block w-full rounded-[12px] p-[1.6rem] break-words">
         <div className="flex flex-row gap-[1.2rem]">
@@ -44,6 +62,26 @@ const PreviewPage = () => {
           선물 리스트 마감일
         </span>
         <span>2025/06/23</span>
+      </div>
+      <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem]">
+        <div className="flex justify-between gap-[1rem] px-[2rem]">
+          <Button
+            textColor="black"
+            backgroundColor="light"
+            textSize="sm"
+            onClick={handleBack}
+          >
+            수정하기
+          </Button>
+          <Button
+            textColor="white"
+            backgroundColor="dark"
+            textSize="sm"
+            onClick={handleComplete}
+          >
+            완료하기
+          </Button>
+        </div>
       </div>
     </section>
   );
