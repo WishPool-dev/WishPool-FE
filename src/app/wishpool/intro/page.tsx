@@ -1,18 +1,16 @@
 'use client';
 import Image from 'next/image';
 
-import { InfoNotice } from '@/app/wishpool/(create)/intro/_components/InfoNotice';
-import { INFO_NOTICE_LIST } from '@/app/wishpool/(create)/intro/_constants/infoNoticeList';
+import { InfoNotice } from '@/app/wishpool/intro/_components/InfoNotice';
+import { INFO_NOTICE_LIST } from '@/app/wishpool/intro/_constants/infoNoticeList';
 import introEmptyBox from '@/assets/images/intro-empty-box.png';
 import Icon from '@/components/common/Icon';
 import IconButton from '@/components/common/IconButton';
-import BackHeader from '@/components/layout/Header/BackHeader';
 
 const Page = () => {
   return (
     <>
-      <BackHeader title="위시풀 만들기" />
-      <div className="bg-background-02 -mx-[2rem] -mt-[5.4rem] h-[100vh] px-[2rem] pt-[8.2rem]">
+      <div className="px-[2rem] pt-[2.8rem]">
         <h1 className="head1 text-text mb-[0.4rem]">
           친구를 위한 선물 위시리스트, <br /> 위시풀을 함께 만들어보세요!
         </h1>

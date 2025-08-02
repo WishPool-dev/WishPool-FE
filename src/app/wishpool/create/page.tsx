@@ -3,7 +3,7 @@
 import Button from '@/components/common/Button';
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
 
-import InvitationStep from './_components/InvitationStep';
+import InvitationStep from './(form)/_components/InvitationStep';
 
 const page = () => {
   return (
