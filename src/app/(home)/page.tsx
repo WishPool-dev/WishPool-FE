@@ -1,10 +1,11 @@
 'use client';
+
+import { redirect } from 'next/navigation';
 import { useState } from 'react';
 
-import ActiveEventSection from '@/app/home/_components/ActiveEventSection';
-import CreateEventSection from '@/app/home/_components/CreateEventSection';
-import PlanTypeSection from '@/app/home/_components/PlanTypeSection';
-import HomeHeader from '@/components/layout/Header/HomeHeader';
+import ActiveEventSection from '@/app/(home)/_components/ActiveEventSection';
+import CreateEventSection from '@/app/(home)/_components/CreateEventSection';
+import PlanTypeSection from '@/app/(home)/_components/PlanTypeSection';
 
 const planCount = {
   funding: 0,
@@ -12,20 +13,20 @@ const planCount = {
 };
 
 const Home = () => {
+  const isLoggedIn = false;
+
+  if (!isLoggedIn) {
+    redirect('/intro');
+  }
+
   const [planType, setPlanType] = useState<'funding' | 'wishpool'>('funding');
 
   const handlePlanType = (type: 'funding' | 'wishpool') => {
     setPlanType((prev) => (prev === type ? prev : type));
   };
 
-  // const [isOpen, setIsOpen] = useState(false);
-  // const toggleNav = () => setIsOpen((prev) => !prev);
-
   return (
     <>
-      <HomeHeader hasMenu />
-      {/* {isOpen && <NavSection />} */}
-
       <PlanTypeSection
         planType={planType}
         onSelectType={handlePlanType}
