@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 
+import { PATH } from '@/constants/path';
 import type { PlanType } from '@/types/planType';
 
 const CREATE_CONTENT = {
@@ -19,19 +20,19 @@ const CreateEventSection = ({ planType }: { planType: PlanType }) => {
   const { title, description } = CREATE_CONTENT[planType];
 
   return (
-    <button className="flex w-full items-center justify-between rounded-[12px] bg-white px-[1.6rem] py-[1.2rem]">
+    <button className="flex w-full items-center gap-[1.6rem] rounded-[12px] bg-white px-[1.6rem] py-[1.2rem]">
       <img
-        src="/images/sample.jpeg"
+        src="/images/gift.svg"
         className="h-[6.2rem] w-[6.2rem] object-cover"
-        alt="대표 이미지"
+        alt="선물 일러스트 이미지"
       />
       <div className="text-left">
         <p className="title1 text-text">{title}</p>
         <p className="caption2 text-gray-600">{description}</p>
       </div>
       <Link
-        href="/wishpool/intro"
-        className="text-blue-primary title3 px-[1.2rem] py-[0.8rem]"
+        href={PATH.WISHPOOL_CREATE}
+        className="text-blue-primary title3 ml-auto px-[1.2rem] py-[0.8rem]"
       >
         만들기
       </Link>

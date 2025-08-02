@@ -9,8 +9,9 @@ const EventCard = ({ planType }: { planType: PlanType }) => {
   return (
     <div className="relative mt-[2.6rem]">
       <img
-        src="/images/sample.jpeg"
+        src="/images/card.svg"
         className="h-[18.7rem] w-full rounded-[12px] object-cover"
+        alt="이벤트 카드 이미지"
       />
       <span className="caption1 bg-pink-primary absolute top-[1.6rem] left-[1.6rem] rounded-[4px] py-[0.6rem] text-center">
         {planType === 'wishpool' && (
