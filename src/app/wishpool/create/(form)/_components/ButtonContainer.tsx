@@ -4,8 +4,9 @@ import Button from '@/components/common/Button';
 
 type ButtonContainerProps = {
   next: 'disabled' | 'active';
+  onClickNext: () => void;
 };
-const ButtonContainer = ({ next }: ButtonContainerProps) => {
+const ButtonContainer = ({ next, onClickNext }: ButtonContainerProps) => {
   const router = useRouter();
 
   const handleBack = () => {
@@ -28,6 +29,7 @@ const ButtonContainer = ({ next }: ButtonContainerProps) => {
           backgroundColor={next === 'disabled' ? 'disabled' : 'dark'}
           textSize="sm"
           disabled={next === 'disabled'}
+          onClick={onClickNext}
         >
           다음
         </Button>
