@@ -4,9 +4,9 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 import Icon from '@/components/common/Icon';
-import NavMenu from '@/components/layout/Header/_components/NavMenu';
 import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
+import NavMenu from '@/components/layout/NavMenu';
 import { PATH } from '@/constants/path';
 
 type HomeHeaderProps = {
