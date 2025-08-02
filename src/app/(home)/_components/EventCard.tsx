@@ -8,13 +8,16 @@ const CARD_MESSAGE = {
   wishpool: '생일자를 위한 위시풀 만들기 진행 중',
 };
 
-const WISHPOOL_DETAIL_ID = 1;
+type EventCardProps = {
+  planType: PlanType;
+  currentIndex: number;
+};
 
-const EventCard = ({ planType }: { planType: PlanType }) => {
+const EventCard = ({ planType, currentIndex }: EventCardProps) => {
   const router = useRouter();
 
   const handleGoDetail = () => {
-    router.push(PATH.WISHPOOL_DETAIL(WISHPOOL_DETAIL_ID));
+    router.push(PATH.WISHPOOL_DETAIL(currentIndex));
   };
 
   return (

@@ -39,7 +39,7 @@ const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
           >
             {Array.from({ length: eventCount }).map((_, idx) => (
               <div key={idx} className="w-full shrink-0 snap-start">
-                <EventCard planType={planType} />
+                <EventCard planType={planType} currentIndex={idx} />
               </div>
             ))}
           </div>
