@@ -1,7 +1,6 @@
+import InputBox from '@/app/wishpool/create/(form)/_components/InputBox';
+import Question from '@/app/wishpool/create/(form)/_components/Question';
 import Button from '@/components/common/Button';
-
-import InputBox from './InputBox';
-import Question from './Question';
 
 const Step1 = () => {
   return (

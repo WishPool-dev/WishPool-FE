@@ -1,5 +1,5 @@
-import InputBox from './InputBox';
-import Question from './Question';
+import InputBox from '@/app/wishpool/create/(form)/_components/InputBox';
+import Question from '@/app/wishpool/create/(form)/_components/Question';
 
 const Step4 = () => {
   return (

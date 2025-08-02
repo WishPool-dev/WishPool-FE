@@ -1,24 +1,24 @@
 'use client';
 
+import Step1 from '@/app/wishpool/create/(form)/Step1';
 import Button from '@/components/common/Button';
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
-
-import InvitationStep from './(form)/_components/InvitationStep';
 
 const page = () => {
   return (
     <>
       <RightIconHeader title="위시풀 만들기" iconName="cancel" />
 
-      <div className="bg-background-02 -mx-[2rem] mt-[5.4] h-[3.9rem]">
-        <div className="subtitle3 flex items-center justify-around border-b-[3px] border-gray-300 text-gray-600">
-          <div className="my-[0.75rem] text-center text-blue-500">생일자</div>
-          <div>위시풀 소개</div>
-          <div>썸네일</div>
-          <div>마감일</div>
+      <div className="bg-background-02">
+        <div className="subtitle3 flex h-[3.9rem] items-center justify-around border-b-[3px] border-gray-300 text-gray-600">
+          <span>생일자</span>
+          <span>위시풀 소개</span>
+          <span>썸네일</span>
+          <span>마감일</span>
         </div>
       </div>
-      <InvitationStep />
+
+      <Step1 />
       <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem]">
         <div className="flex justify-between gap-[1rem] px-[2rem]">
           <Button textColor="black" backgroundColor="light" textSize="sm">

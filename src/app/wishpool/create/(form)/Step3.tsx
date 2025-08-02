@@ -1,6 +1,5 @@
+import Question from '@/app/wishpool/create/(form)/_components/Question';
 import Icon from '@/components/common/Icon';
-
-import Question from './Question';
 
 const Step3 = () => {
   return (
