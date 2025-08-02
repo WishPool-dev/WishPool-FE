@@ -9,7 +9,7 @@ import PlanTypeSection from '@/app/(home)/_components/PlanTypeSection';
 
 const planCount = {
   funding: 0,
-  wishpool: 1,
+  wishpool: 4,
 };
 
 const Home = () => {
