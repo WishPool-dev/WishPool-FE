@@ -27,7 +27,7 @@ const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
 
   const { label, message } = EVENT_INFO[planType];
 
-  const { containerRef, currentIndex } = useScrollIndex();
+  const { containerRef, currentIndex, scrollToIndex } = useScrollIndex();
 
   return (
     <>
@@ -46,15 +46,16 @@ const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
 
           <div className="mt-[2rem] mb-[2.7rem] flex justify-center gap-[0.4rem]">
             {Array.from({ length: eventCount }).map((_, idx) => (
-              <Icon
-                key={idx}
-                name="dot"
-                width={8}
-                height={8}
-                className={
-                  currentIndex === idx ? 'text-gray-800' : 'text-gray-400'
-                }
-              />
+              <button key={idx} onClick={() => scrollToIndex(idx)}>
+                <Icon
+                  name="dot"
+                  width={8}
+                  height={8}
+                  className={
+                    currentIndex === idx ? 'text-gray-800' : 'text-gray-400'
+                  }
+                />
+              </button>
             ))}
           </div>
         </>
