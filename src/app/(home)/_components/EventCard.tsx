@@ -1,3 +1,6 @@
+import { useRouter } from 'next/navigation';
+
+import { PATH } from '@/constants/path';
 import { PlanType } from '@/types/planType';
 
 const CARD_MESSAGE = {
@@ -5,12 +8,24 @@ const CARD_MESSAGE = {
   wishpool: '생일자를 위한 위시풀 만들기 진행 중',
 };
 
-const EventCard = ({ planType }: { planType: PlanType }) => {
+type EventCardProps = {
+  planType: PlanType;
+  currentIndex: number;
+};
+
+const EventCard = ({ planType, currentIndex }: EventCardProps) => {
+  const router = useRouter();
+
+  const handleGoDetail = () => {
+    router.push(PATH.WISHPOOL_DETAIL(currentIndex));
+  };
+
   return (
     <div className="relative mt-[2.6rem]">
       <img
-        src="/images/sample.jpeg"
+        src="/images/card.svg"
         className="h-[18.7rem] w-full rounded-[12px] object-cover"
+        alt="이벤트 카드 이미지"
       />
       <span className="caption1 bg-pink-primary absolute top-[1.6rem] left-[1.6rem] rounded-[4px] py-[0.6rem] text-center">
         {planType === 'wishpool' && (
@@ -26,7 +41,10 @@ const EventCard = ({ planType }: { planType: PlanType }) => {
       <strong className="title1 absolute bottom-[1.6rem] left-[1.6rem] text-white">
         텍스트
       </strong>
-      <button className="bg-button-color title3 absolute right-[2rem] bottom-[1.6rem] rounded-[6px] px-[1.2rem] py-[0.8rem] text-center text-white">
+      <button
+        onClick={handleGoDetail}
+        className="bg-button-color title3 absolute right-[2rem] bottom-[1.6rem] rounded-[6px] px-[1.2rem] py-[0.8rem] text-center text-white"
+      >
         보기
       </button>
     </div>

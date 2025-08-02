@@ -1,6 +1,7 @@
 'use client';
 
-import EventCard from '@/app/home/_components/EventCard';
+import EventCard from '@/app/(home)/_components/EventCard';
+import { useScrollIndex } from '@/app/(home)/_hooks/useScrollIndex';
 import Icon from '@/components/common/Icon';
 import type { PlanType } from '@/types/planType';
 
@@ -22,15 +23,40 @@ const EVENT_INFO = {
 
 const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
   const hasEvent = planCount[planType] > 0;
+  const eventCount = planCount[planType];
+
   const { label, message } = EVENT_INFO[planType];
+
+  const { containerRef, currentIndex, scrollToIndex } = useScrollIndex();
 
   return (
     <>
       {hasEvent ? (
         <>
-          <EventCard planType={planType} />
-          <div className="mt-[2rem] mb-[3rem] flex justify-center">
-            <Icon name="dot" width={8} height={8} className="text-gray-800" />
+          <div
+            ref={containerRef}
+            className="no-scrollbar flex snap-x snap-mandatory gap-[2rem] overflow-x-auto scroll-smooth"
+          >
+            {Array.from({ length: eventCount }).map((_, idx) => (
+              <div key={idx} className="w-full shrink-0 snap-start">
+                <EventCard planType={planType} currentIndex={idx} />
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-[2rem] mb-[2.7rem] flex justify-center gap-[0.4rem]">
+            {Array.from({ length: eventCount }).map((_, idx) => (
+              <button key={idx} onClick={() => scrollToIndex(idx)}>
+                <Icon
+                  name="dot"
+                  width={8}
+                  height={8}
+                  className={
+                    currentIndex === idx ? 'text-gray-800' : 'text-gray-400'
+                  }
+                />
+              </button>
+            ))}
           </div>
         </>
       ) : (

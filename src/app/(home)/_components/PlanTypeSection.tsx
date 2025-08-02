@@ -11,7 +11,7 @@ type PlanTypeSectionProps = {
 };
 
 const PLAN_OPTIONS: { key: PlanType; label: string }[] = [
-  { key: 'funding', label: '선물 펀딩' },
+  { key: 'funding', label: '선물 펀딩(준비 중)' },
   { key: 'wishpool', label: '위시풀' },
 ];
 
@@ -21,21 +21,32 @@ const PlanTypeSection = ({
   planCount,
 }: PlanTypeSectionProps) => {
   return (
-    <div className="relative m-auto flex w-[35.4rem] items-center justify-center gap-[1.2rem] after:absolute after:bottom-0 after:left-0 after:h-[0.3rem] after:w-full after:bg-gray-100 after:content-['']">
+    <div className="relative flex items-center justify-center gap-[1.2rem]">
+      <div className="absolute bottom-0 left-0 h-[0.3rem] w-full bg-gray-100" />
+      <div
+        className={clsx(
+          'bg-blue-2 absolute bottom-0 h-[0.3rem] transition-all duration-200',
+          {
+            'left-0 w-[50%] rounded-r-[100px]': planType === 'funding',
+            'left-[50%] w-[50%] rounded-l-[100px]': planType === 'wishpool',
+          },
+        )}
+      />
+
       {PLAN_OPTIONS.map(({ key, label }) => {
         const isActive = planType === key;
 
         return (
           <button
             key={key}
-            onClick={() => onSelectType(key)}
+            onClick={() => {
+              if (key !== 'funding') onSelectType(key);
+            }}
+            disabled={key === 'funding'}
             className={clsx(
               'title1 z-planType relative flex h-[4.6rem] w-[17.1rem] items-center justify-center gap-[0.4rem]',
-              "after:absolute after:bottom-0 after:left-0 after:h-[0.3rem] after:w-full after:content-['']",
               {
-                'text-text after:bg-blue-2': isActive,
-                'after:rounded-r-[100px]': isActive && key === 'funding',
-                'after:rounded-l-[100px]': isActive && key === 'wishpool',
+                'text-text': isActive,
                 'text-gray-400': !isActive,
               },
             )}
