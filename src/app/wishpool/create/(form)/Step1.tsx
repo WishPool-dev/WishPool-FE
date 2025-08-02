@@ -4,7 +4,7 @@ import Button from '@/components/common/Button';
 
 const Step1 = () => {
   return (
-    <>
+    <section className="px-[2rem]">
       <div className="mt-[2.8rem]">
         <Question
           required={true}
@@ -36,7 +36,7 @@ const Step1 = () => {
           </Button>
         </div>
       </div>
-    </>
+    </section>
   );
 };
 
