@@ -10,7 +10,7 @@ import IconButton from '@/components/common/IconButton';
 const Page = () => {
   return (
     <>
-      <div className="px-[2rem] pt-[2.8rem]">
+      <div className="px-[2rem]">
         <h1 className="head1 text-text mb-[0.4rem]">
           친구를 위한 선물 위시리스트, <br /> 위시풀을 함께 만들어보세요!
         </h1>
