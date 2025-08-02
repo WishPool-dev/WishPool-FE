@@ -8,6 +8,8 @@ html {
 
 @theme {
   --z-index-planType: 10;
+  --z-index-nav: 20;
+  --z-index-modal: 30;
   --z-index-header: 50;
 }
 
