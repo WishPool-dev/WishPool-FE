@@ -1,8 +1,9 @@
 import ButtonContainer from '@/app/wishpool/create/(form)/_components/ButtonContainer';
 import InputBox from '@/app/wishpool/create/(form)/_components/InputBox';
 import Question from '@/app/wishpool/create/(form)/_components/Question';
+import { StepProps } from '@/app/wishpool/create/(form)/_types/stepProps';
 
-const Step4 = () => {
+const Step4 = ({ handleNext }: StepProps) => {
   return (
     <section className="px-[2rem]">
       <div className="mt-[1.6rem]">
@@ -19,7 +20,7 @@ const Step4 = () => {
           placeholder="YY/MM/DD"
         />
       </div>
-      <ButtonContainer next="active" />
+      <ButtonContainer next="active" onClickNext={handleNext} />
     </section>
   );
 };

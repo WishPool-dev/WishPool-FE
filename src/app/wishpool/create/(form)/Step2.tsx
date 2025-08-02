@@ -1,8 +1,9 @@
 import ButtonContainer from '@/app/wishpool/create/(form)/_components/ButtonContainer';
 import InputBox from '@/app/wishpool/create/(form)/_components/InputBox';
 import Question from '@/app/wishpool/create/(form)/_components/Question';
+import { StepProps } from '@/app/wishpool/create/(form)/_types/stepProps';
 
-const Step2 = () => {
+const Step2 = ({ handleNext }: StepProps) => {
   return (
     <section className="px-[2rem]">
       <span className="bg-background-02 caption2 mt-[2.8rem] inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
@@ -32,7 +33,7 @@ const Step2 = () => {
           </li>
         </ol>
       </div>
-      <ButtonContainer next="active" />
+      <ButtonContainer next="active" onClickNext={handleNext} />
     </section>
   );
 };
