@@ -9,7 +9,7 @@ const NAV_LIST = [
   { label: 'WishPool 소개', href: PATH.INTRO },
   { label: '메인 홈', href: PATH.HOME },
   { label: '상품 둘러보기', href: PATH.HOME },
-  { label: '마이 페이지', href: '/mypage' },
+  { label: '마이 페이지', href: PATH.MYPAGE },
 ];
 
 const NavMenu = () => {
@@ -18,7 +18,7 @@ const NavMenu = () => {
   return (
     <nav
       aria-label="메인 메뉴"
-      className="mx-auto mt-[5.4rem] max-w-[430px] bg-white text-center"
+      className="z-nav absolute inset-x-0 mx-auto mt-[5.4rem] flex max-w-[430px] flex-col bg-white text-center"
     >
       <ul>
         {NAV_LIST.map(({ label, href }) => {
