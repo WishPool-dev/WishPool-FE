@@ -1,3 +1,6 @@
+import { useRouter } from 'next/navigation';
+
+import { PATH } from '@/constants/path';
 import { PlanType } from '@/types/planType';
 
 const CARD_MESSAGE = {
@@ -5,7 +8,15 @@ const CARD_MESSAGE = {
   wishpool: '생일자를 위한 위시풀 만들기 진행 중',
 };
 
+const WISHPOOL_DETAIL_ID = 1;
+
 const EventCard = ({ planType }: { planType: PlanType }) => {
+  const router = useRouter();
+
+  const handleGoDetail = () => {
+    router.push(PATH.WISHPOOL_DETAIL(WISHPOOL_DETAIL_ID));
+  };
+
   return (
     <div className="relative mt-[2.6rem]">
       <img
@@ -27,7 +38,10 @@ const EventCard = ({ planType }: { planType: PlanType }) => {
       <strong className="title1 absolute bottom-[1.6rem] left-[1.6rem] text-white">
         텍스트
       </strong>
-      <button className="bg-button-color title3 absolute right-[2rem] bottom-[1.6rem] rounded-[6px] px-[1.2rem] py-[0.8rem] text-center text-white">
+      <button
+        onClick={handleGoDetail}
+        className="bg-button-color title3 absolute right-[2rem] bottom-[1.6rem] rounded-[6px] px-[1.2rem] py-[0.8rem] text-center text-white"
+      >
         보기
       </button>
     </div>
