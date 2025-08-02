@@ -1,5 +1,5 @@
 type ProgressBarProps = {
-  currentStep: 1 | 2 | 3 | 4;
+  currentStep: number;
 };
 
 const ProgressBar = ({ currentStep }: ProgressBarProps) => {

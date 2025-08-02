@@ -4,7 +4,7 @@ import Button from '@/components/common/Button';
 
 type ButtonContainerProps = {
   next: 'disabled' | 'active';
-  onClickNext: () => void;
+  onClickNext?: () => void;
 };
 const ButtonContainer = ({ next, onClickNext }: ButtonContainerProps) => {
   const router = useRouter();
