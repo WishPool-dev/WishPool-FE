@@ -1,10 +1,11 @@
+import ButtonContainer from '@/app/wishpool/create/(form)/_components/ButtonContainer';
+import Question from '@/app/wishpool/create/(form)/_components/Question';
+import { StepProps } from '@/app/wishpool/create/(form)/_types/stepProps';
 import Icon from '@/components/common/Icon';
 
-import Question from './Question';
-
-const Step3 = () => {
+const Step3 = ({ onPrev, onNext }: StepProps) => {
   return (
-    <>
+    <section className="px-[2rem]">
       <div className="mt-[2.8rem]">
         <Question
           required={false}
@@ -27,7 +28,12 @@ const Step3 = () => {
         <Icon name="camera" />
         사진 촬영
       </button>
-    </>
+      <ButtonContainer
+        next="active"
+        onClickPrev={onPrev}
+        onClickNext={onNext}
+      />
+    </section>
   );
 };
 

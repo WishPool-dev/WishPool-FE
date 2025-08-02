@@ -1,11 +1,11 @@
-import Button from '@/components/common/Button';
+import ButtonContainer from '@/app/wishpool/create/(form)/_components/ButtonContainer';
+import InputBox from '@/app/wishpool/create/(form)/_components/InputBox';
+import Question from '@/app/wishpool/create/(form)/_components/Question';
+import { StepProps } from '@/app/wishpool/create/(form)/_types/stepProps';
 
-import InputBox from './InputBox';
-import Question from './Question';
-
-const Step1 = () => {
+const Step1 = ({ onPrev, onNext }: StepProps) => {
   return (
-    <>
+    <section className="px-[2rem]">
       <div className="mt-[2.8rem]">
         <Question
           required={true}
@@ -27,17 +27,12 @@ const Step1 = () => {
           placeholder="YY/MM/DD"
         />
       </div>
-      <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem]">
-        <div className="flex justify-between gap-[1rem] px-[2rem]">
-          <Button textColor="black" backgroundColor="light" textSize="sm">
-            이전
-          </Button>
-          <Button textColor="white" backgroundColor="disabled" textSize="sm">
-            다음
-          </Button>
-        </div>
-      </div>
-    </>
+      <ButtonContainer
+        next="active"
+        onClickPrev={onPrev}
+        onClickNext={onNext}
+      />
+    </section>
   );
 };
 

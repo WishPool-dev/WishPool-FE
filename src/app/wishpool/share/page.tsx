@@ -3,7 +3,8 @@ import Image from 'next/image';
 import invite from '@/assets/images/invite.png';
 import Icon from '@/components/common/Icon';
 import IconButton from '@/components/common/IconButton';
-const InvitationStep = () => {
+
+const SharePage = () => {
   return (
     <>
       <div className="mt-[2.8rem]">
@@ -44,4 +45,4 @@ const InvitationStep = () => {
   );
 };
 
-export default InvitationStep;
+export default SharePage;
