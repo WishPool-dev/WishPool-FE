@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
-import { PATH } from '@/constants/path';
+import { PATH } from '@/constants/common/path';
 
 const NAV_LIST = [
   { label: 'WishPool 소개', href: PATH.INTRO },

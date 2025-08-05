@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-import { PATH } from '@/constants/path';
+import { PATH } from '@/constants/common/path';
 import type { PlanType } from '@/types/planType';
 
 const CREATE_CONTENT = {

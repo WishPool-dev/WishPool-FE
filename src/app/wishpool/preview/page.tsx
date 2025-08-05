@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
 import UserTag from '@/components/ui/UserTag';
-import { PATH } from '@/constants/path';
+import { PATH } from '@/constants/common/path';
 
 const PreviewPage = () => {
   const router = useRouter();
