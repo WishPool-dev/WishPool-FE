@@ -27,9 +27,7 @@ const Modal = ({ children, onClose }: ModalProps) => {
       className="z-modal fixed inset-0 flex items-center justify-center bg-black/60"
       onClick={onClose}
     >
-      <div className="bg-white" onClick={(e) => e.stopPropagation()}>
-        {children}
-      </div>
+      <div onClick={(e) => e.stopPropagation()}>{children}</div>
     </div>,
     document.body,
   );
