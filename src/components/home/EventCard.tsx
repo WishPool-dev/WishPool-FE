@@ -1,6 +1,6 @@
 import { useRouter } from 'next/navigation';
 
-import { PATH } from '@/constants/path';
+import { PATH } from '@/constants/common/path';
 import { PlanType } from '@/types/planType';
 
 const CARD_MESSAGE = {

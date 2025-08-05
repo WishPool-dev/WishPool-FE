@@ -2,9 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 
-import { ONBOARDING_CONTENT } from '@/app/intro/_constants/onBoardingContent';
 import Button from '@/components/common/Button';
-import { PATH } from '@/constants/path';
+import { PATH } from '@/constants/common/path';
+import { ONBOARDING_CONTENT } from '@/constants/intro/onBoardingContent';
 
 const OnBoardingPage = () => {
   const router = useRouter();

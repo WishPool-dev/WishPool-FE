@@ -9,7 +9,7 @@ import Step2 from '@/app/wishpool/create/(form)/Step2';
 import Step3 from '@/app/wishpool/create/(form)/Step3';
 import Step4 from '@/app/wishpool/create/(form)/Step4';
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
-import { PATH } from '@/constants/path';
+import { PATH } from '@/constants/common/path';
 
 const CreatePage = () => {
   const router = useRouter();

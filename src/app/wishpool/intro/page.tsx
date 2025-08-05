@@ -7,7 +7,7 @@ import { INFO_NOTICE_LIST } from '@/app/wishpool/intro/_constants/infoNoticeList
 import introEmptyBox from '@/assets/images/intro-empty-box.png';
 import Icon from '@/components/common/Icon';
 import IconButton from '@/components/common/IconButton';
-import { PATH } from '@/constants/path';
+import { PATH } from '@/constants/common/path';
 
 const Page = () => {
   const router = useRouter();

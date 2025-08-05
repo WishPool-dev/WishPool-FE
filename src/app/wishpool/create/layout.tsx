@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
-import { PATH } from '@/constants/path';
+import { PATH } from '@/constants/common/path';
 
 const CreateLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
