@@ -3,12 +3,12 @@
 import { useEffect, useState } from 'react';
 import { createPortal } from 'react-dom';
 
-type BaseModalProps = {
+type ModalProps = {
   children: React.ReactNode;
   onClose?: () => void;
 };
 
-const BaseModal = ({ children, onClose }: BaseModalProps) => {
+const Modal = ({ children, onClose }: ModalProps) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -35,4 +35,4 @@ const BaseModal = ({ children, onClose }: BaseModalProps) => {
   );
 };
 
-export default BaseModal;
+export default Modal;
