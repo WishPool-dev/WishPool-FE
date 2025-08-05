@@ -3,9 +3,9 @@
 import { redirect } from 'next/navigation';
 import { useState } from 'react';
 
-import ActiveEventSection from '@/app/(home)/_components/ActiveEventSection';
-import CreateEventSection from '@/app/(home)/_components/CreateEventSection';
-import PlanTypeSection from '@/app/(home)/_components/PlanTypeSection';
+import ActiveEventSection from '@/components/home/ActiveEventSection';
+import CreateEventSection from '@/components/home/CreateEventSection';
+import PlanTypeSection from '@/components/home/PlanTypeSection';
 
 const planCount = {
   funding: 0,

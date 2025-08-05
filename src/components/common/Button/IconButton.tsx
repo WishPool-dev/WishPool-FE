@@ -1,7 +1,7 @@
 import { button } from '@/components/common/Button/Button.style';
 import type { ButtonProps } from '@/types/common/buttonProps';
 
-const Button = ({
+const IconButton = ({
   children,
   textSize,
   backgroundColor,
@@ -17,9 +17,9 @@ const Button = ({
       disabled={disabled}
       onClick={onClick}
     >
-      {children}
+      <div className="flex items-center gap-4">{children}</div>
     </button>
   );
 };
 
-export default Button;
+export default IconButton;
