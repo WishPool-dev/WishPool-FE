@@ -3,7 +3,7 @@
 import Link from 'next/link';
 
 import { PATH } from '@/constants/common/path';
-import type { PlanType } from '@/types/planType';
+import type { PlanType } from '@/types/common/planType';
 
 const CREATE_CONTENT = {
   funding: {

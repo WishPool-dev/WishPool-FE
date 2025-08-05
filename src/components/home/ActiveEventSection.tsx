@@ -3,7 +3,7 @@
 import Icon from '@/components/common/Icon';
 import EventCard from '@/components/home/EventCard';
 import { useScrollIndex } from '@/hooks/home/useScrollIndex';
-import type { PlanType } from '@/types/planType';
+import type { PlanType } from '@/types/common/planType';
 
 type activeEventProps = {
   planType: PlanType;
