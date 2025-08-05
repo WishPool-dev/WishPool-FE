@@ -1,12 +1,12 @@
 import { useState } from 'react';
 
-import CalendarPicker from './CalendarPicker';
+// import CalendarPicker from './CalendarPicker';
 
 interface InputBoxProps {
   content?: string;
   placeholder?: string;
   maxLength?: number;
-  calendar?: boolean;
+  // calendar?: boolean;
   height?: string;
 }
 
@@ -14,7 +14,7 @@ const InputBox = ({
   content,
   placeholder,
   maxLength,
-  calendar,
+  // calendar,
   height = 'h-[5.6rem]',
 }: InputBoxProps) => {
   const [inputValue, setInputValue] = useState('');
@@ -44,11 +44,11 @@ const InputBox = ({
           </div>
         )}
 
-        {calendar && (
+        {/* {calendar && (
           <div className="absolute top-[1.6rem] right-[1.6rem]">
             <CalendarPicker setValue={setInputValue} />
           </div>
-        )}
+        )} */}
       </div>
     </>
   );
