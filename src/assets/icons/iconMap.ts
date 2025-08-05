@@ -6,6 +6,7 @@ import GiftButtonIcon from '@/assets/icons/svg/icon_button_gift.svg';
 import CalendarIcon from '@/assets/icons/svg/icon_calender.svg';
 import CameraIcon from '@/assets/icons/svg/icon_camera.svg';
 import CancelIcon from '@/assets/icons/svg/icon_cancel.svg';
+import CheerIcon from '@/assets/icons/svg/icon_cheer.svg';
 import DotIcon from '@/assets/icons/svg/icon_dot.svg';
 import DownIcon from '@/assets/icons/svg/icon_down.svg';
 import GiftIcon from '@/assets/icons/svg/icon_gift.svg';
@@ -16,6 +17,7 @@ import MoreIcon from '@/assets/icons/svg/icon_more.svg';
 import PhotoIcon from '@/assets/icons/svg/icon_photo.svg';
 import UpIcon from '@/assets/icons/svg/icon_up.svg';
 import WishIcon from '@/assets/icons/svg/icon_wish.svg';
+
 export const iconMap = {
   back: BackIcon,
   home: HomeIcon,
@@ -33,6 +35,7 @@ export const iconMap = {
   birthday: BirthdayIcon,
   kakao: KaKaoIcon,
   more: MoreIcon,
+  cheer: CheerIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;
