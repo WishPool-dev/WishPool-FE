@@ -1,8 +1,8 @@
 'use client';
 
-import EventCard from '@/app/(home)/_components/EventCard';
-import { useScrollIndex } from '@/app/(home)/_hooks/useScrollIndex';
 import Icon from '@/components/common/Icon';
+import EventCard from '@/components/home/EventCard';
+import { useScrollIndex } from '@/hooks/home/useScrollIndex';
 import type { PlanType } from '@/types/planType';
 
 type activeEventProps = {
