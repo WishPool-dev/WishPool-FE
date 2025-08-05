@@ -4,7 +4,7 @@ import { useRouter } from 'next/navigation';
 
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
-import UserTag from '@/components/ui/UserTag';
+import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
 
 const PreviewPage = () => {

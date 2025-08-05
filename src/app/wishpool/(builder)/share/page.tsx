@@ -1,8 +1,8 @@
 import Image from 'next/image';
 
 import invite from '@/assets/images/invite.png';
+import IconButton from '@/components/common/Button/IconButton';
 import Icon from '@/components/common/Icon';
-import IconButton from '@/components/common/IconButton';
 
 const SharePage = () => {
   return (
