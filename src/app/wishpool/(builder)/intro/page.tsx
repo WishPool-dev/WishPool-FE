@@ -5,9 +5,9 @@ import { useRouter } from 'next/navigation';
 import introEmptyBox from '@/assets/images/intro-empty-box.png';
 import Icon from '@/components/common/Icon';
 import IconButton from '@/components/common/IconButton';
-import { InfoNotice } from '@/components/wishpool/form/intro/InfoNotice';
+import { InfoNotice } from '@/components/wishpool/builder/intro/InfoNotice';
 import { PATH } from '@/constants/common/path';
-import { INFO_NOTICE_LIST } from '@/constants/wishpool/form/infoNoticeList';
+import { INFO_NOTICE_LIST } from '@/constants/wishpool/builder/infoNoticeList';
 
 const Page = () => {
   const router = useRouter();
