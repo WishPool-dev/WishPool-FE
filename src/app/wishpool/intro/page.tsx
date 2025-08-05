@@ -2,12 +2,12 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { InfoNotice } from '@/app/wishpool/intro/_components/InfoNotice';
-import { INFO_NOTICE_LIST } from '@/app/wishpool/intro/_constants/infoNoticeList';
 import introEmptyBox from '@/assets/images/intro-empty-box.png';
 import Icon from '@/components/common/Icon';
 import IconButton from '@/components/common/IconButton';
+import { InfoNotice } from '@/components/wishpool/form/intro/InfoNotice';
 import { PATH } from '@/constants/common/path';
+import { INFO_NOTICE_LIST } from '@/constants/wishpool/form/infoNoticeList';
 
 const Page = () => {
   const router = useRouter();

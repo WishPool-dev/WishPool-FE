@@ -2,7 +2,7 @@
 
 import clsx from 'clsx';
 
-import type { PlanType } from '@/types/planType';
+import type { PlanType } from '@/types/common/planType';
 
 type PlanTypeSectionProps = {
   planType: PlanType;

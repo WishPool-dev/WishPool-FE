@@ -1,7 +1,7 @@
 import { useRouter } from 'next/navigation';
 
 import { PATH } from '@/constants/common/path';
-import { PlanType } from '@/types/planType';
+import { PlanType } from '@/types/common/planType';
 
 const CARD_MESSAGE = {
   funding: '나를 위한 펀딩 진행 중',

@@ -1,7 +1,7 @@
-import ButtonContainer from '@/app/wishpool/create/(form)/_components/ButtonContainer';
-import InputBox from '@/app/wishpool/create/(form)/_components/InputBox';
-import Question from '@/app/wishpool/create/(form)/_components/Question';
-import { StepProps } from '@/app/wishpool/create/(form)/_types/stepProps';
+import ButtonContainer from '@/components/wishpool/form/create/ButtonContainer';
+import InputBox from '@/components/wishpool/form/create/InputBox';
+import Question from '@/components/wishpool/form/create/Question';
+import { StepProps } from '@/types/wishpool/form/stepProps';
 
 const Step2 = ({ onPrev, onNext }: StepProps) => {
   return (
