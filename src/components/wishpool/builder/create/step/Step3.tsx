@@ -1,6 +1,6 @@
 import Icon from '@/components/common/Icon';
-import ButtonContainer from '@/components/wishpool/form/create/ButtonContainer';
-import Question from '@/components/wishpool/form/create/Question';
+import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
+import Question from '@/components/wishpool/builder/create/Question';
 import { StepProps } from '@/types/wishpool/builder/stepProps';
 
 const Step3 = ({ onPrev, onNext }: StepProps) => {
@@ -21,7 +21,7 @@ const Step3 = ({ onPrev, onNext }: StepProps) => {
       </div>
 
       <button className="subtitle2 text-text mt-[2.3rem] flex w-full items-center justify-start gap-[1.2rem] py-[1.2rem]">
-        <Icon name="photo" className="text-gray-600" />
+        <Icon name="photo" className="items-center text-gray-600" />
         사진 추가
       </button>
       <button className="subtitle2 text-text flex w-full items-center justify-start gap-[1.2rem] py-[1.2rem]">
