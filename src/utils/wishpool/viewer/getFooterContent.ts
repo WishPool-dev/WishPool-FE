@@ -19,6 +19,7 @@ const getFooterContent = (status: FooterStatus) => {
 
     case 'waiting':
       return {
+        day: 3,
         title: '결과 기다리는 중',
         content: '생일자가 선물을 선택할 거에요.',
         buttonContent: '생일자에게 보냈어요',
