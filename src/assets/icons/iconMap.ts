@@ -16,6 +16,7 @@ import MenuIcon from '@/assets/icons/svg/icon_menu.svg';
 import MoreIcon from '@/assets/icons/svg/icon_more.svg';
 import PhotoIcon from '@/assets/icons/svg/icon_photo.svg';
 import TrashIcon from '@/assets/icons/svg/icon_trash.svg';
+import PlusIcon from '@/assets/icons/svg/icon_plus.svg';
 import UpIcon from '@/assets/icons/svg/icon_up.svg';
 import WishIcon from '@/assets/icons/svg/icon_wish.svg';
 
@@ -38,6 +39,7 @@ export const iconMap = {
   more: MoreIcon,
   trash: TrashIcon,
   cheer: CheerIcon,
+  plus: PlusIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;
