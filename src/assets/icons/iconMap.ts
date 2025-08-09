@@ -3,7 +3,6 @@
 import BackIcon from '@/assets/icons/svg/icon_back.svg';
 import BirthdayIcon from '@/assets/icons/svg/icon_birthday.svg';
 import GiftButtonIcon from '@/assets/icons/svg/icon_button_gift.svg';
-import CakeIcon from '@/assets/icons/svg/icon_cake.svg';
 import CalendarIcon from '@/assets/icons/svg/icon_calender.svg';
 import CameraIcon from '@/assets/icons/svg/icon_camera.svg';
 import CancelIcon from '@/assets/icons/svg/icon_cancel.svg';
@@ -39,7 +38,6 @@ export const iconMap = {
   more: MoreIcon,
   trash: TrashIcon,
   cheer: CheerIcon,
-  cake: CakeIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;
