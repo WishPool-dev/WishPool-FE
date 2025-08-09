@@ -3,7 +3,7 @@ import Modal from '@/components/common/Modal';
 const EditModal = ({ onClose }: { onClose: () => void }) => {
   return (
     <Modal onClose={onClose}>
-      <div className="flex w-[18.4rem] flex-col rounded-[12px] bg-white">
+      <div className="absolute top-[5.4rem] right-[2rem] flex w-[18.4rem] flex-col rounded-[12px] bg-white">
         <button className="text-text title3 px-[2.4rem] py-[1.8rem] text-left">
           위시풀 수정
         </button>
