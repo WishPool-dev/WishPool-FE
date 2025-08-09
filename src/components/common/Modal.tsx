@@ -24,7 +24,7 @@ const Modal = ({ children, onClose }: ModalProps) => {
 
   return createPortal(
     <div
-      className="z-modal fixed inset-0 flex items-center justify-center bg-black/60"
+      className="z-modal fixed inset-0 mx-auto max-w-[430px] bg-black/60"
       onClick={onClose}
     >
       <div onClick={(e) => e.stopPropagation()}>{children}</div>
