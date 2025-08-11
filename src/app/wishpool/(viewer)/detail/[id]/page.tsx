@@ -1,18 +1,8 @@
-'use client';
-
-import { useParams, useRouter } from 'next/navigation';
-
 import Icon from '@/components/common/Icon';
 import DetailFooter from '@/components/wishpool/viewer/detail/DetailFooter';
-import { PATH } from '@/constants/common/path';
 import getFooterContent from '@/utils/wishpool/viewer/getFooterContent';
 
 const DetailPage = () => {
-  const router = useRouter();
-
-  const { id } = useParams<{ id: string }>();
-  const wishpoolId = Number(id);
-
   const status = 'open';
   const footerProps = getFooterContent(status);
   if (!footerProps) return null;
@@ -66,10 +56,7 @@ const DetailPage = () => {
           </div>
         </div>
       </section>
-      <DetailFooter
-        {...footerProps}
-        onClick={() => router.push(PATH.WISHPOOL_EDIT(wishpoolId))}
-      />
+      <DetailFooter {...footerProps} />
     </>
   );
 };

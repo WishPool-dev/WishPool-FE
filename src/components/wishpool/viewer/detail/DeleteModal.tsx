@@ -3,8 +3,8 @@ import Modal from '@/components/common/Modal';
 
 const DeleteModal = ({ onClose }: { onClose: () => void }) => {
   return (
-    <Modal onClose={onClose}>
-      <div className="w-[32.4rem] rounded-[16px] bg-white p-[1.6rem] text-center">
+    <Modal onClose={onClose} isDelete>
+      <div className="absolute top-1/2 left-1/2 w-[32.4rem] -translate-x-1/2 -translate-y-1/2 rounded-[16px] bg-white p-[1.6rem] text-center">
         <h3 className="text-text title1 mt-[1.2rem] mb-[0.8rem]">
           이 위시풀을 종료하고 삭제할까요?
         </h3>
