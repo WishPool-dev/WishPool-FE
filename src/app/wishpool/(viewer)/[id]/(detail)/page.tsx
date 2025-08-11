@@ -1,8 +1,17 @@
+'use client';
+
+import { useParams, useRouter } from 'next/navigation';
+
 import Icon from '@/components/common/Icon';
 import DetailFooter from '@/components/wishpool/viewer/detail/DetailFooter';
+import { PATH } from '@/constants/common/path';
 import getFooterContent from '@/utils/wishpool/viewer/getFooterContent';
 
 const DetailPage = () => {
+  const router = useRouter();
+  const { id } = useParams<{ id: string }>();
+  const wishpoolId = Number(id);
+
   const status = 'open';
   const footerProps = getFooterContent(status);
   if (!footerProps) return null;
@@ -40,6 +49,7 @@ const DetailPage = () => {
           </span>
           <button
             type="button"
+            onClick={() => router.push(PATH.WISHPOOL_GIFTS(wishpoolId))}
             className="title2 mt-[3.6rem] mb-[1.6rem] flex w-full items-center justify-center gap-[0.8rem] rounded-[10px] border border-gray-400 py-[1.4rem]"
           >
             <Icon name="gift" />
