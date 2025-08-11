@@ -7,6 +7,7 @@ type DetailFooterProps = {
   content: string;
   buttonContent: string;
   disabled?: boolean;
+  onClick?: () => void;
 };
 
 const DetailFooter = ({
@@ -15,6 +16,7 @@ const DetailFooter = ({
   content,
   buttonContent,
   disabled,
+  onClick,
 }: DetailFooterProps) => {
   return (
     <footer className="fixed inset-x-0 bottom-0 mx-auto flex max-w-[430px] items-center border-t border-t-gray-300 bg-white p-[2rem]">
@@ -36,6 +38,7 @@ const DetailFooter = ({
           textSize="sm"
           disabled={disabled}
           backgroundColor={disabled ? 'disabled' : 'dark'}
+          onClick={onClick}
         >
           {buttonContent}
         </Button>

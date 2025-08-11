@@ -6,5 +6,6 @@ export const PATH = {
   WISHPOOL_PREVIEW: '/wishpool/preview',
   WISHPOOL_SHARE: '/wishpool/share',
   WISHPOOL_DETAIL: (id: number) => `/wishpool/detail/${id}`,
+  WISHPOOL_EDIT: (id: number) => `/wishpool/edit/${id}`,
   MYPAGE: '/mypage',
 };
