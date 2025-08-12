@@ -23,7 +23,7 @@ const Step1 = ({ onPrev, onNext }: StepProps) => {
       <div className="mt-[3.2rem]">
         <InputBox
           content="곧 다가올 생일"
-          // calendar={true}
+          calendar={true}
           placeholder="YY/MM/DD"
         />
       </div>
