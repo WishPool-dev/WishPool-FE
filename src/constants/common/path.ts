@@ -10,4 +10,11 @@ export const PATH = {
   WISHPOOL_DETAIL: (id: number) => `/wishpool/${id}`,
   WISHPOOL_EDIT: (id: number) => `/wishpool/${id}/edit`,
   WISHPOOL_GIFTS: (id: number) => `/wishpool/${id}/gifts`,
+
+  FUNDING_INTRO: '/funding/intro',
+  FUNDING_SELECT: '/funding/select',
+  FUNDING_LIST: '/funding/list',
+  FUNDING_PREVIEW: '/funding/preview',
+  FUNDING_COMPLETE: '/funding/complete',
+  FUNDING_FEEDBACK: '/funding/feedback',
 };
