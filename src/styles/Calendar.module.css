@@ -1,0 +1,69 @@
+.customCalendarSize {
+  width: 35rem;
+  font-size: 1.4rem;
+  border-radius: 1.2rem;
+}
+
+.customCalendarSize :global(.react-datepicker__month-container) {
+  width: 100%;
+}
+.customCalendarSize :global(.react-datepicker__current-month) {
+  font-size: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.customCalendarSize :global(.react-datepicker__header) {
+  padding: 1.2rem 1.6rem;
+  border-top-left-radius: 1.2rem;
+  border-top-right-radius: 1.2rem;
+  background: #ffffff; /* 헤더 배경색 */
+  border: none;
+}
+
+/* 일월화수목금토 */
+.customCalendarSize :global(.react-datepicker__day-names) {
+  display: flex;
+  justify-content: space-between;
+}
+/* 일월화수목금토 개별 */
+.customCalendarSize :global(.react-datepicker__day-name) {
+  width: 4rem;
+  font-size: 1.4rem;
+  color: #181818;
+}
+
+/* 일 */
+.customCalendarSize :global(.react-datepicker__day) {
+  width: 4rem;
+  line-height: 4rem;
+  margin: 0.3rem;
+  font-size: 1.4rem;
+}
+
+/* 이전달, 다음달 날짜 */
+.customCalendarSize :global(.react-datepicker__day--outside-month) {
+  color: #bdbfc6;
+}
+
+/* 주말 */
+.customCalendarSize
+  :global(
+    .react-datepicker__day--weekend:not(.react-datepicker__day--outside-month)
+  ) {
+  color: #ff6e1f;
+}
+
+.customCalendarSize :global(.react-datepicker__day--selected) {
+  background-color: #0087ff;
+  color: #ffffff !important; /* 주말 날짜가 선택될 때 하얀 글씨가 적용이 안돼서 important 로 강제 적용하기 */
+}
+
+.customCalendarSize :global(.react-datepicker__navigation--next) {
+  top: 8px;
+  margin-right: 16px;
+}
+
+.customCalendarSize :global(.react-datepicker__navigation--previous) {
+  top: 8px;
+  margin-left: 16px;
+}
