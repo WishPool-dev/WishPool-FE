@@ -1,3 +1,4 @@
+import Calendar from '@/components/common/Calendar';
 import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
 import InputBox from '@/components/wishpool/builder/create/InputBox';
 import Question from '@/components/wishpool/builder/create/Question';
@@ -21,11 +22,7 @@ const Step1 = ({ onPrev, onNext }: StepProps) => {
         />
       </div>
       <div className="mt-[3.2rem]">
-        <InputBox
-          content="곧 다가올 생일"
-          calendar={true}
-          placeholder="YY/MM/DD"
-        />
+        <Calendar content="곧 다가올 생일" />
       </div>
       <ButtonContainer
         next="active"
