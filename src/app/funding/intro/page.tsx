@@ -1,4 +1,5 @@
 import Button from '@/components/common/Button';
+import InfoBox from '@/components/common/InfoBox/InfoBox';
 
 const IntroPage = () => {
   return (
@@ -22,6 +23,7 @@ const IntroPage = () => {
           <Button>다음</Button>
         </div>
       </div>
+      <InfoBox />
     </>
   );
 };
