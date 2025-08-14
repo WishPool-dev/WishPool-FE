@@ -10,6 +10,7 @@ import CheerIcon from '@/assets/icons/svg/icon_cheer.svg';
 import DotIcon from '@/assets/icons/svg/icon_dot.svg';
 import DownIcon from '@/assets/icons/svg/icon_down.svg';
 import GiftIcon from '@/assets/icons/svg/icon_gift.svg';
+import GridIcon from '@/assets/icons/svg/icon_grid.svg';
 import HomeIcon from '@/assets/icons/svg/icon_home.svg';
 import KaKaoIcon from '@/assets/icons/svg/icon_kakao.svg';
 import MenuIcon from '@/assets/icons/svg/icon_menu.svg';
@@ -38,6 +39,7 @@ export const iconMap = {
   more: MoreIcon,
   cheer: CheerIcon,
   plus: PlusIcon,
+  grid: GridIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;
