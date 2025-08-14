@@ -10,6 +10,7 @@
 .customCalendarSize :global(.react-datepicker__current-month) {
   font-size: 1.4rem;
   margin-bottom: 1.6rem;
+  font-weight: 600;
 }
 
 .customCalendarSize :global(.react-datepicker__header) {
