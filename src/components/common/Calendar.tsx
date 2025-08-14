@@ -1,5 +1,5 @@
 'use client';
-
+import { ko } from 'date-fns/locale';
 import { useState, forwardRef } from 'react';
 import DatePicker from 'react-datepicker';
 
@@ -7,21 +7,15 @@ import 'react-datepicker/dist/react-datepicker.css';
 import Icon from '@/components/common/Icon';
 import styles from '@/styles/Calendar.module.css';
 
-import { ko } from 'date-fns/locale';
-
 interface CustomInputProps {
   value?: string;
   onClick?: () => void;
-  content?: string;
 }
 
 const CustomInput = forwardRef<HTMLButtonElement, CustomInputProps>(
-  ({ value, onClick, content }, ref) => {
+  ({ value, onClick }, ref) => {
     return (
       <div className="relative w-full">
-        <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
-          {content}
-        </p>
         <button
           type="button"
           onClick={onClick}
@@ -42,12 +36,8 @@ const CustomInput = forwardRef<HTMLButtonElement, CustomInputProps>(
 );
 CustomInput.displayName = 'CustomInput'; //디버깅용
 
-interface CalendarProps {
-  content?: string;
-}
-
-const Calendar = ({ content }: CalendarProps) => {
-  const [selectedDate, setSelectedDate] = useState<Date | null>(new Date());
+const Calendar = () => {
+  const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   return (
     <>
@@ -56,7 +46,7 @@ const Calendar = ({ content }: CalendarProps) => {
         selected={selectedDate}
         onChange={(d) => setSelectedDate(d)}
         dateFormat="yyyy/MM/dd"
-        customInput={<CustomInput content={content} />}
+        customInput={<CustomInput />}
         wrapperClassName="w-full"
         popperPlacement="bottom"
         calendarClassName={styles.customCalendarSize}
