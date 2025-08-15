@@ -1,11 +1,11 @@
-import Calendar from '@/components/common/Calendar';
+import FormField from '@/components/common/FormField';
+import Question from '@/components/common/Question';
 import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
-import Question from '@/components/wishpool/builder/create/Question';
 import { StepProps } from '@/types/wishpool/builder/stepProps';
 
 const Step4 = ({ onPrev, onNext }: StepProps) => {
   return (
-    <section className="px-[2rem]">
+    <section className="mt-[2.8rem] px-[2rem]">
       <div className="mt-[1.6rem]">
         <Question
           required={true}
@@ -14,8 +14,9 @@ const Step4 = ({ onPrev, onNext }: StepProps) => {
       </div>
 
       <div className="mt-[3.2rem]">
-        <Calendar content="선물 리스트 마감일" />
+        <FormField mode="calendar" tag="참여자" label="선물 리스트 마감일" />
       </div>
+
       <ButtonContainer
         next="active"
         onClickPrev={onPrev}
