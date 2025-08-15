@@ -26,7 +26,7 @@ const FormField = ({
     return (
       <>
         <div className="mb-[0.8rem] flex flex-row items-center gap-[1.2rem]">
-          <UserTag>{tag}</UserTag>
+          {tag ? <UserTag>{tag}</UserTag> : null}
           <p className="subtitle2 text-text max-w-[430px]">{label}</p>
         </div>
         <CalendarField />
