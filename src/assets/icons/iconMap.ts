@@ -14,6 +14,7 @@ import KaKaoIcon from '@/assets/icons/svg/icon_kakao.svg';
 import MenuIcon from '@/assets/icons/svg/icon_menu.svg';
 import MoreIcon from '@/assets/icons/svg/icon_more.svg';
 import PhotoIcon from '@/assets/icons/svg/icon_photo.svg';
+import TrashIcon from '@/assets/icons/svg/icon_trash.svg';
 import UpIcon from '@/assets/icons/svg/icon_up.svg';
 import WishIcon from '@/assets/icons/svg/icon_wish.svg';
 export const iconMap = {
@@ -33,6 +34,7 @@ export const iconMap = {
   birthday: BirthdayIcon,
   kakao: KaKaoIcon,
   more: MoreIcon,
+  trash: TrashIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;
