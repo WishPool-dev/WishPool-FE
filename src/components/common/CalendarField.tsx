@@ -36,7 +36,7 @@ const CustomInput = forwardRef<HTMLButtonElement, CustomInputProps>(
 );
 CustomInput.displayName = 'CustomInput'; //디버깅용
 
-const Calendar = () => {
+const CalendarField = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   return (
@@ -55,4 +55,4 @@ const Calendar = () => {
   );
 };
 
-export default Calendar;
+export default CalendarField;
