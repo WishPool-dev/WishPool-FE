@@ -1,3 +1,5 @@
+import UserTag from '@/components/common/UserTag';
+
 type ItemCardProps = {
   name: string;
   item: string;
@@ -6,17 +8,15 @@ type ItemCardProps = {
 const ItemCard = ({ name, item }: ItemCardProps) => {
   return (
     <>
-      <div className="flex max-h-[27.1rem] max-w-[17.1rem] flex-col">
+      <div className="flex grow-1 flex-col">
         <img
-          className="h-[17.1rem] w-[17.1rem] rounded-[12px] object-cover"
-          src="/images/sample.jpeg"
+          className="rounded-[12px] object-cover"
+          src="/images/gift-card.svg"
           alt="상품 이미지"
         />
 
         <div className="mt-[0.8rem] flex items-center gap-[0.8rem]">
-          <div className="bg-button-color caption1 flex h-[2.3rem] w-[4.7rem] items-center justify-center rounded-[4px] px-[0.8rem] py-[0.4rem] text-white">
-            참여자
-          </div>
+          <UserTag>참여자</UserTag>
           <div className="subtitle3">{name}</div>
         </div>
 
