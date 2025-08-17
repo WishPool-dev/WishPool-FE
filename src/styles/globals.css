@@ -10,9 +10,10 @@ html {
   --z-index-planType: 10;
   --z-index-nav: 20;
   --z-index-card: 30;
-  --z-index-header: 40;
-  --z-index-modal: 50;
-  --z-index-toast: 60;
+  --z-index-guide: 40;
+  --z-index-header: 50;
+  --z-index-modal: 60;
+  --z-index-toast: 70;
 }
 
 .no-scrollbar {
