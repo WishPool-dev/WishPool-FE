@@ -20,7 +20,7 @@ const SelectLayout = ({ children }: { children: React.ReactNode }) => {
         }}
       />
       <main>{children}</main>
-      <SwipeGuide storageKey="swipe-guide-seen" />
+      <SwipeGuide />
     </>
   );
 };

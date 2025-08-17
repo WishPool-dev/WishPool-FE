@@ -25,7 +25,7 @@ const SelectPage = () => {
         ))}
       </section>
 
-      <section className="bg-background-02 relative h-[41.4rem]">
+      <section className="bg-background-02 relative grow-1">
         <div className="flex flex-col items-center py-[7.2rem]">
           <img
             src="/images/hole.svg"
