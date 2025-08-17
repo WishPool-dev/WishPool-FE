@@ -32,7 +32,7 @@ const SelectPage = () => {
             alt="구멍 이미지"
             className="mb-[4rem] h-[5.2rem] w-[20.3rem]"
           />
-          <p className="text-text caption1">
+          <p className="text-text caption1 text-center">
             마음에 드는 선물을
             <span className="text-blue-primary">
               최대 3개까지
