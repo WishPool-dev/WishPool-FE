@@ -1,27 +1,23 @@
 'use client';
 
-import { usePathname } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
-import { isSegment } from '@/utils/commons/getPathName';
+import { PATH } from '@/constants/common/path';
 
 const SelectLayout = ({ children }: { children: React.ReactNode }) => {
-  const pathname = usePathname();
-
-  const isList = isSegment(pathname, 'list');
+  const router = useRouter();
 
   return (
     <>
-      {isList ? (
-        <RightIconHeader title="선물 고르기" iconName="grid" bgColor="white" />
-      ) : (
-        <RightIconHeader
-          title="선물 고르기"
-          iconName="cancel"
-          bgColor="white"
-        />
-      )}
-
+      <RightIconHeader
+        title="선물 고르기"
+        iconName="grid"
+        bgColor="white"
+        onClick={() => {
+          router.push(PATH.FUNDING_LIST);
+        }}
+      />
       <main>{children}</main>
     </>
   );
