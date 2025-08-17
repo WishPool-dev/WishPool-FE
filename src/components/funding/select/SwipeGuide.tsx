@@ -5,20 +5,15 @@ import { useEffect, useState } from 'react';
 import Icon from '@/components/common/Icon';
 import styles from '@/styles/SwipeGuide.module.css';
 
-type SwipeGuideProps = {
-  storageKey?: string;
-};
-
-export default function SwipeGuide({
-  storageKey = 'SwipeGuideShown',
-}: SwipeGuideProps) {
+export default function SwipeGuide() {
+  const storageKey = 'swipe-guide';
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
-    const seen = localStorage.getItem(storageKey) === '1';
+    const seen = sessionStorage.getItem(storageKey) === '1';
     if (!seen) setOpen(true);
-  }, [storageKey]);
+  }, []);
 
   useEffect(() => {
     if (!open) return;
@@ -31,7 +26,7 @@ export default function SwipeGuide({
 
   const handleClose = () => {
     if (typeof window !== 'undefined') {
-      localStorage.setItem(storageKey, '1');
+      sessionStorage.setItem(storageKey, '1');
     }
     setOpen(false);
   };
