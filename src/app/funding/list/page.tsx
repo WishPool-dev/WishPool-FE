@@ -1,0 +1,20 @@
+import { data } from '@/app/funding/list/data';
+import GiftCard from '@/components/funding/select/GiftCard';
+
+const ListPage = () => {
+  return (
+    <>
+      <div className="body2 flex justify-between py-[1.6rem] text-white">
+        <span>선물 리스트</span>
+        <span>{data.length}개</span>
+      </div>
+      <section className="grid grid-cols-2 gap-[1.1rem]">
+        {data.map(({ giftName, giftImage }, i) => (
+          <GiftCard key={i} giftName={giftName} giftImage={giftImage} />
+        ))}
+      </section>
+    </>
+  );
+};
+
+export default ListPage;
