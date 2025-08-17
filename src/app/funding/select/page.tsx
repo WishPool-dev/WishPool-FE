@@ -1,18 +1,48 @@
+'use client';
+
 import Button from '@/components/common/Button';
+import { uesGiftScroll } from '@/hooks/funding/useGiftScroll';
 
 const SelectPage = () => {
+  const { ref, active } = uesGiftScroll<HTMLDivElement>(1);
+
   return (
     <div className="flex h-[100vh] flex-col">
-      <section className="bg-blue-5 grow-1">
-        <div className="z-card flex flex-col items-center rounded-[16px] bg-white">
-          <img
-            src="/images/gift-card.svg"
-            alt="선물 카드 이미지"
-            className="w-3/4"
-          />
-          <span className="line-clamp-2">선물 이름</span>
-        </div>
+      <section
+        ref={ref}
+        className="bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7.8rem] pb-[7.2rem]"
+      >
+        {[...Array(5)].map((_, i) => (
+          <div
+            key={i}
+            data-card
+            className={[
+              'flex h-[29rem] w-[18rem] shrink-0 snap-center flex-col items-center',
+              'gap-[2.4rem] rounded-[16px] border-[4px] pt-[4rem]',
+              'transition-all duration-300 ease-out will-change-transform',
+              i === active
+                ? 'from-blue-3 to-blue-2 translate-y-[2.4rem] border-white bg-gradient-to-b shadow-lg'
+                : 'translate-y-0 border-transparent bg-white',
+            ].join(' ')}
+          >
+            <img
+              src="/images/gift-card.svg"
+              alt="선물 카드 이미지"
+              className="block h-[13.3rem] w-[13.3rem] rounded-[12px] object-contain transition-all duration-300"
+            />
+            <span
+              className={
+                i === active
+                  ? 'subtitle2 text-white'
+                  : 'subtitle2 text-gray-600'
+              }
+            >
+              선물 이름
+            </span>
+          </div>
+        ))}
       </section>
+
       <section className="bg-background-02 relative h-[41.4rem]">
         <div className="flex flex-col items-center py-[7.2rem]">
           <img
