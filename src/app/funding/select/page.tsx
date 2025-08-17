@@ -1,10 +1,10 @@
 'use client';
 
 import Button from '@/components/common/Button';
-import { uesGiftScroll } from '@/hooks/funding/useGiftScroll';
+import { useGiftScroll } from '@/hooks/funding/useGiftScroll';
 
 const SelectPage = () => {
-  const { ref, active } = uesGiftScroll<HTMLDivElement>(1);
+  const { ref, active } = useGiftScroll();
 
   return (
     <div className="flex h-[100vh] flex-col">
