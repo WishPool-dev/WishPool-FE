@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 
+import SwipeGuide from '@/components/funding/select/SwipeGuide';
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
 import { PATH } from '@/constants/common/path';
 
@@ -19,6 +20,7 @@ const SelectLayout = ({ children }: { children: React.ReactNode }) => {
         }}
       />
       <main>{children}</main>
+      <SwipeGuide storageKey="swipe-guide-seen" />
     </>
   );
 };
