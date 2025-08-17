@@ -1,45 +1,27 @@
 'use client';
 
+import { data } from '@/app/funding/select/data';
 import Button from '@/components/common/Button';
-import { useGiftScroll } from '@/hooks/funding/useGiftScroll';
+import CarouselCard from '@/components/funding/select/CarouselCard';
+import { useCarouselCard } from '@/hooks/funding/useCarouselCard';
 
 const SelectPage = () => {
-  const { ref, active } = useGiftScroll();
+  const { ref, active } = useCarouselCard();
 
   return (
     <div className="flex h-[100vh] flex-col">
       <section
         ref={ref}
-        className="no-scroll bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7.8rem] pb-[7.2rem]"
+        className="no-scrollbar bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7.8rem] pb-[7.2rem]"
       >
-        {[...Array(5)].map((_, i) => (
-          <div
+        {data.map(({ giftName, giftImage }, i) => (
+          <CarouselCard
             key={i}
-            data-card
-            className={[
-              'flex h-[29rem] w-[18rem] shrink-0 snap-center flex-col items-center',
-              'gap-[2.4rem] rounded-[16px] border-[4px] pt-[4rem]',
-              'transition-all duration-300 ease-out will-change-transform',
-              i === active
-                ? 'from-blue-3 to-blue-2 translate-y-[2.4rem] border-white bg-gradient-to-b shadow-lg'
-                : 'translate-y-0 border-transparent bg-white',
-            ].join(' ')}
-          >
-            <img
-              src="/images/gift-card.svg"
-              alt="선물 카드 이미지"
-              className="block h-[13.3rem] w-[13.3rem] rounded-[12px] object-contain transition-all duration-300"
-            />
-            <span
-              className={
-                i === active
-                  ? 'subtitle2 text-white'
-                  : 'subtitle2 text-gray-600'
-              }
-            >
-              선물 이름
-            </span>
-          </div>
+            index={i}
+            activeIndex={active}
+            giftName={giftName}
+            giftImage={giftImage}
+          />
         ))}
       </section>
 

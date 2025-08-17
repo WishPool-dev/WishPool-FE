@@ -1,5 +1,5 @@
 import { data } from '@/app/funding/list/data';
-import GiftCard from '@/components/funding/select/GiftCard';
+import GiftCard from '@/components/funding/list/GiftCard';
 
 const ListPage = () => {
   return (
