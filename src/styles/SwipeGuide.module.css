@@ -7,11 +7,15 @@
     opacity: 1;
   }
   75% {
+    transform: translateY(160px);
+    opacity: 0.5;
+  }
+  85% {
     transform: translateY(170px);
-    opacity: 0.6;
+    opacity: 0.3;
   }
   100% {
-    transform: translateY(190px);
+    transform: translateY(180px);
     opacity: 0;
   }
 }
@@ -26,11 +30,15 @@
     opacity: 1;
   }
   75% {
+    transform: translateY(160px);
+    opacity: 0.5;
+  }
+  85% {
     transform: translateY(170px);
-    opacity: 0.6;
+    opacity: 0.2;
   }
   100% {
-    transform: translateY(190px);
+    transform: translateY(180px);
     opacity: 0;
   }
 }
