@@ -9,9 +9,10 @@ html {
 @theme {
   --z-index-planType: 10;
   --z-index-nav: 20;
-  --z-index-header: 30;
-  --z-index-modal: 40;
-  --z-index-toast: 50;
+  --z-index-card: 30;
+  --z-index-header: 40;
+  --z-index-modal: 50;
+  --z-index-toast: 60;
 }
 
 .no-scrollbar {

@@ -3,7 +3,16 @@ import Button from '@/components/common/Button';
 const SelectPage = () => {
   return (
     <div className="flex h-[100vh] flex-col">
-      <section className="bg-blue-5 grow-1"></section>
+      <section className="bg-blue-5 grow-1">
+        <div className="z-card flex flex-col items-center rounded-[16px] bg-white">
+          <img
+            src="/images/gift-card.svg"
+            alt="선물 카드 이미지"
+            className="w-3/4"
+          />
+          <span className="line-clamp-2">선물 이름</span>
+        </div>
+      </section>
       <section className="bg-background-02 relative h-[41.4rem]">
         <div className="flex flex-col items-center py-[7.2rem]">
           <img
