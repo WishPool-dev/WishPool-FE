@@ -1,5 +1,5 @@
 import invite from '@/assets/images/invite.png';
-import ShareComponent from '@/components/wishpool/viewer/invite/ShareComponent';
+import ShareComponent from '@/components/common/ShareComponent';
 
 const shareProps = {
   title: '생일자를 위한 위시풀이 열렸어요!',

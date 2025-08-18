@@ -6,7 +6,7 @@ import Button from '@/components/common/Button';
 import FormField from '@/components/common/FormField';
 import Icon from '@/components/common/Icon';
 import Question from '@/components/common/Question';
-import ShareComponent from '@/components/wishpool/viewer/invite/ShareComponent';
+import ShareComponent from '@/components/common/ShareComponent';
 const InvitePage = () => {
   const [isSent, setIsSent] = useState(false);
   const handleSubmit = () => {
