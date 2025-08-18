@@ -1,22 +1,12 @@
 import { useState } from 'react';
 
-// import CalendarPicker from './CalendarPicker';
-
 interface InputBoxProps {
-  content?: string;
   placeholder?: string;
   maxLength?: number;
-  // calendar?: boolean;
   height?: string;
 }
 
-const InputBox = ({
-  content,
-  placeholder,
-  maxLength,
-  // calendar,
-  height = 'h-[5.6rem]',
-}: InputBoxProps) => {
+const InputBox = ({ placeholder, maxLength, height }: InputBoxProps) => {
   const [inputValue, setInputValue] = useState('');
 
   const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -26,9 +16,9 @@ const InputBox = ({
       setInputValue(e.target.value);
     }
   };
+
   return (
     <>
-      <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">{content}</p>
       <div className="relative w-full">
         <textarea
           value={inputValue}
@@ -43,12 +33,6 @@ const InputBox = ({
             {inputValue.length}/{maxLength}
           </div>
         )}
-
-        {/* {calendar && (
-          <div className="absolute top-[1.6rem] right-[1.6rem]">
-            <CalendarPicker setValue={setInputValue} />
-          </div>
-        )} */}
       </div>
     </>
   );

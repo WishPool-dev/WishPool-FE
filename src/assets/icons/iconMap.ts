@@ -39,11 +39,11 @@ export const iconMap = {
   birthday: BirthdayIcon,
   kakao: KaKaoIcon,
   more: MoreIcon,
+  trash: TrashIcon,
   cheer: CheerIcon,
   plus: PlusIcon,
   grid: GridIcon,
   swipe: SwipeIcon,
-  trash: TrashIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;

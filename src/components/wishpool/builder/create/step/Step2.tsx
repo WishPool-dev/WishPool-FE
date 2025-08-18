@@ -1,6 +1,6 @@
+import Question from '@/components/common/Form/Question';
+import TextField from '@/components/common/Form/TextField';
 import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
-import InputBox from '@/components/wishpool/builder/create/InputBox';
-import Question from '@/components/wishpool/builder/create/Question';
 import { StepProps } from '@/types/wishpool/builder/stepProps';
 
 const Step2 = ({ onPrev, onNext }: StepProps) => {
@@ -15,12 +15,11 @@ const Step2 = ({ onPrev, onNext }: StepProps) => {
       </div>
 
       <div className="mt-[4rem]">
-        <InputBox
-          content="위시풀 소개"
+        <TextField
+          label="위시풀 제목"
           placeholder={`참여자가 이 소개글을 볼 수 있어요. 
 생일자에게는 보이지 않아요.`}
           maxLength={200}
-          height="h-[15rem]"
         />
       </div>
 
