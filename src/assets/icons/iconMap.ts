@@ -10,13 +10,16 @@ import CheerIcon from '@/assets/icons/svg/icon_cheer.svg';
 import DotIcon from '@/assets/icons/svg/icon_dot.svg';
 import DownIcon from '@/assets/icons/svg/icon_down.svg';
 import GiftIcon from '@/assets/icons/svg/icon_gift.svg';
+import GridIcon from '@/assets/icons/svg/icon_grid.svg';
 import HomeIcon from '@/assets/icons/svg/icon_home.svg';
 import KaKaoIcon from '@/assets/icons/svg/icon_kakao.svg';
 import MenuIcon from '@/assets/icons/svg/icon_menu.svg';
 import MoreIcon from '@/assets/icons/svg/icon_more.svg';
 import PhotoIcon from '@/assets/icons/svg/icon_photo.svg';
-import TrashIcon from '@/assets/icons/svg/icon_trash.svg';
 import PlusIcon from '@/assets/icons/svg/icon_plus.svg';
+import SwipeIcon from '@/assets/icons/svg/icon_swipe.svg';
+import TrashIcon from '@/assets/icons/svg/icon_trash.svg';
+import TrashIcon from '@/assets/icons/svg/icon_trash.svg';
 import UpIcon from '@/assets/icons/svg/icon_up.svg';
 import WishIcon from '@/assets/icons/svg/icon_wish.svg';
 
@@ -40,6 +43,9 @@ export const iconMap = {
   trash: TrashIcon,
   cheer: CheerIcon,
   plus: PlusIcon,
+  grid: GridIcon,
+  swipe: SwipeIcon,
+  trash: TrashIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;

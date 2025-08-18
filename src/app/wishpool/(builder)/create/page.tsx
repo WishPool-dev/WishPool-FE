@@ -22,7 +22,7 @@ const CreatePage = () => {
     router.back();
   };
   const handleGoResult = () => {
-    router.push(PATH.WISHPOOL_PREVIEW);
+    router.push(PATH.WISHPOOL_PREVIEW(1));
   };
 
   return (
