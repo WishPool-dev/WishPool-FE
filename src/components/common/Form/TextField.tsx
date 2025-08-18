@@ -16,7 +16,7 @@ const TextField = ({ label, maxLength, placeholder }: FormFieldProps) => {
           value={inputValue}
           onChange={handleInputChange}
           placeholder={placeholder}
-          className="body1 flex h-[15rem] w-full rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.5rem] placeholder:text-gray-400 focus:border-gray-400 focus:outline-none"
+          className="body1 flex h-[15rem] w-full resize-none rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.5rem] placeholder:text-gray-400 focus:border-gray-400 focus:outline-none"
         />
         {maxLength && (
           <div className="caption2 absolute right-[1.6rem] bottom-[2rem] mt-[0.4rem] text-gray-600">
