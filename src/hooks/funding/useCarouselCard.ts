@@ -28,9 +28,12 @@ export function useCarouselCard<T extends HTMLElement>(initialIndex = 0) {
   const centerTo = (i: number, behavior: ScrollBehavior = 'auto') => {
     const c = ref.current;
     if (!c) return;
+
     const cards = getCards(c);
     const target = cards[i];
+
     if (!target) return;
+
     const mid = target.offsetLeft + target.offsetWidth / 2;
     const left = mid - c.clientWidth / 2;
     c.scrollTo({ left, behavior });

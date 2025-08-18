@@ -1,8 +1,8 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useState } from 'react';
 
-import { data as initialData } from '@/app/funding/select/data';
+import { data } from '@/app/funding/select/data';
 import Button from '@/components/common/Button';
 import CarouselCard from '@/components/funding/select/CarouselCard';
 import { useCarouselCard } from '@/hooks/funding/useCarouselCard';
@@ -11,10 +11,8 @@ import { GiftCardType } from '@/types/common/giftCardType';
 const SelectPage = () => {
   const { ref, active } = useCarouselCard<HTMLDivElement>();
   const [items, setItems] = useState<GiftCardType[]>(
-    initialData.map((d, i) => ({ ...d, id: i })),
+    data.map((d, i) => ({ ...d, id: i })),
   );
-
-  const holeRef = useRef<HTMLDivElement | null>(null);
 
   const handleRemove = (id: number) => {
     setItems((prev) => prev.filter((item) => item.giftId !== id));
@@ -35,7 +33,6 @@ const SelectPage = () => {
             activeIndex={active}
             giftName={giftName}
             giftImage={giftImage}
-            holeRef={holeRef}
             onRemove={handleRemove}
           />
         ))}
@@ -56,12 +53,6 @@ const SelectPage = () => {
             아래로 드래그하면 리스트에서 제외돼요.
           </p>
         </div>
-
-        <div
-          ref={holeRef}
-          aria-label="삭제 구역"
-          className="pointer-events-none absolute top-[5rem] left-1/2 h-[9rem] w-[20rem] -translate-x-1/2"
-        />
 
         <button className="title2 absolute inset-x-0 bottom-[8.4rem] text-gray-600 underline">
           처음부터 다시 고르기
