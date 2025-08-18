@@ -24,8 +24,9 @@ const SelectPage = () => {
     <div className="flex h-[100vh] flex-col">
       <section
         ref={ref}
-        className="no-scrollbar bg-blue-5 relative flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-visible px-[2rem] pt-[7.8rem] pb-[7.2rem]"
+        className="no-scrollbar bg-blue-5 z-card relative flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-visible px-[2rem] pt-[7.8rem] pb-[7.2rem]"
       >
+        <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
         {items.map(({ giftId, giftName, giftImage }, i) => (
           <CarouselCard
             key={giftId}
@@ -38,9 +39,10 @@ const SelectPage = () => {
             onRemove={handleRemove}
           />
         ))}
+        <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
       </section>
 
-      <section className="bg-background-02 relative z-10 grow">
+      <section className="bg-background-02 relative grow">
         <div className="flex flex-col items-center py-[7.2rem]">
           <img
             src="/images/hole.svg"
