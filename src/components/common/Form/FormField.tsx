@@ -1,6 +1,6 @@
-import CalendarField from '@/components/common/CalendarField';
+import CalendarField from '@/components/common/Calendar';
+import InputBox from '@/components/common/Form/InputBox';
 import Icon from '@/components/common/Icon';
-import InputBox from '@/components/common/InputBox';
 import UserTag from '@/components/common/UserTag';
 import { formFieldHeightMap } from '@/constants/wishpool/builder/formField.constants';
 import { FormFieldSize, Mode } from '@/types/wishpool/builder/FormField';

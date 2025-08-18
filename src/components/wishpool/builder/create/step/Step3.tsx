@@ -1,5 +1,5 @@
+import Question from '@/components/common/Form/Question';
 import Icon from '@/components/common/Icon';
-import Question from '@/components/common/Question';
 import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
 import { StepProps } from '@/types/wishpool/builder/stepProps';
 
