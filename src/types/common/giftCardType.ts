@@ -1,5 +1,5 @@
 export type GiftCardType = {
-  giftId: number;
+  giftId?: number;
   giftName: string;
   giftImage: string;
 };

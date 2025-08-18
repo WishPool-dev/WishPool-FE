@@ -1,9 +1,9 @@
+import type { GiftCardType } from '@/types/common/giftCardType';
+
 type CarouselCardProps = {
   index: number;
   activeIndex: number;
-  giftName: string;
-  giftImage: string;
-};
+} & GiftCardType;
 
 const CarouselCard = ({
   index,
