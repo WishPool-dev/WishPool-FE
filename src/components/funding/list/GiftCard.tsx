@@ -1,6 +1,8 @@
 import type { GiftCardType } from '@/types/common/giftCardType';
 
-const GiftCard = ({ giftName, giftImage }: GiftCardType) => {
+type GiftCardProps = Omit<GiftCardType, 'giftId'>;
+
+const GiftCard = ({ giftName, giftImage }: GiftCardProps) => {
   return (
     <div className="bg-background-01 flex grow-1 flex-col items-center gap-[2.4rem] rounded-[16px] p-[2.2rem]">
       <img
