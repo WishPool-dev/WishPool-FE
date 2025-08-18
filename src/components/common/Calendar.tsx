@@ -50,6 +50,7 @@ const Calendar = () => {
         wrapperClassName="w-full"
         popperPlacement="bottom"
         calendarClassName={styles.customCalendarSize}
+        minDate={new Date()}
       />
     </>
   );
