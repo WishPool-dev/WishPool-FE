@@ -6,19 +6,18 @@ import { data as initialData } from '@/app/funding/select/data';
 import Button from '@/components/common/Button';
 import CarouselCard from '@/components/funding/select/CarouselCard';
 import { useCarouselCard } from '@/hooks/funding/useCarouselCard';
-
-type Item = { id: number; giftName: string; giftImage: string };
+import { GiftCardType } from '@/types/common/giftCardType';
 
 const SelectPage = () => {
   const { ref, active } = useCarouselCard<HTMLDivElement>();
-  const [items, setItems] = useState<Item[]>(
+  const [items, setItems] = useState<GiftCardType[]>(
     initialData.map((d, i) => ({ ...d, id: i })),
   );
 
   const holeRef = useRef<HTMLDivElement | null>(null);
 
   const handleRemove = (id: number) => {
-    setItems((prev) => prev.filter((item) => item.id !== id));
+    setItems((prev) => prev.filter((item) => item.giftId !== id));
   };
 
   return (
@@ -27,10 +26,10 @@ const SelectPage = () => {
         ref={ref}
         className="no-scrollbar bg-blue-5 relative flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-visible px-[2rem] pt-[7.8rem] pb-[7.2rem]"
       >
-        {items.map(({ id, giftName, giftImage }, i) => (
+        {items.map(({ giftId, giftName, giftImage }, i) => (
           <CarouselCard
-            key={id}
-            id={id}
+            key={giftId}
+            giftId={giftId}
             index={i}
             activeIndex={active}
             giftName={giftName}
@@ -41,7 +40,6 @@ const SelectPage = () => {
         ))}
       </section>
 
-      {/* 아래: 안내 + 구멍 */}
       <section className="bg-background-02 relative z-10 grow">
         <div className="flex flex-col items-center py-[7.2rem]">
           <img
