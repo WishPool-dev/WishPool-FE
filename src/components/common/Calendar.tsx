@@ -24,10 +24,10 @@ const CustomInput = forwardRef<HTMLButtonElement, CustomInputProps>(
           aria-label="날짜 선택"
         >
           <span className={value ? '' : 'text-gray-400'}>
-            {value || 'YY/MM/DD'}
+            {value || 'YYYY/MM/DD'}
           </span>
           <span className="absolute right-[1.6rem] bottom-[2rem] mt-[0.4rem]">
-            <Icon name="calendar" title="달력 열기" />
+            <Icon name="calendar" title="달력 열기" width={24} height={24} />
           </span>
         </button>
       </div>
