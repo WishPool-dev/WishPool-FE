@@ -4,7 +4,7 @@ import { useState } from 'react';
 
 import Icon from '@/components/common/Icon';
 
-export const InfoNotice = ({
+const InfoNotice = ({
   children,
   accordionContent,
 }: {
@@ -40,3 +40,5 @@ export const InfoNotice = ({
     </div>
   );
 };
+
+export default InfoNotice;

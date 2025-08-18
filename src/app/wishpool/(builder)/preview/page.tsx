@@ -15,7 +15,7 @@ const PreviewPage = () => {
   };
 
   const handleComplete = () => {
-    router.push(PATH.WISHPOOL_SHARE);
+    router.push(PATH.WISHPOOL_SHARE(1));
   };
 
   return (

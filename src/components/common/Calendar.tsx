@@ -24,10 +24,10 @@ const CustomInput = forwardRef<HTMLButtonElement, CustomInputProps>(
           aria-label="날짜 선택"
         >
           <span className={value ? '' : 'text-gray-400'}>
-            {value || 'YY/MM/DD'}
+            {value || 'YYYY/MM/DD'}
           </span>
           <span className="absolute right-[1.6rem] bottom-[2rem] mt-[0.4rem]">
-            <Icon name="calendar" title="달력 열기" />
+            <Icon name="calendar" title="달력 열기" width={24} height={24} />
           </span>
         </button>
       </div>
@@ -36,7 +36,7 @@ const CustomInput = forwardRef<HTMLButtonElement, CustomInputProps>(
 );
 CustomInput.displayName = 'CustomInput'; //디버깅용
 
-const CalendarField = () => {
+const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
   return (
@@ -50,9 +50,10 @@ const CalendarField = () => {
         wrapperClassName="w-full"
         popperPlacement="bottom"
         calendarClassName={styles.customCalendarSize}
+        minDate={new Date()}
       />
     </>
   );
 };
 
-export default CalendarField;
+export default Calendar;
