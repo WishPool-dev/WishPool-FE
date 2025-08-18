@@ -1,6 +1,6 @@
 import Icon from '@/components/common/Icon';
-import ButtonContainer from '@/components/wishpool/form/create/ButtonContainer';
-import Question from '@/components/wishpool/form/create/Question';
+import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
+import Question from '@/components/wishpool/builder/create/Question';
 import { StepProps } from '@/types/wishpool/builder/stepProps';
 
 const Step3 = ({ onPrev, onNext }: StepProps) => {

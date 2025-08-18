@@ -1,6 +1,6 @@
-import ButtonContainer from '@/components/wishpool/form/create/ButtonContainer';
-import InputBox from '@/components/wishpool/form/create/InputBox';
-import Question from '@/components/wishpool/form/create/Question';
+import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
+import InputBox from '@/components/wishpool/builder/create/InputBox';
+import Question from '@/components/wishpool/builder/create/Question';
 import { StepProps } from '@/types/wishpool/builder/stepProps';
 
 const Step4 = ({ onPrev, onNext }: StepProps) => {
@@ -14,11 +14,7 @@ const Step4 = ({ onPrev, onNext }: StepProps) => {
       </div>
 
       <div className="mt-[3.2rem]">
-        <InputBox
-          content="선물 리스트 마감일"
-          calendar={true}
-          placeholder="YY/MM/DD"
-        />
+        <InputBox content="선물 리스트 마감일" placeholder="YY/MM/DD" />
       </div>
       <ButtonContainer
         next="active"
