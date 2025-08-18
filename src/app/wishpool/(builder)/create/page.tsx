@@ -4,11 +4,11 @@ import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
-import ProgressBar from '@/components/wishpool/form/create/ProgressBar';
-import Step1 from '@/components/wishpool/form/create/step/Step1';
-import Step2 from '@/components/wishpool/form/create/step/Step2';
-import Step3 from '@/components/wishpool/form/create/step/Step3';
-import Step4 from '@/components/wishpool/form/create/step/Step4';
+import ProgressBar from '@/components/wishpool/builder/create/ProgressBar';
+import Step1 from '@/components/wishpool/builder/create/step/Step1';
+import Step2 from '@/components/wishpool/builder/create/step/Step2';
+import Step3 from '@/components/wishpool/builder/create/step/Step3';
+import Step4 from '@/components/wishpool/builder/create/step/Step4';
 import { PATH } from '@/constants/common/path';
 
 const CreatePage = () => {
@@ -22,7 +22,7 @@ const CreatePage = () => {
     router.back();
   };
   const handleGoResult = () => {
-    router.push(PATH.WISHPOOL_PREVIEW);
+    router.push(PATH.WISHPOOL_PREVIEW(1));
   };
 
   return (
