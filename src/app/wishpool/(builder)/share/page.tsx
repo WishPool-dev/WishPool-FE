@@ -1,20 +1,11 @@
-import invite from '@/assets/images/invite.png';
-import ShareComponent from '@/components/common/ShareComponent';
-
-const shareProps = {
-  title: '생일자를 위한 위시풀이 열렸어요!',
-  description: '이제 리스트를 함께 만들 참여자들을 모집해요.',
-  imgSrc: invite,
-  imgAlt: '초대 단계 이미지',
-  linkTitle: '위시풀 초대장',
-  linkUrl: 'https://WishPool/gift/to-you',
-  linkDescription: '위시풀 만들기에 참여해 줄 친구들에게 공유해 주세요!',
-};
+import WishpoolShareSection from '@/components/common/WishpoolShareSection';
 
 const SharePage = () => {
+  const linkurl = 'https://wishpool.store/${wishpoolId}'; // 백엔드에서 제공하는 링크로 변경 필요
+  const target = 'participants';
   return (
     <>
-      <ShareComponent {...shareProps} />
+      <WishpoolShareSection linkUrl={linkurl} shareTarget={target} />
     </>
   );
 };
