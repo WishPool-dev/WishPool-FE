@@ -1,32 +1,46 @@
 'use client';
-import Image, { StaticImageData } from 'next/image';
+import Image from 'next/image';
 import { useState } from 'react';
 
+import invite from '@/assets/images/invite.png';
+import share from '@/assets/images/share.png';
 import IconButton from '@/components/common/Button/IconButton';
 import Icon from '@/components/common/Icon';
+import Toast from '@/components/common/Toast';
+import { ShareTarget } from '@/types/common/shareTarget';
 
-import Toast from './Toast';
+const WISHPOOL_SHARE_CONTENT = {
+  participants: {
+    title: '생일자를 위한 위시풀이 열렸어요!',
+    description: '이제 리스트를 함께 만들 참여자들을 모집해요.',
+    imgSrc: invite,
+    imgAlt: '초대 단계 이미지',
+    linkTitle: '위시풀 초대장',
+    linkDescription: '위시풀 만들기에 참여해 줄 친구들에게 공유해 주세요!',
+  },
+  celebrant: {
+    title: '위시풀 완성!',
+    description: '이제 생일인 친구가 선물을 고를 수 있어요!',
+    imgSrc: share,
+    imgAlt: '위시풀 공유 완료 일러스트',
+    linkTitle: '위시풀 링크',
+    linkDescription: '생일자에게 위시풀 링크를 공유해 주세요!',
+  },
+};
 
 interface ShareComponentProps {
-  title: string;
-  description: string;
-  imgSrc: StaticImageData;
-  imgAlt: string;
-  linkTitle: string;
   linkUrl: string;
-  linkDescription: string;
+  shareTarget: ShareTarget;
 }
 
-const ShareComponent = ({
-  title,
-  description,
-  imgSrc,
-  imgAlt,
-  linkTitle,
+const WishpoolShareSection = ({
   linkUrl,
-  linkDescription,
+  shareTarget,
 }: ShareComponentProps) => {
   const [toast, setToast] = useState(false);
+
+  const { title, description, imgSrc, imgAlt, linkTitle, linkDescription } =
+    WISHPOOL_SHARE_CONTENT[shareTarget];
 
   const handleCopyUrl = () => {
     navigator.clipboard
@@ -39,6 +53,7 @@ const ShareComponent = ({
         console.error('링크 복사에 실패했습니다. 다시 시도해주세요.', error);
       });
   };
+
   return (
     <>
       {toast && <Toast>링크가 복사되었습니다!</Toast>}
@@ -75,4 +90,4 @@ const ShareComponent = ({
   );
 };
 
-export default ShareComponent;
+export default WishpoolShareSection;
