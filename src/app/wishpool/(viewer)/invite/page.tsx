@@ -1,53 +1,28 @@
 'use client';
 import { useState } from 'react';
 
-import share from '@/assets/images/share.png';
 import Button from '@/components/common/Button';
-import FormField from '@/components/common/FormField';
+import CalendarField from '@/components/common/Form/CalendarField';
+import Question from '@/components/common/Form/Question';
 import Icon from '@/components/common/Icon';
-import Question from '@/components/common/Question';
-import ShareComponent from '@/components/common/ShareComponent';
+import WishpoolShareSection from '@/components/common/WishpoolShareSection';
+
 const InvitePage = () => {
   const [isSent, setIsSent] = useState(false);
   const handleSubmit = () => {
     setIsSent(true);
+    //link 요청하는 api 호출 코드 추가
   };
-  const shareProps = {
-    title: '위시풀 완성!',
-    description: '이제 생일인 친구가 선물을 고를 수 있어요!',
-    imgSrc: share,
-    imgAlt: '초대 단계 이미지',
-    linkTitle: '위시풀 링크',
-    linkUrl: 'https://WishPool/gift/to-you',
-    linkDescription: '생일자에게 위시풀 링크를 공유해 주세요!',
-  };
+  const linkurl = 'https://wishpool.store/${wishpoolId}'; // 백엔드에서 제공하는 링크로 변경 필요
+  const target = 'celebrant';
+
   return (
     <>
       {isSent ? (
-        <ShareComponent {...shareProps} />
+        <WishpoolShareSection linkUrl={linkurl} shareTarget={target} />
       ) : (
         <>
-          <Question
-            question="생일인 친구가 언제까지 선물을 고를까요?"
-            required={true}
-          />
-          <div className="mt-[4.2rem]">
-            <FormField
-              mode="calendar"
-              label="선물 고르기 마감일"
-              tag="생일자"
-            />
-          </div>
-          <div className="mt-[1.2rem] flex flex-row gap-[1.2rem]">
-            <Icon name="alert" width={16} height={16} />
-            <p className="caption3 justify-start leading-none text-gray-600">
-              생일자가 선물을 고를 수 있는 날짜예요. 그때까지만 위시풀을
-              열어둘게요!
-            </p>
-          </div>
-          <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
-            <Button onClick={handleSubmit}>보내기</Button>
-          </div>
+          <DateSelectionSection onSubmit={handleSubmit} />
         </>
       )}
     </>
@@ -55,3 +30,26 @@ const InvitePage = () => {
 };
 
 export default InvitePage;
+
+const DateSelectionSection = ({ onSubmit }: { onSubmit: () => void }) => {
+  return (
+    <>
+      <Question
+        question="생일인 친구가 언제까지 선물을 고를까요?"
+        required={true}
+      />
+      <div className="mt-[4.2rem]">
+        <CalendarField label="선물 고르기 마감일" tag="생일자" />
+      </div>
+      <div className="mt-[1.2rem] flex flex-row gap-[1.2rem]">
+        <Icon name="alert" width={16} height={16} />
+        <p className="caption3 justify-start leading-none text-gray-600">
+          생일자가 선물을 고를 수 있는 날짜예요. 그때까지만 위시풀을 열어둘게요!
+        </p>
+      </div>
+      <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
+        <Button onClick={onSubmit}>보내기</Button>
+      </div>
+    </>
+  );
+};
