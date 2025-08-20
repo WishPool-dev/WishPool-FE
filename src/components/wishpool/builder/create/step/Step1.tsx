@@ -1,5 +1,5 @@
+import BasicInputField from '@/components/common/Form/BasicInputField';
 import CalendarField from '@/components/common/Form/CalendarField';
-import BasicInputField from '@/components/common/Form/InputField';
 import Question from '@/components/common/Form/Question';
 import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
 import { StepProps } from '@/types/wishpool/builder/stepProps';
