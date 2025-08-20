@@ -1,25 +1,29 @@
 'use client';
+import Image from 'next/image';
 import { useState } from 'react';
 
+import invite from '@/assets/images/invite.png';
 import Button from '@/components/common/Button';
 import CalendarField from '@/components/common/Form/CalendarField';
 import Question from '@/components/common/Form/Question';
 import Icon from '@/components/common/Icon';
 import WishpoolShareSection from '@/components/common/WishpoolShareSection';
+import { ShareSectionType } from '@/types/common/ShareSectionType';
 
 const InvitePage = () => {
-  const [isSent, setIsSent] = useState(false);
+  const [showShare, setShowShare] = useState(false);
+
   const handleSubmit = () => {
-    setIsSent(true);
-    //link 요청하는 api 호출 코드 추가
+    setShowShare(true);
   };
-  const linkurl = 'https://wishpool.store/${wishpoolId}'; // 백엔드에서 제공하는 링크로 변경 필요
-  const target = 'celebrant';
+
+  const url = 'https://wishpool.store/${wishpoolId}';
+  const content = 'invite' as ShareSectionType;
 
   return (
     <>
-      {isSent ? (
-        <WishpoolShareSection linkUrl={linkurl} shareTarget={target} />
+      {showShare ? (
+        <ShareSection url={url} content={content} />
       ) : (
         <>
           <DateSelectionSection onSubmit={handleSubmit} />
@@ -30,6 +34,34 @@ const InvitePage = () => {
 };
 
 export default InvitePage;
+
+const ShareSection = ({
+  url,
+  content,
+}: {
+  url: string;
+  content: ShareSectionType;
+}) => (
+  <>
+    <div className="mt-[2.8rem] flex flex-col items-center">
+      <h3 className="text-text head1">위시풀 완성!</h3>
+      <p className="text-text body1 mt-[0.4rem]">
+        이제 생일인 친구가 선물을 고를 수 있어요!
+      </p>
+    </div>
+
+    <div className="mt-[3.8rem] flex items-center justify-center">
+      <Image
+        src={invite}
+        alt="위시풀 공유 완료 일러스트"
+        width={180}
+        height={180}
+      />
+    </div>
+
+    <WishpoolShareSection linkUrl={url} linkContent={content} />
+  </>
+);
 
 const DateSelectionSection = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
