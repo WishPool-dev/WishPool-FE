@@ -11,7 +11,7 @@ const Rating = ({ rate }: RatingProps) => {
         <Icon
           key={i}
           name="star"
-          className={`h-[3.2rem] w-[3.2rem] ${i < rate ? 'text-blue-2' : 'text-gray-300'}`}
+          className={`h-[3.2rem] w-[3.2rem] ${i < rate ? 'text-blue-2' : '[&>path]:fill-background-02 [&>path]:stroke-gray-400'}`}
         />
       ))}
     </div>
