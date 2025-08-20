@@ -5,6 +5,7 @@ import IconButton from '@/components/common/Button/IconButton';
 import Icon from '@/components/common/Icon';
 import Toast from '@/components/common/Toast';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
+import copyText from '@/utils/wishpool/viewer/copyText';
 
 const WISHPOOL_SHARE_CONTENT = {
   invite: {
@@ -22,24 +23,19 @@ interface ShareComponentProps {
   linkContent: ShareSectionType;
 }
 
-const WishpoolShareSection = ({
-  linkUrl,
-  linkContent,
-}: ShareComponentProps) => {
+const WishpoolShareBox = ({ linkUrl, linkContent }: ShareComponentProps) => {
   const [toast, setToast] = useState(false);
 
   const { linkTitle, linkDescription } = WISHPOOL_SHARE_CONTENT[linkContent];
 
-  const handleCopyUrl = () => {
-    navigator.clipboard
-      .writeText(linkUrl)
-      .then(() => {
-        setToast(true);
-        setTimeout(() => setToast(false), 2500);
-      })
-      .catch((error) => {
-        console.error('링크 복사에 실패했습니다. 다시 시도해주세요.', error);
-      });
+  const handleCopyUrl = async () => {
+    const ok = await copyText(linkUrl);
+    if (ok) {
+      setToast(true);
+      setTimeout(() => setToast(false), 2500);
+    } else {
+      console.error('링크 복사에 실패했습니다. 다시 시도해주세요.');
+    }
   };
 
   return (
@@ -70,4 +66,4 @@ const WishpoolShareSection = ({
   );
 };
 
-export default WishpoolShareSection;
+export default WishpoolShareBox;

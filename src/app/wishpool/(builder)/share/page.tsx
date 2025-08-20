@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 import share from '@/assets/images/share.png';
-import WishpoolShareSection from '@/components/common/WishpoolShareSection';
+import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 
 const SharePage = () => {

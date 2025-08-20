@@ -7,7 +7,7 @@ import Button from '@/components/common/Button';
 import CalendarField from '@/components/common/Form/CalendarField';
 import Question from '@/components/common/Form/Question';
 import Icon from '@/components/common/Icon';
-import WishpoolShareSection from '@/components/common/WishpoolShareSection';
+import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 
 const InvitePage = () => {
