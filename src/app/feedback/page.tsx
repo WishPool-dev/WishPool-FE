@@ -35,10 +35,12 @@ const FeedbackPage = () => {
           maxLength={500}
         />
       </div>
-      <div className="fixed inset-x-0 bottom-0 p-[2rem]">
-        <Button type="submit" onClick={handleSubmit}>
-          보내기
-        </Button>
+      <div className="fixed inset-x-0 bottom-0">
+        <div className="mx-auto w-full max-w-[430px] p-[2rem]">
+          <Button type="submit" onClick={handleSubmit}>
+            보내기
+          </Button>
+        </div>
       </div>
     </section>
   );
