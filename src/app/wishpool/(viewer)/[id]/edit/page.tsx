@@ -69,13 +69,6 @@ const EditPage = () => {
           저장하기
         </Button>
       </div>
-      {/* <div className="fixed inset-x-0 bottom-0">
-        <div className="mx-auto w-full max-w-[430px] p-[2rem]">
-          <Button type="submit" onClick={handleSubmit}>
-            보내기
-          </Button>
-        </div>
-      </div> */}
     </>
   );
 };
