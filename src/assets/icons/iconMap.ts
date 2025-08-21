@@ -18,6 +18,7 @@ import MenuIcon from '@/assets/icons/svg/icon_menu.svg';
 import MoreIcon from '@/assets/icons/svg/icon_more.svg';
 import PhotoIcon from '@/assets/icons/svg/icon_photo.svg';
 import PlusIcon from '@/assets/icons/svg/icon_plus.svg';
+import StarIcon from '@/assets/icons/svg/icon_star.svg';
 import SwipeIcon from '@/assets/icons/svg/icon_swipe.svg';
 import TrashIcon from '@/assets/icons/svg/icon_trash.svg';
 import UpIcon from '@/assets/icons/svg/icon_up.svg';
@@ -45,6 +46,7 @@ export const iconMap = {
   alert: AlertIcon,
   grid: GridIcon,
   swipe: SwipeIcon,
+  star: StarIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;
