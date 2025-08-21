@@ -12,10 +12,11 @@ const EditPage = () => {
   const onClickHandler = () => {
     //TODO: 이미지 업로드 기능 추가
   };
+  const handleSubmit = () => {};
 
   return (
     <>
-      <section className="mt-[5.4rem] px-[2rem] pb-[16.9rem]">
+      <section className="mt-[5.4rem] mb-[6.3rem] px-[2rem]">
         <div className="relative -mx-[2rem]">
           <Image
             src="/images/wishpool-card.svg"
@@ -63,9 +64,18 @@ const EditPage = () => {
           <CalendarField tag="참여자" label="선물 리스트 마감일" />
         </div>
       </section>
-      <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
-        <Button>저장하기</Button>
+      <div className="mx-auto w-full max-w-[430px] p-[2rem]">
+        <Button type="submit" onClick={handleSubmit}>
+          저장하기
+        </Button>
       </div>
+      {/* <div className="fixed inset-x-0 bottom-0">
+        <div className="mx-auto w-full max-w-[430px] p-[2rem]">
+          <Button type="submit" onClick={handleSubmit}>
+            보내기
+          </Button>
+        </div>
+      </div> */}
     </>
   );
 };
