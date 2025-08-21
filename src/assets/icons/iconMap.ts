@@ -1,5 +1,6 @@
 'use client';
 
+import AlertIcon from '@/assets/icons/svg/icon_alert.svg';
 import BackIcon from '@/assets/icons/svg/icon_back.svg';
 import BirthdayIcon from '@/assets/icons/svg/icon_birthday.svg';
 import GiftButtonIcon from '@/assets/icons/svg/icon_button_gift.svg';
@@ -21,7 +22,6 @@ import SwipeIcon from '@/assets/icons/svg/icon_swipe.svg';
 import TrashIcon from '@/assets/icons/svg/icon_trash.svg';
 import UpIcon from '@/assets/icons/svg/icon_up.svg';
 import WishIcon from '@/assets/icons/svg/icon_wish.svg';
-
 export const iconMap = {
   back: BackIcon,
   home: HomeIcon,
@@ -42,6 +42,7 @@ export const iconMap = {
   trash: TrashIcon,
   cheer: CheerIcon,
   plus: PlusIcon,
+  alert: AlertIcon,
   grid: GridIcon,
   swipe: SwipeIcon,
 } as const;
