@@ -54,7 +54,7 @@ const EditPage = () => {
           <CalendarField label="곧 다가올 생일" />
         </div>
 
-        <hr className="bg-background-02 -mx-[2rem] my-[3.2rem] h-[0.8rem] max-w-[430px]" />
+        <hr className="bg-background-02 -mx-[2rem] my-[3.2rem] h-[0.8rem] border-0" />
 
         <div className="mt-[4rem]">
           <TextField label="위시풀 제목" maxLength={200} />
