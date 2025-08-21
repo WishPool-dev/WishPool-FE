@@ -16,10 +16,11 @@ const FeedbackBox = () => {
         className="absolute top-0 left-[2/8rem] h-[6rem] w-[6rem] -translate-y-1/2"
       />
       <div className="text-text mb-[2.8rem] px-[0.8rem]">
-        <h3 className="title2 mb-[0.4rem]">WishpooL 사용 피드백</h3>
+        <h3 className="title2 mb-[0.4rem]">WishpooL은 어땠나요?</h3>
         <p className="body2">
-          서비스는 만족스러우셨나요? <br />
-          유저님의 소중한 평가와 피드백을 남겨주세요.
+          WishpooL을 더 좋은 서비스로 만들기 위해
+          <br />
+          유저님의 소중한 의견을 받고 있어요.
         </p>
       </div>
       <div className="flex flex-col gap-[0.4rem]">
@@ -27,7 +28,7 @@ const FeedbackBox = () => {
         <Button
           backgroundColor="transparent"
           textSize="md"
-          onClick={() => router.push(PATH.FUNDING_FEEDBACK)}
+          onClick={() => router.push(PATH.FEEDBACK)}
         >
           <span className="text-gray-800 underline">다음에 할게요</span>
         </Button>
