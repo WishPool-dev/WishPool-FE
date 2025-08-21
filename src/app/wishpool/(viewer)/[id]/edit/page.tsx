@@ -25,7 +25,7 @@ const EditPage = () => {
             className="w-full"
             alt="위시풀 대표 이미지"
           />
-          <div className="absolute inset-0 bg-black/20"></div>
+          <div className="absolute inset-0 bg-black/20" />
 
           <button
             type="button"
@@ -40,7 +40,7 @@ const EditPage = () => {
                 height={24}
                 className="text-gray-600"
               />
-              <p className="caption1 text-gray-600">바꾸기</p>
+              <span className="caption1 text-gray-600">바꾸기</span>
             </div>
           </button>
         </div>
