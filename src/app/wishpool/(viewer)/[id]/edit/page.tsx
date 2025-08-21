@@ -9,6 +9,10 @@ import TextField from '@/components/common/Form/TextField';
 import Icon from '@/components/common/Icon';
 
 const EditPage = () => {
+  const onClickHandler = () => {
+    //TODO: 이미지 업로드 기능 추가
+  };
+
   return (
     <>
       <section className="mt-[5.4rem] px-[2rem] pb-[16.9rem]">
@@ -21,7 +25,13 @@ const EditPage = () => {
             alt="위시풀 대표 이미지"
           />
           <div className="absolute inset-0 bg-black/20"></div>
-          <div className="absolute top-1/2 left-1/2 h-[7.2rem] w-[7.2rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/70">
+
+          <button
+            type="button"
+            onClick={onClickHandler}
+            className="absolute top-1/2 left-1/2 h-[7.2rem] w-[7.2rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/70"
+            aria-label="이미지 바꾸기"
+          >
             <div className="relative flex h-full w-full flex-col items-center justify-center gap-[0.2rem]">
               <Icon
                 name="photo"
@@ -31,7 +41,7 @@ const EditPage = () => {
               />
               <p className="caption1 text-gray-600">바꾸기</p>
             </div>
-          </div>
+          </button>
         </div>
 
         <span className="bg-background-02 caption2 mt-[2.8rem] inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
