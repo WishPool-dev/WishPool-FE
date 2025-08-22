@@ -1,9 +1,14 @@
 'use client';
+import { useRouter } from 'next/navigation';
+
 import Button from '@/components/common/Button';
 import GiftField from '@/components/common/Form/GiftField';
 import Question from '@/components/common/Form/Question';
 import Icon from '@/components/common/Icon';
-const page = () => {
+import { PATH } from '@/constants/common/path';
+
+const AddPage = () => {
+  const router = useRouter();
   return (
     <>
       <Question required={true} question="주고 싶은 선물을 제안해 주세요." />
@@ -49,7 +54,9 @@ const page = () => {
           </Button>
           <Button
             textSize="sm"
-            // onClick={() => {}}
+            onClick={() => {
+              router.push(PATH.JOIN_PREVIEW);
+            }}
           >
             다음
           </Button>
@@ -59,4 +66,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default AddPage;
