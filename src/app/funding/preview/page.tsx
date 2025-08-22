@@ -1,8 +1,22 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 import { data } from '@/app/funding/preview/data';
 import Button from '@/components/common/Button';
 import GiftCard from '@/components/funding/list/GiftCard';
+import { PATH } from '@/constants/common/path';
 
 const CompletePage = () => {
+  const router = useRouter();
+
+  const handleBack = () => {
+    router.back();
+  };
+
+  const handleSubmit = () => {
+    router.push(PATH.FUNDING_COMPLETE);
+  };
   return (
     <div className="pt-[2.8rem]">
       <h1 className="text-blue-primary caption1">최종 점검</h1>
@@ -23,10 +37,17 @@ const CompletePage = () => {
           이 선물로 결정할까요?
         </p>
         <div className="flex justify-between gap-[1.3rem]">
-          <Button textColor="black" backgroundColor="light" textSize="sm">
+          <Button
+            textColor="black"
+            backgroundColor="light"
+            textSize="sm"
+            onClick={handleBack}
+          >
             다시 고르기
           </Button>
-          <Button textSize="sm">완료하기</Button>
+          <Button textSize="sm" onClick={handleSubmit}>
+            완료하기
+          </Button>
         </div>
       </div>
     </div>
