@@ -6,10 +6,10 @@ import { createPortal } from 'react-dom';
 type ModalProps = {
   children: React.ReactNode;
   onClose?: () => void;
-  isDelete?: boolean;
+  hasOverlay?: boolean;
 };
 
-const Modal = ({ children, onClose, isDelete = false }: ModalProps) => {
+const BaseModal = ({ children, onClose, hasOverlay = false }: ModalProps) => {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const Modal = ({ children, onClose, isDelete = false }: ModalProps) => {
   return createPortal(
     <div
       className={`z-modal fixed inset-0 mx-auto max-w-[430px] ${
-        isDelete ? 'bg-black/60' : ''
+        hasOverlay ? 'bg-black/60' : ''
       }`}
       onClick={onClose}
     >
@@ -36,4 +36,4 @@ const Modal = ({ children, onClose, isDelete = false }: ModalProps) => {
   );
 };
 
-export default Modal;
+export default BaseModal;

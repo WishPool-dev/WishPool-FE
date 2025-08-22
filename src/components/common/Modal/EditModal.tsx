@@ -2,7 +2,7 @@
 
 import { useParams, useRouter } from 'next/navigation';
 
-import Modal from '@/components/common/Modal';
+import BaseModal from '@/components/common/Modal/BaseModal';
 import { PATH } from '@/constants/common/path';
 
 type EditModalProps = {
@@ -18,7 +18,7 @@ const EditModal = ({ onClose, onOpenDelete }: EditModalProps) => {
 
   return (
     <>
-      <Modal onClose={onClose}>
+      <BaseModal onClose={onClose}>
         <div className="absolute top-[5.4rem] right-[2rem] flex w-[18.4rem] flex-col rounded-[12px] bg-white">
           <button
             onClick={() => router.push(PATH.WISHPOOL_EDIT(wishpoolId))}
@@ -33,7 +33,7 @@ const EditModal = ({ onClose, onOpenDelete }: EditModalProps) => {
             위시풀 삭제
           </button>
         </div>
-      </Modal>
+      </BaseModal>
     </>
   );
 };
