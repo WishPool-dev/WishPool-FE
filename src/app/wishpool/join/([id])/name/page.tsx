@@ -1,7 +1,12 @@
+'use client';
+import { useRouter } from 'next/navigation';
+
 import Button from '@/components/common/Button';
 import BasicInputField from '@/components/common/Form/BasicInputField';
 import Question from '@/components/common/Form/Question';
+import { PATH } from '@/constants/common/path';
 const NamePage = () => {
+  const router = useRouter();
   return (
     <>
       <div className="pt-[2.8rem]">
@@ -20,13 +25,17 @@ const NamePage = () => {
             textColor="black"
             backgroundColor="light"
             textSize="sm"
-            // onClick={() => {}}
+            onClick={() => {
+              router.push(PATH.JOIN_GIFTS);
+            }}
           >
             이전
           </Button>
           <Button
             textSize="sm"
-            // onClick={() => {}}
+            onClick={() => {
+              router.push(PATH.JOIN_ADD);
+            }}
           >
             다음
           </Button>
