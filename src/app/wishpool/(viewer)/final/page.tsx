@@ -35,7 +35,7 @@ const FinalPage = () => {
           />
         ))}
       </section>
-      <div className="fixed inset-x-0 bottom-0">
+      <div className="fixed inset-x-0 bottom-0 bg-gradient-to-b from-white/0 to-white">
         <div className="mx-auto w-full max-w-[430px] p-[2rem]">
           <div className="flex flex-col gap-[1.2rem]">
             <IconButton
