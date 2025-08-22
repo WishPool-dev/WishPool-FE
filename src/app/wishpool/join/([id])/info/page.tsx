@@ -14,12 +14,10 @@ const InfoPage = () => {
       </div>
       <div className="relative mx-auto mt-[7.6rem] w-full max-w-[430px] rounded-[16px] bg-white py-[1.2rem]">
         <div className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <div className=" ">
-            <Icon name="ribbon" width={120} height={75} />
-          </div>
+          <Icon name="ribbon" width={120} height={75} />
         </div>
         <div className="flex h-[5.6rem] items-center justify-between px-[1.6rem] py-[0.8rem]">
-          <div className="flex flex-row gap-[1.2rem]">
+          <div className="flex gap-[1.2rem]">
             <UserTag>생일자</UserTag>
             <span className="body1 text-text">홍길동</span>
           </div>
