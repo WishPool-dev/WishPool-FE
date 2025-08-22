@@ -3,7 +3,7 @@ import Image from 'next/image';
 const PreviewPage = () => {
   return (
     <>
-      <div className="mt-[2.8rem] flex flex-col items-center">
+      <div className="flex flex-col items-center pt-[5.6rem]">
         <h3 className="text-text head1">위시풀 만들기 참여가 끝났어요!</h3>
         <p className="text-text body1 mt-[0.4rem]">
           홍길동님이 분명 좋아할거에요!
