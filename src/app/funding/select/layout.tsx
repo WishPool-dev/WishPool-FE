@@ -19,7 +19,7 @@ const SelectLayout = ({ children }: { children: React.ReactNode }) => {
           router.push(PATH.FUNDING_LIST);
         }}
       />
-      <main>{children}</main>
+      <main className="bg-blue-6">{children}</main>
       <SwipeGuide />
     </>
   );

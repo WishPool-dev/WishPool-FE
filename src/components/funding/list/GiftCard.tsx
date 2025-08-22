@@ -23,7 +23,9 @@ const GiftCard = ({
         alt={`선물 카드 이미지 - ${giftId}`}
         className={`rounded-[12px] object-cover ${isSmall ? 'h-[12.6rem] w-[12.6rem]' : 'h-[17rem] w-[17rem]'}`}
       />
-      <span className="subtitle2 text-text line-clamp-2 h-[4.8rem] text-center">
+      <span
+        className={`subtitle2 text-text line-clamp-2 h-[4.8rem] text-center ${isSmall ? 'w-[12.6rem]' : ''}`}
+      >
         {giftName}
       </span>
     </div>
