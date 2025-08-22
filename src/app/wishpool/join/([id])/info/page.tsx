@@ -2,9 +2,9 @@
 
 import { useRouter } from 'next/navigation';
 
+import BirthdayInfo from '@/components/common/BirthdayInfo';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
-import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
 
 const InfoPage = () => {
@@ -12,7 +12,7 @@ const InfoPage = () => {
 
   return (
     <>
-      <div className="text-text">
+      <div className="text-text pt-[2.8rem]">
         <h1 className="head1">
           00님이 보낸 <br />
           위시풀 초대장이 도착했어요! <br />
@@ -20,25 +20,14 @@ const InfoPage = () => {
           고민해 볼까요?
         </h1>
       </div>
-      <div className="relative mx-auto mt-[7.6rem] w-full max-w-[430px] rounded-[16px] bg-white py-[1.2rem]">
-        <div className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2">
-          <Icon name="ribbon" width={120} height={75} />
-        </div>
-        <div className="flex h-[5.6rem] items-center justify-between px-[1.6rem] py-[0.8rem]">
-          <div className="flex gap-[1.2rem]">
-            <UserTag>생일자</UserTag>
-            <span className="body1 text-text">홍길동</span>
-          </div>
-          <span className="body1 text-text flex flex-row gap-[1rem]">
-            <Icon
-              name="birthday"
-              width={20}
-              height={20}
-              className="text-pink-1"
-            />
-            2025/06/23
-          </span>
-        </div>
+      <div className="relative mx-auto mt-[7.6rem] w-full rounded-[16px] bg-white py-[1.2rem]">
+        <Icon
+          name="ribbon"
+          width={120}
+          height={75}
+          className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        />
+        <BirthdayInfo />
 
         <img
           src="/images/wishpool-card.svg"

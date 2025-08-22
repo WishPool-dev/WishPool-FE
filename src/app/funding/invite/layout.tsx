@@ -1,6 +1,6 @@
 import HomeHeader from '@/components/layout/Header/HomeHeader';
 
-const InfoLayout = ({ children }: { children: React.ReactNode }) => {
+const InviteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <HomeHeader />
@@ -11,4 +11,4 @@ const InfoLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default InfoLayout;
+export default InviteLayout;
