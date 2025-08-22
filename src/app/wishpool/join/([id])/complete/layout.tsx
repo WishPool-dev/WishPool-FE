@@ -19,7 +19,7 @@ const PreviewLayout = ({ children }: { children: React.ReactNode }) => {
         title="홍길동에게 보내는 위시풀"
         onClick={handleClose}
       />
-      <main className="mx-[2rem] pt-[8.6rem]">{children}</main>
+      <main className="mx-[2rem] pt-[5.4rem]">{children}</main>
     </>
   );
 };
