@@ -18,11 +18,9 @@ const PreviewPage = () => {
           위시풀의 정보를 확인해 주세요.
         </p>
 
-        <div className="bg-background-02 text-text body1 mt-[3.8rem] flex h-[5.6rem] items-center justify-between rounded-[12px] px-[1.6rem] py-[0.8rem]">
-          <span className="flex flex-row gap-[1.2rem]">
-            <UserTag>참여자</UserTag>
-            김첨지
-          </span>
+        <div className="bg-background-02 text-text body1 mt-[3.8rem] flex items-center gap-[1.2rem] rounded-[12px] p-[1.6rem]">
+          <UserTag>참여자</UserTag>
+          김첨지
         </div>
 
         <div className="bg-background-02 text-text mt-[1.2rem] rounded-[12px] p-[1.6rem]">
