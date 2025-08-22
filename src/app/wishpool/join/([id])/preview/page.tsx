@@ -36,7 +36,8 @@ const PreviewPage = () => {
               <Image
                 src="/images/gift-card.svg"
                 alt="선물 카드 이미지"
-                className="h-[12.6rem] w-[12.6rem] rounded-[12px]"
+                width={155}
+                height={155}
               />
               <span className="subtitle2 text-text mt-[0.7rem] mb-[1rem] line-clamp-2 h-[4.8rem] text-center">
                 선물 1 이름
@@ -47,7 +48,8 @@ const PreviewPage = () => {
               <Image
                 src="/images/gift-card.svg"
                 alt="선물 카드 이미지"
-                className="h-[12.6rem] w-[12.6rem] rounded-[12px]"
+                width={155}
+                height={155}
               />
               <span className="subtitle2 text-text mt-[0.7rem] mb-[1rem] line-clamp-2 h-[4.8rem] text-center">
                 선물 1 이름
