@@ -1,10 +1,16 @@
+'use client';
+
+import CenterModal from '@/components/common/Modal/CenterModal';
 import MyPageItem from '@/components/mypage/MyPageItem';
 import MyPageList from '@/components/mypage/MyPageList';
 import { PATH } from '@/constants/common/path';
+import useModal from '@/hooks/common/useModal';
 
 const MyPage = () => {
+  const { isOpen, onOpen, onClose } = useModal();
+
   return (
-    <div>
+    <>
       <div className="bg-background-01 flex items-center gap-[2rem] px-[2rem] py-[1.6rem]">
         <img
           src="/images/gift-card.svg"
@@ -22,12 +28,22 @@ const MyPage = () => {
 
         <MyPageList title="관리">
           <MyPageItem page="평가/피드백 하기" link={PATH.FEEDBACK} />
-          <button className="text-text title1 px-[1.6rem] py-[1.4rem] text-left">
+          <button
+            className="text-text title1 px-[1.6rem] py-[1.4rem] text-left"
+            onClick={onOpen}
+          >
             로그아웃
           </button>
         </MyPageList>
       </div>
-    </div>
+      {isOpen && (
+        <CenterModal
+          onClose={onClose}
+          modalTitle="위시풀 계정을 로그아웃할까요?"
+          rightText="로그아웃"
+        />
+      )}
+    </>
   );
 };
 
