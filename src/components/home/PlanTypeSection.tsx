@@ -21,7 +21,7 @@ const PlanTypeSection = ({
   planCount,
 }: PlanTypeSectionProps) => {
   return (
-    <div className="relative flex items-center justify-center gap-[1.2rem]">
+    <div className="bg-background-01 relative flex items-center justify-center gap-[1.2rem]">
       <div className="absolute bottom-0 left-0 h-[0.3rem] w-full bg-gray-100" />
       <div
         className={clsx(
