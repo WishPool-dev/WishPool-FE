@@ -20,7 +20,7 @@ const FeedbackPage = () => {
 
   return (
     <section className="mt-[2.8rem] flex flex-col gap-[6.4rem]">
-      {openToast && <Toast>피드백이 전송되었습니다.</Toast>}
+      {openToast && <Toast>평가를 보냈어요. 소중한 의견에 감사드려요!</Toast>}
       <div>
         <p className="text-text subtitle2 mb-[1.6rem]">
           WishpooL 서비스를 평가해 주세요.
