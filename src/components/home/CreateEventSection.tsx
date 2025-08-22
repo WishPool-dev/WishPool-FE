@@ -20,13 +20,13 @@ const CreateEventSection = ({ planType }: { planType: PlanType }) => {
   const { title, description } = CREATE_CONTENT[planType];
 
   return (
-    <button className="flex w-full items-center gap-[1.6rem] rounded-[12px] bg-white px-[1.6rem] py-[1.2rem]">
+    <button className="flex w-full items-center rounded-[12px] bg-white px-[1.6rem] py-[1.2rem]">
       <img
         src="/images/gift.svg"
         className="h-[6.2rem] w-[6.2rem] object-cover"
         alt="선물 일러스트 이미지"
       />
-      <div className="text-left">
+      <div className="ml-[1.6rem] text-left">
         <p className="title1 text-text">{title}</p>
         <p className="caption2 text-gray-600">{description}</p>
       </div>

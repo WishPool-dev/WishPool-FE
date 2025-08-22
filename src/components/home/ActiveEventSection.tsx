@@ -1,7 +1,8 @@
 'use client';
 
+import { data } from '@/app/wishpool/history/data';
+import EventCard from '@/components/common/EventCard';
 import Icon from '@/components/common/Icon';
-import EventCard from '@/components/home/EventCard';
 import { useScrollIndex } from '@/hooks/home/useScrollIndex';
 import type { PlanType } from '@/types/common/planType';
 
@@ -35,11 +36,11 @@ const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
         <>
           <div
             ref={containerRef}
-            className="no-scrollbar flex snap-x snap-mandatory gap-[2rem] overflow-x-auto scroll-smooth"
+            className="no-scrollbar mt-[2.6rem] flex snap-x snap-mandatory gap-[2rem] overflow-x-auto scroll-smooth"
           >
-            {Array.from({ length: eventCount }).map((_, idx) => (
+            {data.map((d, idx) => (
               <div key={idx} className="w-full shrink-0 snap-start">
-                <EventCard planType={planType} currentIndex={idx} />
+                <EventCard currentIndex={idx} cardData={d} />
               </div>
             ))}
           </div>

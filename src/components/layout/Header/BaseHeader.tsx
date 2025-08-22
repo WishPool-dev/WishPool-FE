@@ -10,6 +10,7 @@ type BaseHeaderProps = {
 const bgColorMap: Record<HeaderColor, string> = {
   white: 'bg-white',
   transparent: 'bg-transparent',
+  background02: 'bg-background-02',
 };
 
 const BaseHeader = ({

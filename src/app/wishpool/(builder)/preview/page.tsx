@@ -33,7 +33,13 @@ const PreviewPage = () => {
           홍길동
         </span>
         <span className="flex flex-row gap-[1rem]">
-          <Icon name="birthday" /> 2025/06/23
+          <Icon
+            name="birthday"
+            width={20}
+            height={20}
+            className="text-blue-3"
+          />
+          2025/06/23
         </span>
       </div>
 

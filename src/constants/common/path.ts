@@ -4,6 +4,8 @@ export const PATH = {
   WISHPOOL_INTRO: '/wishpool/intro',
   WISHPOOL_CREATE: '/wishpool/create',
   MYPAGE: '/mypage',
+  FEEDBACK: '/feedback',
+  WISHPOOL_HISTORY: '/wishpool/history',
 
   WISHPOOL_PREVIEW: (id: number) => `/wishpool/${id}/preview`,
   WISHPOOL_SHARE: (id: number) => `/wishpool/${id}/share`,
@@ -16,5 +18,12 @@ export const PATH = {
   FUNDING_LIST: '/funding/list',
   FUNDING_PREVIEW: '/funding/preview',
   FUNDING_COMPLETE: '/funding/complete',
-  FUNDING_FEEDBACK: '/funding/feedback',
+
+  JOIN_INFO: `/wishpool/join/info`,
+  JOIN_INTRO: `/wishpool/join/intro`,
+  JOIN_GIFTS: `/wishpool/join/gifts`,
+  JOIN_NAME: `/wishpool/join/name`,
+  JOIN_ADD: `/wishpool/join/add`,
+  JOIN_PREVIEW: `/wishpool/join/preview`,
+  JOIN_COMPLETE: `/wishpool/join/complete`,
 };

@@ -1,5 +1,6 @@
 'use client';
 
+import AlertIcon from '@/assets/icons/svg/icon_alert.svg';
 import BackIcon from '@/assets/icons/svg/icon_back.svg';
 import BirthdayIcon from '@/assets/icons/svg/icon_birthday.svg';
 import GiftButtonIcon from '@/assets/icons/svg/icon_button_gift.svg';
@@ -15,8 +16,11 @@ import HomeIcon from '@/assets/icons/svg/icon_home.svg';
 import KaKaoIcon from '@/assets/icons/svg/icon_kakao.svg';
 import MenuIcon from '@/assets/icons/svg/icon_menu.svg';
 import MoreIcon from '@/assets/icons/svg/icon_more.svg';
+import NextIcon from '@/assets/icons/svg/icon_next.svg';
 import PhotoIcon from '@/assets/icons/svg/icon_photo.svg';
 import PlusIcon from '@/assets/icons/svg/icon_plus.svg';
+import RibbonIcon from '@/assets/icons/svg/icon_ribbon.svg';
+import StarIcon from '@/assets/icons/svg/icon_star.svg';
 import SwipeIcon from '@/assets/icons/svg/icon_swipe.svg';
 import TrashIcon from '@/assets/icons/svg/icon_trash.svg';
 import UpIcon from '@/assets/icons/svg/icon_up.svg';
@@ -42,8 +46,12 @@ export const iconMap = {
   trash: TrashIcon,
   cheer: CheerIcon,
   plus: PlusIcon,
+  alert: AlertIcon,
   grid: GridIcon,
   swipe: SwipeIcon,
+  star: StarIcon,
+  next: NextIcon,
+  ribbon: RibbonIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;

@@ -12,12 +12,13 @@ export const button = cva(
       backgroundColor: {
         dark: 'bg-button-color',
         light: 'bg-background-02',
-        gray: 'bg-gray-600',
         disabled: 'bg-gray-300',
+        transparent: 'transparent',
+        gradient: 'bg-gradient-to-b from-sub-blue to-blue-primary',
       },
       textColor: {
         black: 'text-text',
-        gray: 'text-gray-400',
+        gray: 'text-gray-600',
         white: 'text-white',
       },
     },

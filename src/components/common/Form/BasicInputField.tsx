@@ -1,3 +1,4 @@
+'use client';
 import BaseInput from '@/components/common/Form/BaseInput';
 import { FormFieldProps } from '@/types/wishpool/builder/Form';
 

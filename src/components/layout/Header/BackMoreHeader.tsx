@@ -3,10 +3,10 @@
 import { useRouter } from 'next/navigation';
 
 import Icon from '@/components/common/Icon';
+import CenterModal from '@/components/common/Modal/CenterModal';
+import EditModal from '@/components/common/Modal/EditModal';
 import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
-import DeleteModal from '@/components/wishpool/viewer/detail/DeleteModal';
-import EditModal from '@/components/wishpool/viewer/detail/EditModal';
 import useModal from '@/hooks/common/useModal';
 
 type BackMoreHeaderProps = {
@@ -50,7 +50,14 @@ const BackMoreHeader = ({ title, onBack, bgColor }: BackMoreHeaderProps) => {
       {edit.isOpen && (
         <EditModal onClose={edit.onClose} onOpenDelete={handleOpenDelete} />
       )}
-      {del.isOpen && <DeleteModal onClose={del.onClose} />}
+      {del.isOpen && (
+        <CenterModal
+          onClose={del.onClose}
+          modalTitle="이 위시풀을 종료하고 삭제할까요?"
+          modalContent="위시풀을 종료하면 다시 시작할 수 없어요."
+          rightText="삭제"
+        />
+      )}
     </>
   );
 };

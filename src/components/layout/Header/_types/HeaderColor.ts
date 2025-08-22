@@ -1,1 +1,1 @@
-export type HeaderColor = 'white' | 'transparent';
+export type HeaderColor = 'white' | 'transparent' | 'background02';
