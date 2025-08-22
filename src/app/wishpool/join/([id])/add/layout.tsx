@@ -24,7 +24,7 @@ const AddLayout = ({ children }: { children: React.ReactNode }) => {
         <div className="bg-blue-2 h-[0.3rem] w-full" />
       </div>
 
-      <main className="mx-[2rem]">{children}</main>
+      <main className="mx-[2rem] pb-[10rem]">{children}</main>
     </>
   );
 };
