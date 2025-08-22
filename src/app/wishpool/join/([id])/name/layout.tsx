@@ -20,9 +20,9 @@ const NameLayout = ({ children }: { children: React.ReactNode }) => {
         onClick={handleClose}
         bgColor="white"
       />
-      <div className="mt-[5.4rem]">
+      <div className="pt-[5.4rem]">
         <div className="relative h-[0.3rem] w-full bg-gray-300">
-          <div className="bg-blue-2 absolute top-0 left-0 h-[0.3rem] w-1/2"></div>
+          <div className="bg-blue-2 absolute top-0 left-0 h-[0.3rem] w-1/2" />
         </div>
       </div>
 
