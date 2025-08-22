@@ -6,7 +6,7 @@ import InfoBox from '@/components/common/InfoBox/InfoBox';
 const IntroPage = () => {
   return (
     <>
-      <div className="text-text">
+      <div className="text-text mt-[2.8rem]">
         <h1 className="head1">
           위시풀을 통해 <br />
           <span className="text-blue-primary">홍길동</span>님에게 주고 싶은

@@ -26,7 +26,7 @@ const NameLayout = ({ children }: { children: React.ReactNode }) => {
         </div>
       </div>
 
-      <main className="mx-[2rem] pt-[2.8rem]">{children}</main>
+      <main className="mx-[2rem]">{children}</main>
     </>
   );
 };

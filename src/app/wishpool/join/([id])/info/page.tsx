@@ -12,7 +12,7 @@ const InfoPage = () => {
 
   return (
     <>
-      <div className="text-text">
+      <div className="text-text pt-[2.8rem]">
         <h1 className="head1">
           00님이 보낸 <br />
           위시풀 초대장이 도착했어요! <br />
