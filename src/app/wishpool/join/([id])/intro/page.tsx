@@ -1,14 +1,9 @@
 'use client';
 
-import { useRouter } from 'next/navigation';
-
 import Button from '@/components/common/Button';
 import InfoBox from '@/components/common/InfoBox/InfoBox';
-import { PATH } from '@/constants/common/path';
 
 const IntroPage = () => {
-  const router = useRouter();
-
   return (
     <>
       <div className="text-text">
@@ -26,13 +21,7 @@ const IntroPage = () => {
       />
       <div className="fixed inset-x-0 bottom-0">
         <div className="mx-auto w-full max-w-[430px] p-[2rem]">
-          <Button
-            onClick={() => {
-              router.push(PATH.FUNDING_SELECT);
-            }}
-          >
-            시작
-          </Button>
+          <Button onClick={() => {}}>시작</Button>
         </div>
       </div>
       <InfoBox />
