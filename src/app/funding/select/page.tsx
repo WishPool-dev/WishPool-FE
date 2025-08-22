@@ -6,6 +6,7 @@ import { useState } from 'react';
 import { data } from '@/app/funding/select/data';
 import Button from '@/components/common/Button';
 import CarouselCard from '@/components/funding/select/CarouselCard';
+import GiftLoading from '@/components/funding/select/GiftLoading';
 import { PATH } from '@/constants/common/path';
 import { useCarouselCard } from '@/hooks/funding/useCarouselCard';
 import { GiftCardType } from '@/types/common/giftCardType';
@@ -18,9 +19,24 @@ const SelectPage = () => {
     data.map((d, i) => ({ ...d, id: i })),
   );
 
+  const [loading, setLoading] = useState(false);
+
   const handleRemove = (id: number) => {
     setItems((prev) => prev.filter((item) => item.giftId !== id));
   };
+
+  const handleComplete = () => {
+    if (items.length > 2) {
+      setLoading(true);
+      setTimeout(() => {
+        router.push(PATH.FUNDING_PREVIEW);
+      }, 2000);
+    } else {
+      router.push(PATH.FUNDING_PREVIEW);
+    }
+  };
+
+  if (loading) return <GiftLoading />;
 
   return (
     <div className="flex h-[100vh] flex-col">
@@ -67,9 +83,7 @@ const SelectPage = () => {
           >
             <span className="underline">처음부터 다시 고르기</span>
           </Button>
-          <Button onClick={() => router.push(PATH.FUNDING_PREVIEW)}>
-            완료하기
-          </Button>
+          <Button onClick={handleComplete}>완료하기</Button>
         </div>
       </section>
     </div>
