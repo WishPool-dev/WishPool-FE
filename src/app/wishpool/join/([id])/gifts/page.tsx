@@ -59,8 +59,6 @@ const GiftPage = () => {
       </div>
       {giftItems.length > 0 ? GiftList : EmptyList}
 
-      <div className="pb-[15rem]" />
-
       <div className="fixed inset-x-0 bottom-0">
         <div className="mx-auto w-full max-w-[430px] p-[2rem]">
           <Button
