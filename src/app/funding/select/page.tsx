@@ -1,22 +1,42 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import { data } from '@/app/funding/select/data';
 import Button from '@/components/common/Button';
 import CarouselCard from '@/components/funding/select/CarouselCard';
+import GiftLoading from '@/components/funding/select/GiftLoading';
+import { PATH } from '@/constants/common/path';
 import { useCarouselCard } from '@/hooks/funding/useCarouselCard';
 import { GiftCardType } from '@/types/common/giftCardType';
 
 const SelectPage = () => {
+  const router = useRouter();
+
   const { ref, active } = useCarouselCard<HTMLDivElement>();
   const [items, setItems] = useState<GiftCardType[]>(
     data.map((d, i) => ({ ...d, id: i })),
   );
 
+  const [loading, setLoading] = useState(false);
+
   const handleRemove = (id: number) => {
     setItems((prev) => prev.filter((item) => item.giftId !== id));
   };
+
+  const handleComplete = () => {
+    if (items.length > 2) {
+      setLoading(true);
+      setTimeout(() => {
+        router.push(PATH.FUNDING_PREVIEW);
+      }, 1500);
+    } else {
+      router.push(PATH.FUNDING_PREVIEW);
+    }
+  };
+
+  if (loading) return <GiftLoading items={items} />;
 
   return (
     <div className="flex h-[100vh] flex-col">
@@ -54,11 +74,16 @@ const SelectPage = () => {
           </p>
         </div>
 
-        <button className="title2 absolute inset-x-0 bottom-[8.4rem] text-gray-600 underline">
-          처음부터 다시 고르기
-        </button>
-        <div className="absolute inset-x-0 bottom-0 m-[2rem]">
-          <Button>완료하기</Button>
+        <div className="absolute inset-x-0 bottom-0 m-[2rem] flex flex-col gap-[0.8rem]">
+          <Button
+            backgroundColor="transparent"
+            textColor="gray"
+            textSize="md"
+            onClick={() => window.location.reload()}
+          >
+            <span className="underline">처음부터 다시 고르기</span>
+          </Button>
+          <Button onClick={handleComplete}>완료하기</Button>
         </div>
       </section>
     </div>

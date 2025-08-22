@@ -9,7 +9,7 @@ const FeedbackBox = () => {
   const router = useRouter();
 
   return (
-    <div className="bg-blue-5 relative rounded-[20px] px-[2rem] pt-[4.2rem] pb-[1.6rem]">
+    <div className="bg-blue-5 relative w-full rounded-[20px] px-[2rem] pt-[4.2rem] pb-[1.6rem]">
       <img
         src="/images/gift-circle.svg"
         alt="선물 이미지"
@@ -24,11 +24,13 @@ const FeedbackBox = () => {
         </p>
       </div>
       <div className="flex flex-col gap-[0.4rem]">
-        <Button textSize="md">피드백 남기러 가기</Button>
+        <Button textSize="md" onClick={() => router.push(PATH.FEEDBACK)}>
+          피드백 남기러 가기
+        </Button>
         <Button
           backgroundColor="transparent"
           textSize="md"
-          onClick={() => router.push(PATH.FEEDBACK)}
+          onClick={() => router.push(PATH.HOME)}
         >
           <span className="text-gray-800 underline">다음에 할게요</span>
         </Button>
