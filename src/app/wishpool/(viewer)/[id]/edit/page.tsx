@@ -1,22 +1,32 @@
 'use client';
 
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 import Button from '@/components/common/Button';
 import BasicInputField from '@/components/common/Form/BasicInputField';
 import CalendarField from '@/components/common/Form/CalendarField';
 import TextField from '@/components/common/Form/TextField';
 import Icon from '@/components/common/Icon';
+import Toast from '@/components/common/Toast';
 
 const EditPage = () => {
+  const [openToast, setOpenToast] = useState(false);
+  const router = useRouter();
+
   const onClickHandler = () => {
     //TODO: 이미지 업로드 기능 추가
   };
-  const handleSubmit = () => {};
+  const handleSubmit = () => {
+    setOpenToast(true);
+    router.back();
+  };
 
   return (
     <>
       <section className="mt-[5.4rem] mb-[6.3rem] px-[2rem]">
+        {openToast && <Toast>위시풀이 수정되었어요.</Toast>}
         <div className="relative -mx-[2rem]">
           <Image
             src="/images/wishpool-card.svg"

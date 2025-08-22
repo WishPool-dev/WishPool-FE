@@ -37,7 +37,7 @@ export default function SwipeGuide() {
     <div className="z-guide fixed inset-0 flex items-center justify-center">
       <div className="absolute inset-0 bg-black/60" onClick={handleClose} />
 
-      <div className="relative mx-auto w-full max-w-[430px] px-6 pt-10 pb-8">
+      <div className="pointer-events-none relative mx-auto w-full max-w-[430px] px-6 pt-[15rem] pb-[8rem]">
         <p className="body1 mb-[3.2rem] text-center text-white">
           마음에 들지 않는 선물을 아래로 쓱- 내려서 지우고
           <br />

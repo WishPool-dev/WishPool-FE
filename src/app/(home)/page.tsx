@@ -27,13 +27,16 @@ const Home = () => {
 
   return (
     <>
-      <PlanTypeSection
-        planType={planType}
-        onSelectType={handlePlanType}
-        planCount={planCount}
-      />
-      <ActiveEventSection planType={planType} planCount={planCount} />
-      <div className="bg-background-02 -mx-[2rem] h-[100vh] p-[2rem]">
+      <div className="bg-background-01 w-full px-[2rem]">
+        <PlanTypeSection
+          planType={planType}
+          onSelectType={handlePlanType}
+          planCount={planCount}
+        />
+
+        <ActiveEventSection planType={planType} planCount={planCount} />
+      </div>
+      <div className="p-[2rem]">
         <CreateEventSection planType={planType} />
       </div>
     </>
