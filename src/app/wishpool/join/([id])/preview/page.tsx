@@ -70,15 +70,16 @@ const PreviewPage = () => {
                   router.push(PATH.JOIN_ADD);
                 }}
               >
-                이전
+                수정하기
               </Button>
               <Button
                 textSize="sm"
                 onClick={() => {
                   router.push(PATH.JOIN_COMPLETE);
                 }}
+                type="submit"
               >
-                다음
+                완료하기
               </Button>
             </div>
           </div>
