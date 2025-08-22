@@ -1,6 +1,6 @@
 import Image from 'next/image';
 
-const PreviewPage = () => {
+const CompletePage = () => {
   return (
     <>
       <div className="flex flex-col items-center pt-[5.6rem]">
@@ -22,4 +22,4 @@ const PreviewPage = () => {
   );
 };
 
-export default PreviewPage;
+export default CompletePage;

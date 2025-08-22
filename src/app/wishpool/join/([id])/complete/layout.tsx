@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
 import { PATH } from '@/constants/common/path';
 
-const PreviewLayout = ({ children }: { children: React.ReactNode }) => {
+const CompleteLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
   const handleClose = () => {
@@ -24,4 +24,4 @@ const PreviewLayout = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default PreviewLayout;
+export default CompleteLayout;
