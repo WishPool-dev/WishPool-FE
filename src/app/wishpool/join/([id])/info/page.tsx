@@ -1,7 +1,15 @@
+'use client';
+
+import { useRouter } from 'next/navigation';
+
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
 import UserTag from '@/components/common/UserTag';
+import { PATH } from '@/constants/common/path';
+
 const InfoPage = () => {
+  const router = useRouter();
+
   return (
     <>
       <div className="text-text">
@@ -55,7 +63,14 @@ const InfoPage = () => {
           참여 마감일: 2025/06/23 까지
         </p>
 
-        <Button type="button" backgroundColor="gradient" textSize="lg">
+        <Button
+          onClick={() => {
+            router.push(PATH.JOIN_INTRO);
+          }}
+          type="button"
+          backgroundColor="gradient"
+          textSize="lg"
+        >
           참여하기
         </Button>
       </div>
