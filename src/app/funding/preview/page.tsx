@@ -7,7 +7,7 @@ import Button from '@/components/common/Button';
 import GiftCard from '@/components/funding/list/GiftCard';
 import { PATH } from '@/constants/common/path';
 
-const CompletePage = () => {
+const PreviewPage = () => {
   const router = useRouter();
 
   const handleBack = () => {
@@ -54,4 +54,4 @@ const CompletePage = () => {
   );
 };
 
-export default CompletePage;
+export default PreviewPage;

@@ -1,6 +1,6 @@
 import HomeHeader from '@/components/layout/Header/HomeHeader';
 
-const PreviewPage = ({ children }: { children: React.ReactNode }) => {
+const CompleteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <HomeHeader bgColor="background02" />
@@ -11,4 +11,4 @@ const PreviewPage = ({ children }: { children: React.ReactNode }) => {
   );
 };
 
-export default PreviewPage;
+export default CompleteLayout;
