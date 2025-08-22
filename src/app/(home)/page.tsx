@@ -1,6 +1,6 @@
 'use client';
 
-import { redirect } from 'next/navigation';
+// import { redirect } from 'next/navigation';
 import { useState } from 'react';
 
 import ActiveEventSection from '@/components/home/ActiveEventSection';
@@ -13,11 +13,11 @@ const planCount = {
 };
 
 const Home = () => {
-  const isLoggedIn = true;
+  // const isLoggedIn = false;
 
-  if (!isLoggedIn) {
-    redirect('/intro');
-  }
+  // if (!isLoggedIn) {
+  //   redirect('/intro');
+  // }
 
   const [planType, setPlanType] = useState<'funding' | 'wishpool'>('wishpool');
 
