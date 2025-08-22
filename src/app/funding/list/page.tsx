@@ -10,7 +10,12 @@ const ListPage = () => {
       </div>
       <section className="grid grid-cols-2 gap-[1.1rem]">
         {data.map(({ giftId, giftName, giftImage }) => (
-          <GiftCard key={giftId} giftName={giftName} giftImage={giftImage} />
+          <GiftCard
+            key={giftId}
+            giftId={giftId}
+            giftName={giftName}
+            giftImage={giftImage}
+          />
         ))}
       </section>
     </>
