@@ -14,6 +14,7 @@ export const button = cva(
         light: 'bg-background-02',
         disabled: 'bg-gray-300',
         transparent: 'transparent',
+        gradient: 'bg-gradient-to-b from-sub-blue to-blue-primary',
       },
       textColor: {
         black: 'text-text',
