@@ -17,4 +17,12 @@ export const PATH = {
   FUNDING_LIST: '/funding/list',
   FUNDING_PREVIEW: '/funding/preview',
   FUNDING_COMPLETE: '/funding/complete',
+
+  JOIN_INFO: `/wishpool/join/info`,
+  JOIN_INTRO: `/wishpool/join/intro`,
+  JOIN_GIFTS: `/wishpool/join/gifts`,
+  JOIN_NAME: `/wishpool/join/name`,
+  JOIN_ADD: `/wishpool/join/add`,
+  JOIN_PREVIEW: `/wishpool/join/preview`,
+  JOIN_COMPLETE: `/wishpool/join/complete`,
 };
