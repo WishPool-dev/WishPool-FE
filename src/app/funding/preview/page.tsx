@@ -1,6 +1,7 @@
-import { data } from '@/app/funding/complete/data';
+import { data } from '@/app/funding/preview/data';
 import Button from '@/components/common/Button';
 import GiftCard from '@/components/funding/list/GiftCard';
+
 const CompletePage = () => {
   return (
     <div className="pt-[2.8rem]">
