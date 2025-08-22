@@ -10,7 +10,7 @@ const ProgressBar = ({ currentStep }: ProgressBarProps) => {
     { step: 4, label: '마감일' },
   ];
   return (
-    <div className="bg-background-02">
+    <div className="bg-background-02 fixed inset-x-0 top-[5.4rem] mx-auto max-w-[430px]">
       <div className="subtitle3 flex h-[3.9rem] items-center justify-around border-b-[3px] border-gray-300 text-gray-600">
         {progressStep.map(({ step, label }) => (
           <span

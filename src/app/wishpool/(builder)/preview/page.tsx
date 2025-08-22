@@ -15,11 +15,11 @@ const PreviewPage = () => {
   };
 
   const handleComplete = () => {
-    router.push(PATH.WISHPOOL_SHARE(1));
+    router.push(PATH.WISHPOOL_SHARE);
   };
 
   return (
-    <section className="mt-[2.8rem] pb-[15rem]">
+    <section className="mt-[2.8rem]">
       <p className="caption1 text-blue-primary h-[1.8rem] max-w-[430px]">
         최종 점검
       </p>
