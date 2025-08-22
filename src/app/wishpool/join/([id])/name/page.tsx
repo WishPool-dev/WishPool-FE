@@ -1,7 +1,7 @@
 import Button from '@/components/common/Button';
 import BasicInputField from '@/components/common/Form/BasicInputField';
 import Question from '@/components/common/Form/Question';
-const page = () => {
+const NamePage = () => {
   return (
     <>
       <Question required={true} question="참여자 본인의 이름을 알려주세요." />
@@ -34,4 +34,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default NamePage;
