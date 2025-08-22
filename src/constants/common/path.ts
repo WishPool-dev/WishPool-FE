@@ -5,6 +5,7 @@ export const PATH = {
   WISHPOOL_CREATE: '/wishpool/create',
   MYPAGE: '/mypage',
   FEEDBACK: '/feedback',
+  WISHPOOL_HISTORY: '/wishpool/history',
 
   WISHPOOL_PREVIEW: (id: number) => `/wishpool/${id}/preview`,
   WISHPOOL_SHARE: (id: number) => `/wishpool/${id}/share`,
