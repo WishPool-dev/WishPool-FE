@@ -66,7 +66,10 @@ const DetailPage = () => {
           </div>
         </div>
       </section>
-      <DetailFooter {...footerProps} />
+      <DetailFooter
+        {...footerProps}
+        onClick={() => router.push(PATH.JOIN_INTRO)}
+      />
     </>
   );
 };
