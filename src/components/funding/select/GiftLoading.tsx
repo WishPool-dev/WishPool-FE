@@ -2,10 +2,10 @@
 
 import { motion } from 'framer-motion';
 
-import { data } from '@/app/funding/list/data';
 import GiftCard from '@/components/funding/list/GiftCard';
+import type { GiftCardType } from '@/types/common/giftCardType';
 
-const GiftLoading = () => {
+const GiftLoading = ({ items }: { items: GiftCardType[] }) => {
   const duration = 5;
 
   return (
@@ -17,7 +17,7 @@ const GiftLoading = () => {
         transition={{ duration, ease: 'linear', repeat: Infinity }}
         aria-hidden
       >
-        {data.map(({ giftId, giftName, giftImage }) => (
+        {items.map(({ giftId, giftName, giftImage }) => (
           <GiftCard
             key={giftId}
             giftId={giftId}

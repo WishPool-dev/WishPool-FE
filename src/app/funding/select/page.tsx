@@ -30,13 +30,13 @@ const SelectPage = () => {
       setLoading(true);
       setTimeout(() => {
         router.push(PATH.FUNDING_PREVIEW);
-      }, 2000);
+      }, 1500);
     } else {
       router.push(PATH.FUNDING_PREVIEW);
     }
   };
 
-  if (loading) return <GiftLoading />;
+  if (loading) return <GiftLoading items={items} />;
 
   return (
     <div className="flex h-[100vh] flex-col">
