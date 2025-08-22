@@ -1,12 +1,11 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 import Icon from '@/components/common/Icon';
 import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
-import NavMenu from '@/components/layout/NavMenu';
 import { PATH } from '@/constants/common/path';
 
 type HomeHeaderProps = {
@@ -15,11 +14,7 @@ type HomeHeaderProps = {
 };
 
 const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const handleToggle = () => {
-    setIsOpen((prev) => !prev);
-  };
-
+  const router = useRouter();
   return (
     <>
       <BaseHeader
@@ -30,14 +25,19 @@ const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
         }
         rightSlot={
           hasMenu ? (
-            <button type="button" aria-label="메뉴 열기" onClick={handleToggle}>
+            <button
+              type="button"
+              aria-label="메뉴 열기"
+              onClick={() => router.push(PATH.MYPAGE)}
+            >
               <Icon name="menu" title="메뉴 아이콘" />
             </button>
-          ) : null
+          ) : (
+            ''
+          )
         }
         bgColor={bgColor}
       />
-      {isOpen && <NavMenu />}
     </>
   );
 };

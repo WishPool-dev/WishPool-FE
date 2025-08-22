@@ -9,10 +9,6 @@ import { ONBOARDING_CONTENT } from '@/constants/intro/onBoardingContent';
 const OnBoardingPage = () => {
   const router = useRouter();
 
-  const handleGoHome = () => {
-    router.push(PATH.HOME);
-  };
-
   return (
     <div className="w-full text-center">
       <div>
@@ -35,8 +31,10 @@ const OnBoardingPage = () => {
       </div>
 
       <div className="relative">
-        <div className="absolute inset-x-0 bg-[linear-gradient(180deg,_rgba(255,255,255,0)_0%,_#fff_100%)] px-[2rem] pt-[3.6rem] pb-[2rem]">
-          <Button onClick={handleGoHome}>WishpooL 시작하기</Button>
+        <div className="fixed inset-x-0 bottom-0 bg-[linear-gradient(180deg,_rgba(255,255,255,0)_0%,_#fff_100%)] px-[2rem] pt-[3.6rem] pb-[2rem]">
+          <Button onClick={() => router.push(PATH.HOME)}>
+            WishpooL 시작하기
+          </Button>
         </div>
 
         {ONBOARDING_CONTENT.map((section, idx) => (
