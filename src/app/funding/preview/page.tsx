@@ -10,10 +10,6 @@ import { PATH } from '@/constants/common/path';
 const PreviewPage = () => {
   const router = useRouter();
 
-  const handleBack = () => {
-    router.back();
-  };
-
   const handleSubmit = () => {
     router.push(PATH.FUNDING_COMPLETE);
   };
@@ -41,7 +37,7 @@ const PreviewPage = () => {
             textColor="black"
             backgroundColor="light"
             textSize="sm"
-            onClick={handleBack}
+            onClick={() => router.back()}
           >
             다시 고르기
           </Button>
