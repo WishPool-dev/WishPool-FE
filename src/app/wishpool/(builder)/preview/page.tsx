@@ -38,7 +38,7 @@ const PreviewPage = () => {
             width={20}
             height={20}
             className="text-blue-3"
-          />{' '}
+          />
           2025/06/23
         </span>
       </div>
