@@ -15,6 +15,7 @@ export const button = cva(
         disabled: 'bg-gray-300',
         transparent: 'transparent',
         gradient: 'bg-gradient-to-b from-sub-blue to-blue-primary',
+        kakao: 'bg-kakao-color',
       },
       textColor: {
         black: 'text-text',
