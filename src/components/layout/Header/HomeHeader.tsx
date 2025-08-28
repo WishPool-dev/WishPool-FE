@@ -1,11 +1,12 @@
 'use client';
 
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 import Icon from '@/components/common/Icon';
 import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
+import NavMenu from '@/components/layout/NavMenu';
 import { PATH } from '@/constants/common/path';
 
 type HomeHeaderProps = {
@@ -14,7 +15,11 @@ type HomeHeaderProps = {
 };
 
 const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
-  const router = useRouter();
+  const [openNav, setOpenNav] = useState(false);
+  const handleNavMenu = () => {
+    setOpenNav((prev) => !prev);
+  };
+
   return (
     <>
       <BaseHeader
@@ -28,7 +33,7 @@ const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
             <button
               type="button"
               aria-label="메뉴 열기"
-              onClick={() => router.push(PATH.MYPAGE)}
+              onClick={handleNavMenu}
             >
               <Icon name="menu" title="메뉴 아이콘" />
             </button>
@@ -38,6 +43,7 @@ const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
         }
         bgColor={bgColor}
       />
+      {openNav && <NavMenu />}
     </>
   );
 };
