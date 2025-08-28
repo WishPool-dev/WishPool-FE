@@ -39,7 +39,7 @@ const InfoNotice = ({
       </div>
 
       {isOpen && (
-        <div className="bg-background-02 caption2 rounded-b-[6px] p-[1.2rem] text-gray-800">
+        <div className="bg-background-02 caption2 rounded-b-[6px] px-[1.6rem] py-[1.2rem] text-gray-800">
           <p className="caption2 text-gray-800">{accordionContent}</p>
         </div>
       )}
