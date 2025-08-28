@@ -23,7 +23,13 @@ const InfoNotice = ({
         className={`bg-blue-6 flex items-center py-[0.4rem] pr-[0.6rem] pl-[1.2rem] ${isOpen ? 'rounded-t-[6px]' : 'rounded-[6px]'}`}
         onClick={toggleAccordion}
       >
-        <Icon name="gift" title="선물 아이콘" className="text-white" />
+        <Icon
+          name="gift"
+          title="선물 아이콘"
+          className="text-white"
+          width={16}
+          height={16}
+        />
         <p className="text-blue-primary caption1 ml-[1.2rem]">{children}</p>
         <Icon
           name={isOpen ? 'up' : 'down'}
