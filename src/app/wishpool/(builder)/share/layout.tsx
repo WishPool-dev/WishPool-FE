@@ -17,9 +17,10 @@ const CreateLayout = ({ children }: { children: React.ReactNode }) => {
         iconName="cancel"
         title="위시풀 만들기"
         onClick={handleClose}
+        bgColor="white"
       />
 
-      <main className="mx-[2rem] pt-[5.4rem]">{children}</main>
+      <main className="mx-[2rem] pt-[5.4rem] pb-[2rem]">{children}</main>
     </>
   );
 };

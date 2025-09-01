@@ -4,7 +4,7 @@ const DetailLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <BackMoreHeader title="위시풀" />
-      <main>{children}</main>
+      <main className="pb-[10rem]">{children}</main>
     </>
   );
 };

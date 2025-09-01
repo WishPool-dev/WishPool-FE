@@ -16,10 +16,11 @@ const CreateLayout = ({ children }: { children: React.ReactNode }) => {
       <RightIconHeader
         iconName="cancel"
         title="위시풀 만들기"
+        bgColor="white"
         onClick={handleClose}
       />
 
-      <main className="pt-[5.4rem]">{children}</main>
+      <main className="pt-[5.4rem] pb-[10rem]">{children}</main>
     </>
   );
 };

@@ -42,7 +42,7 @@ const SelectPage = () => {
     <div className="flex h-[100vh] flex-col">
       <section
         ref={ref}
-        className="no-scrollbar bg-blue-5 z-card relative flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-visible px-[2rem] pt-[7.8rem] pb-[7.2rem]"
+        className="no-scrollbar bg-blue-5 z-card relative flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7.8rem] pb-[7.2rem]"
       >
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
         {items.map(({ giftId, giftName, giftImage }, i) => (
@@ -74,7 +74,7 @@ const SelectPage = () => {
           </p>
         </div>
 
-        <div className="absolute inset-x-0 bottom-0 m-[2rem] flex flex-col gap-[0.8rem]">
+        <div className="bg-background-02 fixed inset-x-0 bottom-0 flex flex-col gap-[0.8rem] p-[2rem]">
           <Button
             backgroundColor="transparent"
             textColor="gray"

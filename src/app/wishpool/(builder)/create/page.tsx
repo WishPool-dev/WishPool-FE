@@ -22,17 +22,19 @@ const CreatePage = () => {
     router.back();
   };
   const handleGoResult = () => {
-    router.push(PATH.WISHPOOL_PREVIEW(1));
+    router.push(PATH.WISHPOOL_PREVIEW);
   };
 
   return (
     <>
       <RightIconHeader title="위시풀 만들기" iconName="cancel" />
       <ProgressBar currentStep={step} />
-      {step === 1 && <Step1 onPrev={handleBack} onNext={handleNext} />}
-      {step === 2 && <Step2 onPrev={handlePrev} onNext={handleNext} />}
-      {step === 3 && <Step3 onPrev={handlePrev} onNext={handleNext} />}
-      {step === 4 && <Step4 onPrev={handlePrev} onNext={handleGoResult} />}
+      <div className="pt-[2.8rem]">
+        {step === 1 && <Step1 onPrev={handleBack} onNext={handleNext} />}
+        {step === 2 && <Step2 onPrev={handlePrev} onNext={handleNext} />}
+        {step === 3 && <Step3 onPrev={handlePrev} onNext={handleNext} />}
+        {step === 4 && <Step4 onPrev={handlePrev} onNext={handleGoResult} />}
+      </div>
     </>
   );
 };

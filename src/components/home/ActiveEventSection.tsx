@@ -24,11 +24,10 @@ const EVENT_INFO = {
 
 const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
   const hasEvent = planCount[planType] > 0;
-  const eventCount = planCount[planType];
-
   const { label, message } = EVENT_INFO[planType];
-
   const { containerRef, currentIndex, scrollToIndex } = useScrollIndex();
+
+  const eventData = data.slice(0, 3);
 
   return (
     <>
@@ -38,7 +37,7 @@ const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
             ref={containerRef}
             className="no-scrollbar mt-[2.6rem] flex snap-x snap-mandatory gap-[2rem] overflow-x-auto scroll-smooth"
           >
-            {data.map((d, idx) => (
+            {eventData.map((d, idx) => (
               <div key={idx} className="w-full shrink-0 snap-start">
                 <EventCard currentIndex={idx} cardData={d} />
               </div>
@@ -46,7 +45,7 @@ const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
           </div>
 
           <div className="mt-[2rem] mb-[2.7rem] flex justify-center gap-[0.4rem]">
-            {Array.from({ length: eventCount }).map((_, idx) => (
+            {eventData.map((_, idx) => (
               <button key={idx} onClick={() => scrollToIndex(idx)}>
                 <Icon
                   name="dot"
