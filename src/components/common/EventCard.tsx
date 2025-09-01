@@ -1,5 +1,7 @@
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import { PATH } from '@/constants/common/path';
 import type { EventCardType } from '@/types/wishpool/eventCardType';
 
@@ -39,11 +41,16 @@ const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
 
   return (
     <div className="relative">
-      <img
-        src="/images/card.svg"
-        className="h-[18.7rem] w-full rounded-[12px] object-cover"
+      <Image
+        src={WishpoolCardImage}
         alt="이벤트 카드 이미지"
+        width={353}
+        height={199}
+        className="w-full rounded-[12px]"
       />
+      <div className="absolute inset-0 rounded-[12px] bg-black/20" />
+      <div className="to-blue-primary from-sub-blue/0 absolute inset-x-0 bottom-0 h-[7.6rem] rounded-[12px] bg-gradient-to-b" />
+
       {EventStatusBadge}
       <p className="body2 absolute bottom-[4.5rem] left-[1.6rem] text-white">
         생일자를 위한 위시풀 만들기 진행 중
