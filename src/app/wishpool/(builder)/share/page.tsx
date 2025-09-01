@@ -6,12 +6,12 @@ import { ShareSectionType } from '@/types/common/ShareSectionType';
 
 const SharePage = () => {
   const url = 'https://wishpool.store/${wishpoolId}';
-  const content = 'share' as ShareSectionType;
+  const content = 'invite' as ShareSectionType;
 
   return (
     <>
       <div className="mt-[2.8rem] flex flex-col items-center">
-        <h3 className="text-text head1">생일자를 위한 위시풀이 열렸어요!</h3>
+        <h2 className="text-text head1">생일자를 위한 위시풀이 열렸어요!</h2>
         <p className="text-text body1 mt-[0.4rem]">
           이제 리스트를 함께 만들 참여자들을 모집해요.
         </p>

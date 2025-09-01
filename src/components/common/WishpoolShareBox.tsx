@@ -41,8 +41,8 @@ const WishpoolShareBox = ({ linkUrl, linkContent }: ShareComponentProps) => {
   return (
     <>
       {toast && <Toast>링크가 복사되었습니다!</Toast>}
-      <div className="bg-background-02 mt-[3.6rem] h-[19.2rem] w-full rounded-[12px] p-[2rem]">
-        <p className="subtitle2 text-text ml-[0.6rem]">{linkTitle}</p>
+      <section className="bg-background-02 mt-[3.6rem] h-[19.2rem] w-full rounded-[12px] p-[2rem]">
+        <h3 className="subtitle2 text-text ml-[0.6rem]">{linkTitle}</h3>
         <div className="mt-[1.1rem] flex h-[4.9rem] w-full items-center justify-between gap-[1.2rem] rounded-[12px] bg-white px-[1.2rem] py-[0.8rem]">
           <p className="body2 ml-[0.8rem] truncate text-gray-600">{linkUrl}</p>
           <button
@@ -55,7 +55,7 @@ const WishpoolShareBox = ({ linkUrl, linkContent }: ShareComponentProps) => {
         <div className="mt-[1.2rem]">
           <KakaoButton />
         </div>
-      </div>
+      </section>
       <p className="body2 mt-[2.8rem] text-center text-gray-600">
         {linkDescription}
       </p>
