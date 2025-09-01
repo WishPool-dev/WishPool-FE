@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 
 import { data } from '@/app/funding/preview/data';
 import Button from '@/components/common/Button';
-import IconButton from '@/components/common/Button/IconButton';
+import KakaoButton from '@/components/common/Button/KakaoButton';
 import Icon from '@/components/common/Icon';
 import GiftCard from '@/components/funding/list/GiftCard';
 import { PATH } from '@/constants/common/path';
@@ -44,15 +44,7 @@ const FinalPage = () => {
       <div className="fixed inset-x-0 bottom-0 bg-gradient-to-b from-white/0 to-white">
         <div className="mx-auto w-full max-w-[430px] p-[2rem]">
           <div className="flex flex-col gap-[1.2rem]">
-            <IconButton
-              textSize="md"
-              onClick={() => {}}
-              backgroundColor="kakao"
-              textColor="black"
-            >
-              <Icon name="kakao" className="text-text" />
-              카카오톡으로 공유하기
-            </IconButton>
+            <KakaoButton />
             <Button textSize="lg" onClick={() => router.push(PATH.HOME)}>
               위시풀 끝내기
             </Button>
