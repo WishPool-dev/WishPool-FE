@@ -11,12 +11,12 @@ const FinalLayout = ({ children }: { children: React.ReactNode }) => {
     <>
       <BackHeader
         title="선택 선물 확인하기"
-        bgColor="white"
+        bgColor="background02"
         onBack={() => {
           router.push(PATH.WISHPOOL_DETAIL(1));
         }}
       />
-      <main className="from-Background-02 to-blue-5 min-h-[100vh] bg-gradient-to-b px-[2rem] pt-[5.4rem]">
+      <main className="from-background-02 to-blue-5 min-h-[100vh] bg-gradient-to-b px-[2rem] pt-[5.4rem]">
         {children}
       </main>
     </>
