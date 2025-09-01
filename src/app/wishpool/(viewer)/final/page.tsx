@@ -14,7 +14,7 @@ const FinalPage = () => {
   return (
     <>
       <div className="mt-[2.8rem] gap-[0.4rem]">
-        <p className="caption1 text-blue-primary">최종 점검</p>
+        <p className="caption1 text-blue-primary">최종 결과</p>
         <p className="head1 text-text pt-[0.4rem]">
           <span className="text-blue-primary">홍길동</span>님이 최종 선택한 선물
         </p>
@@ -24,7 +24,13 @@ const FinalPage = () => {
         </p>
       </div>
 
-      <section className="space-y-[1.2rem] pt-[2.8rem] pb-[20rem]">
+      <section className="relative mt-[9.1rem] space-y-[1.2rem] pb-[20rem]">
+        <Icon
+          name="ribbon"
+          width={120}
+          height={75}
+          className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
+        />
         {data.map(({ giftId, giftName, giftImage }) => (
           <GiftCard
             key={giftId}
