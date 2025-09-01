@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -25,7 +26,12 @@ const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
       <BaseHeader
         leftSlot={
           <Link href={PATH.HOME}>
-            <img src="/images/logo.svg" alt="로고 이미지" />
+            <Image
+              src="/images/logo.png"
+              alt="위시풀 로고"
+              width={118}
+              height={26}
+            />
           </Link>
         }
         rightSlot={
