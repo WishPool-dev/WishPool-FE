@@ -8,7 +8,7 @@ const KakaoButton = () => {
       onClick={onClick}
     >
       <div className="absolute left-[1.6rem]">
-        <Icon name="kakao" />
+        <Icon name="kakao" width={21} height={20} />
       </div>
       <span className="title2 text-text mx-auto">카카오톡으로 공유하기</span>
     </button>
