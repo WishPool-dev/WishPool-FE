@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
 
+import WishpoolGiftImage from '@/assets/images/wishpool-gift.png';
 import { PATH } from '@/constants/common/path';
 import type { PlanType } from '@/types/common/planType';
 
@@ -21,10 +23,11 @@ const CreateEventSection = ({ planType }: { planType: PlanType }) => {
 
   return (
     <button className="flex w-full items-center rounded-[12px] bg-white px-[1.6rem] py-[1.2rem]">
-      <img
-        src="/images/gift.svg"
-        className="h-[6.2rem] w-[6.2rem] object-cover"
-        alt="선물 일러스트 이미지"
+      <Image
+        src={WishpoolGiftImage}
+        alt="위시풀 만들기 아이콘"
+        width={62}
+        height={62}
       />
       <div className="ml-[1.6rem] text-left">
         <p className="title1 text-text">{title}</p>
