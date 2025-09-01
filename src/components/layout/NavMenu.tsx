@@ -8,7 +8,6 @@ import { PATH } from '@/constants/common/path';
 const NAV_LIST = [
   { label: 'WishPool 소개', href: PATH.INTRO },
   { label: '메인 홈', href: PATH.HOME },
-  { label: '상품 둘러보기', href: PATH.HOME },
   { label: '마이 페이지', href: PATH.MYPAGE },
 ];
 

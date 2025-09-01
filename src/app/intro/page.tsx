@@ -38,7 +38,7 @@ const OnBoardingPage = () => {
         </div>
 
         {ONBOARDING_CONTENT.map((section, idx) => (
-          <section key={idx}>
+          <section key={idx} className="-mt-1">
             <img
               src={section.imageSrc}
               alt={section.imageAlt}
