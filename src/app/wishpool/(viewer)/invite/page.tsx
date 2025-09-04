@@ -43,7 +43,7 @@ const ShareSection = ({
   content: ShareSectionType;
 }) => (
   <>
-    <div className="flex flex-col items-center pt-[2rem]">
+    <div className="flex flex-col items-center">
       <h3 className="text-text head1">위시풀 완성!</h3>
       <p className="text-text body1 mt-[0.4rem]">
         이제 생일인 친구가 선물을 고를 수 있어요!
