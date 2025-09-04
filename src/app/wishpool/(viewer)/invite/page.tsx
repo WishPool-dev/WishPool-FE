@@ -66,12 +66,10 @@ const ShareSection = ({
 const DateSelectionSection = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
     <>
-      <div className="pt-[2rem]">
-        <Question
-          question="생일인 친구가 언제까지 선물을 고를까요?"
-          required={true}
-        />
-      </div>
+      <Question
+        question="생일인 친구가 언제까지 선물을 고를까요?"
+        required={true}
+      />
       <div className="mt-[4.2rem]">
         <CalendarField label="선물 고르기 마감일" tag="생일자" />
       </div>
