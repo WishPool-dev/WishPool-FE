@@ -20,11 +20,11 @@ const AddLayout = ({ children }: { children: React.ReactNode }) => {
         onClick={handleClose}
         bgColor="white"
       />
-      <div className="pt-[5.4rem]">
+      <div className="mt-header">
         <div className="bg-blue-2 h-[0.3rem] w-full" />
       </div>
 
-      <main className="mx-[2rem] pb-[10rem]">{children}</main>
+      <main className="p-[2rem] pb-[10rem]">{children}</main>
     </>
   );
 };

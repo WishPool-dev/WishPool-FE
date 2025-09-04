@@ -16,7 +16,7 @@ const FinalLayout = ({ children }: { children: React.ReactNode }) => {
           router.push(PATH.WISHPOOL_DETAIL(1));
         }}
       />
-      <main className="from-background-02 to-blue-5 h-[100vh] bg-gradient-to-b px-[2rem] pt-[5.4rem]">
+      <main className="from-background-02 to-blue-5 mt-header min-h-[100vh] bg-gradient-to-b p-[2rem]">
         {children}
       </main>
     </>

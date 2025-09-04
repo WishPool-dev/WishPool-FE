@@ -21,7 +21,7 @@ const PreviewLayout = ({ children }: { children: React.ReactNode }) => {
         bgColor="white"
       />
 
-      <main className="mx-[2rem] pt-[5.4rem] pb-[15rem]">{children}</main>
+      <main className="mt-header p-[2rem] pb-[15rem]">{children}</main>
     </>
   );
 };

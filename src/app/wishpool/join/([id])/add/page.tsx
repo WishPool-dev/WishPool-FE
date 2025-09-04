@@ -11,9 +11,8 @@ const AddPage = () => {
   const router = useRouter();
   return (
     <>
-      <div className="pt-[2rem]">
-        <Question required={true} question="주고 싶은 선물을 제안해 주세요." />
-      </div>
+      <Question required={true} question="주고 싶은 선물을 제안해 주세요." />
+
       <div className="mt-[4rem]">
         <GiftField
           label="선물 1"

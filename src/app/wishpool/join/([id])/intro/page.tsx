@@ -9,7 +9,7 @@ const IntroPage = () => {
   const router = useRouter();
   return (
     <>
-      <div className="text-text pt-[2rem]">
+      <div className="text-text">
         <h1 className="head1">
           위시풀을 통해 <br />
           <span className="text-blue-primary">홍길동</span>님에게 주고 싶은
