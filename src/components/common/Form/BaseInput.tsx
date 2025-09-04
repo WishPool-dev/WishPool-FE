@@ -3,7 +3,7 @@
 import { useState } from 'react';
 
 interface InputBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  maxLength: number;
+  maxLength?: number;
 }
 
 const BaseInput = ({ maxLength, placeholder }: InputBoxProps) => {
