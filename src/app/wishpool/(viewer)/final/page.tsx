@@ -13,7 +13,7 @@ const FinalPage = () => {
 
   return (
     <>
-      <div className="mt-[2.8rem] gap-[0.4rem]">
+      <div className="mt-[2rem] gap-[0.4rem]">
         <p className="caption1 text-blue-primary">최종 결과</p>
         <p className="head1 text-text pt-[0.4rem]">
           <span className="text-blue-primary">홍길동</span>님이 최종 선택한 선물

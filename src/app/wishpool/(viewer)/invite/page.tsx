@@ -43,7 +43,7 @@ const ShareSection = ({
   content: ShareSectionType;
 }) => (
   <>
-    <div className="mt-[2.8rem] flex flex-col items-center">
+    <div className="flex flex-col items-center pt-[2rem]">
       <h3 className="text-text head1">위시풀 완성!</h3>
       <p className="text-text body1 mt-[0.4rem]">
         이제 생일인 친구가 선물을 고를 수 있어요!
@@ -66,10 +66,12 @@ const ShareSection = ({
 const DateSelectionSection = ({ onSubmit }: { onSubmit: () => void }) => {
   return (
     <>
-      <Question
-        question="생일인 친구가 언제까지 선물을 고를까요?"
-        required={true}
-      />
+      <div className="pt-[2rem]">
+        <Question
+          question="생일인 친구가 언제까지 선물을 고를까요?"
+          required={true}
+        />
+      </div>
       <div className="mt-[4.2rem]">
         <CalendarField label="선물 고르기 마감일" tag="생일자" />
       </div>
