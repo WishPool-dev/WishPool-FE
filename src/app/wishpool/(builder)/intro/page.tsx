@@ -26,7 +26,7 @@ const Page = () => {
         <Image
           src={introEmptyBox}
           alt="위시풀 박스 사진"
-          className="mx-auto my-[4.2rem] h-[18rem] w-[18rem] object-cover"
+          className="mx-auto mt-[4.2rem] mb-[2rem] h-[18rem] w-[18rem] object-cover"
         />
 
         <InfoBox />
