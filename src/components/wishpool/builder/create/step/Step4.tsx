@@ -5,7 +5,7 @@ import { StepProps } from '@/types/wishpool/builder/stepProps';
 
 const Step4 = ({ onPrev, onNext }: StepProps) => {
   return (
-    <section className="px-[2rem] pt-[2rem]">
+    <section>
       <Question
         required={true}
         question="참여자의 선물 리스트를 언제까지 받을까요?"

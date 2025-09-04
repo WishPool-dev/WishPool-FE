@@ -4,7 +4,7 @@ import ButtonContainer from '@/components/wishpool/builder/create/ButtonContaine
 import { StepProps } from '@/types/wishpool/builder/stepProps';
 const Step3 = ({ onPrev, onNext }: StepProps) => {
   return (
-    <section className="px-[2rem] pt-[2rem]">
+    <section>
       <Question
         required={false}
         question="위시풀 썸네일 이미지를 추가할 수 있어요."

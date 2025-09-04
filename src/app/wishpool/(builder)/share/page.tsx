@@ -10,7 +10,7 @@ const SharePage = () => {
 
   return (
     <>
-      <div className="mt-[2rem] flex flex-col items-center">
+      <div className="flex flex-col items-center">
         <h2 className="text-text head1">생일자를 위한 위시풀이 열렸어요!</h2>
         <p className="text-text body1 mt-[0.4rem]">
           이제 리스트를 함께 만들 참여자들을 모집해요.

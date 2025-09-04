@@ -20,7 +20,7 @@ const PreviewPage = () => {
 
   return (
     <>
-      <div className="mb-[7.4rem] pt-[2rem]">
+      <div className="mb-[7.4rem]">
         <p className="caption1 text-blue-primary h-[1.8rem] max-w-[430px]">
           최종 점검
         </p>
@@ -72,7 +72,7 @@ const PreviewPage = () => {
         </div>
       </div>
 
-      <div className="mx-auto mt-auto w-full max-w-[430px] py-[2rem]">
+      <div className="mx-auto mt-auto w-full max-w-[430px]">
         <div className="flex justify-between gap-[1rem]">
           <Button
             textColor="black"

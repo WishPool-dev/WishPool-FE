@@ -5,7 +5,7 @@ import { StepProps } from '@/types/wishpool/builder/stepProps';
 
 const Step2 = ({ onPrev, onNext }: StepProps) => {
   return (
-    <section className="px-[2rem] pt-[2rem]">
+    <section>
       <span className="bg-background-02 caption2 inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
         <span className="text-blue-primary">홍길동</span>에게 보내는 위시풀
       </span>
