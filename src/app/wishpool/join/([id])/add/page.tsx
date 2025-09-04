@@ -11,7 +11,7 @@ const AddPage = () => {
   const router = useRouter();
   return (
     <>
-      <div className="mt-[2.8rem]">
+      <div className="pt-[2rem]">
         <Question required={true} question="주고 싶은 선물을 제안해 주세요." />
       </div>
       <div className="mt-[4rem]">

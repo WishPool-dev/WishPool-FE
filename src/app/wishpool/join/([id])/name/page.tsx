@@ -9,7 +9,7 @@ const NamePage = () => {
   const router = useRouter();
   return (
     <>
-      <div className="pt-[2.8rem]">
+      <div className="pt-[2rem]">
         <Question required={true} question="참여자 본인의 이름을 알려주세요." />
         <div className="mt-[4rem]">
           <BasicInputField
