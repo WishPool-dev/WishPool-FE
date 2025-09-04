@@ -20,7 +20,7 @@ const PreviewPage = () => {
 
   return (
     <>
-      <div className="mt-[2.8rem] mb-[7.4rem]">
+      <div className="mb-[7.4rem] pt-[2rem]">
         <p className="caption1 text-blue-primary h-[1.8rem] max-w-[430px]">
           최종 점검
         </p>

@@ -6,13 +6,11 @@ import { StepProps } from '@/types/wishpool/builder/stepProps';
 
 const Step1 = ({ onPrev, onNext }: StepProps) => {
   return (
-    <section className="px-[2rem]">
-      <div className="mt-[2.8rem]">
-        <Question
-          required={true}
-          question="위시풀을 받을 생일자의 정보를 알려 주세요."
-        />
-      </div>
+    <section className="px-[2rem] pt-[2rem]">
+      <Question
+        required={true}
+        question="위시풀을 받을 생일자의 정보를 알려 주세요."
+      />
 
       <div className="mt-[4rem]">
         <BasicInputField

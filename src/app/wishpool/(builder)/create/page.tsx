@@ -3,7 +3,6 @@
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-import RightIconHeader from '@/components/layout/Header/RightIconHeader';
 import ProgressBar from '@/components/wishpool/builder/create/ProgressBar';
 import Step1 from '@/components/wishpool/builder/create/step/Step1';
 import Step2 from '@/components/wishpool/builder/create/step/Step2';
@@ -27,9 +26,8 @@ const CreatePage = () => {
 
   return (
     <>
-      <RightIconHeader title="위시풀 만들기" iconName="cancel" />
       <ProgressBar currentStep={step} />
-      <div className="pt-[2.8rem]">
+      <div className="mt-[3.9rem]">
         {step === 1 && <Step1 onPrev={handleBack} onNext={handleNext} />}
         {step === 2 && <Step2 onPrev={handlePrev} onNext={handleNext} />}
         {step === 3 && <Step3 onPrev={handlePrev} onNext={handleNext} />}
