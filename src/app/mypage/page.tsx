@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 
+import GiftCardImage from '@/assets/images/gift-card.png';
 import CenterModal from '@/components/common/Modal/CenterModal';
 import MyPageItem from '@/components/mypage/MyPageItem';
 import MyPageList from '@/components/mypage/MyPageList';
@@ -15,7 +16,7 @@ const MyPage = () => {
     <>
       <div className="bg-background-01 flex items-center gap-[2rem] px-[2rem] py-[1.6rem]">
         <Image
-          src="/images/gift-card.svg"
+          src={GiftCardImage}
           alt="프로필 이미지"
           width={60}
           height={60}
