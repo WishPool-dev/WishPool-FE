@@ -9,7 +9,7 @@ const IntroPage = () => {
   const router = useRouter();
   return (
     <>
-      <div className="text-text mt-[2.8rem]">
+      <div className="text-text">
         <h1 className="head1">
           위시풀을 통해 <br />
           <span className="text-blue-primary">홍길동</span>님에게 주고 싶은
@@ -20,7 +20,7 @@ const IntroPage = () => {
       <img
         src="/images/funding-pool.svg"
         alt="선물 고르기 사진"
-        className="mx-auto my-[4.2rem] h-[18rem] w-[18rem]"
+        className="mx-auto mt-[4.2rem] mb-[2rem] h-[18rem] w-[18rem]"
       />
       <div className="fixed inset-x-0 bottom-0">
         <div className="mx-auto w-full max-w-[430px] p-[2rem]">

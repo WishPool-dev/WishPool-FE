@@ -16,10 +16,11 @@ const CompleteLayout = ({ children }: { children: React.ReactNode }) => {
     <>
       <RightIconHeader
         iconName="cancel"
-        title="홍길동에게 보내는 위시풀"
+        title="선물 제안하기"
         onClick={handleClose}
+        bgColor="white"
       />
-      <main className="mx-[2rem] pt-[5.4rem]">{children}</main>
+      <main className="mt-header p-[2rem]">{children}</main>
     </>
   );
 };
