@@ -25,41 +25,46 @@ const EditPage = () => {
 
   return (
     <>
-      <section className="mt-[5.4rem] mb-[6.3rem] px-[2rem]">
-        {openToast && <Toast>위시풀이 수정되었어요.</Toast>}
-        <div className="relative -mx-[2rem]">
-          <Image
-            src="/images/wishpool-card.svg"
-            width={430}
-            height={240}
-            className="w-full"
-            alt="위시풀 대표 이미지"
-          />
-          <div className="absolute inset-0 bg-black/20" />
+      {openToast && <Toast>위시풀이 수정되었어요.</Toast>}
 
-          <button
-            type="button"
-            onClick={onClickHandler}
-            className="absolute top-1/2 left-1/2 h-[7.2rem] w-[7.2rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/70"
-            aria-label="이미지 바꾸기"
-          >
-            <div className="relative flex h-full w-full flex-col items-center justify-center gap-[0.2rem]">
-              <Icon
-                name="photo"
-                width={24}
-                height={24}
-                className="text-gray-600"
-              />
-              <span className="caption1 text-gray-600">바꾸기</span>
-            </div>
-          </button>
-        </div>
+      <div className="relative">
+        <Image
+          src="/images/wishpool-card.svg"
+          width={430}
+          height={240}
+          className="w-full"
+          alt="위시풀 대표 이미지"
+        />
+        <div className="absolute inset-0 bg-black/20" />
 
-        <span className="bg-background-02 caption2 mt-[2.8rem] inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
+        <button
+          type="button"
+          onClick={onClickHandler}
+          className="absolute top-1/2 left-1/2 h-[7.2rem] w-[7.2rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/70"
+          aria-label="이미지 바꾸기"
+        >
+          <div className="relative flex h-full w-full flex-col items-center justify-center gap-[0.2rem]">
+            <Icon
+              name="photo"
+              width={24}
+              height={24}
+              className="text-gray-600"
+            />
+            <span className="caption1 text-gray-600">바꾸기</span>
+          </div>
+        </button>
+      </div>
+
+      <div className="mb-[20rem] p-[2rem]">
+        <span className="bg-background-02 caption2 inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
           <span className="text-blue-primary">홍길동</span>에게 보내는 위시풀
         </span>
         <div className="mt-[2.8rem]">
-          <BasicInputField maxLength={20} label="생일자 이름" />
+          <BasicInputField
+            maxLength={20}
+            label="생일자 이름"
+            placeholder="생일자의 이름을 알려 주세요."
+          />
         </div>
         <div className="mt-[2.8rem]">
           <CalendarField label="곧 다가올 생일" />
@@ -68,12 +73,18 @@ const EditPage = () => {
         <hr className="bg-background-02 -mx-[2rem] my-[3.2rem] h-[0.8rem] border-0" />
 
         <div className="mt-[4rem]">
-          <TextField label="위시풀 제목" maxLength={200} />
+          <TextField
+            label="위시풀 제목"
+            maxLength={200}
+            placeholder={`참여자가 이 소개글을 볼 수 있어요. 
+생일자에게는 보이지 않아요.`}
+          />
         </div>
         <div className="mt-[2.8rem]">
           <CalendarField tag="참여자" label="선물 리스트 마감일" />
         </div>
-      </section>
+      </div>
+
       <div className="mx-auto w-full max-w-[430px] p-[2rem]">
         <Button type="submit" onClick={handleSubmit}>
           저장하기

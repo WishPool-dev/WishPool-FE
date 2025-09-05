@@ -16,15 +16,15 @@ const AddLayout = ({ children }: { children: React.ReactNode }) => {
     <>
       <RightIconHeader
         iconName="cancel"
-        title="홍길동에게 보내는 위시풀"
+        title="선물 제안하기"
         onClick={handleClose}
         bgColor="white"
       />
-      <div className="pt-[5.4rem]">
+      <div className="mt-header">
         <div className="bg-blue-2 h-[0.3rem] w-full" />
       </div>
 
-      <main className="mx-[2rem] pb-[10rem]">{children}</main>
+      <main className="p-[2rem] pb-[10rem]">{children}</main>
     </>
   );
 };

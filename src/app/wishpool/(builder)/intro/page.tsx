@@ -17,26 +17,24 @@ const Page = () => {
 
   return (
     <>
-      <div className="px-[2rem]">
-        <h1 className="head1 text-text mb-[0.4rem]">
-          친구를 위한 선물 위시리스트, <br /> 위시풀을 함께 만들어보세요!
-        </h1>
-        <h2 className="body1 text-text">단계별 항목에 응답해주세요.</h2>
+      <h1 className="head1 text-text mb-[0.4rem]">
+        친구를 위한 선물 위시리스트, <br /> 위시풀을 함께 만들어보세요!
+      </h1>
+      <h2 className="body1 text-text">단계별 항목에 응답해주세요.</h2>
 
-        <Image
-          src={introEmptyBox}
-          alt="위시풀 박스 사진"
-          className="mx-auto my-[4.2rem] h-[18rem] w-[18rem] object-cover"
-        />
+      <Image
+        src={introEmptyBox}
+        alt="위시풀 박스 사진"
+        className="mx-auto mt-[4.2rem] mb-[2rem] h-[18rem] w-[18rem] object-cover"
+      />
 
-        <InfoBox />
+      <InfoBox />
 
-        <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
-          <IconButton onClick={handleClick}>
-            <Icon name="giftButton" title="선물 버튼 아이콘" />
-            <span>시작</span>
-          </IconButton>
-        </div>
+      <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
+        <IconButton onClick={handleClick}>
+          <Icon name="giftButton" title="선물 버튼 아이콘" />
+          <span>시작</span>
+        </IconButton>
       </div>
     </>
   );

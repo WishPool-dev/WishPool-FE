@@ -48,7 +48,7 @@ const GiftPage = () => {
   const router = useRouter();
   return (
     <>
-      <div className="head1 text-text mb-[2.4rem] pt-[2.8rem]">
+      <div className="head1 text-text mb-[2.4rem]">
         현재까지 총 <span>{numberOfFriends}</span>명의 친구가 <br />
         <span className="text-blue-primary">홍길동</span>님을 위한 선물 리스트를
         만들어 줬어요.

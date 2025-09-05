@@ -15,7 +15,7 @@ const ProgressBar = ({ currentStep }: ProgressBarProps) => {
         {progressStep.map(({ step, label }) => (
           <span
             key={step}
-            className={`relative inline-flex h-full flex-1 items-center justify-center ${currentStep === step ? 'after:absolute after:bottom-[-3px] after:left-0 after:h-[3px] after:w-full after:bg-blue-500' : ''}`}
+            className={`relative inline-flex h-full flex-1 items-center justify-center ${currentStep >= step ? 'after:absolute after:bottom-[-3px] after:left-0 after:h-[3px] after:w-full after:bg-blue-500' : ''}`}
           >
             {label}
           </span>

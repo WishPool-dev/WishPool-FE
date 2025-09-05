@@ -6,7 +6,7 @@ const PreviewLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <BackHeader title="선물 리스트" bgColor="white" />
-      <main className="mx-[2rem] pt-[5.4rem] pb-[8rem]">{children}</main>
+      <main className="mt-header p-[2rem] pb-[8rem]">{children}</main>
     </>
   );
 };

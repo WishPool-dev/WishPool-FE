@@ -14,6 +14,8 @@ html {
   --z-index-header: 50;
   --z-index-modal: 60;
   --z-index-toast: 70;
+
+  --spacing-header: 5.4rem;
 }
 
 .no-scrollbar {

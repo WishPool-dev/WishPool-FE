@@ -5,8 +5,8 @@ import { StepProps } from '@/types/wishpool/builder/stepProps';
 
 const Step2 = ({ onPrev, onNext }: StepProps) => {
   return (
-    <section className="px-[2rem]">
-      <span className="bg-background-02 caption2 mt-[2.8rem] inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
+    <section>
+      <span className="bg-background-02 caption2 inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
         <span className="text-blue-primary">홍길동</span>에게 보내는 위시풀
       </span>
 
@@ -16,7 +16,7 @@ const Step2 = ({ onPrev, onNext }: StepProps) => {
 
       <div className="mt-[4rem]">
         <TextField
-          label="위시풀 제목"
+          label="위시풀 소개"
           placeholder={`참여자가 이 소개글을 볼 수 있어요. 
 생일자에게는 보이지 않아요.`}
           maxLength={200}
