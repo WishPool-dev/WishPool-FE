@@ -15,7 +15,7 @@ const GiftCard = ({
   giftImage,
 }: GiftCardProps) => {
   const isSmall = size === 'small';
-  console.log(giftImage);
+
   return (
     <div
       className={`bg-background-01 flex grow-1 flex-col items-center gap-[2.4rem] rounded-[16px] ${isSmall ? 'p-[2.2rem]' : 'p-[6.4rem]'}`}
