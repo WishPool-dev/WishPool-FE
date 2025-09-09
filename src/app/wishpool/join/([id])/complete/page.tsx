@@ -1,5 +1,7 @@
 import Image from 'next/image';
 
+import CongratsImage from '@/assets/images/congrats.png';
+
 const CompletePage = () => {
   return (
     <>
@@ -12,8 +14,8 @@ const CompletePage = () => {
 
       <div className="mt-[3.8rem] flex items-center justify-center">
         <Image
-          src="/images/join-complete.svg"
-          alt="위시풀 공유 완료 일러스트"
+          src={CongratsImage}
+          alt="위시풀 공유 완료 "
           width={180}
           height={180}
         />
