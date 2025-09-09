@@ -1,3 +1,6 @@
+import Image from 'next/image';
+
+import GiftCardImage from '@/assets/images/gift-card.png';
 import UserTag from '@/components/common/UserTag';
 
 type ItemCardProps = {
@@ -9,10 +12,11 @@ const ItemCard = ({ name, item }: ItemCardProps) => {
   return (
     <>
       <div className="flex grow-1 flex-col">
-        <img
+        <Image
+          src={GiftCardImage}
+          alt="프로필 이미지"
+          sizes="100vw"
           className="rounded-[12px] object-cover"
-          src="/images/gift-card.svg"
-          alt="상품 이미지"
         />
 
         <div className="mt-[0.8rem] flex items-center gap-[0.8rem]">

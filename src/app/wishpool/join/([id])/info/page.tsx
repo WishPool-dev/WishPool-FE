@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import BirthdayInfo from '@/components/common/BirthdayInfo';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
@@ -29,8 +31,8 @@ const InfoPage = () => {
         />
         <BirthdayInfo />
 
-        <img
-          src="/images/wishpool-card.svg"
+        <Image
+          src={WishpoolCardImage}
           width={430}
           height={240}
           className="w-full"

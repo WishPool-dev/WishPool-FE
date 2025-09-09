@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
 
+import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Icon from '@/components/common/Icon';
 import DetailFooter from '@/components/wishpool/viewer/detail/DetailFooter';
 import { PATH } from '@/constants/common/path';
@@ -18,13 +20,15 @@ const DetailPage = () => {
 
   return (
     <>
-      <img
-        src="/images/wishpool-card.svg"
-        width={430}
-        height={240}
-        className="w-full"
-        alt="위시풀 대표 이미지"
-      />
+      <div className="relative aspect-[393/221] w-full">
+        <Image
+          src={WishpoolCardImage}
+          alt="위시풀 대표 이미지"
+          fill
+          sizes="100vw"
+          className="object-cover"
+        />
+      </div>
       <section className="text-text p-[2rem]">
         <div className="flex items-center justify-between">
           <span className="bg-background-02 caption2 rounded-[6px] px-[1.2rem] py-[0.6rem] text-gray-800">

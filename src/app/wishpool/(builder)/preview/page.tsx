@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
 import UserTag from '@/components/common/UserTag';
@@ -44,14 +46,18 @@ const PreviewPage = () => {
           </span>
         </div>
 
-        <img
-          src="/images/wishpool-card.svg"
-          className="mt-[1.2rem] h-[19.9rem] w-full rounded-[12px] object-cover"
-          alt="이벤트 카드 이미지"
-        />
+        <div className="relative my-[1.2rem] aspect-[353/199] w-full">
+          <Image
+            src={WishpoolCardImage}
+            alt="위시풀 대표 이미지"
+            fill
+            sizes="100vw"
+            className="rounded-[12px] object-cover"
+          />
+        </div>
 
-        <div className="bg-background-02 body2 mt-[1.2rem] inline-block w-full rounded-[12px] p-[1.6rem] break-words">
-          <div className="flex flex-row gap-[1.2rem]">
+        <div className="bg-background-02 body2 w-full rounded-[12px] p-[1.6rem] break-words">
+          <div className="flex gap-[1.2rem]">
             <span className="flex-shrink-0 text-gray-600">소개</span>
             <p className="text-gray-800">
               얘들아 길동이가 이번에 생일이더라고! 지난 학기에 길동이가 우리

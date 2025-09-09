@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import BirthdayInfo from '@/components/common/BirthdayInfo';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
@@ -30,13 +32,15 @@ const InvitePage = () => {
           </p>
         </div>
 
-        <img
-          src="/images/wishpool-card.svg"
-          width={430}
-          height={240}
-          className="w-full"
-          alt="위시풀 대표 이미지"
-        />
+        <div className="relative aspect-[353/199] w-full">
+          <Image
+            src={WishpoolCardImage}
+            alt="이벤트 카드 이미지"
+            fill
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
 
         <BirthdayInfo />
       </div>

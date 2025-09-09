@@ -3,9 +3,11 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import GiftCardImage from '@/assets/images/gift-card.png';
 import Button from '@/components/common/Button';
 import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
+
 const PreviewPage = () => {
   const router = useRouter();
   return (
@@ -31,7 +33,7 @@ const PreviewPage = () => {
         <section className="mt-[1.6rem] grid grid-cols-2 gap-[1.1rem]">
           <div className="flex flex-col items-center justify-center">
             <Image
-              src="/images/gift-card.svg"
+              src={GiftCardImage}
               alt="선물 카드 이미지"
               width={155}
               height={155}
@@ -43,7 +45,7 @@ const PreviewPage = () => {
 
           <div className="flex flex-col items-center justify-center">
             <Image
-              src="/images/gift-card.svg"
+              src={GiftCardImage}
               alt="선물 카드 이미지"
               width={155}
               height={155}

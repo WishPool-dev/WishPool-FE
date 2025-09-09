@@ -1,5 +1,8 @@
 'use client';
 
+import Image from 'next/image';
+
+import GiftCardImage from '@/assets/images/gift-card.png';
 import CenterModal from '@/components/common/Modal/CenterModal';
 import MyPageItem from '@/components/mypage/MyPageItem';
 import MyPageList from '@/components/mypage/MyPageList';
@@ -12,10 +15,12 @@ const MyPage = () => {
   return (
     <>
       <div className="bg-background-01 flex items-center gap-[2rem] px-[2rem] py-[1.6rem]">
-        <img
-          src="/images/gift-card.svg"
+        <Image
+          src={GiftCardImage}
           alt="프로필 이미지"
-          className="h-[6rem] w-[6rem] rounded-full"
+          width={60}
+          height={60}
+          className="rounded-full"
         />
         <span className="text-text head1">User Name</span>
       </div>
