@@ -2,7 +2,9 @@
 
 import { motion } from 'framer-motion';
 import type { PanInfo } from 'framer-motion';
+import Image from 'next/image';
 
+import GiftCardImage from '@/assets/images/gift-card.png';
 import { useDeleteCard } from '@/hooks/funding/useDeleteCard';
 import type { GiftCardType } from '@/types/common/giftCardType';
 
@@ -23,7 +25,7 @@ export default function CarouselCard({
   onRemove,
   giftId,
   giftName,
-  giftImage,
+  // giftImage,
 }: CarouselCardProps) {
   const isActive = index === activeIndex;
 
@@ -70,10 +72,12 @@ export default function CarouselCard({
             : 'bg-background-01 translate-y-0 border-transparent',
         ].join(' ')}
       >
-        <img
-          src={giftImage}
+        <Image
+          src={GiftCardImage}
           alt="선물 카드 이미지"
-          className="h-[13.3rem] w-[13.3rem] rounded-[12px] transition-all duration-300"
+          width={133}
+          height={133}
+          className="rounded-[12px] transition-all duration-300"
         />
         <span
           className={[
