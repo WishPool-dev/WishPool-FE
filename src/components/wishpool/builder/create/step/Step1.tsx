@@ -1,10 +1,8 @@
 import BasicInputField from '@/components/common/Form/BasicInputField';
 import CalendarField from '@/components/common/Form/CalendarField';
 import Question from '@/components/common/Form/Question';
-import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
-import { StepProps } from '@/types/wishpool/builder/stepProps';
 
-const Step1 = ({ onPrev, onNext }: StepProps) => {
+const Step1 = () => {
   return (
     <section className="pb-[30rem]">
       <Question
@@ -23,12 +21,6 @@ const Step1 = ({ onPrev, onNext }: StepProps) => {
       <div className="mt-[3.2rem]">
         <CalendarField label="곧 다가올 생일" />
       </div>
-
-      <ButtonContainer
-        next="active"
-        onClickPrev={onPrev}
-        onClickNext={onNext}
-      />
     </section>
   );
 };

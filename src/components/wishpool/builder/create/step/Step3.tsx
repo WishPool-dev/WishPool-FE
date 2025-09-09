@@ -1,8 +1,7 @@
 import Question from '@/components/common/Form/Question';
 import ThumbnailField from '@/components/common/Form/ThumbnailField';
-import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
-import { StepProps } from '@/types/wishpool/builder/stepProps';
-const Step3 = ({ onPrev, onNext }: StepProps) => {
+
+const Step3 = () => {
   return (
     <section>
       <Question
@@ -11,11 +10,6 @@ const Step3 = ({ onPrev, onNext }: StepProps) => {
       />
 
       <ThumbnailField />
-      <ButtonContainer
-        next="active"
-        onClickPrev={onPrev}
-        onClickNext={onNext}
-      />
     </section>
   );
 };

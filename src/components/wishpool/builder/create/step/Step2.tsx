@@ -1,9 +1,8 @@
+'use client';
 import Question from '@/components/common/Form/Question';
 import TextField from '@/components/common/Form/TextField';
-import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
-import { StepProps } from '@/types/wishpool/builder/stepProps';
 
-const Step2 = ({ onPrev, onNext }: StepProps) => {
+const Step2 = () => {
   return (
     <section>
       <span className="bg-background-02 caption2 inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
@@ -32,11 +31,6 @@ const Step2 = ({ onPrev, onNext }: StepProps) => {
           </li>
         </ol>
       </div>
-      <ButtonContainer
-        next="active"
-        onClickPrev={onPrev}
-        onClickNext={onNext}
-      />
     </section>
   );
 };
