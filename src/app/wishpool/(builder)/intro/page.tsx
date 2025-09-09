@@ -12,7 +12,7 @@ const Page = () => {
   const router = useRouter();
 
   const handleClick = () => {
-    router.push(PATH.WISHPOOL_CREATE);
+    router.push(PATH.WISHPOOL_CREATE_STEP1);
   };
 
   return (
