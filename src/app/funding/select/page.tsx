@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -61,10 +62,12 @@ const SelectPage = () => {
 
       <section className="bg-background-02 relative grow">
         <div className="flex flex-col items-center py-[7.2rem]">
-          <img
+          <Image
             src="/images/hole.svg"
+            width={203}
+            height={52}
             alt="구멍 이미지"
-            className="mb-[4rem] h-[5.2rem] w-[20.3rem]"
+            className="mb-[4rem]"
           />
           <p className="text-text caption1 text-center">
             마음에 드는 선물을{' '}

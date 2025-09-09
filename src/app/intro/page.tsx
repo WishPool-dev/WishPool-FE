@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import Onboarding1Image from '@/assets/images/onboarding-1.jpg';
 import Button from '@/components/common/Button';
 import { PATH } from '@/constants/common/path';
 import { ONBOARDING_CONTENT } from '@/constants/intro/onBoardingContent';
@@ -23,11 +25,16 @@ const OnBoardingPage = () => {
           선물 위시리스트를 여럿이 함께 만들고, <br />
           취향을 물어 보세요.
         </p>
-        <img
-          src="/images/onboarding-1.svg"
-          alt="온보딩 - 위시풀 이미지"
-          className="w-full"
-        />
+        <div className="relative aspect-[393/486] w-full">
+          <Image
+            src={Onboarding1Image}
+            alt="온보딩 - 위시풀 이미지"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
       </div>
 
       <div className="relative">
@@ -39,11 +46,16 @@ const OnBoardingPage = () => {
 
         {ONBOARDING_CONTENT.map((section, idx) => (
           <section key={idx} className="-mt-1">
-            <img
-              src={section.imageSrc}
-              alt={section.imageAlt}
-              className="w-full"
-            />
+            <div className="relative aspect-[393/392] w-full">
+              <Image
+                src={section.imageSrc}
+                alt={section.imageAlt}
+                fill
+                priority
+                sizes="100vw"
+                className="object-cover"
+              />
+            </div>
             <div className="text-text pt-[3.2rem] pb-[6rem]">
               <h2 className="head1 mb-[1.6rem]">{section.title}</h2>
               <p className="body1">{section.content}</p>
