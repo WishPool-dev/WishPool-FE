@@ -17,7 +17,7 @@ const NavMenu = () => {
   return (
     <nav
       aria-label="메인 메뉴"
-      className="z-nav mt-header absolute inset-x-0 mx-auto flex max-w-[430px] flex-col bg-white text-center"
+      className="z-nav fixed inset-x-0 mx-auto flex max-w-[430px] flex-col bg-white text-center"
     >
       <ul>
         {NAV_LIST.map(({ label, href }) => {

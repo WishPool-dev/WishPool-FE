@@ -18,7 +18,7 @@ const IntroPage = () => {
           위시풀을 통해 <br />
           받고 싶은 선물을 고를 수 있어요.
         </h1>
-        <p className="body1 mt-[0.4rem]">
+        <p className="body2 mt-[0.4rem]">
           한개의 선물이 남을 때까지 원하지 않는 선물을 지워 보세요!
         </p>
       </div>
