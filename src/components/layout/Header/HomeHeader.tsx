@@ -49,7 +49,12 @@ const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
         }
         bgColor={bgColor}
       />
-      {openNav && <NavMenu />}
+      {openNav && (
+        <div onClick={handleNavMenu}>
+          <div className="z-dimmed top-header fixed inset-0 mx-auto max-w-[430px] bg-black/20" />
+          <NavMenu />
+        </div>
+      )}
     </>
   );
 };

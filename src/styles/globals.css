@@ -8,12 +8,13 @@ html {
 
 @theme {
   --z-index-planType: 10;
-  --z-index-nav: 20;
-  --z-index-card: 30;
-  --z-index-guide: 40;
-  --z-index-header: 50;
-  --z-index-modal: 60;
-  --z-index-toast: 70;
+  --z-index-dimmed: 20;
+  --z-index-nav: 30;
+  --z-index-card: 40;
+  --z-index-guide: 50;
+  --z-index-header: 60;
+  --z-index-modal: 70;
+  --z-index-toast: 80;
 
   --spacing-header: 5.4rem;
 }

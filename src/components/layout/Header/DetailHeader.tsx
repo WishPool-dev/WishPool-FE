@@ -7,20 +7,19 @@ import CenterModal from '@/components/common/Modal/CenterModal';
 import EditModal from '@/components/common/Modal/EditModal';
 import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
+import { PATH } from '@/constants/common/path';
 import useModal from '@/hooks/common/useModal';
 
-type BackMoreHeaderProps = {
+type DetailHeaderProps = {
   title: string;
-  onBack?: () => void;
   bgColor?: HeaderColor;
 };
 
-const BackMoreHeader = ({ title, onBack, bgColor }: BackMoreHeaderProps) => {
+const DetailHeader = ({ title, bgColor }: DetailHeaderProps) => {
   const router = useRouter();
 
   const handleBack = () => {
-    if (onBack) onBack();
-    else router.back();
+    router.push(PATH.HOME);
   };
 
   const edit = useModal();
@@ -62,4 +61,4 @@ const BackMoreHeader = ({ title, onBack, bgColor }: BackMoreHeaderProps) => {
   );
 };
 
-export default BackMoreHeader;
+export default DetailHeader;

@@ -14,7 +14,7 @@ const InvitePage = () => {
 
   return (
     <>
-      <div className="relative mt-[12rem] w-full rounded-[16px] bg-white">
+      <div className="relative mt-[6rem] w-full rounded-[16px] bg-white">
         <Icon
           name="ribbon"
           width={120}

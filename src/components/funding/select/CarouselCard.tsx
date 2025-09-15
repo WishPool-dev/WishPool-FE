@@ -68,7 +68,7 @@ export default function CarouselCard({
         className={[
           cardBaseStyles,
           isActive
-            ? 'from-blue-3 to-blue-2 translate-y-[2.4rem] border-white bg-gradient-to-b shadow-lg'
+            ? 'from-blue-3 to-blue-2 z-card translate-y-[2.4rem] border-white bg-gradient-to-b shadow-lg'
             : 'bg-background-01 translate-y-0 border-transparent',
         ].join(' ')}
       >
