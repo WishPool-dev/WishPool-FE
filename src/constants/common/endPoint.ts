@@ -8,4 +8,4 @@ export const END_POINT = {
   CELEBRANT: 'celebrant',
   GIFTS: 'gifts',
   AUTH: 'oauth2',
-};
+} as const;
