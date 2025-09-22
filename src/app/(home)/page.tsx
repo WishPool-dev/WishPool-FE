@@ -24,7 +24,6 @@ const Home = () => {
   const { data: wishpools } = useGetWishpools();
   const wishpoolCount = Number(wishpools?.length);
 
-  console.log(wishpoolCount);
   return (
     <>
       <div className="bg-background-01 w-full px-[2rem]">
@@ -34,7 +33,9 @@ const Home = () => {
           wishpoolCount={wishpoolCount}
         />
 
-        <ActiveEventSection planType={planType} wishpoolCount={wishpoolCount} />
+        {wishpools && (
+          <ActiveEventSection planType={planType} wishpools={wishpools} />
+        )}
       </div>
       <div className="p-[2rem]">
         <CreateEventSection planType={planType} />

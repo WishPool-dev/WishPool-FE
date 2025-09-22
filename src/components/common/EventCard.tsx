@@ -3,14 +3,24 @@ import { useRouter } from 'next/navigation';
 
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import { PATH } from '@/constants/common/path';
-import type { EventCardType } from '@/types/wishpool/eventCardType';
+import { WishpoolStatusType } from '@/types/common/wishpoolStatusType';
+import { WishpoolType } from '@/types/common/wishpoolType';
 
-export type Role = '참여자' | '생일자';
-export type Status = 'open' | 'closed';
-
+const wishpoolStatusText = (status: WishpoolStatusType): string => {
+  switch (status) {
+    case 'OPEN':
+      return '생일자를 위한 위시풀 만들기 진행 중';
+    case 'WAITING':
+      return '생일자가 선물을 선택하는 중';
+    case 'COMPLETED':
+      return '생일자가 선물 선택을 완료한 위시풀';
+    default:
+      return '';
+  }
+};
 type EventCardProps = {
   currentIndex: number;
-  cardData: EventCardType;
+  cardData: WishpoolType;
 };
 
 const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
@@ -20,7 +30,7 @@ const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
     router.push(PATH.WISHPOOL_DETAIL(currentIndex));
   };
 
-  const isOpenedEvent = cardData.status === 'open';
+  const isOpenedEvent = cardData.wishPoolStatus === 'OPEN';
 
   const EventStatusBadge = (
     <>
@@ -29,11 +39,11 @@ const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
       >
         {isOpenedEvent && (
           <span className="text-pink-primary ml-[0.4rem] rounded-[3px] bg-white px-[0.4rem] py-[0.2rem]">
-            {cardData.userType}
+            참여자 추가하기
           </span>
         )}
         <span className="px-[1.2rem] text-white">
-          {isOpenedEvent ? `${cardData.day}일 뒤 마감` : '완료된 위시풀'}
+          {isOpenedEvent ? `${cardData.D_day}일 뒤 마감` : '완료된 위시풀'}
         </span>
       </span>
     </>
@@ -53,10 +63,10 @@ const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
 
       {EventStatusBadge}
       <p className="body2 absolute bottom-[4.5rem] left-[1.6rem] text-white">
-        생일자를 위한 위시풀 만들기 진행 중
+        {wishpoolStatusText(cardData.wishPoolStatus)}
       </p>
       <strong className="title1 absolute bottom-[1.6rem] left-[1.6rem] text-white">
-        {cardData.title}
+        위시풀 이름 추가하기
       </strong>
       <button
         onClick={handleGoDetail}
