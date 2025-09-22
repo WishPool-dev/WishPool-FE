@@ -1,5 +1,7 @@
 import axios from 'axios';
 
+import { HTTP_STATUS } from '@/constants/common/httpStatus';
+
 export const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
   timeout: 5000,
@@ -15,3 +17,24 @@ axiosInstance.interceptors.request.use((config) => {
   }
   return config;
 });
+
+axiosInstance.interceptors.response.use(
+  (res) => res,
+  async (error) => {
+    const { response, config } = error;
+
+    if (response?.status === HTTP_STATUS.UNAUTHORIZED) {
+      // 인증 실패 처리 (refresh 토큰 요청)
+    }
+
+    if (response) {
+      console.error(
+        `🚨[ERROR: ${response.status}] ${config?.method?.toUpperCase()} ${config?.url}}`,
+        response.data,
+      );
+    } else {
+      console.error('🚨[API NETWORK ERROR], error.message');
+    }
+    return Promise.reject(error);
+  },
+);
