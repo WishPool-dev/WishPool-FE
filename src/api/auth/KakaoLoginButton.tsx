@@ -1,11 +1,11 @@
 'use client';
 
-import { kakaoLogin } from '@/api/auth/kakaoLogin';
+import getKakaoAuth from '@/api/auth/getKakaoAuth';
 import Icon from '@/components/common/Icon';
 
 const KakaoLoginButton = () => {
   const handleLogin = () => {
-    kakaoLogin();
+    getKakaoAuth();
   };
 
   return (

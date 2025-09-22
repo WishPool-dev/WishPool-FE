@@ -1,4 +1,4 @@
-export const kakaoLogin = () => {
+const getKakaoAuth = () => {
   try {
     window.location.href = `${process.env.NEXT_PUBLIC_API_URL}/oauth2/authorization/kakao`;
   } catch (error) {
@@ -6,3 +6,5 @@ export const kakaoLogin = () => {
     alert('카카오 로그인에 실패했습니다.');
   }
 };
+
+export default getKakaoAuth;
