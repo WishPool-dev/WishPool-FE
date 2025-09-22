@@ -1,6 +1,6 @@
-type FooterStatus = 'open' | 'closed' | 'waiting' | 'completed' | 'joined';
+import { WishpoolStatusType } from '@/types/common/wishpoolStatusType';
 
-const getFooterContent = (status: FooterStatus) => {
+const getFooterContent = (status: WishpoolStatusType) => {
   switch (status) {
     case 'open':
       return {
