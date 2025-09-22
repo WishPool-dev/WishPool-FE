@@ -8,7 +8,7 @@ import type { PlanType } from '@/types/common/planType';
 
 type activeEventProps = {
   planType: PlanType;
-  planCount: Record<PlanType, number>;
+  wishpoolCount: number;
 };
 
 const EVENT_INFO = {
@@ -22,8 +22,8 @@ const EVENT_INFO = {
   },
 };
 
-const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
-  const hasEvent = planCount[planType] > 0;
+const ActiveEventSection = ({ planType, wishpoolCount }: activeEventProps) => {
+  const hasEvent = wishpoolCount > 0;
   const { label, message } = EVENT_INFO[planType];
   const { containerRef, currentIndex, scrollToIndex } = useScrollIndex();
 
