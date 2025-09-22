@@ -57,7 +57,7 @@ const OnBoardingPage = () => {
       ))}
       <div className="fixed inset-x-0 bottom-0">
         <div className="bottom-0 mx-auto w-full max-w-[430px] bg-[linear-gradient(180deg,_rgba(255,255,255,0)_0%,_#fff_100%)] p-[2rem]">
-          <Button onClick={() => router.push(PATH.HOME)}>
+          <Button onClick={() => router.push(PATH.LOGIN)}>
             WishpooL 시작하기
           </Button>
         </div>
