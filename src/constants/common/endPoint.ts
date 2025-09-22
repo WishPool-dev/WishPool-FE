@@ -1,10 +1,10 @@
 export const END_POINT = {
   API: 'api',
-  FILE: 'files',
-  WISHPOOL: 'wishpools',
+  FILES: 'files',
+  WISHPOOLS: 'wishpools',
   JOIN: 'join',
   SELECT: 'selections',
-  GUEST: 'guests',
+  GUESTS: 'guests',
   CELEBRANT: 'celebrant',
   GIFTS: 'gifts',
   AUTH: 'oauth2',
