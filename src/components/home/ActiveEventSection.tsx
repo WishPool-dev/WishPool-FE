@@ -37,9 +37,15 @@ const ActiveEventSection = ({ planType, wishpools }: activeEventProps) => {
             ref={containerRef}
             className="no-scrollbar mt-[2.6rem] flex snap-x snap-mandatory gap-[2rem] overflow-x-auto scroll-smooth"
           >
-            {wishpools.map((wishpool, idx) => (
-              <div key={idx} className="w-full shrink-0 snap-start">
-                <EventCard currentIndex={idx} cardData={wishpool} />
+            {wishpools.map((wishpool) => (
+              <div
+                key={wishpool.wishpoolId}
+                className="w-full shrink-0 snap-start"
+              >
+                <EventCard
+                  currentIndex={wishpool.wishpoolId}
+                  cardData={wishpool}
+                />
               </div>
             ))}
           </div>
