@@ -3,14 +3,10 @@
 // import { redirect } from 'next/navigation';
 import { useState } from 'react';
 
+import { useGetWishpools } from '@/api/domain/home/hooks';
 import ActiveEventSection from '@/components/home/ActiveEventSection';
 import CreateEventSection from '@/components/home/CreateEventSection';
 import PlanTypeSection from '@/components/home/PlanTypeSection';
-
-const planCount = {
-  funding: 0,
-  wishpool: 4,
-};
 
 const Home = () => {
   // const isLoggedIn = false;
@@ -25,16 +21,21 @@ const Home = () => {
     setPlanType((prev) => (prev === type ? prev : type));
   };
 
+  const { data: wishpools } = useGetWishpools();
+  const wishpoolCount = Number(wishpools?.length);
+
   return (
     <>
       <div className="bg-background-01 w-full px-[2rem]">
         <PlanTypeSection
           planType={planType}
           onSelectType={handlePlanType}
-          planCount={planCount}
+          wishpoolCount={wishpoolCount}
         />
 
-        <ActiveEventSection planType={planType} planCount={planCount} />
+        {wishpools && (
+          <ActiveEventSection planType={planType} wishpools={wishpools} />
+        )}
       </div>
       <div className="p-[2rem]">
         <CreateEventSection planType={planType} />

@@ -1,14 +1,14 @@
 'use client';
 
-import { data } from '@/app/wishpool/history/data';
 import EventCard from '@/components/common/EventCard';
 import Icon from '@/components/common/Icon';
 import { useScrollIndex } from '@/hooks/home/useScrollIndex';
 import type { PlanType } from '@/types/common/planType';
+import { WishpoolType } from '@/types/common/wishpoolType';
 
 type activeEventProps = {
   planType: PlanType;
-  planCount: Record<PlanType, number>;
+  wishpools: WishpoolType[];
 };
 
 const EVENT_INFO = {
@@ -22,12 +22,12 @@ const EVENT_INFO = {
   },
 };
 
-const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
-  const hasEvent = planCount[planType] > 0;
+const ActiveEventSection = ({ planType, wishpools }: activeEventProps) => {
+  const wishpoolCount = wishpools?.length;
+  const hasEvent = wishpoolCount > 0;
+
   const { label, message } = EVENT_INFO[planType];
   const { containerRef, currentIndex, scrollToIndex } = useScrollIndex();
-
-  const eventData = data.slice(0, 3);
 
   return (
     <>
@@ -37,15 +37,15 @@ const ActiveEventSection = ({ planType, planCount }: activeEventProps) => {
             ref={containerRef}
             className="no-scrollbar mt-[2.6rem] flex snap-x snap-mandatory gap-[2rem] overflow-x-auto scroll-smooth"
           >
-            {eventData.map((d, idx) => (
+            {wishpools.map((wishpool, idx) => (
               <div key={idx} className="w-full shrink-0 snap-start">
-                <EventCard currentIndex={idx} cardData={d} />
+                <EventCard currentIndex={idx} cardData={wishpool} />
               </div>
             ))}
           </div>
 
           <div className="mt-[2rem] mb-[2.7rem] flex justify-center gap-[0.4rem]">
-            {eventData.map((_, idx) => (
+            {wishpools.map((_, idx) => (
               <button key={idx} onClick={() => scrollToIndex(idx)}>
                 <Icon
                   name="dot"

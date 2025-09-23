@@ -14,7 +14,7 @@ const DetailPage = () => {
   const { id } = useParams<{ id: string }>();
   const wishpoolId = Number(id);
 
-  const status = 'open';
+  const status = 'OPEN';
   const footerProps = getFooterContent(status);
   if (!footerProps) return null;
 

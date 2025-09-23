@@ -7,7 +7,7 @@ import type { PlanType } from '@/types/common/planType';
 type PlanTypeSectionProps = {
   planType: PlanType;
   onSelectType: (type: PlanType) => void;
-  planCount: Record<PlanType, number>;
+  wishpoolCount: number;
 };
 
 const PLAN_OPTIONS: { key: PlanType; label: string }[] = [
@@ -18,7 +18,7 @@ const PLAN_OPTIONS: { key: PlanType; label: string }[] = [
 const PlanTypeSection = ({
   planType,
   onSelectType,
-  planCount,
+  wishpoolCount,
 }: PlanTypeSectionProps) => {
   return (
     <div className="bg-background-01 relative flex items-center justify-center gap-[1.2rem]">
@@ -52,14 +52,13 @@ const PlanTypeSection = ({
             )}
           >
             {label}
-            {planCount[key] > 0 && (
+            {key === 'wishpool' && wishpoolCount > 0 && (
               <span
                 className={clsx(
-                  'caption3 bg-pink-primary flex h-[1.6rem] w-[1.6rem] items-center justify-center rounded-full text-center text-white',
-                  { 'pr-[0.1rem]': planCount[key] === 1 },
+                  'caption3 bg-pink-primary flex h-[1.6rem] w-[1.6rem] items-center justify-center rounded-full pr-[0.1rem] text-center text-white',
                 )}
               >
-                {planCount[key]}
+                {wishpoolCount}
               </span>
             )}
           </button>
