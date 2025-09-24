@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 import { HTTP_STATUS } from '@/constants/common/httpStatus';
-import { PATH } from '@/constants/common/path';
 
 export const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -25,7 +24,6 @@ axiosInstance.interceptors.response.use(
     const { response, config } = error;
 
     if (response?.status === HTTP_STATUS.UNAUTHORIZED) {
-      window.location.href = PATH.LOGIN;
     }
 
     if (response) {
