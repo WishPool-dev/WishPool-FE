@@ -24,7 +24,7 @@ export default function CarouselCard({
   activeIndex,
   onRemove,
   giftId,
-  giftName,
+  itemName,
   // giftImage,
 }: CarouselCardProps) {
   const isActive = index === activeIndex;
@@ -85,7 +85,7 @@ export default function CarouselCard({
             isActive ? 'text-white' : 'text-gray-600',
           ].join(' ')}
         >
-          {giftName}
+          {itemName}
         </span>
       </motion.div>
     </>
