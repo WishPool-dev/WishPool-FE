@@ -1,6 +1,6 @@
 export type WishpoolStatusType =
   | 'OPEN'
-  | 'CLOSED'
+  | 'PENDING'
   | 'WAITING'
   | 'COMPLETED'
   | 'JOINED';

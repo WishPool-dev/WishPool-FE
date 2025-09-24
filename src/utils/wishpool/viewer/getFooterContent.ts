@@ -10,7 +10,7 @@ const getFooterContent = (status: WishpoolStatusType) => {
         buttonContent: '나도 참여하기',
       };
 
-    case 'CLOSED':
+    case 'PENDING':
       return {
         title: '위시풀 완성!',
         content: '위시풀을 생일자에게 보내요.',
