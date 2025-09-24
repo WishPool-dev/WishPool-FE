@@ -1,7 +1,11 @@
+'use client';
+
 import Image from 'next/image';
+// import { useParams } from 'next/navigation';
 
 import giftBox from '@/assets/images/intro-empty-box.png';
 import ItemCard from '@/components/wishpool/viewer/list/ItemCard';
+// import { useGetGiftList } from '@/api/domain/gifts/hooks';
 
 const numberOfFriends = 4;
 const giftItems = [
@@ -40,6 +44,11 @@ const EmptyList = (
 );
 
 const page = () => {
+  // const { id } = useParams<{ id: string }>();
+  // const wishpoolId = Number(id);
+
+  // const { data: gifts } = useGetGiftList(wishpoolId);
+
   return (
     <>
       <div className="head1 text-text mb-[2.4rem] pt-[0.4rem]">
