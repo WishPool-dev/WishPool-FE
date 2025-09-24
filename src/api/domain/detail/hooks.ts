@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { getWishpoolDetail } from '@/api/domain/detail';
-import { WishpoolDetailResponse } from '@/api/domain/detail/type/wishpoolDetailResponse';
+import { WishpoolDetailResponse } from '@/api/domain/detail/types';
 import { QUERY_KEY } from '@/constants/common/queryKey';
 
 export const useGetWishpoolDetail = (wishpoolId: number) => {
