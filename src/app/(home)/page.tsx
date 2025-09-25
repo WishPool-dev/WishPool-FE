@@ -1,6 +1,6 @@
 'use client';
 
-// import { redirect } from 'next/navigation';
+import { redirect } from 'next/navigation';
 import { useState } from 'react';
 
 import { useGetWishpools } from '@/api/domain/home/hooks';
@@ -9,11 +9,12 @@ import CreateEventSection from '@/components/home/CreateEventSection';
 import PlanTypeSection from '@/components/home/PlanTypeSection';
 
 const Home = () => {
-  // const isLoggedIn = false;
+  const token = localStorage.getItem('accessToken');
+  const isLoggedIn = !!token;
 
-  // if (!isLoggedIn) {
-  //   redirect('/intro');
-  // }
+  if (!isLoggedIn) {
+    redirect('/intro');
+  }
 
   const [planType, setPlanType] = useState<'funding' | 'wishpool'>('wishpool');
 
