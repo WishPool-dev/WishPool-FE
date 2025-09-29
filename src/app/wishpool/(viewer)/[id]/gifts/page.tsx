@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useParams } from 'next/navigation';
 
 import { useGetGiftList } from '@/api/domain/gifts/hooks';
-import giftBox from '@/assets/images/intro-empty-box.png';
+import giftBox from '@/assets/images/empty-box.png';
 import DataError from '@/components/common/DataError';
 import Loading from '@/components/common/Loading';
 import ItemCard from '@/components/wishpool/viewer/list/ItemCard';

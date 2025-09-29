@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import introEmptyBox from '@/assets/images/intro-empty-box.png';
+import introEmptyBox from '@/assets/images/empty-box.png';
 import IconButton from '@/components/common/Button/IconButton';
 import Icon from '@/components/common/Icon';
 import InfoBox from '@/components/common/InfoBox/InfoBox';
