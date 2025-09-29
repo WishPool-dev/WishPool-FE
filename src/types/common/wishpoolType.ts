@@ -5,4 +5,5 @@ export type WishpoolType = {
   wishPoolStatus: WishpoolStatusType;
   D_day: 0;
   imageKey: string;
+  celebrant: string;
 };

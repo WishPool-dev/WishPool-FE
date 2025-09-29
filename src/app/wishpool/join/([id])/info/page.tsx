@@ -29,7 +29,7 @@ const InfoPage = () => {
           height={75}
           className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
-        <BirthdayInfo />
+        <BirthdayInfo celebrant="생일자 이름" birthDay="2025-09-23" />
 
         <Image
           src={WishpoolCardImage}

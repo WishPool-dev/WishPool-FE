@@ -1,5 +1,5 @@
 import { axiosInstance } from '@/api/axiosInstance';
-import { WishpoolResponse } from '@/api/domain/home/type/wishpoolResponse';
+import { WishpoolResponse } from '@/api/domain/home/types';
 import { END_POINT } from '@/constants/common/endPoint';
 
 export const getWishpools = async () => {

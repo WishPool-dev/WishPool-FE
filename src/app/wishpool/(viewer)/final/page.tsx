@@ -31,13 +31,13 @@ const FinalPage = () => {
           height={75}
           className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
-        {data.map(({ giftId, giftName, giftImage }) => (
+        {data.map(({ giftId, itemName, itemUrl }) => (
           <GiftCard
             key={giftId}
             size="big"
             giftId={giftId}
-            giftName={giftName}
-            giftImage={giftImage}
+            itemName={itemName}
+            itemUrl={itemUrl}
           />
         ))}
       </section>

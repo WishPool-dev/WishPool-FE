@@ -39,7 +39,7 @@ const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
       >
         {isOpenedEvent && (
           <span className="text-pink-primary ml-[0.4rem] rounded-[3px] bg-white px-[0.4rem] py-[0.2rem]">
-            참여자 추가하기
+            참여자
           </span>
         )}
         <span className="px-[1.2rem] text-white">
@@ -66,7 +66,7 @@ const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
         {wishpoolStatusText(cardData.wishPoolStatus)}
       </p>
       <strong className="title1 absolute bottom-[1.6rem] left-[1.6rem] text-white">
-        위시풀 이름 추가하기
+        {cardData.celebrant}님을 위한 위시풀
       </strong>
       <button
         onClick={handleGoDetail}

@@ -11,9 +11,11 @@ export const axiosInstance = axios.create({
 });
 
 axiosInstance.interceptors.request.use((config) => {
-  const token = localStorage.getItem('accessToken');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
   }
   return config;
 });
@@ -24,7 +26,6 @@ axiosInstance.interceptors.response.use(
     const { response, config } = error;
 
     if (response?.status === HTTP_STATUS.UNAUTHORIZED) {
-      // 인증 실패 처리 (refresh 토큰 요청)
     }
 
     if (response) {

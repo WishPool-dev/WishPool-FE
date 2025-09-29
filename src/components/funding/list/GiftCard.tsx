@@ -11,8 +11,8 @@ type GiftCardProps = {
 const GiftCard = ({
   size = 'small',
   giftId,
-  giftName,
-  giftImage,
+  itemName,
+  itemUrl,
 }: GiftCardProps) => {
   const isSmall = size === 'small';
 
@@ -21,7 +21,7 @@ const GiftCard = ({
       className={`bg-background-01 flex grow-1 flex-col items-center gap-[2.4rem] rounded-[16px] ${isSmall ? 'p-[2.2rem]' : 'p-[6.4rem]'}`}
     >
       <Image
-        src={giftImage}
+        src={itemUrl}
         alt={`선물 카드 이미지 - ${giftId}`}
         width={isSmall ? 126 : 170}
         height={isSmall ? 126 : 170}
@@ -30,7 +30,7 @@ const GiftCard = ({
       <span
         className={`subtitle2 text-text line-clamp-2 h-[4.8rem] text-center ${isSmall ? 'w-[12.6rem]' : ''}`}
       >
-        {giftName}
+        {itemName}
       </span>
     </div>
   );
