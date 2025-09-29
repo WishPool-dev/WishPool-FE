@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import giftBox from '@/assets/images/intro-empty-box.png';
+import giftBox from '@/assets/images/empty-box.png';
 import Button from '@/components/common/Button';
 import ItemCard from '@/components/wishpool/viewer/list/ItemCard';
 import { PATH } from '@/constants/common/path';
