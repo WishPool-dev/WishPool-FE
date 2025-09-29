@@ -42,7 +42,7 @@ const InvitePage = () => {
           />
         </div>
 
-        <BirthdayInfo />
+        <BirthdayInfo celebrant="생일자 이름" birthDay="2025-09-23" />
       </div>
 
       <div className="fixed right-0 bottom-0 left-0 mx-auto max-w-[430px] border-t border-gray-300 bg-white px-[2rem] pb-[2rem]">

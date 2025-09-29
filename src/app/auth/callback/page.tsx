@@ -1,25 +1,35 @@
 'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 
+import Loading from '@/components/common/Loading';
 import { PATH } from '@/constants/common/path';
 
-const CallbackPage = () => {
-  const searchParams = useSearchParams();
+const CallbackHandler = () => {
   const router = useRouter();
+  const searchParams = useSearchParams();
 
   useEffect(() => {
-    const token = searchParams.get('accessToken');
-
-    if (token) {
-      localStorage.setItem('accessToken', token);
+    try {
+      const token = searchParams.get('accessToken');
+      if (token) {
+        localStorage.setItem('accessToken', token);
+      }
+    } finally {
+      router.replace(PATH.HOME);
     }
+  }, [searchParams]);
 
-    router.push(PATH.HOME);
-  }, [searchParams, router]);
+  return <Loading />;
+};
 
-  return null;
+const CallbackPage = () => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <CallbackHandler />
+    </Suspense>
+  );
 };
 
 export default CallbackPage;
