@@ -1,12 +1,17 @@
 import { WishpoolStatusType } from '@/types/common/wishpoolStatusType';
 
-const getFooterContent = (status: WishpoolStatusType) => {
+type getFooterContentProps = {
+  status: WishpoolStatusType;
+  dDay: number;
+};
+
+const getFooterContent = ({ status, dDay }: getFooterContentProps) => {
   switch (status) {
     case 'OPEN':
       return {
-        day: 1,
+        day: dDay,
         title: '위시풀 만드는 중',
-        content: '선물 리스트 마감까지 1일 남았어요',
+        content: `선물 리스트 마감까지 ${dDay}일 남았어요`,
         buttonContent: '나도 참여하기',
       };
 
@@ -19,7 +24,7 @@ const getFooterContent = (status: WishpoolStatusType) => {
 
     case 'WAITING':
       return {
-        day: 3,
+        day: dDay,
         title: '결과 기다리는 중',
         content: '생일자가 선물을 선택할 거에요.',
         buttonContent: '생일자에게 보냈어요',
@@ -35,9 +40,9 @@ const getFooterContent = (status: WishpoolStatusType) => {
 
     case 'JOINED':
       return {
-        day: 1,
+        day: dDay,
         title: '위시풀 만드는 중',
-        content: '선물 리스트 마감까지 1일 남았어요',
+        content: `선물 리스트 마감까지 ${dDay}일 남았어요`,
         buttonContent: '이미 참여했어요',
         disabled: true,
       };

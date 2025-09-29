@@ -6,9 +6,9 @@ import { useParams, useRouter } from 'next/navigation';
 import { useGetWishpoolDetail } from '@/api/domain/detail/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Icon from '@/components/common/Icon';
-// import DetailFooter from '@/components/wishpool/viewer/detail/DetailFooter';
+import DetailFooter from '@/components/wishpool/viewer/detail/DetailFooter';
 import { PATH } from '@/constants/common/path';
-// import getFooterContent from '@/utils/wishpool/viewer/getFooterContent';
+import getFooterContent from '@/utils/wishpool/viewer/getFooterContent';
 
 const DetailPage = () => {
   const router = useRouter();
@@ -17,10 +17,9 @@ const DetailPage = () => {
 
   const { data: wishpool } = useGetWishpoolDetail(wishpoolId);
 
-  // const footerProps = getFooterContent({
-  //   status: wishpool?.status,
-  //   dDay: wishpool?.d_day,
-  // });
+  const footerProps = wishpool
+    ? getFooterContent({ status: wishpool.status, dDay: wishpool.d_day })
+    : null;
 
   return (
     <>
@@ -71,10 +70,12 @@ const DetailPage = () => {
           </div>
         </div>
       </section>
-      {/* <DetailFooter
-        {...footerProps}
-        onClick={() => router.push(PATH.JOIN_INTRO)}
-      /> */}
+      {footerProps && (
+        <DetailFooter
+          {...footerProps}
+          onClick={() => router.push(PATH.JOIN_INTRO)}
+        />
+      )}
     </>
   );
 };
