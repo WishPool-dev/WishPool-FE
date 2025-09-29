@@ -10,11 +10,13 @@ import PlanTypeSection from '@/components/home/PlanTypeSection';
 import { PATH } from '@/constants/common/path';
 
 const Home = () => {
-  const token = localStorage.getItem('accessToken');
-  const isLoggedIn = !!token;
+  if (typeof window !== 'undefined') {
+    const token = localStorage.getItem('accessToken');
+    const isLoggedIn = !!token;
 
-  if (!isLoggedIn) {
-    redirect(PATH.INTRO);
+    if (!isLoggedIn) {
+      redirect(PATH.INTRO);
+    }
   }
 
   const [planType, setPlanType] = useState<'funding' | 'wishpool'>('wishpool');
