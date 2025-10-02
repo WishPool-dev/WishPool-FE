@@ -1,8 +1,18 @@
 'use client';
+import { useState, useEffect } from 'react';
+
 import Question from '@/components/common/Form/Question';
 import TextField from '@/components/common/Form/TextField';
-
 const Step2 = () => {
+  const [formData, setFormData] = useState({ description: '' });
+
+  useEffect(() => {
+    setFormData({
+      description: sessionStorage.getItem('wishpool_description') || '',
+    });
+  }, []);
+
+  console.log('formData =', formData);
   return (
     <section>
       <span className="bg-background-02 caption2 inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
@@ -14,11 +24,15 @@ const Step2 = () => {
       </div>
 
       <div className="mt-[4rem]">
+        <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+          위시풀 소개
+        </p>
         <TextField
-          label="위시풀 소개"
+          name="introduction"
           placeholder={`참여자가 이 소개글을 볼 수 있어요. 
 생일자에게는 보이지 않아요.`}
           maxLength={200}
+          defaultValue={formData.description}
         />
       </div>
 
