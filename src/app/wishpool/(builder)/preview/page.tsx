@@ -108,7 +108,7 @@ const PreviewPage = () => {
             <span>{fmt(data.endDate)}</span>
           </div>
         </div>
-        <div className="mx-auto mt-auto w-full max-w-[430px]">
+        <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
           <div className="flex justify-between gap-[1rem]">
             <Button
               textColor="black"
