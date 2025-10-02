@@ -4,12 +4,14 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
+import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Button from '@/components/common/Button';
-import BasicInputField from '@/components/common/Form/BasicInputField';
-import CalendarField from '@/components/common/Form/CalendarField';
+import Calendar from '@/components/common/Calendar';
+import BaseInput from '@/components/common/Form/BaseInput';
 import TextField from '@/components/common/Form/TextField';
 import Icon from '@/components/common/Icon';
 import Toast from '@/components/common/Toast';
+import UserTag from '@/components/common/UserTag';
 
 const EditPage = () => {
   const [openToast, setOpenToast] = useState(false);
@@ -23,13 +25,17 @@ const EditPage = () => {
     router.back();
   };
 
+  const handleInputChange = () => {
+    // TODO: 입력값 수정 기능 추가
+  };
+
   return (
     <>
       {openToast && <Toast>위시풀이 수정되었어요.</Toast>}
 
       <div className="relative">
         <Image
-          src="/images/wishpool-card.svg"
+          src={WishpoolCardImage}
           width={430}
           height={240}
           className="w-full"
@@ -60,28 +66,46 @@ const EditPage = () => {
           <span className="text-blue-primary">홍길동</span>에게 보내는 위시풀
         </span>
         <div className="mt-[2.8rem]">
-          <BasicInputField
-            maxLength={20}
-            label="생일자 이름"
+          <div className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+            생일자 이름
+          </div>
+          <BaseInput
+            name="celebrant"
             placeholder="생일자의 이름을 알려 주세요."
+            maxLength={20}
+            onChange={handleInputChange}
           />
         </div>
         <div className="mt-[2.8rem]">
-          <CalendarField label="곧 다가올 생일" />
+          <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+            곧 다가올 생일
+          </p>
+          <Calendar name="birthDay" />
         </div>
 
         <hr className="bg-background-02 -mx-[2rem] my-[3.2rem] h-[0.8rem] border-0" />
 
         <div className="mt-[4rem]">
+          <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+            위시풀 소개
+          </p>
           <TextField
-            label="위시풀 제목"
-            maxLength={200}
+            name="description"
             placeholder={`참여자가 이 소개글을 볼 수 있어요. 
 생일자에게는 보이지 않아요.`}
+            maxLength={200}
+            onChange={handleInputChange}
           />
         </div>
         <div className="mt-[2.8rem]">
-          <CalendarField tag="참여자" label="선물 리스트 마감일" />
+          <div className="flex flex-row gap-[1.2rem]">
+            <UserTag>참여자</UserTag>
+            <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+              선물 리스트 마감일
+            </p>
+          </div>
+
+          <Calendar name="endDate" />
         </div>
       </div>
 
