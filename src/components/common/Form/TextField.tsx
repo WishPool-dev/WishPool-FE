@@ -1,4 +1,3 @@
-'use client';
 import { useState, useEffect } from 'react';
 
 import { FormFieldProps } from '@/types/wishpool/builder/Form';
@@ -11,6 +10,7 @@ const TextField = ({
 }: FormFieldProps) => {
   const limit = typeof maxLength === 'number' ? maxLength : undefined;
 
+  //제어 컴포넌트 상태
   const [val, setVal] = useState(defaultValue ?? '');
 
   useEffect(() => {
@@ -22,6 +22,7 @@ const TextField = ({
     setVal(text);
     sessionStorage.setItem(`wishpool_${name}`, text);
   };
+
   return (
     <>
       <div className="relative w-full">
@@ -35,7 +36,7 @@ const TextField = ({
         />
         {limit && (
           <div className="caption2 absolute right-[1.6rem] bottom-[2rem] mt-[0.4rem] text-gray-600">
-            {val.length}/{limit}
+            {val?.length}/{maxLength}
           </div>
         )}
       </div>
