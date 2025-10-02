@@ -1,27 +1,44 @@
-import BasicInputField from '@/components/common/Form/BasicInputField';
-import CalendarField from '@/components/common/Form/CalendarField';
-import Question from '@/components/common/Form/Question';
+'use client';
+import { useState, useEffect } from 'react';
 
+import Calendar from '@/components/common/Calendar';
+import BaseInput from '@/components/common/Form/BaseInput';
+import Question from '@/components/common/Form/Question';
 const Step1 = () => {
+  const [formData, setFormData] = useState({ celebrant: '', birthDay: '' });
+
+  useEffect(() => {
+    setFormData({
+      celebrant: sessionStorage.getItem('wishpool_celebrant') || '',
+      birthDay: sessionStorage.getItem('wishpool_birthDay') || '',
+    });
+  }, []);
+  console.log('formData =', formData);
+
   return (
-    <section className="pb-[30rem]">
+    <div className="pb-[30rem]">
       <Question
         required={true}
         question="위시풀을 받을 생일자의 정보를 알려 주세요."
       />
 
       <div className="mt-[4rem]">
-        <BasicInputField
-          label="생일자 이름"
+        <div className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+          생일자 이름
+        </div>
+        <BaseInput
+          name="celebrant"
           placeholder="생일자의 이름을 알려 주세요."
           maxLength={20}
+          defaultValue={formData.celebrant}
         />
       </div>
 
       <div className="mt-[3.2rem]">
-        <CalendarField label="곧 다가올 생일" />
+        <p className="subtitle2 text-text max-w-[430px]">곧 다가올 생일</p>
+        <Calendar name="birthDay" />
       </div>
-    </section>
+    </div>
   );
 };
 
