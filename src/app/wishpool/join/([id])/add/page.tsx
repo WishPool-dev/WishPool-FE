@@ -12,17 +12,16 @@ const AddPage = () => {
   return (
     <>
       <Question required={true} question="주고 싶은 선물을 제안해 주세요." />
+      <div className="mt-[4rem] mb-[0.8rem] flex justify-between">
+        <p className="subtitle2 text-text max-w-[430px]">선물 1</p>
+        <button className="flex items-center justify-center" type="button">
+          <Icon name="trash" width={20} height={20} />
+        </button>
+      </div>
 
       <div className="mt-[4rem]">
         <GiftField
-          label="선물 1"
-          placeholder="선물 이름을 알려 주세요."
-          maxLength={20}
-        />
-      </div>
-      <div className="mt-[3.2rem]">
-        <GiftField
-          label="선물 2"
+          name="itemName"
           placeholder="선물 이름을 알려 주세요."
           maxLength={20}
         />
