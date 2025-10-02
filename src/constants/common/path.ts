@@ -1,6 +1,9 @@
 export const PATH = {
   INTRO: '/intro',
   HOME: '/',
+  LOGIN: '/login',
+  REDIRECT: '/login/oauth2/code/kakao',
+
   WISHPOOL_INTRO: '/wishpool/intro',
   WISHPOOL_CREATE_STEP1: '/wishpool/create/step1',
   WISHPOOL_CREATE_STEP2: '/wishpool/create/step2',

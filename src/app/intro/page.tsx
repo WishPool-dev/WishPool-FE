@@ -11,6 +11,14 @@ import { ONBOARDING_CONTENT } from '@/constants/intro/onBoardingContent';
 const OnBoardingPage = () => {
   const router = useRouter();
 
+  const handleStart = () => {
+    const token = localStorage.getItem('accessToken');
+    if (!token) {
+      router.push(PATH.LOGIN);
+      return;
+    }
+    router.push(PATH.HOME);
+  };
   return (
     <div className="w-full text-center">
       <div>
@@ -37,31 +45,28 @@ const OnBoardingPage = () => {
         </div>
       </div>
 
-      <div className="relative">
-        <div className="fixed inset-x-0 bottom-0 bg-[linear-gradient(180deg,_rgba(255,255,255,0)_0%,_#fff_100%)] px-[2rem] pt-[3.6rem] pb-[2rem]">
-          <Button onClick={() => router.push(PATH.HOME)}>
-            WishpooL 시작하기
-          </Button>
+      {ONBOARDING_CONTENT.map((section, idx) => (
+        <section key={idx} className="-mt-1">
+          <div className="relative aspect-[393/392] w-full">
+            <Image
+              src={section.imageSrc}
+              alt={section.imageAlt}
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
+            />
+          </div>
+          <div className="text-text pt-[3.2rem] pb-[6rem]">
+            <h2 className="head1 mb-[1.6rem]">{section.title}</h2>
+            <p className="body1">{section.content}</p>
+          </div>
+        </section>
+      ))}
+      <div className="fixed inset-x-0 bottom-0">
+        <div className="bottom-0 mx-auto w-full max-w-[430px] bg-[linear-gradient(180deg,_rgba(255,255,255,0)_0%,_#fff_100%)] p-[2rem]">
+          <Button onClick={handleStart}>WishpooL 시작하기</Button>
         </div>
-
-        {ONBOARDING_CONTENT.map((section, idx) => (
-          <section key={idx} className="-mt-1">
-            <div className="relative aspect-[393/392] w-full">
-              <Image
-                src={section.imageSrc}
-                alt={section.imageAlt}
-                fill
-                priority
-                sizes="100vw"
-                className="object-cover"
-              />
-            </div>
-            <div className="text-text pt-[3.2rem] pb-[6rem]">
-              <h2 className="head1 mb-[1.6rem]">{section.title}</h2>
-              <p className="body1">{section.content}</p>
-            </div>
-          </section>
-        ))}
       </div>
     </div>
   );

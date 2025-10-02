@@ -4,7 +4,7 @@ const PreviewPage = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <HomeHeader bgColor="background02" />
-      <main className="bg-background-02 px-[2rem] pt-[5.4rem] pb-[12rem]">
+      <main className="bg-background-02 mt-header p-[2rem] pb-[12rem]">
         {children}
       </main>
     </>

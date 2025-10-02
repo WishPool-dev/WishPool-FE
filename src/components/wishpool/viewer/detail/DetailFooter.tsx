@@ -22,7 +22,7 @@ const DetailFooter = ({
     <footer className="fixed inset-x-0 bottom-0 mx-auto flex max-w-[430px] items-center border-t border-t-gray-300 bg-white p-[2rem]">
       <div className="grow-1 space-y-[0.4rem]">
         <div className="flex items-center gap-[0.8rem]">
-          {day ? (
+          {day != null ? (
             <span className="caption1 bg-blue-6 text-blue-primary rounded-[4px] px-[0.6rem] py-[0.2rem]">
               D-{day}
             </span>

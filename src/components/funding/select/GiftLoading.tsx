@@ -17,12 +17,12 @@ const GiftLoading = ({ items }: { items: GiftCardType[] }) => {
         transition={{ duration, ease: 'linear', repeat: Infinity }}
         aria-hidden
       >
-        {items.map(({ giftId, giftName, giftImage }) => (
+        {items.map(({ giftId, itemName, itemUrl }) => (
           <GiftCard
             key={giftId}
             giftId={giftId}
-            giftName={giftName}
-            giftImage={giftImage}
+            itemName={itemName}
+            itemUrl={itemUrl}
           />
         ))}
       </motion.div>
