@@ -35,7 +35,9 @@ const Step1 = () => {
       </div>
 
       <div className="mt-[3.2rem]">
-        <p className="subtitle2 text-text max-w-[430px]">곧 다가올 생일</p>
+        <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+          곧 다가올 생일
+        </p>
         <Calendar name="birthDay" />
       </div>
     </div>

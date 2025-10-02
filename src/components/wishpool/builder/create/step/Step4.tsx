@@ -10,8 +10,10 @@ const Step4 = () => {
       />
 
       <div className="mt-[3.2rem]">
-        <p className="subtitle2 text-text max-w-[430px]">선물 리스트 마감일</p>
-        <Calendar name="birthDay" />
+        <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+          선물 리스트 마감일
+        </p>
+        <Calendar name="endDate" />
       </div>
     </>
   );
