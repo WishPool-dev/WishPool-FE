@@ -15,7 +15,10 @@ const ProgressBar = ({ currentStep }: ProgressBarProps) => {
   const router = useRouter();
 
   const handleStep = (step: Step) => {
-    router.push(STEP_PATHS[step]);
+    if (step === currentStep) return;
+    if (step < currentStep) {
+      router.push(STEP_PATHS[step]);
+    }
   };
 
   return (
