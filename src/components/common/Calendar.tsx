@@ -1,6 +1,6 @@
 'use client';
 import { ko } from 'date-fns/locale';
-import { useState, forwardRef } from 'react';
+import { useState, forwardRef, useEffect } from 'react';
 import DatePicker from 'react-datepicker';
 
 import 'react-datepicker/dist/react-datepicker.css';
@@ -34,17 +34,49 @@ const CustomInput = forwardRef<HTMLButtonElement, CustomInputProps>(
     );
   },
 );
-CustomInput.displayName = 'CustomInput'; //디버깅용
+CustomInput.displayName = 'CustomInput';
 
-const Calendar = () => {
+type CalendarProps = {
+  name: string;
+  defaultValue?: string;
+};
+
+function toYMD(d: Date) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
+}
+function parseYMD(s: string | null): Date | null {
+  if (!s) return null;
+  const [y, m, d] = s.split(/[-/]/).map(Number);
+  return new Date(y, m - 1, d);
+}
+
+const Calendar = ({ name, defaultValue }: CalendarProps) => {
+  const storageKey = `wishpool_${name}`;
   const [selectedDate, setSelectedDate] = useState<Date | null>(null);
 
+  useEffect(() => {
+    const saved = sessionStorage.getItem(storageKey) ?? defaultValue ?? null;
+    const parsed = parseYMD(saved);
+    if (parsed) setSelectedDate(parsed);
+  }, [storageKey, defaultValue]);
+
+  const handleChange = (d: Date | null) => {
+    setSelectedDate(d);
+    if (d) {
+      sessionStorage.setItem(storageKey, toYMD(d));
+    } else {
+      sessionStorage.removeItem(storageKey);
+    }
+  };
   return (
     <>
       <DatePicker
         locale={ko}
         selected={selectedDate}
-        onChange={(d) => setSelectedDate(d)}
+        onChange={handleChange}
         dateFormat="yyyy/MM/dd"
         customInput={<CustomInput />}
         wrapperClassName="w-full"
