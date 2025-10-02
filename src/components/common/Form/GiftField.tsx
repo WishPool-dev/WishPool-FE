@@ -11,11 +11,12 @@ const GiftField = ({ label, placeholder, maxLength }: FormFieldProps) => {
           <Icon name="trash" width={20} height={20} />
         </button>
       </div>
-      <BaseInput placeholder={placeholder} maxLength={maxLength} />
+      <BaseInput name="" placeholder={placeholder} maxLength={maxLength} />
       <div className="mt-[1.2rem]">
         <BaseInput
           placeholder="선물 판매 링크를 붙여넣기 해 주세요."
           // type="url"
+          name=""
         />
       </div>
     </>
