@@ -4,9 +4,10 @@ import { useState } from 'react';
 
 import invite from '@/assets/images/invite.png';
 import Button from '@/components/common/Button';
-import CalendarField from '@/components/common/Form/CalendarField';
+import Calendar from '@/components/common/Calendar';
 import Question from '@/components/common/Form/Question';
 import Icon from '@/components/common/Icon';
+import UserTag from '@/components/common/UserTag';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 
@@ -71,7 +72,13 @@ const DateSelectionSection = ({ onSubmit }: { onSubmit: () => void }) => {
         required={true}
       />
       <div className="mt-[4.2rem]">
-        <CalendarField label="선물 고르기 마감일" tag="생일자" />
+        <div className="flex flex-row gap-[1.2rem]">
+          <UserTag>생일자</UserTag>
+          <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+            선물 고르기 마감일
+          </p>
+        </div>
+        <Calendar name="endDate" />
       </div>
       <div className="mt-[1.2rem] flex flex-row gap-[1.2rem]">
         <Icon name="alert" width={16} height={16} />
