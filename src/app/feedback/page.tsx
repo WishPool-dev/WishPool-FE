@@ -15,6 +15,9 @@ const FeedbackPage = () => {
   const [rate, setRate] = useState(0);
   const [content, setContent] = useState('');
 
+  const handleInputChange = (_name: string, value: string) => {
+    setContent(value);
+  };
   const router = useRouter();
   const { mutate: submitFeedback } = usePostFeedback();
 
@@ -46,12 +49,15 @@ const FeedbackPage = () => {
         </div>
 
         <div>
+          <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+            어떤 점이 좋았나요? 또는 아쉬운 점이 있었나요?
+          </p>
           <TextField
-            content={content}
-            setContent={setContent}
-            label="어떤 점이 좋았나요? 또는 아쉬운 점이 있었나요?"
+            name="description"
             placeholder="여러분의 의견을 남겨 주세요."
             maxLength={500}
+            value={content}
+            onChange={handleInputChange}
           />
         </div>
         <div className="fixed inset-x-0 bottom-0">
