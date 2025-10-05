@@ -11,4 +11,5 @@ export const QUERY_KEY = {
     celebrantId,
   ],
   AUTH: ['auth'],
+  PROFILE: ['profile'],
 } as const;
