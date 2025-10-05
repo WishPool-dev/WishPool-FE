@@ -10,6 +10,7 @@ const Profile = () => {
     profileData?.profileUrl && !profileData.profileUrl.includes('default')
       ? profileData.profileUrl
       : GiftCardImage;
+
   return (
     <div className="bg-background-01 flex items-center gap-[2rem] px-[2rem] py-[1.6rem]">
       <Image

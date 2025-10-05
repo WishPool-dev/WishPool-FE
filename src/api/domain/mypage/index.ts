@@ -8,3 +8,8 @@ export const getProfile = async () => {
   );
   return res.data;
 };
+
+export const postLogout = async () => {
+  const res = await axiosInstance.post(`${END_POINT.LOGOUT}`);
+  return res.data;
+};

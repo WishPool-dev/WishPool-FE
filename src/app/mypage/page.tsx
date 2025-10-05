@@ -1,5 +1,6 @@
 'use client';
 
+import { usePostLogout } from '@/api/domain/mypage/hooks';
 import CenterModal from '@/components/common/Modal/CenterModal';
 import MyPageItem from '@/components/mypage/MyPageItem';
 import MyPageList from '@/components/mypage/MyPageList';
@@ -9,6 +10,11 @@ import useModal from '@/hooks/common/useModal';
 
 const MyPage = () => {
   const { isOpen, onOpen, onClose } = useModal();
+
+  const { mutate: logout } = usePostLogout();
+  const handleSubmit = () => {
+    logout();
+  };
 
   return (
     <>
@@ -32,6 +38,7 @@ const MyPage = () => {
       {isOpen && (
         <CenterModal
           onClose={onClose}
+          onSubmit={handleSubmit}
           modalTitle="위시풀 계정을 로그아웃할까요?"
           rightText="로그아웃"
         />

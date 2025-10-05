@@ -10,4 +10,5 @@ export const END_POINT = {
   AUTH: 'oauth2',
   FEEDBACK: 'contact',
   PROFILE: 'profile',
+  LOGOUT: 'logout',
 } as const;

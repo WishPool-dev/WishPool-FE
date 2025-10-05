@@ -3,6 +3,7 @@ import BaseModal from '@/components/common/Modal/BaseModal';
 
 type CenterModalProps = {
   onClose: () => void;
+  onSubmit: () => void;
   modalTitle: string;
   modalContent?: string;
   leftText?: string;
@@ -11,6 +12,7 @@ type CenterModalProps = {
 
 const CenterModal = ({
   onClose,
+  onSubmit,
   modalTitle,
   modalContent,
   leftText = '취소',
@@ -32,7 +34,7 @@ const CenterModal = ({
           >
             {leftText}
           </Button>
-          <Button textSize="md" textColor="white">
+          <Button textSize="md" textColor="white" onClick={onSubmit}>
             {rightText}
           </Button>
         </div>
