@@ -8,3 +8,10 @@ export const getWishpoolDetail = async (wishpoolId: number) => {
   );
   return res.data;
 };
+
+export const deleteWishpool = async (wishpoolId: number) => {
+  const res = await axiosInstance.delete(
+    `${END_POINT.API}/${END_POINT.WISHPOOLS}/${wishpoolId}`,
+  );
+  return res.data;
+};

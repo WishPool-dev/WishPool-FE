@@ -1,13 +1,16 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
+import { useDeleteWishpool } from '@/api/domain/detail/hooks';
 import Icon from '@/components/common/Icon';
 import CenterModal from '@/components/common/Modal/CenterModal';
 import EditModal from '@/components/common/Modal/EditModal';
 import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 import useModal from '@/hooks/common/useModal';
 
 type DetailHeaderProps = {
@@ -17,19 +20,40 @@ type DetailHeaderProps = {
 
 const DetailHeader = ({ title, bgColor }: DetailHeaderProps) => {
   const router = useRouter();
+  const wishpoolId = useGetWishpoolId();
+
+  const [isDeleting, setIsDeleting] = useState(false);
+
+  const edit = useModal();
+  const del = useModal();
+
+  const { mutate: deleteWishpool } = useDeleteWishpool(wishpoolId);
 
   const handleBack = () => {
     router.push(PATH.HOME);
   };
-
-  const edit = useModal();
-  const del = useModal();
 
   const handleOpenDelete = () => {
     edit.onClose();
     del.onOpen();
   };
 
+  const handleDelete = () => {
+    if (isDeleting) return;
+
+    setIsDeleting(true);
+
+    deleteWishpool(undefined, {
+      onSuccess: () => {
+        setIsDeleting(false);
+        del.onClose();
+        router.push(PATH.HOME);
+      },
+      onError: () => {
+        setIsDeleting(false);
+      },
+    });
+  };
   return (
     <>
       <BaseHeader
@@ -52,6 +76,7 @@ const DetailHeader = ({ title, bgColor }: DetailHeaderProps) => {
       {del.isOpen && (
         <CenterModal
           onClose={del.onClose}
+          onSubmit={handleDelete}
           modalTitle="이 위시풀을 종료하고 삭제할까요?"
           modalContent="위시풀을 종료하면 다시 시작할 수 없어요."
           rightText="삭제"

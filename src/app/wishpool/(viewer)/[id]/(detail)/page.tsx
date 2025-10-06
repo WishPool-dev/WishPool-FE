@@ -1,19 +1,19 @@
 'use client';
 
 import Image from 'next/image';
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import { useGetWishpoolDetail } from '@/api/domain/detail/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Icon from '@/components/common/Icon';
 import DetailFooter from '@/components/wishpool/viewer/detail/DetailFooter';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 import getFooterContent from '@/utils/wishpool/viewer/getFooterContent';
 
 const DetailPage = () => {
   const router = useRouter();
-  const { id } = useParams<{ id: string }>();
-  const wishpoolId = Number(id);
+  const wishpoolId = useGetWishpoolId();
 
   const { data: wishpool } = useGetWishpoolDetail(wishpoolId);
 

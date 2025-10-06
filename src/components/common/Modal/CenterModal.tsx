@@ -3,7 +3,7 @@ import BaseModal from '@/components/common/Modal/BaseModal';
 
 type CenterModalProps = {
   onClose: () => void;
-  onSubmit: () => void;
+  onSubmit?: () => void;
   modalTitle: string;
   modalContent?: string;
   leftText?: string;
