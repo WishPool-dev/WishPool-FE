@@ -15,14 +15,7 @@ const AddPage = () => {
 
       <div className="mt-[4rem]">
         <GiftField
-          label="선물 1"
-          placeholder="선물 이름을 알려 주세요."
-          maxLength={20}
-        />
-      </div>
-      <div className="mt-[3.2rem]">
-        <GiftField
-          label="선물 2"
+          name="itemName"
           placeholder="선물 이름을 알려 주세요."
           maxLength={20}
         />

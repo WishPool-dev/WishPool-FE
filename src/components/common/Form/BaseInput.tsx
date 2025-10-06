@@ -1,37 +1,48 @@
 'use client';
+import { FormFieldProps } from '@/types/wishpool/builder/Form';
 
-import { useState } from 'react';
+type BaseInputProps = FormFieldProps & {
+  value?: string;
+  onChange: (name: string, value: string) => void;
+};
 
-interface InputBoxProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  maxLength?: number;
-}
+const BaseInput = ({
+  name,
+  placeholder,
+  maxLength,
+  value,
+  onChange,
+}: BaseInputProps) => {
+  const limit = typeof maxLength === 'number' ? maxLength : undefined;
 
-const BaseInput = ({ maxLength, placeholder }: InputBoxProps) => {
-  const [inputValue, setInputValue] = useState('');
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const text = limit ? e.target.value.slice(0, limit) : e.target.value;
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const text = e.target.value.slice(0, maxLength);
-    setInputValue(text);
+    onChange(name, text);
+    sessionStorage.setItem(`wishpool_${name}`, text);
   };
+
+  const currentVal = value ?? '';
+
   return (
     <>
       <div className="relative w-full">
         <input
+          name={name}
           type="text"
-          value={inputValue}
-          maxLength={maxLength ?? 20}
+          value={currentVal}
           placeholder={placeholder}
-          onChange={handleInputChange}
-          className={`body1 flex h-[5.6rem] w-full rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.6rem] placeholder:text-gray-400 focus:border-gray-400 focus:outline-none`}
+          maxLength={limit}
+          onChange={handleChange}
+          className="body1 flex h-[5.6rem] w-full rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.6rem] placeholder:text-gray-400 focus:border-gray-400 focus:outline-none"
         />
-        {maxLength && (
+        {limit && (
           <div className="caption2 absolute right-[1.6rem] bottom-[2rem] mt-[0.4rem] text-gray-600">
-            {inputValue.length}/{maxLength}
+            {currentVal.length}/{limit}
           </div>
         )}
       </div>
     </>
   );
 };
-
 export default BaseInput;
