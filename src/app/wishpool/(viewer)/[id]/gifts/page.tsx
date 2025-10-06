@@ -5,7 +5,6 @@ import { useParams } from 'next/navigation';
 
 import { useGetGiftList } from '@/api/domain/gifts/hooks';
 import giftBox from '@/assets/images/empty-box.png';
-import DataError from '@/components/common/DataError';
 import Loading from '@/components/common/Loading';
 import ItemCard from '@/components/wishpool/viewer/list/ItemCard';
 import { GiftCardType } from '@/types/common/giftCardType';
@@ -14,14 +13,10 @@ const GiftPage = () => {
   const { id } = useParams<{ id: string }>();
   const wishpoolId = Number(id);
 
-  const { data: giftData, isLoading, isError } = useGetGiftList(wishpoolId);
+  const { data: giftData, isLoading } = useGetGiftList(wishpoolId);
 
   if (isLoading) {
     return <Loading />;
-  }
-
-  if (isError) {
-    return <DataError />;
   }
 
   const giftItems: GiftCardType[] = giftData?.gifts ?? [];
