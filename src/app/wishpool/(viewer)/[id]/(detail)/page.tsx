@@ -6,14 +6,18 @@ import { useParams, useRouter } from 'next/navigation';
 import { useGetWishpoolDetail } from '@/api/domain/detail/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Icon from '@/components/common/Icon';
+import CenterModal from '@/components/common/Modal/CenterModal';
 import DetailFooter from '@/components/wishpool/viewer/detail/DetailFooter';
 import { PATH } from '@/constants/common/path';
+import useModal from '@/hooks/common/useModal';
 import getFooterContent from '@/utils/wishpool/viewer/getFooterContent';
 
 const DetailPage = () => {
   const router = useRouter();
   const { id } = useParams<{ id: string }>();
   const wishpoolId = Number(id);
+
+  const { isOpen, onOpen, onClose } = useModal();
 
   const { data: wishpool } = useGetWishpoolDetail(wishpoolId);
 
@@ -69,11 +73,25 @@ const DetailPage = () => {
             <p className="text-gray-800">{wishpool?.description}</p>
           </div>
         </div>
+        <button
+          className="body2 mt-[6.4rem] w-full text-center text-gray-600 underline"
+          onClick={onOpen}
+        >
+          선물 제안 그만 받기
+        </button>
       </section>
       {footerProps && (
         <DetailFooter
           {...footerProps}
           onClick={() => router.push(PATH.JOIN_INTRO)}
+        />
+      )}
+      {isOpen && (
+        <CenterModal
+          onClose={onClose}
+          modalTitle="선물 제안을 그만 받을까요?"
+          modalContent="지금까지 모인 선물 리스트를 생일자에게 전달하세요!"
+          rightText="그만 받기"
         />
       )}
     </>
