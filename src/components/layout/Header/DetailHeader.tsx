@@ -1,7 +1,6 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
 
 import { useDeleteWishpool } from '@/api/domain/detail/hooks';
 import Icon from '@/components/common/Icon';
@@ -22,12 +21,10 @@ const DetailHeader = ({ title, bgColor }: DetailHeaderProps) => {
   const router = useRouter();
   const wishpoolId = useGetWishpoolId();
 
-  const [isDeleting, setIsDeleting] = useState(false);
-
   const edit = useModal();
   const del = useModal();
 
-  const { mutate: deleteWishpool } = useDeleteWishpool(wishpoolId);
+  const { mutate: mutateDelete } = useDeleteWishpool();
 
   const handleBack = () => {
     router.push(PATH.HOME);
@@ -39,21 +36,17 @@ const DetailHeader = ({ title, bgColor }: DetailHeaderProps) => {
   };
 
   const handleDelete = () => {
-    if (isDeleting) return;
-
-    setIsDeleting(true);
-
-    deleteWishpool(undefined, {
+    mutateDelete(wishpoolId, {
       onSuccess: () => {
-        setIsDeleting(false);
         del.onClose();
         router.push(PATH.HOME);
       },
-      onError: () => {
-        setIsDeleting(false);
+      onError: (error) => {
+        console.error('삭제 실패:', error);
       },
     });
   };
+
   return (
     <>
       <BaseHeader

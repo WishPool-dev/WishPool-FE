@@ -13,12 +13,15 @@ export const useGetWishpoolDetail = (wishpoolId: number) => {
   });
 };
 
-export const useDeleteWishpool = (wishpoolId: number) => {
+export const useDeleteWishpool = () => {
   return useMutation({
-    mutationFn: () => deleteWishpool(wishpoolId),
-    onSuccess: () => {
-      queryClient.invalidateQueries({
+    mutationFn: (wishpoolId: number) => deleteWishpool(wishpoolId),
+    onSuccess: (_data, wishpoolId) => {
+      queryClient.removeQueries({
         queryKey: QUERY_KEY.WISHPOOL_DETAIL(wishpoolId),
+      });
+      queryClient.invalidateQueries({
+        queryKey: QUERY_KEY.WISHPOOLS_ALL,
       });
     },
   });
