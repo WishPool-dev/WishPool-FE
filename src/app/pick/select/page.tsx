@@ -1,54 +1,50 @@
 'use client';
 
+import { useQueryClient } from '@tanstack/react-query';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { useGetPickGiftList } from '@/api/domain/pick/hooks';
 import Button from '@/components/common/Button';
 import CarouselCard from '@/components/pick/select/CarouselCard';
 import GiftLoading from '@/components/pick/select/GiftLoading';
 import { PATH } from '@/constants/common/path';
+import { QUERY_KEY } from '@/constants/common/queryKey';
 import { useCarouselCard } from '@/hooks/pick/useCarouselCard';
 import { GiftCardType } from '@/types/common/giftCardType';
 
 const SelectPage = () => {
   const router = useRouter();
+  const queryClient = useQueryClient();
 
-  const [identifier, setIdentifier] = useState<string | null>(null);
   const [items, setItems] = useState<GiftCardType[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const { data: pickData, isLoading } = useGetPickGiftList(identifier);
+  const identifier =
+    typeof window !== 'undefined'
+      ? window.localStorage.getItem('identifier')
+      : null;
 
   useEffect(() => {
-    try {
-      const chosenIdentifier = window.localStorage.getItem('chosenIdentifier');
-      setIdentifier(chosenIdentifier);
-    } catch {
-      setIdentifier(null);
-    }
-  }, []);
+    const giftData = queryClient.getQueryData<{ gifts: GiftCardType[] }>(
+      QUERY_KEY.WISHPOOL_GIFTS_CELEBRANT(identifier),
+    );
 
-  useEffect(() => {
-    if (pickData?.gifts && !isLoading) {
-      const gifts = (pickData.gifts ?? []).map((gift) => ({
-        giftId: gift.giftId,
-        itemName: gift.itemName,
-        itemUrl: gift.itemUrl,
-        guest: gift.guest,
-      }));
-      setItems(gifts);
+    if (giftData?.gifts) {
+      setItems(giftData.gifts);
     }
-  }, [pickData, isLoading]);
+  }, [queryClient]);
 
   const { ref, active } = useCarouselCard<HTMLDivElement>();
 
   const handleRemove = (id: number) => {
-    setItems((prev) => prev.filter((item) => item.giftId !== id));
+    const updatedItems = items.filter((item) => item.giftId !== id);
+    setItems(updatedItems);
   };
 
   const handleComplete = () => {
+    window.sessionStorage.setItem('pickedGifts', JSON.stringify(items));
+
     if (items.length > 2) {
       setLoading(true);
       setTimeout(() => {
@@ -57,8 +53,6 @@ const SelectPage = () => {
     } else {
       router.push(PATH.PICK_PREVIEW);
     }
-    window.sessionStorage.setItem('pickedGifts', JSON.stringify(items));
-    window.sessionStorage.setItem('wishpoolId', String(pickData?.wishpoolId));
   };
 
   if (loading) return <GiftLoading items={items} />;
