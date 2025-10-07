@@ -2,7 +2,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import introEmptyBox from '@/assets/images/empty-box.png';
+import introEmptyBox from '@/assets/images/empty-box-color.png';
 import IconButton from '@/components/common/Button/IconButton';
 import Icon from '@/components/common/Icon';
 import InfoBox from '@/components/common/InfoBox/InfoBox';
@@ -24,6 +24,8 @@ const Page = () => {
 
       <Image
         src={introEmptyBox}
+        width={173}
+        height={129}
         alt="위시풀 박스 사진"
         className="mx-auto mt-[4.2rem] mb-[2rem] h-[18rem] w-[18rem] object-cover"
       />
