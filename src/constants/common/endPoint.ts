@@ -11,4 +11,5 @@ export const END_POINT = {
   FEEDBACK: 'contact',
   PROFILE: 'profile',
   LOGOUT: 'auth/logout',
+  SHARED: 'shared',
 } as const;
