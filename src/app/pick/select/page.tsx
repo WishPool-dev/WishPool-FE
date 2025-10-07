@@ -60,7 +60,7 @@ const SelectPage = () => {
     <div className="flex h-[100vh] flex-col">
       <section
         ref={ref}
-        className="no-scrollbar bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[2rem] pb-[5rem]"
+        className="no-scrollbar bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7rem] pb-[5rem]"
       >
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
         {items.map(({ giftId, itemName, itemUrl }, i) => (
