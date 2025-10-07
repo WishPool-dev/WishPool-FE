@@ -4,7 +4,7 @@ const IntroLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <HomeHeader bgColor="background02" />
-      <main className="bg-background-02 px-[2rem] pt-[8.2rem] pb-[10rem]">
+      <main className="bg-background-02 mt-header h-[100vh] p-[2rem] pb-[10rem]">
         {children}
       </main>
     </>

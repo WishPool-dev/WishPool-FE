@@ -18,8 +18,9 @@ const ShareLayout = ({ children }: { children: React.ReactNode }) => {
         iconName="cancel"
         title="생일자에게 보내기"
         onClick={handleClose}
+        bgColor="white"
       />
-      <main className="mx-[2rem] pt-[8.6rem]">{children}</main>
+      <main className="mt-header p-[2rem]">{children}</main>
     </>
   );
 };

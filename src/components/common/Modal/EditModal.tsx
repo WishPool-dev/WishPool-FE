@@ -1,9 +1,10 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import BaseModal from '@/components/common/Modal/BaseModal';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 
 type EditModalProps = {
   onClose: () => void;
@@ -13,13 +14,12 @@ type EditModalProps = {
 const EditModal = ({ onClose, onOpenDelete }: EditModalProps) => {
   const router = useRouter();
 
-  const { id } = useParams<{ id: string }>();
-  const wishpoolId = Number(id);
+  const wishpoolId = useGetWishpoolId();
 
   return (
     <>
       <BaseModal onClose={onClose}>
-        <div className="absolute top-[5.4rem] right-[2rem] flex w-[18.4rem] flex-col rounded-[12px] bg-white">
+        <div className="absolute top-[5.4rem] right-[2rem] flex w-[18.4rem] flex-col rounded-[12px] bg-white shadow-[0_1px_5px_rgba(0,0,0,0.10),0_6px_28px_rgba(0,0,0,0.08)]">
           <button
             onClick={() => router.push(PATH.WISHPOOL_EDIT(wishpoolId))}
             className="text-text title3 px-[2.4rem] py-[1.8rem] text-left"

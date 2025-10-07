@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import BirthdayInfo from '@/components/common/BirthdayInfo';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
@@ -12,7 +14,7 @@ const InfoPage = () => {
 
   return (
     <>
-      <div className="text-text pt-[2.8rem]">
+      <div className="text-text">
         <h1 className="head1">
           00님이 보낸 <br />
           위시풀 초대장이 도착했어요! <br />
@@ -27,10 +29,10 @@ const InfoPage = () => {
           height={75}
           className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
-        <BirthdayInfo />
+        <BirthdayInfo celebrant="생일자 이름" birthDay="2025-09-23" />
 
-        <img
-          src="/images/wishpool-card.svg"
+        <Image
+          src={WishpoolCardImage}
           width={430}
           height={240}
           className="w-full"

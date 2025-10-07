@@ -1,11 +1,13 @@
 'use client';
 
+import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
 import Icon from '@/components/common/Icon';
 import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor';
 import BaseHeader from '@/components/layout/Header/BaseHeader';
+import NavMenu from '@/components/layout/NavMenu';
 import { PATH } from '@/constants/common/path';
 
 type HomeHeaderProps = {
@@ -14,13 +16,22 @@ type HomeHeaderProps = {
 };
 
 const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
-  const router = useRouter();
+  const [openNav, setOpenNav] = useState(false);
+  const handleNavMenu = () => {
+    setOpenNav((prev) => !prev);
+  };
+
   return (
     <>
       <BaseHeader
         leftSlot={
           <Link href={PATH.HOME}>
-            <img src="/images/logo.svg" alt="로고 이미지" />
+            <Image
+              src="/images/logo.svg"
+              alt="위시풀 로고"
+              width={118}
+              height={26}
+            />
           </Link>
         }
         rightSlot={
@@ -28,7 +39,7 @@ const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
             <button
               type="button"
               aria-label="메뉴 열기"
-              onClick={() => router.push(PATH.MYPAGE)}
+              onClick={handleNavMenu}
             >
               <Icon name="menu" title="메뉴 아이콘" />
             </button>
@@ -38,6 +49,12 @@ const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
         }
         bgColor={bgColor}
       />
+      {openNav && (
+        <div onClick={handleNavMenu}>
+          <div className="z-dimmed top-header fixed inset-0 mx-auto max-w-[430px] bg-black/20" />
+          <NavMenu />
+        </div>
+      )}
     </>
   );
 };

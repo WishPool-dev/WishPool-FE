@@ -18,7 +18,10 @@ const MyPageItem = ({ page, link, disabled }: MyPageItemProps) => {
         <span className={`title1 ${disabled ? 'text-gray-300' : 'text-text'}`}>
           {page}
         </span>
-        <Icon name="next" />
+        <Icon
+          name="next"
+          className={`${disabled ? 'text-gray-300' : 'text-gray-600'}`}
+        />
       </Link>
     </li>
   );

@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import FeedbackGiftImage from '@/assets/images/feedback-gift.png';
 import Button from '@/components/common/Button';
 import { PATH } from '@/constants/common/path';
 
@@ -10,10 +12,12 @@ const FeedbackBox = () => {
 
   return (
     <div className="bg-blue-5 relative w-full rounded-[20px] px-[2rem] pt-[4.2rem] pb-[1.6rem]">
-      <img
-        src="/images/gift-circle.svg"
+      <Image
+        src={FeedbackGiftImage}
         alt="선물 이미지"
-        className="absolute top-0 left-[2/8rem] h-[6rem] w-[6rem] -translate-y-1/2"
+        width={60}
+        height={60}
+        className="absolute top-0 left-[2/8rem] -translate-y-1/2"
       />
       <div className="text-text mb-[2.8rem] px-[0.8rem]">
         <h3 className="title2 mb-[0.4rem]">WishpooL은 어땠나요?</h3>

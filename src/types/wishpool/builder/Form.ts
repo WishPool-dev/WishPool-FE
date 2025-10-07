@@ -1,5 +1,6 @@
 export interface FormFieldProps {
-  label: string;
+  name: string;
+  label?: string;
   placeholder?: string;
   maxLength?: number;
 }

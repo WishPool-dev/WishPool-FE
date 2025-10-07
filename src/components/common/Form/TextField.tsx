@@ -1,26 +1,41 @@
-import { useState } from 'react';
-
 import { FormFieldProps } from '@/types/wishpool/builder/Form';
 
-const TextField = ({ label, maxLength, placeholder }: FormFieldProps) => {
-  const [inputValue, setInputValue] = useState('');
-  const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setInputValue(e.target.value);
+type TextFieldProps = FormFieldProps & {
+  value?: string;
+  onChange: (name: string, value: string) => void;
+};
+
+const TextField = ({
+  name,
+  placeholder,
+  maxLength,
+  value,
+  onChange,
+}: TextFieldProps) => {
+  const limit = typeof maxLength === 'number' ? maxLength : undefined;
+
+  const handleChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    const text = limit ? e.target.value.slice(0, limit) : e.target.value;
+    onChange(name, text);
+    sessionStorage.setItem(`wishpool_${name}`, text);
   };
+
+  const currentVal = value ?? '';
+
   return (
     <>
-      <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">{label}</p>
       <div className="relative w-full">
         <textarea
+          name={name}
           maxLength={maxLength}
-          value={inputValue}
-          onChange={handleInputChange}
+          value={currentVal}
+          onChange={handleChange}
           placeholder={placeholder}
-          className="body1 flex h-[15rem] w-full resize-none rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.5rem] placeholder:text-gray-400 focus:border-gray-400 focus:outline-none"
+          className="body1 flex h-[15rem] w-full resize-none rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.5rem] pb-[3rem] whitespace-pre-line placeholder:text-gray-400 focus:border-gray-400 focus:outline-none"
         />
-        {maxLength && (
+        {limit && (
           <div className="caption2 absolute right-[1.6rem] bottom-[2rem] mt-[0.4rem] text-gray-600">
-            {inputValue.length}/{maxLength}
+            {currentVal?.length}/{maxLength}
           </div>
         )}
       </div>

@@ -1,0 +1,14 @@
+export const END_POINT = {
+  API: 'api',
+  FILES: 'files',
+  WISHPOOLS: 'wishpools',
+  JOIN: 'join',
+  SELECT: 'selections',
+  GUESTS: 'guests',
+  CELEBRANT: 'celebrant',
+  GIFTS: 'gifts',
+  OAUTH: 'oauth2',
+  FEEDBACK: 'contact',
+  PROFILE: 'profile',
+  LOGOUT: 'auth/logout',
+} as const;

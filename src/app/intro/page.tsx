@@ -1,7 +1,9 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import Onboarding1Image from '@/assets/images/onboarding-1.jpg';
 import Button from '@/components/common/Button';
 import { PATH } from '@/constants/common/path';
 import { ONBOARDING_CONTENT } from '@/constants/intro/onBoardingContent';
@@ -9,6 +11,14 @@ import { ONBOARDING_CONTENT } from '@/constants/intro/onBoardingContent';
 const OnBoardingPage = () => {
   const router = useRouter();
 
+  const handleStart = () => {
+    const token = localStorage.getItem('accessToken');
+    if (!token) {
+      router.push(PATH.LOGIN);
+      return;
+    }
+    router.push(PATH.HOME);
+  };
   return (
     <div className="w-full text-center">
       <div>
@@ -23,33 +33,40 @@ const OnBoardingPage = () => {
           선물 위시리스트를 여럿이 함께 만들고, <br />
           취향을 물어 보세요.
         </p>
-        <img
-          src="/images/onboarding-1.svg"
-          alt="온보딩 - 위시풀 이미지"
-          className="w-full"
-        />
+        <div className="relative aspect-[393/486] w-full">
+          <Image
+            src={Onboarding1Image}
+            alt="온보딩 - 위시풀 이미지"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover"
+          />
+        </div>
       </div>
 
-      <div className="relative">
-        <div className="fixed inset-x-0 bottom-0 bg-[linear-gradient(180deg,_rgba(255,255,255,0)_0%,_#fff_100%)] px-[2rem] pt-[3.6rem] pb-[2rem]">
-          <Button onClick={() => router.push(PATH.HOME)}>
-            WishpooL 시작하기
-          </Button>
-        </div>
-
-        {ONBOARDING_CONTENT.map((section, idx) => (
-          <section key={idx}>
-            <img
+      {ONBOARDING_CONTENT.map((section, idx) => (
+        <section key={idx} className="-mt-1">
+          <div className="relative aspect-[393/392] w-full">
+            <Image
               src={section.imageSrc}
               alt={section.imageAlt}
-              className="w-full"
+              fill
+              priority
+              sizes="100vw"
+              className="object-cover"
             />
-            <div className="text-text pt-[3.2rem] pb-[6rem]">
-              <h2 className="head1 mb-[1.6rem]">{section.title}</h2>
-              <p className="body1">{section.content}</p>
-            </div>
-          </section>
-        ))}
+          </div>
+          <div className="text-text pt-[3.2rem] pb-[6rem]">
+            <h2 className="head1 mb-[1.6rem]">{section.title}</h2>
+            <p className="body1">{section.content}</p>
+          </div>
+        </section>
+      ))}
+      <div className="fixed inset-x-0 bottom-0">
+        <div className="bottom-0 mx-auto w-full max-w-[430px] bg-[linear-gradient(180deg,_rgba(255,255,255,0)_0%,_#fff_100%)] p-[2rem]">
+          <Button onClick={handleStart}>WishpooL 시작하기</Button>
+        </div>
       </div>
     </div>
   );

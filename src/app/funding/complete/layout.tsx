@@ -4,7 +4,7 @@ const CompleteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <HomeHeader bgColor="white" />
-      <main className="bg-background-01 px-[2rem] pt-[5.4rem] pb-[2rem]">
+      <main className="bg-background-01 mt-header px-[2rem] pb-[2rem]">
         {children}
       </main>
     </>

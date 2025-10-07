@@ -1,8 +1,15 @@
 export const PATH = {
   INTRO: '/intro',
   HOME: '/',
+  LOGIN: '/login',
+  REDIRECT: '/login/oauth2/code/kakao',
+
   WISHPOOL_INTRO: '/wishpool/intro',
-  WISHPOOL_CREATE: '/wishpool/create',
+  WISHPOOL_CREATE_STEP1: '/wishpool/create/step1',
+  WISHPOOL_CREATE_STEP2: '/wishpool/create/step2',
+  WISHPOOL_CREATE_STEP3: '/wishpool/create/step3',
+  WISHPOOL_CREATE_STEP4: '/wishpool/create/step4',
+
   MYPAGE: '/mypage',
   FEEDBACK: '/feedback',
   WISHPOOL_HISTORY: '/wishpool/history',

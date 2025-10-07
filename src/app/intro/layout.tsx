@@ -7,8 +7,8 @@ export default function IntroLayout({
 }) {
   return (
     <>
-      <HomeHeader bgColor="white" />
-      <main className="flex flex-col items-center justify-center pt-[8.2rem] pb-[5rem]">
+      <HomeHeader hasMenu bgColor="white" />
+      <main className="mt-header flex flex-col items-center justify-center pt-[2rem] pb-[5rem]">
         {children}
       </main>
     </>

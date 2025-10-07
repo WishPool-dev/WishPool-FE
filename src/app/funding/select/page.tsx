@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
@@ -42,17 +43,17 @@ const SelectPage = () => {
     <div className="flex h-[100vh] flex-col">
       <section
         ref={ref}
-        className="no-scrollbar bg-blue-5 z-card relative flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7.8rem] pb-[7.2rem]"
+        className="no-scrollbar bg-blue-5 relative z-[100] flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[2rem] pb-[5rem]"
       >
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
-        {items.map(({ giftId, giftName, giftImage }, i) => (
+        {items.map(({ giftId, itemName, itemUrl }, i) => (
           <CarouselCard
             key={giftId}
             giftId={giftId}
             index={i}
             activeIndex={active}
-            giftName={giftName}
-            giftImage={giftImage}
+            itemName={itemName}
+            itemUrl={itemUrl}
             onRemove={handleRemove}
           />
         ))}
@@ -60,11 +61,13 @@ const SelectPage = () => {
       </section>
 
       <section className="bg-background-02 relative grow">
-        <div className="flex flex-col items-center py-[7.2rem]">
-          <img
+        <div className="flex flex-col items-center py-[5rem]">
+          <Image
             src="/images/hole.svg"
+            width={203}
+            height={52}
             alt="구멍 이미지"
-            className="mb-[4rem] h-[5.2rem] w-[20.3rem]"
+            className="mb-[4rem]"
           />
           <p className="text-text caption1 text-center">
             마음에 드는 선물을{' '}
@@ -72,18 +75,17 @@ const SelectPage = () => {
             <br />
             아래로 드래그하면 리스트에서 제외돼요.
           </p>
-        </div>
-
-        <div className="bg-background-02 fixed inset-x-0 bottom-0 flex flex-col gap-[0.8rem] p-[2rem]">
-          <Button
-            backgroundColor="transparent"
-            textColor="gray"
-            textSize="md"
-            onClick={() => window.location.reload()}
-          >
-            <span className="underline">처음부터 다시 고르기</span>
-          </Button>
-          <Button onClick={handleComplete}>완료하기</Button>
+          <div className="flex w-full flex-col gap-[0.8rem] p-[2rem]">
+            <Button
+              backgroundColor="transparent"
+              textColor="gray"
+              textSize="md"
+              onClick={() => window.location.reload()}
+            >
+              <span className="underline">처음부터 다시 고르기</span>
+            </Button>
+            <Button onClick={handleComplete}>완료하기</Button>
+          </div>
         </div>
       </section>
     </div>

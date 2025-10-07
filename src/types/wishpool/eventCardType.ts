@@ -1,10 +1,11 @@
+import { WishpoolStatusType } from '@/types/common/wishpoolStatusType';
+
 export type Role = '참여자' | '생일자';
-export type Status = 'open' | 'closed';
 
 export type EventCardType = {
   id: number;
   userType: Role;
-  status: Status;
+  status: WishpoolStatusType;
   title: string;
   wishpoolId: number;
   day?: number;
