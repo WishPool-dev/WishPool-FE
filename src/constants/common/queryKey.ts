@@ -4,11 +4,11 @@ export const QUERY_KEY = {
   WISHPOOL_DETAIL: (wishpoolId: number) => ['wishpool', wishpoolId],
   WISHPOOL_DETAIL_GUEST: (guestId: number) => ['wishpool', 'guest', guestId],
   WISHPOOL_GIFTS_ALL: (wishpoolId: number) => ['wishpool', 'gifts', wishpoolId],
-  WISHPOOL_GIFTS_CELEBRANT: (celebrantId: string) => [
+  WISHPOOL_GIFTS_CELEBRANT: (chosenIdentifier: string | null) => [
     'wishpool',
     'gifts',
     'celebrant',
-    celebrantId,
+    chosenIdentifier,
   ],
   AUTH: ['auth'],
   PROFILE: ['profile'],

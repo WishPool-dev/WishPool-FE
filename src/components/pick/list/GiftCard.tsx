@@ -1,5 +1,6 @@
 import Image from 'next/image';
 
+import GiftCardImage from '@/assets/images/gift-card.png';
 import type { GiftCardType } from '@/types/common/giftCardType';
 
 type sizeType = 'small' | 'big';
@@ -12,7 +13,7 @@ const GiftCard = ({
   size = 'small',
   giftId,
   itemName,
-  itemUrl,
+  //itemUrl,
 }: GiftCardProps) => {
   const isSmall = size === 'small';
 
@@ -21,7 +22,7 @@ const GiftCard = ({
       className={`bg-background-01 flex grow-1 flex-col items-center gap-[2.4rem] rounded-[16px] ${isSmall ? 'p-[2.2rem]' : 'p-[6.4rem]'}`}
     >
       <Image
-        src={itemUrl}
+        src={GiftCardImage}
         alt={`선물 카드 이미지 - ${giftId}`}
         width={isSmall ? 126 : 170}
         height={isSmall ? 126 : 170}

@@ -5,7 +5,7 @@ import type { PanInfo } from 'framer-motion';
 import Image from 'next/image';
 
 import GiftCardImage from '@/assets/images/gift-card.png';
-import { useDeleteCard } from '@/hooks/funding/useDeleteCard';
+import { useDeleteCard } from '@/hooks/pick/useDeleteCard';
 import type { GiftCardType } from '@/types/common/giftCardType';
 
 type CarouselCardProps = {

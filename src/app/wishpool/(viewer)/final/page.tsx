@@ -1,12 +1,24 @@
 'use client';
 import { useRouter } from 'next/navigation';
 
-import { data } from '@/app/funding/preview/data';
 import Button from '@/components/common/Button';
 import KakaoButton from '@/components/common/Button/KakaoButton';
 import Icon from '@/components/common/Icon';
-import GiftCard from '@/components/funding/list/GiftCard';
+import GiftCard from '@/components/pick/list/GiftCard';
 import { PATH } from '@/constants/common/path';
+
+const data = [
+  {
+    giftId: 1,
+    itemName: '선물 A',
+    itemUrl: '/images/gift-a.png',
+  },
+  {
+    giftId: 2,
+    itemName: '선물 B',
+    itemUrl: '/images/gift-b.png',
+  },
+];
 
 const FinalPage = () => {
   const router = useRouter();
