@@ -1,24 +1,53 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
-import { data } from '@/app/pick/preview/data';
+import { usePostPickGift } from '@/api/domain/pick/hooks';
 import Button from '@/components/common/Button';
 import GiftCard from '@/components/pick/list/GiftCard';
 import { PATH } from '@/constants/common/path';
+import { GiftCardType } from '@/types/common/giftCardType';
 
 const PreviewPage = () => {
   const router = useRouter();
 
+  const [pickedItems, setPickedItems] = useState<GiftCardType[]>([]);
+
+  const { mutate: pickGift } = usePostPickGift();
+
+  useEffect(() => {
+    const getGifts = window.sessionStorage.getItem('pickedGifts');
+    if (getGifts) {
+      setPickedItems(JSON.parse(getGifts));
+    }
+  }, []);
+
   const handleSubmit = () => {
-    router.push(PATH.PICK_COMPLETE);
+    const giftIds = pickedItems.map((pickedItem) => pickedItem.giftId);
+    const wishpoolId = Number(window.sessionStorage.getItem('wishpoolId'));
+
+    pickGift(
+      { wishpoolId, giftIds },
+      {
+        onSuccess: () => {
+          router.push(PATH.PICK_COMPLETE);
+          window.sessionStorage.removeItem('pickedGifts');
+          window.sessionStorage.removeItem('wishpoolId');
+        },
+        onError: (err) => {
+          console.error('🚨 선물 선택 실패: ', err);
+        },
+      },
+    );
   };
+
   return (
     <>
       <h1 className="text-blue-primary caption1">최종 점검</h1>
       <h2 className="head1 text-text">홍길동님이 최종 선택한 선물</h2>
       <section className="my-[2.8rem] space-y-[1.2rem]">
-        {data.map(({ giftId, itemName, itemUrl }) => (
+        {pickedItems.map(({ giftId, itemName, itemUrl }) => (
           <GiftCard
             key={giftId}
             size="big"

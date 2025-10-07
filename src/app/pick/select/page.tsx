@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { useGetPickGiftList, usePostPickGift } from '@/api/domain/pick/hooks';
+import { useGetPickGiftList } from '@/api/domain/pick/hooks';
 import Button from '@/components/common/Button';
 import CarouselCard from '@/components/pick/select/CarouselCard';
 import GiftLoading from '@/components/pick/select/GiftLoading';
@@ -20,7 +20,6 @@ const SelectPage = () => {
   const [loading, setLoading] = useState(false);
 
   const { data: pickData, isLoading } = useGetPickGiftList(identifier);
-  const { mutate: pickGift } = usePostPickGift();
 
   useEffect(() => {
     try {
@@ -50,14 +49,7 @@ const SelectPage = () => {
   };
 
   const handleComplete = () => {
-    if (!pickData?.wishpoolId) {
-      console.warn('wishpoolId가 없습니다. pick 요청을 취소합니다.');
-      return;
-    }
-
-    const giftIds = items.map((item) => item.giftId);
-
-    if (giftIds.length > 2) {
+    if (items.length > 2) {
       setLoading(true);
       setTimeout(() => {
         router.push(PATH.PICK_PREVIEW);
@@ -65,8 +57,8 @@ const SelectPage = () => {
     } else {
       router.push(PATH.PICK_PREVIEW);
     }
-
-    pickGift({ wishpoolId: pickData.wishpoolId, giftIds });
+    window.sessionStorage.setItem('pickedGifts', JSON.stringify(items));
+    window.sessionStorage.setItem('wishpoolId', String(pickData?.wishpoolId));
   };
 
   if (loading) return <GiftLoading items={items} />;
