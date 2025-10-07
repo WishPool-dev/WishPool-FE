@@ -9,7 +9,7 @@ const GiftLoading = ({ items }: { items: GiftCardType[] }) => {
   const duration = 5;
 
   return (
-    <section className="relative overflow-hidden px-[2rem] py-[20rem]">
+    <section className="relative h-[100vh] overflow-hidden px-[2rem] py-[20rem]">
       <div className="pointer-events-none absolute" />
       <motion.div
         className="flex w-max gap-[1.2rem] will-change-transform"

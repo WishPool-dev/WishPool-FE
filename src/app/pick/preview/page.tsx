@@ -45,6 +45,7 @@ const PreviewPage = () => {
 
           router.push(PATH.PICK_COMPLETE);
           window.sessionStorage.removeItem('pickedGifts');
+          window.sessionStorage.removeItem('wishpoolId');
         },
         onError: (err) => {
           console.error('🚨 선물 선택 실패: ', err);

@@ -18,7 +18,7 @@ const ListLayout = ({ children }: { children: React.ReactNode }) => {
           router.push(PATH.PICK_SELECT);
         }}
       />
-      <main className="bg-background-03 mt-header px-[2rem] pb-[2rem]">
+      <main className="bg-background-03 mt-header h-[100vh] px-[2rem] pb-[2rem]">
         {children}
       </main>
     </>

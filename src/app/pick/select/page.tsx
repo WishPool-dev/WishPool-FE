@@ -1,6 +1,5 @@
 'use client';
 
-import { useQueryClient } from '@tanstack/react-query';
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
@@ -11,11 +10,11 @@ import GiftLoading from '@/components/pick/select/GiftLoading';
 import { PATH } from '@/constants/common/path';
 import { QUERY_KEY } from '@/constants/common/queryKey';
 import { useCarouselCard } from '@/hooks/pick/useCarouselCard';
+import { queryClient } from '@/lib/queryClient';
 import { GiftCardType } from '@/types/common/giftCardType';
 
 const SelectPage = () => {
   const router = useRouter();
-  const queryClient = useQueryClient();
 
   const [items, setItems] = useState<GiftCardType[]>([]);
   const [loading, setLoading] = useState(false);
