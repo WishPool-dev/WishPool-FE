@@ -3,13 +3,12 @@
 import { useRouter } from 'next/navigation';
 
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
-import { PATH } from '@/constants/common/path';
 
 const ShareLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
   const handleClose = () => {
-    router.push(PATH.WISHPOOL_DETAIL(1));
+    router.back();
   };
 
   return (

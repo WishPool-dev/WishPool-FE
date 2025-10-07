@@ -2,8 +2,8 @@
 
 import { useRouter } from 'next/navigation';
 
-import SwipeGuide from '@/components/funding/select/SwipeGuide';
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
+import SwipeGuide from '@/components/pick/select/SwipeGuide';
 import { PATH } from '@/constants/common/path';
 
 const SelectLayout = ({ children }: { children: React.ReactNode }) => {
@@ -16,7 +16,7 @@ const SelectLayout = ({ children }: { children: React.ReactNode }) => {
         iconName="grid"
         bgColor="white"
         onClick={() => {
-          router.push(PATH.FUNDING_LIST);
+          router.push(PATH.PICK_LIST);
         }}
       />
       <main className="bg-blue-6">{children}</main>

@@ -33,7 +33,7 @@ const IntroPage = () => {
         <div className="mx-auto w-full max-w-[430px] p-[2rem]">
           <Button
             onClick={() => {
-              router.push(PATH.FUNDING_SELECT);
+              router.push(PATH.PICK_SELECT);
             }}
           >
             다음

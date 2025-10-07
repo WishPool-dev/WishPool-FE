@@ -10,7 +10,7 @@ const wishpoolStatusText = (status: WishpoolStatusType): string => {
   switch (status) {
     case 'OPEN':
       return '생일자를 위한 위시풀 만들기 진행 중';
-    case 'WAITING':
+    case 'PENDING':
       return '생일자가 선물을 선택하는 중';
     case 'COMPLETED':
       return '생일자가 선물 선택을 완료한 위시풀';
@@ -18,6 +18,7 @@ const wishpoolStatusText = (status: WishpoolStatusType): string => {
       return '';
   }
 };
+
 type EventCardProps = {
   currentIndex: number;
   cardData: WishpoolType;

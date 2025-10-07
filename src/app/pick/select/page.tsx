@@ -2,38 +2,55 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { data } from '@/app/funding/select/data';
 import Button from '@/components/common/Button';
-import CarouselCard from '@/components/funding/select/CarouselCard';
-import GiftLoading from '@/components/funding/select/GiftLoading';
+import CarouselCard from '@/components/pick/select/CarouselCard';
+import GiftLoading from '@/components/pick/select/GiftLoading';
 import { PATH } from '@/constants/common/path';
-import { useCarouselCard } from '@/hooks/funding/useCarouselCard';
+import { QUERY_KEY } from '@/constants/common/queryKey';
+import { useCarouselCard } from '@/hooks/pick/useCarouselCard';
+import { queryClient } from '@/lib/queryClient';
 import { GiftCardType } from '@/types/common/giftCardType';
 
 const SelectPage = () => {
   const router = useRouter();
 
-  const { ref, active } = useCarouselCard<HTMLDivElement>();
-  const [items, setItems] = useState<GiftCardType[]>(
-    data.map((d, i) => ({ ...d, id: i })),
-  );
-
+  const [items, setItems] = useState<GiftCardType[]>([]);
   const [loading, setLoading] = useState(false);
 
+  const identifier =
+    typeof window !== 'undefined'
+      ? window.localStorage.getItem('identifier')
+      : null;
+
+  useEffect(() => {
+    const giftData = queryClient.getQueryData<{ gifts: GiftCardType[] }>(
+      QUERY_KEY.WISHPOOL_GIFTS_CELEBRANT(identifier),
+    );
+
+    if (giftData?.gifts) {
+      setItems(giftData.gifts);
+    }
+  }, [queryClient]);
+
+  const { ref, active } = useCarouselCard<HTMLDivElement>();
+
   const handleRemove = (id: number) => {
-    setItems((prev) => prev.filter((item) => item.giftId !== id));
+    const updatedItems = items.filter((item) => item.giftId !== id);
+    setItems(updatedItems);
   };
 
   const handleComplete = () => {
+    window.sessionStorage.setItem('pickedGifts', JSON.stringify(items));
+
     if (items.length > 2) {
       setLoading(true);
       setTimeout(() => {
-        router.push(PATH.FUNDING_PREVIEW);
+        router.push(PATH.PICK_PREVIEW);
       }, 1500);
     } else {
-      router.push(PATH.FUNDING_PREVIEW);
+      router.push(PATH.PICK_PREVIEW);
     }
   };
 
@@ -43,7 +60,7 @@ const SelectPage = () => {
     <div className="flex h-[100vh] flex-col">
       <section
         ref={ref}
-        className="no-scrollbar bg-blue-5 relative z-[100] flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[2rem] pb-[5rem]"
+        className="no-scrollbar bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7rem] pb-[5rem]"
       >
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
         {items.map(({ giftId, itemName, itemUrl }, i) => (

@@ -1,11 +1,19 @@
+import { PATH } from '@/constants/common/path';
 import { WishpoolStatusType } from '@/types/common/wishpoolStatusType';
 
 type getFooterContentProps = {
   status: WishpoolStatusType;
   dDay: number;
+  routerPush: (path: string) => void;
+  wishpoolId: number;
 };
 
-const getFooterContent = ({ status, dDay }: getFooterContentProps) => {
+const getFooterContent = ({
+  status,
+  dDay,
+  routerPush,
+  wishpoolId,
+}: getFooterContentProps) => {
   switch (status) {
     case 'OPEN':
       return {
@@ -13,6 +21,7 @@ const getFooterContent = ({ status, dDay }: getFooterContentProps) => {
         title: '위시풀 만드는 중',
         content: `선물 리스트 마감까지 ${dDay}일 남았어요`,
         buttonContent: '나도 참여하기',
+        onClick: () => routerPush(PATH.JOIN_INTRO),
       };
 
     case 'PENDING':
@@ -20,6 +29,7 @@ const getFooterContent = ({ status, dDay }: getFooterContentProps) => {
         title: '위시풀 완성!',
         content: '위시풀을 생일자에게 보내요.',
         buttonContent: '생일자에게 보내기',
+        onClick: () => routerPush(PATH.WISHPOOL_INVITE(wishpoolId)),
       };
 
     case 'WAITING':
