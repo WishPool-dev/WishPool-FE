@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { usePostWishpoolCreate } from '@/api/domain/builder/hooks';
-import { useGetWishpoolImage } from '@/api/domain/builder/hooks';
+import { usePostWishpoolCreate } from '@/api/domain/form/hooks';
+import { useGetWishpoolImage } from '@/api/domain/form/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
@@ -15,7 +15,7 @@ import { fmt } from '@/utils/wishpool/builder/dateFmt';
 
 const getOrigin = () => {
   if (typeof window !== 'undefined') return window.location.origin;
-  return process.env.NEXT_PUBLIC_SITE_URL ?? 'https://wishpool.store';
+  return process.env.NEXT_PUBLIC_API_URL ?? 'https://wishpool.store';
 };
 
 const PreviewPage = () => {
