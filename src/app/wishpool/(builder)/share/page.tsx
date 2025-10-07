@@ -18,8 +18,9 @@ const SharePage = () => {
         : null;
 
     setLinkUrl(url ?? '');
+    sessionStorage.removeItem('wishpool_invite_link');
   }, []);
-  sessionStorage.removeItem('wishpool_invite_link');
+
   return (
     <>
       <div className="flex flex-col items-center">
