@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 
 import { useGetPickGiftList } from '@/api/domain/pick/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
@@ -14,6 +14,14 @@ import { PATH } from '@/constants/common/path';
 import { useGetChosenUrl } from '@/hooks/pick/useGetChosenUrl';
 
 const InvitePage = () => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <InviteClient />
+    </Suspense>
+  );
+};
+
+function InviteClient() {
   const router = useRouter();
   const identifier = useGetChosenUrl();
 
@@ -80,6 +88,5 @@ const InvitePage = () => {
       {isLoading && <Loading />}
     </>
   );
-};
-
+}
 export default InvitePage;
