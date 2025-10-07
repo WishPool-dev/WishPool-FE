@@ -4,8 +4,8 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { useGetWishpoolImage } from '@/api/domain/detail/hooks';
 import { usePostWishpoolCreate } from '@/api/domain/form/hooks';
-import { useGetWishpoolImage } from '@/api/domain/form/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';

@@ -28,10 +28,3 @@ export const postWishpoolImage = async (file: File) => {
   );
   return res.data;
 };
-
-export const getWishpoolImage = async (key: string) => {
-  const res = await axiosInstance.get<WishpoolImageResponse>(
-    `/${END_POINT.API}/${END_POINT.FILES}/${key}`,
-  );
-  return res.data;
-};
