@@ -32,8 +32,9 @@ const GiftPage = () => {
         {giftItems.map((gift) => (
           <ItemCard
             key={gift.giftId}
-            name={gift.itemName}
-            item={gift.itemUrl}
+            guest={gift.guest || ''}
+            itemName={gift.itemName}
+            itemUrl={gift.itemUrl}
           />
         ))}
       </div>

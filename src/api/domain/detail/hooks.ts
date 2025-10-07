@@ -1,7 +1,14 @@
 import { useMutation, useQuery } from '@tanstack/react-query';
 
-import { deleteWishpool, getWishpoolDetail } from '@/api/domain/detail';
-import { WishpoolDetailResponse } from '@/api/domain/detail/types';
+import {
+  deleteWishpool,
+  getWishpoolDetail,
+  getWishpoolImage,
+} from '@/api/domain/detail';
+import {
+  WishpoolDetailResponse,
+  WishpoolImageResponse,
+} from '@/api/domain/detail/types';
 import { QUERY_KEY } from '@/constants/common/queryKey';
 import { queryClient } from '@/lib/queryClient';
 
@@ -24,5 +31,13 @@ export const useDeleteWishpool = () => {
         queryKey: QUERY_KEY.WISHPOOLS_ALL,
       });
     },
+  });
+};
+
+export const useGetWishpoolImage = (key: string) => {
+  return useQuery<WishpoolImageResponse>({
+    queryKey: QUERY_KEY.FILES(key),
+    queryFn: () => getWishpoolImage(key),
+    enabled: !!key,
   });
 };
