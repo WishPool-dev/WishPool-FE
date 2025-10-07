@@ -1,5 +1,7 @@
 'use client';
 
+import { useRouter } from 'next/navigation';
+
 import { usePostLogout } from '@/api/domain/mypage/hooks';
 import CenterModal from '@/components/common/Modal/CenterModal';
 import MyPageItem from '@/components/mypage/MyPageItem';
@@ -9,11 +11,22 @@ import { PATH } from '@/constants/common/path';
 import useModal from '@/hooks/common/useModal';
 
 const MyPage = () => {
+  const router = useRouter();
+
   const { isOpen, onOpen, onClose } = useModal();
 
   const { mutate: logout } = usePostLogout();
+
   const handleSubmit = () => {
-    logout();
+    logout(undefined, {
+      onSuccess: () => {
+        router.push(PATH.INTRO);
+        window.localStorage.removeItem('accessToken');
+      },
+      onError: (err) => {
+        console.warn('🚨 로그아웃 실패: ', err);
+      },
+    });
   };
 
   return (

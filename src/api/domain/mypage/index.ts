@@ -10,6 +10,6 @@ export const getProfile = async () => {
 };
 
 export const postLogout = async () => {
-  const res = await axiosInstance.post(`${END_POINT.LOGOUT}`);
+  const res = await axiosInstance.post(`/${END_POINT.API}/${END_POINT.LOGOUT}`);
   return res.data;
 };
