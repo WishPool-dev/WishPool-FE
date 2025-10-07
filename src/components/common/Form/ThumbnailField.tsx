@@ -1,17 +1,24 @@
 'use client';
 
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
+import { usePostWishpoolImage } from '@/api/domain/create/hooks';
 import Icon from '@/components/common/Icon';
 
-// TODO: 이미지 업로드 API 연동 필요
-// ImageKey 받은걸로 defaultValue 설정 필요
 const ThumbnailField = () => {
   const fileAlbumRef = useRef<HTMLInputElement>(null);
   const fileCameraRef = useRef<HTMLInputElement>(null);
 
   const [preview, setPreview] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
+
+  const uploadMutation = usePostWishpoolImage();
+
+  useEffect(() => {
+    return () => {
+      if (preview) URL.revokeObjectURL(preview);
+    };
+  });
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -30,6 +37,13 @@ const ThumbnailField = () => {
 
     const url = URL.createObjectURL(file);
     setPreview(url);
+
+    try {
+      const res = await uploadMutation.mutateAsync(file);
+      sessionStorage.setItem('wishpool_imageKey', res.key);
+    } catch {
+      setError('이미지 업로드에 실패했습니다. 다시 시도해주세요.');
+    }
   };
 
   return (

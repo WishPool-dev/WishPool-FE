@@ -14,7 +14,7 @@ export const usePostWishpoolCreate = () => {
 };
 
 export const usePostWishpoolImage = () => {
-  return useMutation<WishpoolImageResponse, unknown, string>({
+  return useMutation<WishpoolImageResponse, unknown, File>({
     mutationFn: (file) => postWishpoolImage(file),
   });
 };

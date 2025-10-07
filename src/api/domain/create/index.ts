@@ -15,10 +15,16 @@ export const postWishpoolCreate = async (payload: WishpoolCreateType) => {
   return res.data;
 };
 
-export const postWishpoolImage = async (file: string) => {
+export const postWishpoolImage = async (file: File) => {
+  const formData = new FormData();
+  formData.append('file', file, file.name);
+
   const res = await axiosInstance.post<WishpoolImageResponse>(
     `/${END_POINT.API}/${END_POINT.FILES}`,
-    file,
+    formData,
+    {
+      headers: { 'Content-Type': 'multipart/form-data' },
+    },
   );
   return res.data;
 };
