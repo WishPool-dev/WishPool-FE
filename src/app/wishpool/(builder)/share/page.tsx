@@ -19,7 +19,7 @@ const SharePage = () => {
 
     setLinkUrl(url ?? '');
   }, []);
-
+  sessionStorage.removeItem('wishpool_invite_link');
   return (
     <>
       <div className="flex flex-col items-center">
@@ -29,7 +29,6 @@ const SharePage = () => {
         </p>
       </div>
       <div className="mt-[3.6rem] flex items-center justify-center">
-        {/* TODO: 이미지 변경해야됨 */}
         <Image
           src={invite}
           alt="위시풀 공유 완료 일러스트"
