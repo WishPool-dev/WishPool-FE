@@ -1,9 +1,10 @@
 'use client';
 
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 
 import BaseModal from '@/components/common/Modal/BaseModal';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 
 type EditModalProps = {
   onClose: () => void;
@@ -13,8 +14,7 @@ type EditModalProps = {
 const EditModal = ({ onClose, onOpenDelete }: EditModalProps) => {
   const router = useRouter();
 
-  const { id } = useParams<{ id: string }>();
-  const wishpoolId = Number(id);
+  const wishpoolId = useGetWishpoolId();
 
   return (
     <>

@@ -1,30 +1,37 @@
 'use client';
 
-import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
-import GiftCardImage from '@/assets/images/gift-card.png';
+import { usePostLogout } from '@/api/domain/mypage/hooks';
 import CenterModal from '@/components/common/Modal/CenterModal';
 import MyPageItem from '@/components/mypage/MyPageItem';
 import MyPageList from '@/components/mypage/MyPageList';
+import Profile from '@/components/mypage/Profile';
 import { PATH } from '@/constants/common/path';
 import useModal from '@/hooks/common/useModal';
 
 const MyPage = () => {
+  const router = useRouter();
+
   const { isOpen, onOpen, onClose } = useModal();
+
+  const { mutate: logout } = usePostLogout();
+
+  const handleSubmit = () => {
+    logout(undefined, {
+      onSuccess: () => {
+        router.push(PATH.INTRO);
+        window.localStorage.removeItem('accessToken');
+      },
+      onError: (err) => {
+        console.warn('🚨 로그아웃 실패: ', err);
+      },
+    });
+  };
 
   return (
     <>
-      <div className="bg-background-01 flex items-center gap-[2rem] px-[2rem] py-[1.6rem]">
-        <Image
-          src={GiftCardImage}
-          alt="프로필 이미지"
-          width={60}
-          height={60}
-          className="rounded-full"
-        />
-        <span className="text-text head1">User Name</span>
-      </div>
-
+      <Profile />
       <div className="flex flex-col gap-[3.2rem] px-[2rem] py-[3.2rem]">
         <MyPageList title="지난 이벤트">
           <MyPageItem page="위시풀 기록" link={PATH.WISHPOOL_HISTORY} />
@@ -44,6 +51,7 @@ const MyPage = () => {
       {isOpen && (
         <CenterModal
           onClose={onClose}
+          onSubmit={handleSubmit}
           modalTitle="위시풀 계정을 로그아웃할까요?"
           rightText="로그아웃"
         />
