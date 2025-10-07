@@ -2,15 +2,40 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { Suspense, useEffect } from 'react';
 
+import { useGetPickGiftList } from '@/api/domain/pick/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import BirthdayInfo from '@/components/common/BirthdayInfo';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
+import Loading from '@/components/common/Loading';
 import { PATH } from '@/constants/common/path';
+import { useGetChosenUrl } from '@/hooks/pick/useGetChosenUrl';
 
 const InvitePage = () => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <InviteClient />
+    </Suspense>
+  );
+};
+
+function InviteClient() {
   const router = useRouter();
+  const identifier = useGetChosenUrl();
+
+  const { data: pickData, isLoading } = useGetPickGiftList(identifier);
+  const wishpoolId = pickData?.wishpoolId;
+
+  useEffect(() => {
+    if (identifier) {
+      window.localStorage.setItem('identifier', identifier);
+    }
+    if (wishpoolId) {
+      window.sessionStorage.setItem('wishpoolId', String(wishpoolId));
+    }
+  }, [identifier, wishpoolId]);
 
   return (
     <>
@@ -42,23 +67,26 @@ const InvitePage = () => {
           />
         </div>
 
-        <BirthdayInfo celebrant="생일자 이름" birthDay="2025-09-23" />
+        <BirthdayInfo
+          celebrant={pickData?.celebrant || ''}
+          birthDay={pickData?.birthDay || ''}
+        />
       </div>
 
       <div className="fixed right-0 bottom-0 left-0 mx-auto max-w-[430px] border-t border-gray-300 bg-white px-[2rem] pb-[2rem]">
         <p className="text-text caption1 my-[1.6rem] text-center">
-          선물 고르기 마감일: 2025/06/28
+          선물 고르기 마감일: {pickData?.endPickDate || ''}
         </p>
         <Button
-          onClick={() => router.push(PATH.FUNDING_INTRO)}
+          onClick={() => router.push(PATH.PICK_INTRO)}
           type="button"
           backgroundColor="gradient"
         >
           시작하기
         </Button>
       </div>
+      {isLoading && <Loading />}
     </>
   );
-};
-
+}
 export default InvitePage;
