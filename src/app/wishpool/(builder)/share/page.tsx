@@ -1,12 +1,24 @@
+'use client';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
 import share from '@/assets/images/share.png';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 
 const SharePage = () => {
-  const url = 'https://wishpool.store/${wishpoolId}';
   const content = 'invite' as ShareSectionType;
+
+  const [linkUrl, setLinkUrl] = useState('');
+
+  useEffect(() => {
+    const ss =
+      typeof window !== 'undefined'
+        ? sessionStorage.getItem('wishpool_invite_link')
+        : null;
+
+    setLinkUrl(ss ?? '');
+  }, []);
 
   return (
     <>
@@ -26,7 +38,7 @@ const SharePage = () => {
         />
       </div>
 
-      <WishpoolShareSection linkUrl={url} linkContent={content} />
+      <WishpoolShareSection linkUrl={linkUrl} linkContent={content} />
     </>
   );
 };
