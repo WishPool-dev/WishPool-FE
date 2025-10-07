@@ -2,9 +2,9 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-import { data } from '@/app/pick/select/data';
+import { useGetPickGiftList } from '@/api/domain/pick/hooks';
 import Button from '@/components/common/Button';
 import CarouselCard from '@/components/pick/select/CarouselCard';
 import GiftLoading from '@/components/pick/select/GiftLoading';
@@ -14,10 +14,29 @@ import { GiftCardType } from '@/types/common/giftCardType';
 
 const SelectPage = () => {
   const router = useRouter();
+  const [identifier, setIdentifier] = useState<string | null>(null);
+
+  const { data: pickData, isLoading } = useGetPickGiftList(identifier);
+
+  useEffect(() => {
+    const chosenIdentifier = window.localStorage.getItem('chosenIdentifier');
+    setIdentifier(chosenIdentifier);
+  }, []);
+
+  useEffect(() => {
+    if (pickData?.gifts && !isLoading) {
+      const gifts = pickData.gifts.map((d, i) => ({
+        ...d,
+
+        id: d.giftId || i,
+      }));
+      setItems(gifts);
+    }
+  }, [pickData, isLoading]);
 
   const { ref, active } = useCarouselCard<HTMLDivElement>();
   const [items, setItems] = useState<GiftCardType[]>(
-    data.map((d, i) => ({ ...d, id: i })),
+    pickData?.gifts.map((d, i) => ({ ...d, id: i })) ?? [],
   );
 
   const [loading, setLoading] = useState(false);
@@ -43,7 +62,7 @@ const SelectPage = () => {
     <div className="flex h-[100vh] flex-col">
       <section
         ref={ref}
-        className="no-scrollbar bg-blue-5 relative z-[100] flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[2rem] pb-[5rem]"
+        className="no-scrollbar bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[2rem] pb-[5rem]"
       >
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
         {items.map(({ giftId, itemName, itemUrl }, i) => (
