@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-import { usePostWishpoolImage } from '@/api/domain/create/hooks';
+import { usePostWishpoolImage } from '@/api/domain/builder/hooks';
 import Icon from '@/components/common/Icon';
 
 const ThumbnailField = () => {
