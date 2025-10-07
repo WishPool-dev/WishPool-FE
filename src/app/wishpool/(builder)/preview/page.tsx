@@ -5,31 +5,22 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { usePostWishpoolCreate } from '@/api/domain/builder/hooks';
+import { useGetWishpoolImage } from '@/api/domain/builder/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
 import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
+import { fmt } from '@/utils/wishpool/builder/dateFmt';
 
 const getOrigin = () => {
   if (typeof window !== 'undefined') return window.location.origin;
   return process.env.NEXT_PUBLIC_SITE_URL ?? 'https://wishpool.store';
 };
 
-function fmt(date?: string) {
-  if (!date) return '—';
-  try {
-    const [y, m, d] = date.split('-');
-    if (y && m && d) return `${y}.${m}.${d}`;
-    return date;
-  } catch {
-    return date;
-  }
-}
-
 const PreviewPage = () => {
   const router = useRouter();
-
+  const [isError, setIsError] = useState(false);
   const [data, setData] = useState({
     celebrant: '',
     birthDay: '',
@@ -37,8 +28,6 @@ const PreviewPage = () => {
     imageKey: '',
     endDate: '',
   });
-
-  const createMutation = usePostWishpoolCreate();
 
   useEffect(() => {
     setData({
@@ -49,6 +38,16 @@ const PreviewPage = () => {
       endDate: sessionStorage.getItem('wishpool_endDate') || '',
     });
   }, []);
+
+  const handleImageError = () => {
+    setIsError(true);
+  };
+
+  const { data: wishpoolImage } = useGetWishpoolImage(data.imageKey);
+  const imageUrl = wishpoolImage?.key;
+  const displayImageUrl = imageUrl && !isError ? imageUrl : WishpoolCardImage;
+
+  const createMutation = usePostWishpoolCreate();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -62,19 +61,17 @@ const PreviewPage = () => {
         endDate: data.endDate,
       };
 
-      // 링크 만들기
-      const res = await createMutation.mutateAsync(payload);
-      const shareIdentifier = res.shareIdentifier;
-
-      const inviteLink = `${getOrigin()}/wishpool/join/info?shareIdentifier=${encodeURIComponent(shareIdentifier)}`;
-
-      sessionStorage.setItem('wishpool_invite_link', inviteLink);
-
       sessionStorage.removeItem('wishpool_celebrant');
       sessionStorage.removeItem('wishpool_birthDay');
       sessionStorage.removeItem('wishpool_description');
       sessionStorage.removeItem('wishpool_imageKey');
       sessionStorage.removeItem('wishpool_endDate');
+
+      const res = await createMutation.mutateAsync(payload);
+      const shareIdentifier = res.shareIdentifier;
+      const inviteLink = `${getOrigin()}/wishpool/join/info?shareIdentifier=${encodeURIComponent(shareIdentifier)}`;
+
+      sessionStorage.setItem('wishpool_invite_link', inviteLink);
 
       router.push(PATH.WISHPOOL_SHARE);
     } catch {
@@ -110,24 +107,14 @@ const PreviewPage = () => {
           </div>
 
           <div className="relative my-[1.2rem] aspect-[353/199] w-full">
-            {data.imageKey ? (
-              <Image
-                src={data.imageKey}
-                alt="위시풀 대표 이미지"
-                fill
-                sizes="100vw"
-                className="rounded-[12px] object-cover"
-                unoptimized
-              />
-            ) : (
-              <Image
-                src={WishpoolCardImage}
-                alt="위시풀 대표 이미지"
-                fill
-                sizes="100vw"
-                className="rounded-[12px] object-cover"
-              />
-            )}
+            <Image
+              src={displayImageUrl}
+              alt="위시풀 대표 이미지"
+              fill
+              sizes="100vw"
+              className="rounded-[12px] object-cover"
+              onError={handleImageError}
+            />
           </div>
 
           <div className="bg-background-02 body2 w-full rounded-[12px] p-[1.6rem] break-words">
@@ -165,7 +152,7 @@ const PreviewPage = () => {
               type="submit"
               disabled={createMutation.isPending}
             >
-              {createMutation.isPending ? '완료 중…' : '완료하기'}
+              완료하기
             </Button>
           </div>
         </div>
