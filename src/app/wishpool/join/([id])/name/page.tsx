@@ -2,19 +2,24 @@
 import { useRouter } from 'next/navigation';
 
 import Button from '@/components/common/Button';
-import BasicInputField from '@/components/common/Form/BasicInputField';
+import BaseInput from '@/components/common/Form/BaseInput';
 import Question from '@/components/common/Form/Question';
 import { PATH } from '@/constants/common/path';
 const NamePage = () => {
   const router = useRouter();
+  const handleInputChange = () => {};
   return (
     <>
       <Question required={true} question="참여자 본인의 이름을 알려주세요." />
       <div className="mt-[4rem]">
-        <BasicInputField
-          label="본인 이름"
+        <div className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
+          본인 이름
+        </div>
+        <BaseInput
+          name="celebrant"
           placeholder="본인의 이름을 알려 주세요."
           maxLength={20}
+          onChange={handleInputChange}
         />
       </div>
       <div className="fixed inset-x-0 bottom-0 mx-auto w-full max-w-[430px] flex-col items-center justify-center p-[2rem]">
