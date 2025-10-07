@@ -9,3 +9,7 @@ export type WishpoolDetailResponse = {
   d_day: number;
   status: WishpoolStatusType;
 };
+
+export type WishpoolImageResponse = {
+  key: string;
+};

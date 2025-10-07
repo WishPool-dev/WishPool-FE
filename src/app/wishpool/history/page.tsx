@@ -16,7 +16,7 @@ const HistoryPage = () => {
               <div key={wishpool.wishpoolId}>
                 <BirthdayInfo
                   celebrant={wishpool.celebrant}
-                  birthDay="2025/09/23"
+                  birthDay={wishpool.birthDay}
                 />
                 <EventCard
                   currentIndex={wishpool.wishpoolId}

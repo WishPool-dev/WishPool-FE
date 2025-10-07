@@ -2,8 +2,12 @@
 
 import Image from 'next/image';
 import { useParams, useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-import { useGetWishpoolDetail } from '@/api/domain/detail/hooks';
+import {
+  useGetWishpoolDetail,
+  useGetWishpoolImage,
+} from '@/api/domain/detail/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Icon from '@/components/common/Icon';
 import CenterModal from '@/components/common/Modal/CenterModal';
@@ -19,7 +23,14 @@ const DetailPage = () => {
 
   const { isOpen, onOpen, onClose } = useModal();
 
+  const [isError, setIsError] = useState(false);
+
   const { data: wishpool } = useGetWishpoolDetail(wishpoolId);
+  const imageKey = wishpool?.imageKey || '';
+  const { data: wishpoolImage } = useGetWishpoolImage(imageKey);
+  const imageUrl = wishpoolImage?.key;
+
+  const displayImageUrl = imageUrl && !isError ? imageUrl : WishpoolCardImage;
 
   const footerProps = wishpool
     ? getFooterContent({ status: wishpool.status, dDay: wishpool.d_day })
@@ -29,11 +40,12 @@ const DetailPage = () => {
     <>
       <div className="relative aspect-[393/221] w-full">
         <Image
-          src={WishpoolCardImage}
+          src={displayImageUrl}
           alt="위시풀 대표 이미지"
           fill
           sizes="100vw"
           className="object-cover"
+          onError={() => setIsError(true)}
         />
       </div>
       <section className="text-text p-[2rem]">

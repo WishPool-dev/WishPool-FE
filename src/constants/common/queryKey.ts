@@ -1,5 +1,5 @@
 export const QUERY_KEY = {
-  FILES: (fileId: number) => [`files`, fileId],
+  FILES: (fileKey: string) => [`files`, fileKey],
   WISHPOOLS_ALL: ['wishpools'],
   WISHPOOL_DETAIL: (wishpoolId: number) => ['wishpool', wishpoolId],
   WISHPOOL_DETAIL_GUEST: (guestId: number) => ['wishpool', 'guest', guestId],
