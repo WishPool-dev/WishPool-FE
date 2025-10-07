@@ -15,7 +15,7 @@ import { fmt } from '@/utils/wishpool/builder/dateFmt';
 
 const getOrigin = () => {
   if (typeof window !== 'undefined') return window.location.origin;
-  return process.env.NEXT_PUBLIC_API_URL ?? 'https://wishpool.store';
+  return process.env.NEXT_PUBLIC_API_URL;
 };
 
 const PreviewPage = () => {
