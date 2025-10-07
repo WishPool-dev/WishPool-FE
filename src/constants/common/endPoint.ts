@@ -12,4 +12,5 @@ export const END_POINT = {
   SELECTION: 'selection',
   PROFILE: 'profile',
   LOGOUT: 'auth/logout',
+  SHARED: 'shared',
 } as const;

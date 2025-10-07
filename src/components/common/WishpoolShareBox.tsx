@@ -46,7 +46,7 @@ const WishpoolShareBox = ({ linkUrl, linkContent }: ShareComponentProps) => {
         <div className="mt-[1.1rem] flex h-[4.9rem] w-full items-center justify-between gap-[1.2rem] rounded-[12px] bg-white px-[1.2rem] py-[0.8rem]">
           <p className="body2 ml-[0.8rem] truncate text-gray-600">{linkUrl}</p>
           <button
-            className="flex h-[3.3rem] items-center justify-center rounded-[6px] border border-gray-400 px-[1.2rem] py-[0.8rem]"
+            className="flex shrink-0 items-center justify-center rounded-[6px] border border-gray-400 px-[1.2rem] py-[0.8rem]"
             onClick={handleCopyUrl}
           >
             <span className="text-text title3 shrink-0">링크 복사</span>
