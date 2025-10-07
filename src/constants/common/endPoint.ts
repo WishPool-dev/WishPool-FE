@@ -7,7 +7,9 @@ export const END_POINT = {
   GUESTS: 'guests',
   CELEBRANT: 'celebrant',
   GIFTS: 'gifts',
-  AUTH: 'oauth2',
+  OAUTH: 'oauth2',
   FEEDBACK: 'contact',
   SELECTION: 'selection',
+  PROFILE: 'profile',
+  LOGOUT: 'auth/logout',
 } as const;

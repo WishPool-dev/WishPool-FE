@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import { useParams, useRouter } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import {
@@ -13,13 +13,13 @@ import Icon from '@/components/common/Icon';
 import CenterModal from '@/components/common/Modal/CenterModal';
 import DetailFooter from '@/components/wishpool/viewer/detail/DetailFooter';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 import useModal from '@/hooks/common/useModal';
 import getFooterContent from '@/utils/wishpool/viewer/getFooterContent';
 
 const DetailPage = () => {
   const router = useRouter();
-  const { id } = useParams<{ id: string }>();
-  const wishpoolId = Number(id);
+  const wishpoolId = useGetWishpoolId();
 
   const { isOpen, onOpen, onClose } = useModal();
 

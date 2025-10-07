@@ -1,17 +1,16 @@
 'use client';
 
 import Image from 'next/image';
-import { useParams } from 'next/navigation';
 
 import { useGetGiftList } from '@/api/domain/gifts/hooks';
 import giftBox from '@/assets/images/empty-box.png';
 import Loading from '@/components/common/Loading';
 import ItemCard from '@/components/wishpool/viewer/list/ItemCard';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 import { GiftCardType } from '@/types/common/giftCardType';
 
 const GiftPage = () => {
-  const { id } = useParams<{ id: string }>();
-  const wishpoolId = Number(id);
+  const wishpoolId = useGetWishpoolId();
 
   const { data: giftData, isLoading } = useGetGiftList(wishpoolId);
 
