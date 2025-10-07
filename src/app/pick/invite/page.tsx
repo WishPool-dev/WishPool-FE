@@ -2,15 +2,28 @@
 
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import BirthdayInfo from '@/components/common/BirthdayInfo';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
 import { PATH } from '@/constants/common/path';
+import { useGetChosenUrl } from '@/hooks/pick/useGetChosenUrl';
 
 const InvitePage = () => {
   const router = useRouter();
+  const chosenUrl = useGetChosenUrl();
+
+  useEffect(() => {
+    if (chosenUrl) {
+      try {
+        window.localStorage.setItem('chosenIdentifier', chosenUrl);
+      } catch (e) {
+        console.error('🚨 로컬 스토리지 접근에 실패했습니다.', e);
+      }
+    }
+  }, [chosenUrl]);
 
   return (
     <>
