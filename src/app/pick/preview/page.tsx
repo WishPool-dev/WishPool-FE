@@ -2,16 +2,16 @@
 
 import { useRouter } from 'next/navigation';
 
-import { data } from '@/app/funding/preview/data';
+import { data } from '@/app/pick/preview/data';
 import Button from '@/components/common/Button';
-import GiftCard from '@/components/funding/list/GiftCard';
+import GiftCard from '@/components/pick/list/GiftCard';
 import { PATH } from '@/constants/common/path';
 
 const PreviewPage = () => {
   const router = useRouter();
 
   const handleSubmit = () => {
-    router.push(PATH.FUNDING_COMPLETE);
+    router.push(PATH.PICK_COMPLETE);
   };
   return (
     <>

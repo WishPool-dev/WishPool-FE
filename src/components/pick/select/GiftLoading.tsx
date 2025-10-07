@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 
-import GiftCard from '@/components/funding/list/GiftCard';
+import GiftCard from '@/components/pick/list/GiftCard';
 import type { GiftCardType } from '@/types/common/giftCardType';
 
 const GiftLoading = ({ items }: { items: GiftCardType[] }) => {

@@ -4,12 +4,12 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
-import { data } from '@/app/funding/select/data';
+import { data } from '@/app/pick/select/data';
 import Button from '@/components/common/Button';
-import CarouselCard from '@/components/funding/select/CarouselCard';
-import GiftLoading from '@/components/funding/select/GiftLoading';
+import CarouselCard from '@/components/pick/select/CarouselCard';
+import GiftLoading from '@/components/pick/select/GiftLoading';
 import { PATH } from '@/constants/common/path';
-import { useCarouselCard } from '@/hooks/funding/useCarouselCard';
+import { useCarouselCard } from '@/hooks/pick/useCarouselCard';
 import { GiftCardType } from '@/types/common/giftCardType';
 
 const SelectPage = () => {
@@ -30,10 +30,10 @@ const SelectPage = () => {
     if (items.length > 2) {
       setLoading(true);
       setTimeout(() => {
-        router.push(PATH.FUNDING_PREVIEW);
+        router.push(PATH.PICK_PREVIEW);
       }, 1500);
     } else {
-      router.push(PATH.FUNDING_PREVIEW);
+      router.push(PATH.PICK_PREVIEW);
     }
   };
 

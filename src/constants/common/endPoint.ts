@@ -9,4 +9,5 @@ export const END_POINT = {
   GIFTS: 'gifts',
   AUTH: 'oauth2',
   FEEDBACK: 'contact',
+  SELECTION: 'selection',
 } as const;

@@ -3,26 +3,26 @@
 import { useRouter } from 'next/navigation';
 
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
+import SwipeGuide from '@/components/pick/select/SwipeGuide';
 import { PATH } from '@/constants/common/path';
 
-const ListLayout = ({ children }: { children: React.ReactNode }) => {
+const SelectLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
   return (
     <>
       <RightIconHeader
         title="선물 고르기"
-        iconName="cancel"
+        iconName="grid"
         bgColor="white"
         onClick={() => {
-          router.push(PATH.FUNDING_SELECT);
+          router.push(PATH.PICK_LIST);
         }}
       />
-      <main className="bg-background-03 mt-header px-[2rem] pb-[2rem]">
-        {children}
-      </main>
+      <main className="bg-blue-6">{children}</main>
+      <SwipeGuide />
     </>
   );
 };
 
-export default ListLayout;
+export default SelectLayout;

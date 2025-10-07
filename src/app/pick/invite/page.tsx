@@ -50,7 +50,7 @@ const InvitePage = () => {
           선물 고르기 마감일: 2025/06/28
         </p>
         <Button
-          onClick={() => router.push(PATH.FUNDING_INTRO)}
+          onClick={() => router.push(PATH.PICK_INTRO)}
           type="button"
           backgroundColor="gradient"
         >
