@@ -6,4 +6,5 @@ export type WishpoolType = {
   D_day: 0;
   imageKey: string;
   celebrant: string;
+  birthDay: string;
 };
