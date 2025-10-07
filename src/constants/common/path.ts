@@ -19,6 +19,7 @@ export const PATH = {
   WISHPOOL_DETAIL: (id: number) => `/wishpool/${id}`,
   WISHPOOL_EDIT: (id: number) => `/wishpool/${id}/edit`,
   WISHPOOL_GIFTS: (id: number) => `/wishpool/${id}/gifts`,
+  WISHPOOL_INVITE: (id: number) => `/wishpool/${id}/invite`,
 
   FUNDING_INVITE: '/funding/invite',
   FUNDING_INTRO: '/funding/intro',

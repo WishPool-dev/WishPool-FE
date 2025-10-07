@@ -33,7 +33,12 @@ const DetailPage = () => {
   const displayImageUrl = imageUrl && !isError ? imageUrl : WishpoolCardImage;
 
   const footerProps = wishpool
-    ? getFooterContent({ status: wishpool.status, dDay: wishpool.d_day })
+    ? getFooterContent({
+        status: wishpool.status,
+        dDay: wishpool.d_day,
+        routerPush: router.push,
+        wishpoolId: wishpoolId,
+      })
     : null;
 
   return (
@@ -92,12 +97,7 @@ const DetailPage = () => {
           선물 제안 그만 받기
         </button>
       </section>
-      {footerProps && (
-        <DetailFooter
-          {...footerProps}
-          onClick={() => router.push(PATH.JOIN_INTRO)}
-        />
-      )}
+      {footerProps && <DetailFooter {...footerProps} />}
       {isOpen && (
         <CenterModal
           onClose={onClose}
