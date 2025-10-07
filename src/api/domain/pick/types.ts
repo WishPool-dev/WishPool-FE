@@ -7,3 +7,8 @@ export type PickGiftListResponse = {
   birthDay: string;
   endPickDate: string;
 };
+
+export type PickGiftRequest = {
+  wishpoolId: number;
+  giftIds: number[];
+};

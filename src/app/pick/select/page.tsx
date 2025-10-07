@@ -4,7 +4,7 @@ import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
-import { useGetPickGiftList } from '@/api/domain/pick/hooks';
+import { useGetPickGiftList, usePostPickGift } from '@/api/domain/pick/hooks';
 import Button from '@/components/common/Button';
 import CarouselCard from '@/components/pick/select/CarouselCard';
 import GiftLoading from '@/components/pick/select/GiftLoading';
@@ -14,39 +14,50 @@ import { GiftCardType } from '@/types/common/giftCardType';
 
 const SelectPage = () => {
   const router = useRouter();
+
   const [identifier, setIdentifier] = useState<string | null>(null);
+  const [items, setItems] = useState<GiftCardType[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const { data: pickData, isLoading } = useGetPickGiftList(identifier);
+  const { mutate: pickGift } = usePostPickGift();
 
   useEffect(() => {
-    const chosenIdentifier = window.localStorage.getItem('chosenIdentifier');
-    setIdentifier(chosenIdentifier);
+    try {
+      const chosenIdentifier = window.localStorage.getItem('chosenIdentifier');
+      setIdentifier(chosenIdentifier);
+    } catch {
+      setIdentifier(null);
+    }
   }, []);
 
   useEffect(() => {
     if (pickData?.gifts && !isLoading) {
-      const gifts = pickData.gifts.map((d, i) => ({
-        ...d,
-
-        id: d.giftId || i,
+      const gifts = (pickData.gifts ?? []).map((gift) => ({
+        giftId: gift.giftId,
+        itemName: gift.itemName,
+        itemUrl: gift.itemUrl,
+        guest: gift.guest,
       }));
       setItems(gifts);
     }
   }, [pickData, isLoading]);
 
   const { ref, active } = useCarouselCard<HTMLDivElement>();
-  const [items, setItems] = useState<GiftCardType[]>(
-    pickData?.gifts.map((d, i) => ({ ...d, id: i })) ?? [],
-  );
-
-  const [loading, setLoading] = useState(false);
 
   const handleRemove = (id: number) => {
     setItems((prev) => prev.filter((item) => item.giftId !== id));
   };
 
   const handleComplete = () => {
-    if (items.length > 2) {
+    if (!pickData?.wishpoolId) {
+      console.warn('wishpoolId가 없습니다. pick 요청을 취소합니다.');
+      return;
+    }
+
+    const giftIds = items.map((item) => item.giftId);
+
+    if (giftIds.length > 2) {
       setLoading(true);
       setTimeout(() => {
         router.push(PATH.PICK_PREVIEW);
@@ -54,6 +65,8 @@ const SelectPage = () => {
     } else {
       router.push(PATH.PICK_PREVIEW);
     }
+
+    pickGift({ wishpoolId: pickData.wishpoolId, giftIds });
   };
 
   if (loading) return <GiftLoading items={items} />;
