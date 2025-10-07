@@ -69,7 +69,8 @@ const PreviewPage = () => {
 
       const res = await createMutation.mutateAsync(payload);
       const shareIdentifier = res.shareIdentifier;
-      const inviteLink = `${getOrigin()}/wishpool/join/info?shareIdentifier=${encodeURIComponent(shareIdentifier)}`;
+
+      const inviteLink = `${getOrigin()}${PATH.JOIN_INFO}?shareIdentifier=${shareIdentifier}`;
 
       sessionStorage.setItem('wishpool_invite_link', inviteLink);
 
