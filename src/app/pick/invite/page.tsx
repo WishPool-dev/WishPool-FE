@@ -49,7 +49,7 @@ function InviteClient() {
 
         <div className="space-y-[0.4rem] px-[2.4rem] py-[3.2rem]">
           <h1 className="head1 text-blue-primary">
-            홍길동님을 위해 친구들이 함께 만든 <br />
+            {pickData?.celebrant}님을 위해 친구들이 함께 만든 <br />
             위시리스트가 도착했어요!
           </h1>
           <p className="text-text body1">
