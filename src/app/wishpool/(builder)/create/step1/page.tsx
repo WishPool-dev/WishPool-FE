@@ -59,7 +59,7 @@ const Step1Page = () => {
           </p>
           <Calendar
             name="birthDay"
-            value={formData.celebrant}
+            value={formData.birthDay}
             onChange={handleInputChange}
           />
         </div>
