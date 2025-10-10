@@ -53,21 +53,13 @@ const PreviewPage = () => {
     e.preventDefault();
 
     try {
-      const payload = {
-        celebrant: data.celebrant,
-        birthDay: data.birthDay,
-        description: data.description,
-        imageKey: data.imageKey,
-        endDate: data.endDate,
-      };
-
       sessionStorage.removeItem('wishpool_celebrant');
       sessionStorage.removeItem('wishpool_birthDay');
       sessionStorage.removeItem('wishpool_description');
       sessionStorage.removeItem('wishpool_imageKey');
       sessionStorage.removeItem('wishpool_endDate');
 
-      const res = await createMutation.mutateAsync(payload);
+      const res = await createMutation.mutateAsync(data);
       const shareIdentifier = res.shareIdentifier;
 
       const inviteLink = `${getOrigin()}${PATH.JOIN_INFO}?shareIdentifier=${shareIdentifier}`;
