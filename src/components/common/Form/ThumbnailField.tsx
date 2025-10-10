@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 
+import { useGetWishpoolImage } from '@/api/domain/detail/hooks';
 import { usePostWishpoolImage } from '@/api/domain/form/hooks';
 import Icon from '@/components/common/Icon';
 
@@ -10,15 +11,33 @@ const ThumbnailField = () => {
   const fileCameraRef = useRef<HTMLInputElement>(null);
 
   const [preview, setPreview] = useState<string | null>(null);
+  const [imageKey, setImageKey] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
   const uploadMutation = usePostWishpoolImage();
 
   useEffect(() => {
-    return () => {
-      if (preview) URL.revokeObjectURL(preview);
-    };
+    const key = sessionStorage.getItem('wishpool_imageKey');
+    if (key) setImageKey(key);
   });
+
+  const { data: imgData } = useGetWishpoolImage(imageKey ?? '');
+
+  useEffect(() => {
+    const url = imgData?.key;
+    if (url) {
+      setPreview((prev) => {
+        if (prev?.startsWith('blob:')) URL.revokeObjectURL(prev);
+        return url;
+      });
+    }
+  });
+
+  useEffect(() => {
+    return () => {
+      if (preview?.startsWith('blob:')) URL.revokeObjectURL(preview);
+    };
+  }, [preview]);
 
   const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -41,6 +60,7 @@ const ThumbnailField = () => {
     try {
       const res = await uploadMutation.mutateAsync(file);
       sessionStorage.setItem('wishpool_imageKey', res.key);
+      console.log(res);
     } catch {
       setError('이미지 업로드에 실패했습니다. 다시 시도해주세요.');
     }
