@@ -1,6 +1,6 @@
 import BaseInput from '@/components/common/Form/BaseInput';
 import Icon from '@/components/common/Icon';
-import { FormFieldProps } from '@/types/wishpool/builder/Form';
+import { FormFieldProps } from '@/types/wishpool/builder/FormFieldPropsType';
 
 const GiftField = ({ placeholder, maxLength }: FormFieldProps) => {
   const handleInputChange = () => {
