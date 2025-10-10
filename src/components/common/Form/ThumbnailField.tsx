@@ -1,5 +1,6 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 import { useGetWishpoolImage } from '@/api/domain/detail/hooks';
@@ -70,7 +71,9 @@ const ThumbnailField = () => {
     <>
       <div className="relative mt-[4rem] h-[18.7rem] w-full rounded-[12px] border border-gray-300">
         {preview ? (
-          <img
+          <Image
+            width={353}
+            height={187}
             src={preview}
             alt="썸네일 미리보기"
             className="h-full w-full rounded-[12px] object-cover"
