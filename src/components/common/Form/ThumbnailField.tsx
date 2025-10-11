@@ -4,76 +4,47 @@ import Image from 'next/image';
 import { useEffect, useRef, useState } from 'react';
 
 import { useGetWishpoolImage } from '@/api/domain/detail/hooks';
-import { usePostWishpoolImage } from '@/api/domain/form/hooks';
 import Icon from '@/components/common/Icon';
+import { useImageUpload } from '@/hooks/wishpool/useImageUpload';
 
 const ThumbnailField = () => {
   const fileAlbumRef = useRef<HTMLInputElement>(null);
   const fileCameraRef = useRef<HTMLInputElement>(null);
 
-  const [preview, setPreview] = useState<string | null>(null);
-  const [imageKey, setImageKey] = useState<string | null>(null);
-  const [error, setError] = useState<string | null>(null);
+  const {
+    preview,
+    error,
+    imageKey: uploadedImageKey,
+    handleImageChange,
+    // isUploading, 로딩중 처리
+  } = useImageUpload();
 
-  const uploadMutation = usePostWishpoolImage();
+  const [imageKey, setImageKey] = useState<string | null>(null);
 
   useEffect(() => {
     const key = sessionStorage.getItem('wishpool_imageKey');
     if (key) setImageKey(key);
-  });
+  }, []);
+
+  useEffect(() => {
+    if (uploadedImageKey) {
+      sessionStorage.setItem('wishpool_imageKey', uploadedImageKey);
+      setImageKey(uploadedImageKey);
+    }
+  }, [uploadedImageKey]);
 
   const { data: imgData } = useGetWishpoolImage(imageKey ?? '');
 
-  useEffect(() => {
-    const url = imgData?.key;
-    if (url) {
-      setPreview((prev) => {
-        if (prev?.startsWith('blob:')) URL.revokeObjectURL(prev);
-        return url;
-      });
-    }
-  });
-
-  useEffect(() => {
-    return () => {
-      if (preview?.startsWith('blob:')) URL.revokeObjectURL(preview);
-    };
-  }, [preview]);
-
-  const handleChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-
-    if (!file.type.startsWith('image/')) {
-      setError('이미지 파일만 업로드할 수 있습니다.');
-      return;
-    }
-
-    if (file.size > 5 * 1024 * 1024) {
-      setError('최대 5MB까지만 허용합니다.');
-      return;
-    }
-    setError(null);
-
-    const url = URL.createObjectURL(file);
-    setPreview(url);
-
-    try {
-      const res = await uploadMutation.mutateAsync(file);
-      sessionStorage.setItem('wishpool_imageKey', res.key);
-    } catch {
-      setError('이미지 업로드에 실패했습니다. 다시 시도해주세요.');
-    }
-  };
+  const finalPreviewUrl = preview ? preview : (imgData?.key ?? null);
 
   return (
     <>
       <div className="relative mt-[4rem] h-[18.7rem] w-full rounded-[12px] border border-gray-300">
-        {preview ? (
+        {finalPreviewUrl ? (
           <Image
             width={353}
             height={187}
-            src={preview}
+            src={finalPreviewUrl}
             alt="썸네일 미리보기"
             className="h-full w-full rounded-[12px] object-cover"
           />
@@ -91,7 +62,7 @@ const ThumbnailField = () => {
         name="imageKey"
         accept="image/*"
         className="hidden"
-        onChange={handleChange}
+        onChange={handleImageChange}
       />
 
       <input
@@ -101,7 +72,7 @@ const ThumbnailField = () => {
         accept="image/*"
         capture="environment"
         className="hidden"
-        onChange={handleChange}
+        onChange={handleImageChange}
       />
 
       <button
