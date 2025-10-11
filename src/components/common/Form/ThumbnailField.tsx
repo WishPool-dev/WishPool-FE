@@ -61,7 +61,6 @@ const ThumbnailField = () => {
     try {
       const res = await uploadMutation.mutateAsync(file);
       sessionStorage.setItem('wishpool_imageKey', res.key);
-      console.log(res);
     } catch {
       setError('이미지 업로드에 실패했습니다. 다시 시도해주세요.');
     }
