@@ -1,30 +1,25 @@
 'use client';
 
-import Image from 'next/image';
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
-import {
-  useGetWishpoolDetail,
-  useGetWishpoolImage,
-} from '@/api/domain/detail/hooks';
+import { useGetWishpoolDetail } from '@/api/domain/detail/hooks';
 import { usePatchWishpool } from '@/api/domain/edit/hooks';
-import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Button from '@/components/common/Button';
 import Calendar from '@/components/common/Calendar';
 import BaseInput from '@/components/common/Form/BaseInput';
 import TextField from '@/components/common/Form/TextField';
-import Icon from '@/components/common/Icon';
 import Toast from '@/components/common/Toast';
 import UserTag from '@/components/common/UserTag';
+import Thumbnail from '@/components/wishpool/viewer/edit/Thumbnail';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
+import { toDashFromStr } from '@/utils/wishpool/builder/dateFmt';
 
 const EditPage = () => {
   const router = useRouter();
 
   const [openToast, setOpenToast] = useState(false);
 
-  // 폼 상태관리
   const [formData, setFormData] = useState({
     celebrant: '',
     birthDay: '',
@@ -33,15 +28,8 @@ const EditPage = () => {
     imageKey: '',
   });
 
-  // 폼 초기 상태 및 이미지 받아오기
   const wishpoolId = useGetWishpoolId();
   const { data: detail } = useGetWishpoolDetail(wishpoolId);
-
-  const { data: wishpoolImage } = useGetWishpoolImage(detail?.imageKey ?? '');
-
-  const displayImageUrl = wishpoolImage?.key
-    ? wishpoolImage?.key
-    : WishpoolCardImage;
 
   useEffect(() => {
     if (detail) {
@@ -52,34 +40,32 @@ const EditPage = () => {
         description: detail.description,
         imageKey: detail.imageKey,
       });
-
-      console.log(detail);
     }
-  }, [detail]);
+  }, []);
 
-  const handleImageChange = () => {
-    //TODO: 이미지 업로드 기능 추가
-    // usePostWishpoolImage 로 key 받아서 formdata.imageKey에 넣기
-  };
-
-  // 버튼 누르면 수정 완료
   const updateMutation = usePatchWishpool();
 
   const handleSubmit = async () => {
     if (!wishpoolId) return;
 
+    sessionStorage.removeItem('wishpool_celebrant');
+    sessionStorage.removeItem('wishpool_birthDay');
+    sessionStorage.removeItem('wishpool_description');
+    sessionStorage.removeItem('wishpool_imageKey');
+    sessionStorage.removeItem('wishpool_endDate');
+
     const payload = {
       celebrant: formData.celebrant,
-      birthDay: formData.birthDay,
-      endDate: formData.endDate,
+      birthDay: toDashFromStr(formData.birthDay),
       description: formData.description,
+      endDate: toDashFromStr(formData.endDate),
       imageKey: formData.imageKey,
     };
 
     try {
       await updateMutation.mutateAsync({ wishpoolId, payload });
       setOpenToast(true);
-      setTimeout(() => router.back(), 1500);
+      setTimeout(() => router.back(), 1000);
     } catch (err) {
       console.error(err);
       alert('위시풀 수정에 실패했습니다.');
@@ -90,37 +76,21 @@ const EditPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
+  const handleImageKeyChange = useCallback(
+    (newKey: string) => {
+      setFormData((prev) => ({ ...prev, imageKey: newKey }));
+    },
+    [setFormData],
+  );
+
   return (
     <>
       {openToast && <Toast>위시풀이 수정되었어요.</Toast>}
 
-      <div className="relative h-[22.2rem]">
-        <Image
-          src={displayImageUrl}
-          width={430}
-          height={240}
-          className="h-full w-full object-cover"
-          alt="위시풀 대표 이미지"
-        />
-        <div className="absolute inset-0 bg-black/20" />
-
-        <button
-          type="button"
-          onClick={handleImageChange}
-          className="absolute top-1/2 left-1/2 h-[7.2rem] w-[7.2rem] -translate-x-1/2 -translate-y-1/2 rounded-full bg-white/70"
-          aria-label="이미지 바꾸기"
-        >
-          <div className="relative flex h-full w-full flex-col items-center justify-center gap-[0.2rem]">
-            <Icon
-              name="photo"
-              width={24}
-              height={24}
-              className="text-gray-600"
-            />
-            <span className="caption1 text-gray-600">바꾸기</span>
-          </div>
-        </button>
-      </div>
+      <Thumbnail
+        imageKey={formData.imageKey || detail?.imageKey}
+        onChangeImageKey={handleImageKeyChange}
+      />
 
       <div className="mb-[20rem] p-[2rem]">
         <span className="bg-background-02 caption2 inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
