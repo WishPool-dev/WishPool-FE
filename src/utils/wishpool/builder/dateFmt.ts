@@ -11,6 +11,11 @@ export function getSlashDateFmt(date?: string) {
   }
 }
 
+export function toDashFromStr(s?: string | null): string | '' {
+  const dt = parseYMD(s ?? '');
+  return dt ? getDashDateFmt(dt) : '';
+}
+
 //YYYY-MM-DD
 export function getDashDateFmt(d: Date) {
   const y = d.getFullYear();
