@@ -1,4 +1,4 @@
-import { FormFieldProps } from '@/types/wishpool/builder/Form';
+import { FormFieldProps } from '@/types/wishpool/builder/FormFieldPropsType';
 
 type TextFieldProps = FormFieldProps & {
   value?: string;

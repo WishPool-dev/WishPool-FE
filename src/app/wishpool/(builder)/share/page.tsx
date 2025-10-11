@@ -17,8 +17,10 @@ const SharePage = () => {
         ? sessionStorage.getItem('wishpool_invite_link')
         : null;
 
-    setLinkUrl(url ?? '');
-    sessionStorage.removeItem('wishpool_invite_link');
+    if (url) {
+      setLinkUrl(url);
+      sessionStorage.removeItem('wishpool_invite_link');
+    }
   }, []);
 
   return (

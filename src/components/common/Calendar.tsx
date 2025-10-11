@@ -7,6 +7,7 @@ import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import Icon from '@/components/common/Icon';
 import styles from '@/styles/Calendar.module.css';
+import { getDashDateFmt, parseYMD } from '@/utils/wishpool/builder/dateFmt';
 
 interface CustomInputProps {
   value?: string;
@@ -39,23 +40,9 @@ CustomInput.displayName = 'CustomInput';
 
 type CalendarProps = {
   name: string;
-  value?: string; // "YYYY-MM-DD" (or "YYYY/MM/DD") 초기값
-  onChange?: (name: string, value: string) => void; // 부모로 올려줄 콜백
+  value?: string;
+  onChange?: (name: string, value: string) => void;
 };
-
-function toYMD(d: Date) {
-  const y = d.getFullYear();
-  const m = String(d.getMonth() + 1).padStart(2, '0');
-  const day = String(d.getDate()).padStart(2, '0');
-  return `${y}-${m}-${day}`;
-}
-
-function parseYMD(s: string | null): Date | null {
-  if (!s) return null;
-  const [y, m, d] = s.split(/[-/]/).map(Number);
-  const dt = new Date(y, (m ?? 1) - 1, d ?? 1);
-  return Number.isNaN(dt.getTime()) ? null : dt;
-}
 
 const Calendar = ({ name, value, onChange }: CalendarProps) => {
   const storageKey = `wishpool_${name}`;
@@ -71,7 +58,7 @@ const Calendar = ({ name, value, onChange }: CalendarProps) => {
   const handleChange = (d: Date | null) => {
     setSelectedDate(d);
     if (d) {
-      const ymd = toYMD(d);
+      const ymd = getDashDateFmt(d);
       sessionStorage.setItem(storageKey, ymd);
       onChange?.(name, ymd);
     } else {
