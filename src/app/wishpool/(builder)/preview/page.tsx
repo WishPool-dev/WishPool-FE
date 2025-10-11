@@ -11,7 +11,7 @@ import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
 import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
-import { fmt } from '@/utils/wishpool/builder/dateFmt';
+import { getSlashDateFmt } from '@/utils/wishpool/builder/dateFmt';
 
 const getOrigin = () => {
   if (typeof window !== 'undefined') return window.location.origin;
@@ -95,7 +95,7 @@ const PreviewPage = () => {
                 height={20}
                 className="text-blue-3"
               />
-              {fmt(data.birthDay)}
+              {getSlashDateFmt(data.birthDay)}
             </span>
           </div>
 
@@ -123,7 +123,7 @@ const PreviewPage = () => {
               <UserTag>참여자</UserTag>
               선물 리스트 마감일
             </span>
-            <span>{fmt(data.endDate)}</span>
+            <span>{getSlashDateFmt(data.endDate)}</span>
           </div>
         </div>
         <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
