@@ -1,4 +1,4 @@
-import { Gift } from '@/app/wishpool/join/[id]/add/page';
+import { GiftItemDto } from '@/api/domain/join/types';
 import Icon from '@/components/common/Icon';
 
 type GiftFieldProps = {
@@ -14,7 +14,7 @@ type GiftFieldProps = {
 };
 const STORAGE_KEY = 'wishpool_gifts';
 
-function readGifts(): Gift[] {
+function readGifts(): GiftItemDto[] {
   try {
     const raw = sessionStorage.getItem(STORAGE_KEY);
     if (!raw) return [];
@@ -25,14 +25,14 @@ function readGifts(): Gift[] {
   }
 }
 
-function writeGifts(next: Gift[]) {
+function writeGifts(next: GiftItemDto[]) {
   sessionStorage.setItem(STORAGE_KEY, JSON.stringify(next));
 }
 
-function patchGift(index: number, patch: Partial<Gift>) {
+function patchGift(index: number, patch: Partial<GiftItemDto>) {
   const current = readGifts();
 
-  const base: Gift = current[index] ?? { itemName: '', itemUrl: '' };
+  const base: GiftItemDto = current[index] ?? { itemName: '', itemUrl: '' };
   const next = [...current];
   next[index] = { ...base, ...patch };
   writeGifts(next);

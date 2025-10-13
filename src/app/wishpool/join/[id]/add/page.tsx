@@ -2,22 +2,20 @@
 import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
+import { GiftItemDto } from '@/api/domain/join/types';
 import Button from '@/components/common/Button';
 import GiftField from '@/components/common/Form/GiftField';
 import Question from '@/components/common/Form/Question';
 import Icon from '@/components/common/Icon';
 import { PATH } from '@/constants/common/path';
 
-export type Gift = {
-  itemUrl: string;
-  itemName: string;
-};
-
 const STORAGE_KEY = 'wishpool_gifts';
 
 const AddPage = () => {
   const router = useRouter();
-  const [gifts, setGifts] = useState<Gift[]>([{ itemName: '', itemUrl: '' }]);
+  const [gifts, setGifts] = useState<GiftItemDto[]>([
+    { itemName: '', itemUrl: '' },
+  ]);
 
   const wishpoolId = Number(sessionStorage.getItem('wishpoolId'));
 
@@ -26,13 +24,17 @@ const AddPage = () => {
 
     if (initialGifts) {
       try {
-        const parsed = JSON.parse(initialGifts) as Gift[];
+        const parsed = JSON.parse(initialGifts) as GiftItemDto[];
         if (Array.isArray(parsed) && parsed.length > 0) setGifts(parsed);
       } catch {}
     }
   }, []);
 
-  const handleGiftChange = (idx: number, field: keyof Gift, value: string) => {
+  const handleGiftChange = (
+    idx: number,
+    field: keyof GiftItemDto,
+    value: string,
+  ) => {
     setGifts((prev) => {
       const next = [...prev];
       next[idx] = { ...next[idx], [field]: value };
