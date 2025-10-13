@@ -19,6 +19,8 @@ const AddPage = () => {
   const router = useRouter();
   const [gifts, setGifts] = useState<Gift[]>([{ itemName: '', itemUrl: '' }]);
 
+  const wishpoolId = Number(sessionStorage.getItem('wishpoolId'));
+
   useEffect(() => {
     const initialGifts = sessionStorage.getItem(STORAGE_KEY);
 
