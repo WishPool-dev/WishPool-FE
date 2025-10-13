@@ -3,13 +3,39 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
+import { postOwnerGifts } from '@/api/domain/join';
 import GiftCardImage from '@/assets/images/gift-card.png';
 import Button from '@/components/common/Button';
 import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
 
+export type Gift = {
+  itemUrl: string;
+  itemName: string;
+};
+
 const PreviewPage = () => {
   const router = useRouter();
+  const wishpoolId = Number(sessionStorage.getItem('wishpoolId'));
+  const participant = sessionStorage.getItem('wishpool_participant') || '';
+
+  const STORAGE_KEY = 'wishpool_gifts';
+  const gifts = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '') as Gift[];
+
+  const handleSubmit = async () => {
+    try {
+      await postOwnerGifts({
+        guestName: participant,
+        wishpoolId,
+        giftItemDto: gifts,
+      });
+
+      sessionStorage.clear();
+    } catch (err) {
+      console.error(err);
+    }
+    router.push(PATH.JOIN_COMPLETE(wishpoolId));
+  };
   return (
     <>
       <p className="caption1 text-blue-primary h-[1.8rem] max-w-[430px]">
@@ -21,39 +47,32 @@ const PreviewPage = () => {
 
       <div className="bg-background-02 text-text body1 mt-[3.8rem] flex items-center gap-[1.2rem] rounded-[12px] p-[1.6rem]">
         <UserTag>참여자</UserTag>
-        김첨지
+        {participant}
       </div>
 
       <div className="bg-background-02 text-text mt-[1.2rem] rounded-[12px] p-[1.6rem]">
         <div className="body2 flex items-center justify-between">
           <span className="text-text">주고 싶은 선물</span>
-          <span className="text-blue-primary">2개</span>
+          <span className="text-blue-primary">{gifts.length}개</span>
         </div>
 
         <section className="mt-[1.6rem] grid grid-cols-2 gap-[1.1rem]">
-          <div className="flex flex-col items-center justify-center">
-            <Image
-              src={GiftCardImage}
-              alt="선물 카드 이미지"
-              width={155}
-              height={155}
-            />
-            <span className="subtitle2 text-text mt-[0.7rem] mb-[1rem] line-clamp-2 h-[4.8rem] text-center">
-              선물 1 이름
-            </span>
-          </div>
-
-          <div className="flex flex-col items-center justify-center">
-            <Image
-              src={GiftCardImage}
-              alt="선물 카드 이미지"
-              width={155}
-              height={155}
-            />
-            <span className="subtitle2 text-text mt-[0.7rem] mb-[1rem] line-clamp-2 h-[4.8rem] text-center">
-              선물 1 이름
-            </span>
-          </div>
+          {gifts.map((gift: Gift, idx: number) => (
+            <div
+              key={`${gift.itemName}-${idx}`}
+              className="flex flex-col items-center justify-center"
+            >
+              <Image
+                src={GiftCardImage}
+                alt="선물 카드 이미지"
+                width={155}
+                height={155}
+              />
+              <span className="subtitle2 text-text mt-[0.7rem] mb-[1rem] line-clamp-2 h-[4.8rem] text-center">
+                {gift.itemName}
+              </span>
+            </div>
+          ))}
         </section>
         <div className="bg-background-01 fixed inset-x-0 bottom-0 mx-auto inline-flex w-full max-w-[430px] flex-col items-center justify-center gap-[1.6rem] border-t border-gray-300 p-[2rem] pt-[1.6rem] pb-[2rem]">
           <p className="caption1 text-center text-gray-600">
@@ -66,18 +85,12 @@ const PreviewPage = () => {
               backgroundColor="light"
               textSize="sm"
               onClick={() => {
-                router.push(PATH.JOIN_ADD);
+                router.push(PATH.JOIN_ADD(wishpoolId));
               }}
             >
               수정하기
             </Button>
-            <Button
-              textSize="sm"
-              onClick={() => {
-                router.push(PATH.JOIN_COMPLETE);
-              }}
-              type="submit"
-            >
+            <Button textSize="sm" onClick={handleSubmit} type="submit">
               완료하기
             </Button>
           </div>
