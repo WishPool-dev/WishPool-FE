@@ -1,14 +1,12 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import { useState, useEffect } from 'react';
 
-import Button from '@/components/common/Button';
 import BaseInput from '@/components/common/Form/BaseInput';
 import Question from '@/components/common/Form/Question';
+import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
 import { PATH } from '@/constants/common/path';
 
 const NamePage = () => {
-  const router = useRouter();
   const [name, setName] = useState({ participant: '' });
   const STORAGE_KEY = 'wishpool_participant';
 
@@ -43,27 +41,11 @@ const NamePage = () => {
         />
       </div>
 
-      <div className="fixed inset-x-0 bottom-0 flex w-full justify-between gap-[1.3rem] p-[2rem]">
-        <Button
-          textColor="black"
-          backgroundColor="light"
-          textSize="sm"
-          onClick={() => {
-            router.push(PATH.JOIN_GIFTS(wishpoolId));
-          }}
-        >
-          이전
-        </Button>
-        <Button
-          textSize="sm"
-          onClick={() => {
-            router.push(PATH.JOIN_ADD(wishpoolId));
-          }}
-          disabled={isNextDisabled}
-        >
-          다음
-        </Button>
-      </div>
+      <ButtonContainer
+        isNextDisabled={isNextDisabled}
+        back={PATH.JOIN_GIFTS(wishpoolId)}
+        next={PATH.JOIN_ADD(wishpoolId)}
+      />
     </>
   );
 };

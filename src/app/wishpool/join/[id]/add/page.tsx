@@ -1,18 +1,16 @@
 'use client';
-import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import { GiftItemDto } from '@/api/domain/join/types';
-import Button from '@/components/common/Button';
 import GiftField from '@/components/common/Form/GiftField';
 import Question from '@/components/common/Form/Question';
 import Icon from '@/components/common/Icon';
+import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
 import { PATH } from '@/constants/common/path';
 
 const STORAGE_KEY = 'wishpool_gifts';
 
 const AddPage = () => {
-  const router = useRouter();
   const [gifts, setGifts] = useState<GiftItemDto[]>([
     { itemName: '', itemUrl: '' },
   ]);
@@ -99,27 +97,11 @@ const AddPage = () => {
           <span className="text-text title1">선물 더 추가</span>
         </div>
       </button>
-      <div className="fixed inset-x-0 bottom-0 flex w-full justify-between gap-[1.3rem] p-[2rem]">
-        <Button
-          textColor="black"
-          backgroundColor="light"
-          textSize="sm"
-          onClick={() => {
-            router.push(PATH.JOIN_NAME(wishpoolId));
-          }}
-        >
-          이전
-        </Button>
-        <Button
-          textSize="sm"
-          onClick={() => {
-            router.push(PATH.JOIN_PREVIEW(wishpoolId));
-          }}
-          disabled={isNextDisabled}
-        >
-          다음
-        </Button>
-      </div>
+      <ButtonContainer
+        isNextDisabled={isNextDisabled}
+        next={PATH.JOIN_PREVIEW(wishpoolId)}
+        back={PATH.JOIN_NAME(wishpoolId)}
+      />
     </>
   );
 };
