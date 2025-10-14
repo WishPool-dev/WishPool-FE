@@ -17,7 +17,7 @@ const InvitePage = () => {
 
   const chosenURL = sessionStorage.getItem('chosenURL') || '';
   const origin = getOrigin();
-  const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenURL=${chosenURL}`;
+  const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenUrl=${chosenURL}`;
 
   useEffect(() => {
     sessionStorage.clear();
