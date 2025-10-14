@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import { useEffect } from 'react';
 
 import invite from '@/assets/images/invite.png';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
@@ -17,6 +18,10 @@ const InvitePage = () => {
   const chosenURL = sessionStorage.getItem('chosenURL') || '';
   const origin = getOrigin();
   const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenURL=${chosenURL}`;
+
+  useEffect(() => {
+    sessionStorage.clear();
+  }, []);
 
   return (
     <>
