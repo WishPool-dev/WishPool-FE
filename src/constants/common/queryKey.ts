@@ -10,6 +10,9 @@ export const QUERY_KEY = {
     'celebrant',
     chosenIdentifier,
   ],
+
+  WISHPOOL_JOIN_URL: (wishpoolId: number) => ['wishpool', wishpoolId],
+
   AUTH: ['auth'],
   PROFILE: ['profile'],
 } as const;
