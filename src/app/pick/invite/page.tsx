@@ -13,19 +13,12 @@ import Loading from '@/components/common/Loading';
 import { PATH } from '@/constants/common/path';
 import { useGetChosenUrl } from '@/hooks/pick/useGetChosenUrl';
 
-const InvitePage = () => {
-  return (
-    <Suspense fallback={<Loading />}>
-      <InviteClient />
-    </Suspense>
-  );
-};
-
-function InviteClient() {
+const InviteHandler = () => {
   const router = useRouter();
+
   const identifier = useGetChosenUrl();
 
-  const { data: pickData, isLoading } = useGetPickGiftList(identifier);
+  const { data: pickData } = useGetPickGiftList(identifier);
   const wishpoolId = pickData?.wishpoolId;
 
   useEffect(() => {
@@ -85,8 +78,16 @@ function InviteClient() {
           시작하기
         </Button>
       </div>
-      {isLoading && <Loading />}
     </>
   );
-}
+};
+
+const InvitePage = () => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <InviteHandler />
+    </Suspense>
+  );
+};
+
 export default InvitePage;
