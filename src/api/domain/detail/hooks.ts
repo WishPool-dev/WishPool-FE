@@ -4,11 +4,14 @@ import {
   deleteWishpool,
   getWishpoolDetail,
   getWishpoolImage,
+  patchSelectionUrl,
   patchStopWishpool,
 } from '@/api/domain/detail';
 import {
   WishpoolDetailResponse,
   WishpoolImageResponse,
+  WishpoolSelectionUrlRequest,
+  WishpoolSelectionUrlResponse,
 } from '@/api/domain/detail/types';
 import { QUERY_KEY } from '@/constants/common/queryKey';
 import { queryClient } from '@/lib/queryClient';
@@ -57,6 +60,18 @@ export const usePatchStopWishpool = () => {
           };
         },
       );
+    },
+  });
+};
+
+export const usePatchSelectionUrl = () => {
+  return useMutation<
+    WishpoolSelectionUrlResponse,
+    Error,
+    WishpoolSelectionUrlRequest
+  >({
+    mutationFn: (payload) => {
+      return patchSelectionUrl(payload);
     },
   });
 };
