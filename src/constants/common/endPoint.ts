@@ -13,4 +13,5 @@ export const END_POINT = {
   PROFILE: 'profile',
   LOGOUT: 'auth/logout',
   SHARED: 'shared',
+  STATUS: 'status',
 } as const;

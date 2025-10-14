@@ -4,6 +4,7 @@ import {
   deleteWishpool,
   getWishpoolDetail,
   getWishpoolImage,
+  patchStopWishpool,
 } from '@/api/domain/detail';
 import {
   WishpoolDetailResponse,
@@ -39,5 +40,23 @@ export const useGetWishpoolImage = (key: string) => {
     queryKey: QUERY_KEY.FILES(key),
     queryFn: () => getWishpoolImage(key),
     enabled: !!key,
+  });
+};
+
+export const usePatchStopWishpool = () => {
+  return useMutation({
+    mutationFn: (wishpoolId: number) => patchStopWishpool(wishpoolId),
+    onSuccess: (_data, wishpoolId) => {
+      queryClient.setQueryData<WishpoolDetailResponse>(
+        QUERY_KEY.WISHPOOL_DETAIL(wishpoolId),
+        (oldData) => {
+          if (!oldData) return oldData;
+          return {
+            ...oldData,
+            status: 'PENDING',
+          };
+        },
+      );
+    },
   });
 };

@@ -13,19 +13,12 @@ import Loading from '@/components/common/Loading';
 import { PATH } from '@/constants/common/path';
 import { useGetChosenUrl } from '@/hooks/pick/useGetChosenUrl';
 
-const InvitePage = () => {
-  return (
-    <Suspense fallback={<Loading />}>
-      <InviteClient />
-    </Suspense>
-  );
-};
-
-function InviteClient() {
+const InviteHandler = () => {
   const router = useRouter();
+
   const identifier = useGetChosenUrl();
 
-  const { data: pickData, isLoading } = useGetPickGiftList(identifier);
+  const { data: pickData } = useGetPickGiftList(identifier);
   const wishpoolId = pickData?.wishpoolId;
 
   useEffect(() => {
@@ -49,7 +42,7 @@ function InviteClient() {
 
         <div className="space-y-[0.4rem] px-[2.4rem] py-[3.2rem]">
           <h1 className="head1 text-blue-primary">
-            홍길동님을 위해 친구들이 함께 만든 <br />
+            {pickData?.celebrant}님을 위해 친구들이 함께 만든 <br />
             위시리스트가 도착했어요!
           </h1>
           <p className="text-text body1">
@@ -85,8 +78,16 @@ function InviteClient() {
           시작하기
         </Button>
       </div>
-      {isLoading && <Loading />}
     </>
   );
-}
+};
+
+const InvitePage = () => {
+  return (
+    <Suspense fallback={<Loading />}>
+      <InviteHandler />
+    </Suspense>
+  );
+};
+
 export default InvitePage;
