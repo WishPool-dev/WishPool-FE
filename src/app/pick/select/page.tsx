@@ -8,10 +8,9 @@ import Button from '@/components/common/Button';
 import CarouselCard from '@/components/pick/select/CarouselCard';
 import GiftLoading from '@/components/pick/select/GiftLoading';
 import { PATH } from '@/constants/common/path';
-import { QUERY_KEY } from '@/constants/common/queryKey';
 import { useCarouselCard } from '@/hooks/pick/useCarouselCard';
-import { queryClient } from '@/lib/queryClient';
 import { GiftCardType } from '@/types/common/giftCardType';
+import getInitialItems from '@/utils/pick/getInitialItems';
 
 const SelectPage = () => {
   const router = useRouter();
@@ -19,20 +18,10 @@ const SelectPage = () => {
   const [items, setItems] = useState<GiftCardType[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const identifier =
-    typeof window !== 'undefined'
-      ? window.localStorage.getItem('identifier')
-      : null;
-
   useEffect(() => {
-    const giftData = queryClient.getQueryData<{ gifts: GiftCardType[] }>(
-      QUERY_KEY.WISHPOOL_GIFTS_CELEBRANT(identifier),
-    );
-
-    if (giftData?.gifts) {
-      setItems(giftData.gifts);
-    }
-  }, [queryClient]);
+    const initialItems = getInitialItems();
+    setItems(initialItems);
+  }, []);
 
   const { ref, active } = useCarouselCard<HTMLDivElement>();
 
