@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
+import { useGetWishpoolImage } from '@/api/domain/detail/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import { PATH } from '@/constants/common/path';
 import { WishpoolStatusType } from '@/types/common/wishpoolStatusType';
@@ -27,11 +29,19 @@ type EventCardProps = {
 const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
   const router = useRouter();
 
+  const [isError, setIsError] = useState(false);
+
   const handleGoDetail = () => {
     router.push(PATH.WISHPOOL_DETAIL(currentIndex));
   };
 
   const isOpenedEvent = cardData.wishPoolStatus === 'OPEN';
+
+  const imageKey = cardData?.imageKey || '';
+
+  const { data: wishpoolImage } = useGetWishpoolImage(imageKey);
+  const imageUrl = wishpoolImage?.key;
+  const displayImageUrl = imageUrl && !isError ? imageUrl : WishpoolCardImage;
 
   const EventStatusBadge = (
     <>
@@ -53,11 +63,12 @@ const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
   return (
     <div className="relative aspect-[353/199] w-full">
       <Image
-        src={WishpoolCardImage}
+        src={displayImageUrl}
         alt="이벤트 카드 이미지"
         fill
         sizes="100vw"
         className="rounded-[12px] object-cover"
+        onError={() => setIsError(true)}
       />
       <div className="absolute inset-0 rounded-[12px] bg-black/20" />
       <div className="to-blue-primary from-sub-blue/0 absolute inset-x-0 bottom-0 h-[7.6rem] rounded-[12px] bg-gradient-to-b" />

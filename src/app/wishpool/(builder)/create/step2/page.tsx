@@ -10,7 +10,6 @@ import { STEPS } from '@/constants/wishpool/create/steps';
 
 const Step2Page = () => {
   const step = STEPS.STEP2;
-  const next = PATH.WISHPOOL_CREATE_STEP3;
 
   const [formData, setFormData] = useState({ description: '' });
 
@@ -62,7 +61,11 @@ const Step2Page = () => {
           </ol>
         </div>
       </div>
-      <ButtonContainer isNextDisabled={isNextDisabled} next={next} />
+      <ButtonContainer
+        isNextDisabled={isNextDisabled}
+        next={PATH.WISHPOOL_CREATE_STEP3}
+        back={PATH.WISHPOOL_CREATE_STEP1}
+      />
     </>
   );
 };

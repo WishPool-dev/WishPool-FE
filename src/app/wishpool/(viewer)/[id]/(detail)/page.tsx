@@ -7,6 +7,7 @@ import { useState } from 'react';
 import {
   useGetWishpoolDetail,
   useGetWishpoolImage,
+  usePatchStopWishpool,
 } from '@/api/domain/detail/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import Icon from '@/components/common/Icon';
@@ -29,8 +30,13 @@ const DetailPage = () => {
   const imageKey = wishpool?.imageKey || '';
   const { data: wishpoolImage } = useGetWishpoolImage(imageKey);
   const imageUrl = wishpoolImage?.key;
-
   const displayImageUrl = imageUrl && !isError ? imageUrl : WishpoolCardImage;
+
+  const { mutate: stopSuggest } = usePatchStopWishpool();
+  const handleClick = () => {
+    onClose();
+    stopSuggest(wishpoolId);
+  };
 
   const footerProps = wishpool
     ? getFooterContent({
@@ -101,6 +107,7 @@ const DetailPage = () => {
       {isOpen && (
         <CenterModal
           onClose={onClose}
+          onSubmit={handleClick}
           modalTitle="선물 제안을 그만 받을까요?"
           modalContent="지금까지 모인 선물 리스트를 생일자에게 전달하세요!"
           rightText="그만 받기"

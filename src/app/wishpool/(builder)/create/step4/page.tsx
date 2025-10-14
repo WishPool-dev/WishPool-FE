@@ -11,7 +11,6 @@ import { STEPS } from '@/constants/wishpool/create/steps';
 
 const Step4Page = () => {
   const step = STEPS.STEP4;
-  const next = PATH.WISHPOOL_PREVIEW;
 
   const [formData, setFormData] = useState({ endDate: '' });
 
@@ -50,7 +49,11 @@ const Step4Page = () => {
           />
         </div>
       </div>
-      <ButtonContainer isNextDisabled={isNextDisabled} next={next} />
+      <ButtonContainer
+        isNextDisabled={isNextDisabled}
+        next={PATH.WISHPOOL_PREVIEW}
+        back={PATH.WISHPOOL_CREATE_STEP3}
+      />
     </>
   );
 };

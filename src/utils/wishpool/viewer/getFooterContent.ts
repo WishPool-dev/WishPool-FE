@@ -21,7 +21,7 @@ const getFooterContent = ({
         title: '위시풀 만드는 중',
         content: `선물 리스트 마감까지 ${dDay}일 남았어요`,
         buttonContent: '나도 참여하기',
-        onClick: () => routerPush(PATH.JOIN_INTRO),
+        onClick: () => routerPush(PATH.JOIN_INTRO(wishpoolId)),
       };
 
     case 'PENDING':

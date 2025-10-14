@@ -1,12 +1,20 @@
+'use client';
+
 import { useSearchParams, notFound } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 export const useGetChosenUrl = () => {
   const params = useSearchParams();
-  const chosenUrl = params.get('chosenUrl');
+  const [chosenUrl, setChosenUrl] = useState<string | null>(null);
 
-  if (chosenUrl) {
-    return chosenUrl;
-  } else {
-    notFound();
-  }
+  useEffect(() => {
+    const url = params.get('chosenUrl');
+    if (url) {
+      setChosenUrl(url);
+    } else {
+      notFound();
+    }
+  }, [params]);
+
+  return chosenUrl;
 };
