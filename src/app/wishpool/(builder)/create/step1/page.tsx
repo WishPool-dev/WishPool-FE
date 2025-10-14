@@ -11,8 +11,6 @@ import { STEPS } from '@/constants/wishpool/create/steps';
 
 const Step1Page = () => {
   const step = STEPS.STEP1;
-  const next = PATH.WISHPOOL_CREATE_STEP2;
-
   const [formData, setFormData] = useState({ celebrant: '', birthDay: '' });
 
   useEffect(() => {
@@ -59,13 +57,17 @@ const Step1Page = () => {
           </p>
           <Calendar
             name="birthDay"
-            value={formData.celebrant}
+            value={formData.birthDay}
             onChange={handleInputChange}
           />
         </div>
       </div>
 
-      <ButtonContainer isNextDisabled={isNextDisabled} next={next} />
+      <ButtonContainer
+        isNextDisabled={isNextDisabled}
+        next={PATH.WISHPOOL_CREATE_STEP2}
+        back={PATH.WISHPOOL_INTRO}
+      />
     </>
   );
 };
