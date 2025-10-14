@@ -15,3 +15,13 @@ export type WishpoolDetailResponse = {
 export type WishpoolImageResponse = {
   key: string;
 };
+
+export type WishpoolSelectionUrlResponse = {
+  wishpoolId: number;
+  chosenURL: string;
+};
+
+export type WishpoolSelectionUrlRequest = {
+  wishpoolId: number;
+  pickDate: string;
+};

@@ -29,7 +29,7 @@ const getFooterContent = ({
         title: '위시풀 완성!',
         content: '위시풀을 생일자에게 보내요.',
         buttonContent: '생일자에게 보내기',
-        onClick: () => routerPush(PATH.WISHPOOL_INVITE(wishpoolId)),
+        onClick: () => routerPush(PATH.WISHPOOL_DATE(wishpoolId)),
       };
 
     case 'WAITING':

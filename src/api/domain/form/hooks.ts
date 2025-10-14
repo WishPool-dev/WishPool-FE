@@ -1,6 +1,12 @@
-import { useMutation } from '@tanstack/react-query';
+import { useMutation, useQuery } from '@tanstack/react-query';
 
-import { postWishpoolCreate, postWishpoolImage } from './index';
+import { QUERY_KEY } from '@/constants/common/queryKey';
+
+import {
+  getWishpoolJoinUrl,
+  postWishpoolCreate,
+  postWishpoolImage,
+} from './index';
 import {
   WishpoolCreateResponse,
   WishpoolCreateType,
@@ -16,5 +22,13 @@ export const usePostWishpoolCreate = () => {
 export const usePostWishpoolImage = () => {
   return useMutation<WishpoolImageResponse, unknown, File>({
     mutationFn: (file) => postWishpoolImage(file),
+  });
+};
+
+export const useGetWishpoolJoinUrl = (wishpoolId: number) => {
+  return useQuery<WishpoolCreateResponse>({
+    queryKey: QUERY_KEY.WISHPOOL_JOIN_URL(wishpoolId),
+    queryFn: () => getWishpoolJoinUrl(wishpoolId),
+    enabled: !!wishpoolId,
   });
 };
