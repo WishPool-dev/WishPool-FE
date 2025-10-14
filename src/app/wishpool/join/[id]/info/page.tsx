@@ -8,9 +8,11 @@ import BirthdayInfo from '@/components/common/BirthdayInfo';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 
 const InfoPage = () => {
   const router = useRouter();
+  const wishpoolId = useGetWishpoolId();
 
   return (
     <>
@@ -56,7 +58,7 @@ const InfoPage = () => {
 
         <Button
           onClick={() => {
-            router.push(PATH.JOIN_INTRO);
+            router.push(PATH.JOIN_INTRO(wishpoolId));
           }}
           type="button"
           backgroundColor="gradient"
