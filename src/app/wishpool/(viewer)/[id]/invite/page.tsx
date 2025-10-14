@@ -18,10 +18,6 @@ const InvitePage = () => {
   const origin = getOrigin();
   const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenURL=${chosenURL}`;
 
-  // useEffect(() => {
-  //   sessionStorage.clear();
-  // }, []);
-
   return (
     <>
       <div className="flex flex-col items-center">

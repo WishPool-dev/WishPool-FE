@@ -35,7 +35,7 @@ const DatePage = () => {
         wishpoolId,
         pickDate: endDate,
       });
-      console.log(res);
+
       const chosenURL = res.chosenURL;
       sessionStorage.setItem('chosenURL', chosenURL);
       router.push(PATH.WISHPOOL_INVITE(wishpoolId));
