@@ -2,27 +2,16 @@
 import { useEffect, useState } from 'react';
 
 import GiftCard from '@/components/pick/list/GiftCard';
-import { QUERY_KEY } from '@/constants/common/queryKey';
-import { queryClient } from '@/lib/queryClient';
 import { GiftCardType } from '@/types/common/giftCardType';
+import getInitialItems from '@/utils/pick/getInitialItems';
 
 const ListPage = () => {
   const [items, setItems] = useState<GiftCardType[]>([]);
 
   useEffect(() => {
-    if (typeof window === 'undefined') return;
-
-    const identifier = window.localStorage.getItem('identifier');
-    if (!identifier) return;
-
-    const giftData = queryClient.getQueryData<{ gifts: GiftCardType[] }>(
-      QUERY_KEY.WISHPOOL_GIFTS_CELEBRANT(identifier),
-    );
-
-    if (giftData?.gifts) {
-      setItems(giftData.gifts);
-    }
-  }, [queryClient]);
+    const initialItems = getInitialItems();
+    setItems(initialItems);
+  }, []);
 
   return (
     <>

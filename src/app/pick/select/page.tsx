@@ -8,10 +8,9 @@ import Button from '@/components/common/Button';
 import CarouselCard from '@/components/pick/select/CarouselCard';
 import GiftLoading from '@/components/pick/select/GiftLoading';
 import { PATH } from '@/constants/common/path';
-import { QUERY_KEY } from '@/constants/common/queryKey';
 import { useCarouselCard } from '@/hooks/pick/useCarouselCard';
-import { queryClient } from '@/lib/queryClient';
 import { GiftCardType } from '@/types/common/giftCardType';
+import getInitialItems from '@/utils/pick/getInitialItems';
 
 const SelectPage = () => {
   const router = useRouter();
@@ -19,20 +18,10 @@ const SelectPage = () => {
   const [items, setItems] = useState<GiftCardType[]>([]);
   const [loading, setLoading] = useState(false);
 
-  const identifier =
-    typeof window !== 'undefined'
-      ? window.localStorage.getItem('identifier')
-      : null;
-
   useEffect(() => {
-    const giftData = queryClient.getQueryData<{ gifts: GiftCardType[] }>(
-      QUERY_KEY.WISHPOOL_GIFTS_CELEBRANT(identifier),
-    );
-
-    if (giftData?.gifts) {
-      setItems(giftData.gifts);
-    }
-  }, [queryClient]);
+    const initialItems = getInitialItems();
+    setItems(initialItems);
+  }, []);
 
   const { ref, active } = useCarouselCard<HTMLDivElement>();
 
@@ -57,7 +46,7 @@ const SelectPage = () => {
   if (loading) return <GiftLoading items={items} />;
 
   return (
-    <div className="flex h-[100vh] flex-col">
+    <div className="flex flex-col">
       <section
         ref={ref}
         className="no-scrollbar bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7rem] pb-[5rem]"
@@ -77,8 +66,8 @@ const SelectPage = () => {
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
       </section>
 
-      <section className="bg-background-02 relative grow">
-        <div className="flex flex-col items-center py-[5rem]">
+      <section className="bg-background-02 relative">
+        <div className="flex flex-col items-center py-[3rem]">
           <Image
             src="/images/hole.svg"
             width={203}
