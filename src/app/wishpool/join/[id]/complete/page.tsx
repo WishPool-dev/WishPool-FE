@@ -7,9 +7,9 @@ const CompletePage = () => {
     <>
       <div className="flex flex-col items-center">
         <h3 className="text-text head1">위시풀 만들기 참여가 끝났어요!</h3>
-        <p className="text-text body1 mt-[0.4rem]">
+        {/* <p className="text-text body1 mt-[0.4rem]">
           홍길동님이 분명 좋아할거에요!
-        </p>
+        </p> */}
       </div>
 
       <div className="mt-[3.8rem] flex items-center justify-center">

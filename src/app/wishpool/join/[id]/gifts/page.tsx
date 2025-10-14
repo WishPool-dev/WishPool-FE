@@ -8,6 +8,8 @@ import { PATH } from '@/constants/common/path';
 
 const JoinGiftPage = () => {
   const router = useRouter();
+  const wishpoolId = Number(sessionStorage.getItem('wishpoolId'));
+
   return (
     <>
       <GiftPage />
@@ -15,7 +17,7 @@ const JoinGiftPage = () => {
         <div className="mx-auto w-full max-w-[430px] p-[2rem]">
           <Button
             onClick={() => {
-              router.push(PATH.JOIN_NAME);
+              router.push(PATH.JOIN_NAME(wishpoolId));
             }}
           >
             다음

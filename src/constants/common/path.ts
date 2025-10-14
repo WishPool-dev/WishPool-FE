@@ -28,11 +28,11 @@ export const PATH = {
   PICK_PREVIEW: '/pick/preview',
   PICK_COMPLETE: '/pick/complete',
 
-  JOIN_INFO: `/wishpool/join/info`,
-  JOIN_INTRO: `/wishpool/join/intro`,
-  JOIN_GIFTS: `/wishpool/join/gifts`,
-  JOIN_NAME: `/wishpool/join/name`,
-  JOIN_ADD: `/wishpool/join/add`,
-  JOIN_PREVIEW: `/wishpool/join/preview`,
-  JOIN_COMPLETE: `/wishpool/join/complete`,
+  JOIN_INFO: (id: number) => `/wishpool/join/${id}/info`,
+  JOIN_INTRO: (id: number) => `/wishpool/join/${id}/intro`,
+  JOIN_GIFTS: (id: number) => `/wishpool/join/${id}/gifts`,
+  JOIN_NAME: (id: number) => `/wishpool/join/${id}/name`,
+  JOIN_ADD: (id: number) => `/wishpool/join/${id}/add`,
+  JOIN_PREVIEW: (id: number) => `/wishpool/join/${id}/preview`,
+  JOIN_COMPLETE: (id: number) => `/wishpool/join/${id}/complete`,
 };

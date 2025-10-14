@@ -8,7 +8,6 @@ import { STEPS } from '@/constants/wishpool/create/steps';
 
 const Step3Page = () => {
   const step = STEPS.STEP3;
-  const next = PATH.WISHPOOL_CREATE_STEP4;
 
   return (
     <>
@@ -18,10 +17,14 @@ const Step3Page = () => {
           required={false}
           question="위시풀 썸네일 이미지를 추가할 수 있어요."
         />
-        {/* TODO: 선택입력 */}
+
         <ThumbnailField />
       </div>
-      <ButtonContainer isNextDisabled={false} next={next} />
+      <ButtonContainer
+        isNextDisabled={false}
+        next={PATH.WISHPOOL_CREATE_STEP4}
+        back={PATH.WISHPOOL_CREATE_STEP2}
+      />
     </>
   );
 };

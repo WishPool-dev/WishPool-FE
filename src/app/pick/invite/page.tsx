@@ -19,16 +19,18 @@ const InviteHandler = () => {
   const identifier = useGetChosenUrl();
 
   const { data: pickData } = useGetPickGiftList(identifier);
-  const wishpoolId = pickData?.wishpoolId;
 
   useEffect(() => {
-    if (identifier) {
-      window.localStorage.setItem('identifier', identifier);
+    if (pickData?.wishpoolId) {
+      window.sessionStorage.setItem('wishpoolId', String(pickData?.wishpoolId));
     }
-    if (wishpoolId) {
-      window.sessionStorage.setItem('wishpoolId', String(wishpoolId));
+    if (pickData?.gifts) {
+      window.sessionStorage.setItem(
+        'initialGifts',
+        JSON.stringify(pickData.gifts),
+      );
     }
-  }, [identifier, wishpoolId]);
+  }, [pickData]);
 
   return (
     <>

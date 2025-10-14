@@ -6,14 +6,20 @@ import Button from '@/components/common/Button';
 const ButtonContainer = ({
   isNextDisabled,
   next,
+  back,
 }: {
   isNextDisabled: boolean;
   next: string;
+  back: string;
 }) => {
   const router = useRouter();
 
   const handleNext = () => {
     router.push(next);
+  };
+
+  const handleBack = () => {
+    router.push(back);
   };
   return (
     <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem]">
@@ -22,7 +28,7 @@ const ButtonContainer = ({
           textColor="black"
           backgroundColor="light"
           textSize="sm"
-          onClick={() => history.back()}
+          onClick={handleBack}
         >
           이전
         </Button>

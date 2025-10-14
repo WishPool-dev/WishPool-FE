@@ -1,5 +1,5 @@
 'use client';
-import { FormFieldProps } from '@/types/wishpool/builder/Form';
+import { FormFieldProps } from '@/types/wishpool/builder/FormFieldPropsType';
 
 type BaseInputProps = FormFieldProps & {
   value?: string;

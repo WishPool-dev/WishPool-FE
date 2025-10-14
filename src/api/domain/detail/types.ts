@@ -8,6 +8,8 @@ export type WishpoolDetailResponse = {
   description: string;
   d_day: number;
   status: WishpoolStatusType;
+  birthDay: string;
+  ownerJoined: boolean;
 };
 
 export type WishpoolImageResponse = {

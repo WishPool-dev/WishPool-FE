@@ -15,7 +15,7 @@ type CarouselCardProps = {
 } & GiftCardType;
 
 const cardBaseStyles =
-  'flex h-[29rem] w-[18rem] shrink-0 snap-center flex-col items-center ' +
+  'flex h-[26rem] w-[18rem] shrink-0 snap-center flex-col items-center ' +
   'gap-[2.4rem] rounded-[16px] border-[4px] px-[2rem] pt-[4rem] ' +
   'relative transition-all duration-300 ease-out will-change-transform';
 
@@ -44,7 +44,7 @@ export default function CarouselCard({
       {renderSpacer && (
         <div
           aria-hidden
-          className="pointer-events-none h-[29rem] w-[18rem] shrink-0 snap-center opacity-0"
+          className="pointer-events-none h-[26rem] w-[18rem] shrink-0 snap-center opacity-0"
         />
       )}
 
@@ -81,7 +81,7 @@ export default function CarouselCard({
         />
         <span
           className={[
-            'subtitle2 line-clamp-2 h-[4.8rem] text-center',
+            'subtitle2 line-clamp-2 h-[4.8rem] w-full text-center',
             isActive ? 'text-white' : 'text-gray-600',
           ].join(' ')}
         >

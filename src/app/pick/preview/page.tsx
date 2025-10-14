@@ -7,9 +7,8 @@ import { usePostPickGift } from '@/api/domain/pick/hooks';
 import Button from '@/components/common/Button';
 import GiftCard from '@/components/pick/list/GiftCard';
 import { PATH } from '@/constants/common/path';
-import { QUERY_KEY } from '@/constants/common/queryKey';
-import { queryClient } from '@/lib/queryClient';
 import { GiftCardType } from '@/types/common/giftCardType';
+import clearSession from '@/utils/pick/clearSession';
 
 const PreviewPage = () => {
   const router = useRouter();
@@ -27,10 +26,6 @@ const PreviewPage = () => {
 
   const handleSubmit = () => {
     const giftIds = pickedItems.map((pickedItem) => pickedItem.giftId);
-    const identifier =
-      typeof window !== 'undefined'
-        ? window.localStorage.getItem('identifier')
-        : null;
 
     const wishpoolId = Number(window.sessionStorage.getItem('wishpoolId'));
 
@@ -38,14 +33,8 @@ const PreviewPage = () => {
       { wishpoolId, giftIds },
       {
         onSuccess: () => {
-          queryClient.setQueryData(
-            QUERY_KEY.WISHPOOL_GIFTS_CELEBRANT(identifier),
-            { gifts: pickedItems },
-          );
-
+          clearSession();
           router.push(PATH.PICK_COMPLETE);
-          window.sessionStorage.removeItem('pickedGifts');
-          window.sessionStorage.removeItem('wishpoolId');
         },
         onError: (err) => {
           console.error('🚨 선물 선택 실패: ', err);
