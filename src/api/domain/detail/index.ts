@@ -25,3 +25,10 @@ export const getWishpoolImage = async (key: string) => {
   );
   return res.data;
 };
+
+export const patchStopWishpool = async (wishpoolId: number) => {
+  const res = await axiosInstance.patch(
+    `${END_POINT.API}/${END_POINT.WISHPOOLS}/${END_POINT.STATUS}/${wishpoolId}`,
+  );
+  return res.data;
+};

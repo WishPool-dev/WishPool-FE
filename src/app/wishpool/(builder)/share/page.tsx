@@ -1,12 +1,25 @@
+'use client';
 import Image from 'next/image';
+import { useState, useEffect } from 'react';
 
-import share from '@/assets/images/share.png';
+import invite from '@/assets/images/invite.png';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 
 const SharePage = () => {
-  const url = 'https://wishpool.store/${wishpoolId}';
   const content = 'invite' as ShareSectionType;
+
+  const [linkUrl, setLinkUrl] = useState('');
+
+  useEffect(() => {
+    const url =
+      typeof window !== 'undefined'
+        ? sessionStorage.getItem('wishpool_invite_link')
+        : null;
+
+    setLinkUrl(url ?? '');
+    sessionStorage.removeItem('wishpool_invite_link');
+  }, []);
 
   return (
     <>
@@ -17,16 +30,15 @@ const SharePage = () => {
         </p>
       </div>
       <div className="mt-[3.6rem] flex items-center justify-center">
-        {/* TODO: 이미지 변경해야됨 */}
         <Image
-          src={share}
+          src={invite}
           alt="위시풀 공유 완료 일러스트"
           width={180}
           height={180}
         />
       </div>
 
-      <WishpoolShareSection linkUrl={url} linkContent={content} />
+      <WishpoolShareSection linkUrl={linkUrl} linkContent={content} />
     </>
   );
 };
