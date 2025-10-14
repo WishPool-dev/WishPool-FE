@@ -57,7 +57,7 @@ const SelectPage = () => {
   if (loading) return <GiftLoading items={items} />;
 
   return (
-    <div className="flex h-[100vh] flex-col">
+    <div className="flex flex-col">
       <section
         ref={ref}
         className="no-scrollbar bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7rem] pb-[5rem]"
@@ -77,8 +77,8 @@ const SelectPage = () => {
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
       </section>
 
-      <section className="bg-background-02 relative grow">
-        <div className="flex flex-col items-center py-[5rem]">
+      <section className="bg-background-02 relative">
+        <div className="flex flex-col items-center py-[3rem]">
           <Image
             src="/images/hole.svg"
             width={203}
