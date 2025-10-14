@@ -13,11 +13,6 @@ import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
 import { getSlashDateFmt } from '@/utils/wishpool/builder/dateFmt';
 
-const getOrigin = () => {
-  if (typeof window !== 'undefined') return window.location.origin;
-  return process.env.NEXT_PUBLIC_API_URL;
-};
-
 const PreviewPage = () => {
   const router = useRouter();
   const [isError, setIsError] = useState(false);
@@ -53,18 +48,13 @@ const PreviewPage = () => {
     e.preventDefault();
 
     try {
-      sessionStorage.removeItem('wishpool_celebrant');
-      sessionStorage.removeItem('wishpool_birthDay');
-      sessionStorage.removeItem('wishpool_description');
-      sessionStorage.removeItem('wishpool_imageKey');
-      sessionStorage.removeItem('wishpool_endDate');
+      sessionStorage.clear();
 
       const res = await createMutation.mutateAsync(data);
-      const shareIdentifier = res.shareIdentifier;
 
-      const inviteLink = `${getOrigin()}${PATH.JOIN_INFO}?shareIdentifier=${shareIdentifier}`;
-
-      sessionStorage.setItem('wishpool_invite_link', inviteLink);
+      if (res.wishPoolId) {
+        sessionStorage.setItem('wishpoolId', res.wishPoolId.toString());
+      }
 
       router.push(PATH.WISHPOOL_SHARE);
     } catch {

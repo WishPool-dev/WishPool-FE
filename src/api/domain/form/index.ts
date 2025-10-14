@@ -28,3 +28,10 @@ export const postWishpoolImage = async (file: File) => {
   );
   return res.data;
 };
+
+export const getWishpoolJoinUrl = async (wishpoolId: number) => {
+  const res = await axiosInstance.get<WishpoolCreateResponse>(
+    `/${END_POINT.WISHPOOLS}/${END_POINT.GUEST}/${END_POINT.SHARED}/${wishpoolId}`,
+  );
+  return res.data;
+};

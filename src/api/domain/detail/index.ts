@@ -2,6 +2,7 @@ import { axiosInstance } from '@/api/axiosInstance';
 import {
   WishpoolDetailResponse,
   WishpoolImageResponse,
+  WishpoolSelectionUrlRequest,
 } from '@/api/domain/detail/types';
 import { END_POINT } from '@/constants/common/endPoint';
 
@@ -29,6 +30,16 @@ export const getWishpoolImage = async (key: string) => {
 export const patchStopWishpool = async (wishpoolId: number) => {
   const res = await axiosInstance.patch(
     `${END_POINT.API}/${END_POINT.WISHPOOLS}/${END_POINT.STATUS}/${wishpoolId}`,
+  );
+  return res.data;
+};
+
+export const patchSelectionUrl = async (
+  payload: WishpoolSelectionUrlRequest,
+) => {
+  const res = await axiosInstance.patch(
+    `/${END_POINT.API}/${END_POINT.WISHPOOLS}/${payload.wishpoolId}/${END_POINT.SELECTION}`,
+    payload,
   );
   return res.data;
 };

@@ -20,6 +20,7 @@ export const PATH = {
   WISHPOOL_EDIT: (id: number) => `/wishpool/${id}/edit`,
   WISHPOOL_GIFTS: (id: number) => `/wishpool/${id}/gifts`,
   WISHPOOL_INVITE: (id: number) => `/wishpool/${id}/invite`,
+  WISHPOOL_DATE: (id: number) => `/wishpool/${id}/date`,
 
   PICK_INVITE: '/pick/invite',
   PICK_INTRO: '/pick/intro',

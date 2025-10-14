@@ -1,94 +1,49 @@
 'use client';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useEffect } from 'react';
 
 import invite from '@/assets/images/invite.png';
-import Button from '@/components/common/Button';
-import Calendar from '@/components/common/Calendar';
-import Question from '@/components/common/Form/Question';
-import Icon from '@/components/common/Icon';
-import UserTag from '@/components/common/UserTag';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
+import { PATH } from '@/constants/common/path';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 
+const getOrigin = () => {
+  if (typeof window !== 'undefined') return window.location.origin;
+  return process.env.NEXT_PUBLIC_API_URL;
+};
+
 const InvitePage = () => {
-  const [showShare, setShowShare] = useState(false);
-
-  const handleSubmit = () => {
-    setShowShare(true);
-  };
-
-  const url = 'https://wishpool.store/${wishpoolId}';
   const content = 'invite' as ShareSectionType;
+
+  const chosenURL = sessionStorage.getItem('chosenURL') || '';
+  const origin = getOrigin();
+  const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenURL=${chosenURL}`;
+
+  useEffect(() => {
+    sessionStorage.clear();
+  }, []);
 
   return (
     <>
-      {showShare ? (
-        <ShareSection url={url} content={content} />
-      ) : (
-        <>
-          <DateSelectionSection onSubmit={handleSubmit} />
-        </>
-      )}
+      <div className="flex flex-col items-center">
+        <h3 className="text-text head1">위시풀 완성!</h3>
+        <p className="text-text body1 mt-[0.4rem]">
+          이제 생일인 친구가 선물을 고를 수 있어요!
+        </p>
+      </div>
+
+      <div className="mt-[3.8rem] flex items-center justify-center">
+        <Image
+          src={invite}
+          alt="위시풀 공유 완료 일러스트"
+          width={180}
+          height={180}
+        />
+      </div>
+
+      <WishpoolShareSection linkUrl={inviteUrl} linkContent={content} />
     </>
   );
 };
 
 export default InvitePage;
-
-const ShareSection = ({
-  url,
-  content,
-}: {
-  url: string;
-  content: ShareSectionType;
-}) => (
-  <>
-    <div className="flex flex-col items-center">
-      <h3 className="text-text head1">위시풀 완성!</h3>
-      <p className="text-text body1 mt-[0.4rem]">
-        이제 생일인 친구가 선물을 고를 수 있어요!
-      </p>
-    </div>
-
-    <div className="mt-[3.8rem] flex items-center justify-center">
-      <Image
-        src={invite}
-        alt="위시풀 공유 완료 일러스트"
-        width={180}
-        height={180}
-      />
-    </div>
-
-    <WishpoolShareSection linkUrl={url} linkContent={content} />
-  </>
-);
-
-const DateSelectionSection = ({ onSubmit }: { onSubmit: () => void }) => {
-  return (
-    <>
-      <Question
-        question="생일인 친구가 언제까지 선물을 고를까요?"
-        required={true}
-      />
-      <div className="mt-[4.2rem]">
-        <div className="flex flex-row gap-[1.2rem]">
-          <UserTag>생일자</UserTag>
-          <p className="subtitle2 text-text mb-[0.8rem] max-w-[430px]">
-            선물 고르기 마감일
-          </p>
-        </div>
-        <Calendar name="endDate" />
-      </div>
-      <div className="mt-[1.2rem] flex flex-row gap-[1.2rem]">
-        <Icon name="alert" width={16} height={16} />
-        <p className="caption3 justify-start leading-none text-gray-600">
-          생일자가 선물을 고를 수 있는 날짜예요. 그때까지만 위시풀을 열어둘게요!
-        </p>
-      </div>
-      <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
-        <Button onClick={onSubmit}>보내기</Button>
-      </div>
-    </>
-  );
-};
