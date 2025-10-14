@@ -15,19 +15,15 @@ const getOrigin = () => {
 
 const SharePage = () => {
   const content = 'invite' as ShareSectionType;
-  const [wishpoolId, setWishpoolId] = useState<number | undefined>(undefined);
+  const [wishpoolId, setWishpoolId] = useState<number>();
 
   useEffect(() => {
-    const raw = sessionStorage.getItem('wishpoolId');
-    const n = raw ? Number(raw) : NaN;
-    setWishpoolId(Number.isFinite(n) && n > 0 ? n : undefined);
+    const id = Number(sessionStorage.getItem('wishpoolId'));
+    setWishpoolId(id);
   }, []);
-  console.log('1. 세션 스토리지에서 가져온 wishpoolId:', wishpoolId);
 
   const { data } = useGetWishpoolJoinUrl(wishpoolId ?? 0);
   const origin = getOrigin();
-
-  console.log('3. 초대 URL 데이터:', data);
 
   const inviteUrl =
     wishpoolId && data
