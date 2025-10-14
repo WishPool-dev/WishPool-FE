@@ -2,26 +2,33 @@
 import Image from 'next/image';
 import { useState, useEffect } from 'react';
 
+import { useGetWishpoolJoinUrl } from '@/api/domain/form/hooks';
 import invite from '@/assets/images/invite.png';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
+import { PATH } from '@/constants/common/path';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
+
+const getOrigin = () => {
+  if (typeof window !== 'undefined') return window.location.origin;
+  return process.env.NEXT_PUBLIC_API_URL;
+};
 
 const SharePage = () => {
   const content = 'invite' as ShareSectionType;
-
-  const [linkUrl, setLinkUrl] = useState('');
+  const [wishpoolId, setWishpoolId] = useState<number>();
 
   useEffect(() => {
-    const url =
-      typeof window !== 'undefined'
-        ? sessionStorage.getItem('wishpool_invite_link')
-        : null;
-
-    if (url) {
-      setLinkUrl(url);
-      sessionStorage.removeItem('wishpool_invite_link');
-    }
+    const id = Number(sessionStorage.getItem('wishpoolId'));
+    setWishpoolId(id);
   }, []);
+
+  const { data } = useGetWishpoolJoinUrl(wishpoolId ?? 0);
+  const origin = getOrigin();
+
+  const inviteUrl =
+    wishpoolId && data
+      ? `${origin}${PATH.JOIN_INFO(wishpoolId)}?shareIdentifier=${data?.shareIdentifier}`
+      : '';
 
   return (
     <>
@@ -40,7 +47,7 @@ const SharePage = () => {
         />
       </div>
 
-      <WishpoolShareSection linkUrl={linkUrl} linkContent={content} />
+      <WishpoolShareSection linkUrl={inviteUrl} linkContent={content} />
     </>
   );
 };
