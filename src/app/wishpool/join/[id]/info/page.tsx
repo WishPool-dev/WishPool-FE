@@ -10,6 +10,7 @@ import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
 import { PATH } from '@/constants/common/path';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
+import { getSlashDateFmt } from '@/utils/wishpool/builder/dateFmt';
 
 const InfoPage = () => {
   const router = useRouter();
@@ -17,6 +18,7 @@ const InfoPage = () => {
   const param = useSearchParams();
   const shareidentifier = param.get('shareIdentifier') ?? '';
   const { data: wishpoolData } = useGetWishpoolGuestInfo(shareidentifier);
+  console.log(wishpoolData);
 
   return (
     <>
@@ -35,7 +37,10 @@ const InfoPage = () => {
           height={75}
           className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
-        <BirthdayInfo celebrant="생일자 이름" birthDay="2025-09-23" />
+        <BirthdayInfo
+          celebrant={wishpoolData?.celebrant ?? ''}
+          birthDay={getSlashDateFmt(wishpoolData?.birthDay) ?? ''}
+        />
 
         <Image
           src={WishpoolCardImage}
@@ -52,7 +57,7 @@ const InfoPage = () => {
 
       <div className="bg-background-01 fixed inset-x-0 bottom-0 mx-auto inline-flex w-full max-w-[430px] flex-col items-center justify-center gap-[1.6rem] border-t border-gray-300 p-[2rem] pt-[1.6rem] pb-[2rem]">
         <p className="text-text caption1 text-center">
-          참여 마감일: {wishpoolData?.endDate} 까지
+          참여 마감일: {getSlashDateFmt(wishpoolData?.endDate)} 까지
         </p>
 
         <Button
