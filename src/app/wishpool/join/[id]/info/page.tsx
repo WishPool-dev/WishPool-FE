@@ -23,7 +23,6 @@ const InfoPage = () => {
     wishpoolData?.imageKey ?? '',
   );
   const displayImg = wishpoolImage?.key || WishpoolCardImage;
-  console.log(wishpoolData);
 
   return (
     <>
