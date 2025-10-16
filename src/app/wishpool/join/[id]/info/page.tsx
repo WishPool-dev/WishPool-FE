@@ -3,6 +3,7 @@
 import Image from 'next/image';
 import { useRouter, useSearchParams } from 'next/navigation';
 
+import { useGetWishpoolImage } from '@/api/domain/detail/hooks';
 import { useGetWishpoolGuestInfo } from '@/api/domain/join/hooks';
 import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import BirthdayInfo from '@/components/common/BirthdayInfo';
@@ -18,6 +19,10 @@ const InfoPage = () => {
   const param = useSearchParams();
   const shareidentifier = param.get('shareIdentifier') ?? '';
   const { data: wishpoolData } = useGetWishpoolGuestInfo(shareidentifier);
+  const { data: wishpoolImage } = useGetWishpoolImage(
+    wishpoolData?.imageKey ?? '',
+  );
+  const displayImg = wishpoolImage?.key || WishpoolCardImage;
   console.log(wishpoolData);
 
   return (
@@ -43,7 +48,7 @@ const InfoPage = () => {
         />
 
         <Image
-          src={WishpoolCardImage}
+          src={displayImg}
           width={430}
           height={240}
           className="w-full"
