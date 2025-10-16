@@ -10,3 +10,10 @@ export const postOwnerGifts = async (payload: WishpoolJoinRequest) => {
   );
   return res.data;
 };
+
+export const getWishpoolGuestInfo = async (shareIdentifier: string) => {
+  const res = await axiosInstance.get(
+    `/${END_POINT.WISHPOOLS}/${shareIdentifier}`,
+  );
+  return res.data;
+};
