@@ -9,10 +9,11 @@ import GiftCardImage from '@/assets/images/gift-card.png';
 import Button from '@/components/common/Button';
 import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 
 const PreviewPage = () => {
   const router = useRouter();
-  const wishpoolId = Number(sessionStorage.getItem('wishpoolId'));
+  const wishpoolId = useGetWishpoolId();
   const participant = sessionStorage.getItem('wishpool_participant') || '';
 
   const STORAGE_KEY = 'wishpool_gifts';

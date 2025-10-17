@@ -14,8 +14,6 @@ const IntroPage = () => {
   const wishpoolId = useGetWishpoolId();
   const { data: wishpoolData } = useGetWishpoolDetail(wishpoolId);
 
-  sessionStorage.setItem('wishpoolId', String(wishpoolId));
-
   return (
     <>
       <div className="text-text">
