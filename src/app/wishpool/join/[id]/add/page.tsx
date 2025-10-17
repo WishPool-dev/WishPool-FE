@@ -7,6 +7,7 @@ import Question from '@/components/common/Form/Question';
 import Icon from '@/components/common/Icon';
 import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 
 const STORAGE_KEY = 'wishpool_gifts';
 
@@ -15,7 +16,7 @@ const AddPage = () => {
     { itemName: '', itemUrl: '' },
   ]);
 
-  const wishpoolId = Number(sessionStorage.getItem('wishpoolId'));
+  const wishpoolId = useGetWishpoolId();
 
   useEffect(() => {
     const initialGifts = sessionStorage.getItem(STORAGE_KEY);

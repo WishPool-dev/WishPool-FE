@@ -5,10 +5,11 @@ import { useRouter } from 'next/navigation';
 import GiftPage from '@/app/wishpool/(viewer)/[id]/gifts/page';
 import Button from '@/components/common/Button';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 
 const JoinGiftPage = () => {
   const router = useRouter();
-  const wishpoolId = Number(sessionStorage.getItem('wishpoolId'));
+  const wishpoolId = useGetWishpoolId();
 
   return (
     <>
