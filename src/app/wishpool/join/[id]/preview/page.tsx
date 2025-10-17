@@ -3,16 +3,12 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { postOwnerGifts } from '@/api/domain/join';
+import { usePostOwnerJoin } from '@/api/domain/join/hooks';
+import { GiftItemDto } from '@/api/domain/join/types';
 import GiftCardImage from '@/assets/images/gift-card.png';
 import Button from '@/components/common/Button';
 import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
-
-export type Gift = {
-  itemUrl: string;
-  itemName: string;
-};
 
 const PreviewPage = () => {
   const router = useRouter();
@@ -20,11 +16,15 @@ const PreviewPage = () => {
   const participant = sessionStorage.getItem('wishpool_participant') || '';
 
   const STORAGE_KEY = 'wishpool_gifts';
-  const gifts = JSON.parse(sessionStorage.getItem(STORAGE_KEY) || '') as Gift[];
+  const gifts = JSON.parse(
+    sessionStorage.getItem(STORAGE_KEY) || '',
+  ) as GiftItemDto[];
+
+  const { mutate: mutatePostOwner } = usePostOwnerJoin();
 
   const handleSubmit = async () => {
     try {
-      await postOwnerGifts({
+      await mutatePostOwner({
         guestName: participant,
         wishpoolId,
         giftItemDto: gifts,
@@ -57,7 +57,7 @@ const PreviewPage = () => {
         </div>
 
         <section className="mt-[1.6rem] grid grid-cols-2 gap-[1.1rem]">
-          {gifts.map((gift: Gift, idx: number) => (
+          {gifts.map((gift: GiftItemDto, idx: number) => (
             <div
               key={`${gift.itemName}-${idx}`}
               className="flex flex-col items-center justify-center"
