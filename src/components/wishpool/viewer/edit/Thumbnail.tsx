@@ -22,14 +22,14 @@ const Thumbnail = ({ imageKey, onChangeImageKey }: ThumnailProps) => {
     error,
     handleImageChange,
     isUploading,
-    imageKey: uploadedImageKey,
+    imageKey: newKey,
   } = useImageUpload();
 
   useEffect(() => {
-    if (uploadedImageKey && onChangeImageKey) {
-      onChangeImageKey(uploadedImageKey);
+    if (newKey && onChangeImageKey) {
+      onChangeImageKey(newKey);
     }
-  }, [uploadedImageKey, onChangeImageKey]);
+  }, [newKey, onChangeImageKey]);
 
   const currentDisplayUrl = preview
     ? preview

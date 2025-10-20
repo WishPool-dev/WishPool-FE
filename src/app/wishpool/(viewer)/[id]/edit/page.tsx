@@ -1,7 +1,7 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useGetWishpoolDetail } from '@/api/domain/detail/hooks';
 import { usePatchWishpool } from '@/api/domain/edit/hooks';
@@ -41,18 +41,14 @@ const EditPage = () => {
         imageKey: detail.imageKey,
       });
     }
-  }, []);
+  }, [detail]);
 
   const updateMutation = usePatchWishpool();
 
   const handleSubmit = async () => {
     if (!wishpoolId) return;
 
-    sessionStorage.removeItem('wishpool_celebrant');
-    sessionStorage.removeItem('wishpool_birthDay');
-    sessionStorage.removeItem('wishpool_description');
-    sessionStorage.removeItem('wishpool_imageKey');
-    sessionStorage.removeItem('wishpool_endDate');
+    sessionStorage.clear();
 
     const payload = {
       celebrant: formData.celebrant,
@@ -76,12 +72,8 @@ const EditPage = () => {
     setFormData((prev) => ({ ...prev, [name]: value }));
   };
 
-  const handleImageKeyChange = useCallback(
-    (newKey: string) => {
-      setFormData((prev) => ({ ...prev, imageKey: newKey }));
-    },
-    [setFormData],
-  );
+  const handleImageKeyChange = (newKey: string) =>
+    setFormData((prev) => ({ ...prev, imageKey: newKey }));
 
   return (
     <>
