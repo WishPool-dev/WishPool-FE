@@ -15,9 +15,9 @@ const getOrigin = () => {
 const InvitePage = () => {
   const content = 'invite' as ShareSectionType;
 
-  const chosenURL = sessionStorage.getItem('chosenURL') || '';
+  const chosenUrl = sessionStorage.getItem('chosenUrl') || '';
   const origin = getOrigin();
-  const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenUrl=${chosenURL}`;
+  const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenUrl=${chosenUrl}`;
 
   useEffect(() => {
     sessionStorage.clear();
