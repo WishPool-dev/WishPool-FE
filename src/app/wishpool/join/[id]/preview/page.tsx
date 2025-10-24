@@ -3,7 +3,7 @@
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
 
-import { usePostOwnerJoin } from '@/api/domain/join/hooks';
+import { usePostWishpoolJoin } from '@/api/domain/join/hooks';
 import { GiftItemDto } from '@/api/domain/join/types';
 import GiftCardImage from '@/assets/images/gift-card.png';
 import Button from '@/components/common/Button';
@@ -18,14 +18,14 @@ const PreviewPage = () => {
 
   const STORAGE_KEY = 'wishpool_gifts';
   const gifts = JSON.parse(
-    sessionStorage.getItem(STORAGE_KEY) || '',
+    sessionStorage.getItem(STORAGE_KEY) || '[]',
   ) as GiftItemDto[];
 
-  const { mutate: mutatePostOwner } = usePostOwnerJoin();
+  const { mutate: mutatePostWishpool } = usePostWishpoolJoin();
 
   const handleSubmit = async () => {
     try {
-      await mutatePostOwner({
+      await mutatePostWishpool({
         guestName: participant,
         wishpoolId,
         giftItemDto: gifts,
