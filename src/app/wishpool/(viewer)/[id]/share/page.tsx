@@ -1,11 +1,11 @@
 'use client';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
 
 import { useGetWishpoolJoinUrl } from '@/api/domain/form/hooks';
 import invite from '@/assets/images/invite.png';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 
 const getOrigin = () => {
@@ -15,14 +15,9 @@ const getOrigin = () => {
 
 const SharePage = () => {
   const content = 'invite' as ShareSectionType;
-  const [wishpoolId, setWishpoolId] = useState<number>();
+  const wishpoolId = useGetWishpoolId();
 
-  useEffect(() => {
-    const id = Number(sessionStorage.getItem('wishpoolId'));
-    setWishpoolId(id);
-  }, []);
-
-  const { data } = useGetWishpoolJoinUrl(wishpoolId ?? 0);
+  const { data } = useGetWishpoolJoinUrl(wishpoolId);
   const origin = getOrigin();
 
   const inviteUrl =

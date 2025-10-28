@@ -5,12 +5,13 @@ import BaseInput from '@/components/common/Form/BaseInput';
 import Question from '@/components/common/Form/Question';
 import ButtonContainer from '@/components/wishpool/builder/create/ButtonContainer';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 
 const NamePage = () => {
   const [name, setName] = useState({ participant: '' });
   const STORAGE_KEY = 'wishpool_participant';
 
-  const wishpoolId = Number(sessionStorage.getItem('wishpoolId'));
+  const wishpoolId = useGetWishpoolId();
 
   useEffect(() => {
     const initialParticipant = sessionStorage.getItem(STORAGE_KEY) || '';

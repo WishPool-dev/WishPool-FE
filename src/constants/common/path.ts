@@ -15,7 +15,7 @@ export const PATH = {
   WISHPOOL_HISTORY: '/wishpool/history',
 
   WISHPOOL_PREVIEW: '/wishpool/preview',
-  WISHPOOL_SHARE: '/wishpool/share',
+  WISHPOOL_SHARE: (id: number) => `/wishpool/${id}/share`,
   WISHPOOL_DETAIL: (id: number) => `/wishpool/${id}`,
   WISHPOOL_EDIT: (id: number) => `/wishpool/${id}/edit`,
   WISHPOOL_GIFTS: (id: number) => `/wishpool/${id}/gifts`,

@@ -48,16 +48,13 @@ const PreviewPage = () => {
     e.preventDefault();
 
     try {
-      sessionStorage.clear();
-
       const res = await createMutation.mutateAsync(data);
 
-      if (res.wishPoolId) {
-        sessionStorage.setItem('wishpoolId', res.wishPoolId.toString());
-      }
+      sessionStorage.clear();
 
-      router.push(PATH.WISHPOOL_SHARE);
-    } catch {
+      router.push(PATH.WISHPOOL_SHARE(res.wishpoolId));
+    } catch (e) {
+      console.log(e);
       alert('생성에 실패했습니다. 잠시 후 다시 시도해 주세요.');
     }
   };

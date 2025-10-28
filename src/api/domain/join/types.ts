@@ -10,3 +10,13 @@ export type WishpoolJoinRequest = {
 };
 
 export type WishpoolJoinResponse = number;
+
+export type WishpoolGuestInfoResponse = {
+  owner: string;
+  celebrant: string;
+  endDate: string;
+  description: string;
+  wishpoolId: number;
+  birthDay: string;
+  imageKey: string;
+};

@@ -4,6 +4,7 @@ export const END_POINT = {
   WISHPOOLS: 'wishpools',
   JOIN: 'join',
   SELECT: 'selections',
+  GUESTS: 'guests',
   GUEST: 'guest',
   CELEBRANT: 'celebrant',
   GIFTS: 'gifts',

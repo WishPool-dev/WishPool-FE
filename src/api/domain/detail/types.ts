@@ -18,7 +18,7 @@ export type WishpoolImageResponse = {
 
 export type WishpoolSelectionUrlResponse = {
   wishpoolId: number;
-  chosenURL: string;
+  chosenUrl: string;
 };
 
 export type WishpoolSelectionUrlRequest = {
