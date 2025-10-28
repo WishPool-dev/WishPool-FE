@@ -27,7 +27,10 @@ const FeedbackPage = () => {
       {
         onSuccess: () => {
           setOpenToast(true);
-          router.push(PATH.HOME);
+
+          setTimeout(() => {
+            router.push(PATH.HOME);
+          }, 2000);
         },
         onError: (error) => {
           console.error('🚨 피드백 제출 실패:', error);
