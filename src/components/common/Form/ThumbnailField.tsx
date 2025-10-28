@@ -16,7 +16,7 @@ const ThumbnailField = () => {
     error,
     imageKey: uploadedImageKey,
     handleImageChange,
-    // isUploading, 로딩중 처리
+    isUploading,
   } = useImageUpload();
 
   const [imageKey, setImageKey] = useState<string | null>(null);
@@ -51,7 +51,12 @@ const ThumbnailField = () => {
         ) : (
           <div className="absolute inset-0 flex flex-col items-center justify-center gap-[0.9rem]">
             <Icon name="photo" className="text-gray-400" />
-            <span className="subtitle3 text-gray-600">썸네일 이미지</span>
+
+            {isUploading ? (
+              <span className="subtitle3 text-gray-600">이미지 업로드 중</span>
+            ) : (
+              <span className="subtitle3 text-gray-600">썸네일 이미지</span>
+            )}
           </div>
         )}
       </div>
