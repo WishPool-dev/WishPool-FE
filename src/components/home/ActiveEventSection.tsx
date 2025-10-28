@@ -25,6 +25,7 @@ const EVENT_INFO = {
 const ActiveEventSection = ({ planType, wishpools }: activeEventProps) => {
   const wishpoolCount = wishpools?.length;
   const hasEvent = wishpoolCount > 0;
+  const LIMIT_COUNT = 3;
 
   const { label, message } = EVENT_INFO[planType];
   const { containerRef, currentIndex, scrollToIndex } = useScrollIndex();
@@ -37,7 +38,7 @@ const ActiveEventSection = ({ planType, wishpools }: activeEventProps) => {
             ref={containerRef}
             className="no-scrollbar mt-[2.6rem] flex snap-x snap-mandatory gap-[2rem] overflow-x-auto scroll-smooth"
           >
-            {wishpools.map((wishpool) => (
+            {wishpools.slice(0, LIMIT_COUNT).map((wishpool) => (
               <div
                 key={wishpool.wishpoolId}
                 className="w-full shrink-0 snap-start"
@@ -51,7 +52,7 @@ const ActiveEventSection = ({ planType, wishpools }: activeEventProps) => {
           </div>
 
           <div className="mt-[2rem] mb-[2.7rem] flex justify-center gap-[0.4rem]">
-            {wishpools.map((_, idx) => (
+            {wishpools.slice(0, LIMIT_COUNT).map((_, idx) => (
               <button key={idx} onClick={() => scrollToIndex(idx)}>
                 <Icon
                   name="dot"
