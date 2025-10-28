@@ -16,7 +16,8 @@ const getFooterContent = ({
   wishpoolId,
   ownerJoined,
 }: getFooterContentProps) => {
-  const status = ownerJoined ? 'JOINED' : wishpoolStatus;
+  const isWishpoolOpened = wishpoolStatus === 'OPEN';
+  const status = ownerJoined && isWishpoolOpened ? 'JOINED' : wishpoolStatus;
 
   switch (status) {
     case 'OPEN':
