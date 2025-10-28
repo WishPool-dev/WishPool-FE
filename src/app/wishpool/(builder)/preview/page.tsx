@@ -52,9 +52,7 @@ const PreviewPage = () => {
 
       sessionStorage.clear();
 
-      sessionStorage.setItem('wishpoolId', res.wishpoolId.toString());
-
-      router.push(PATH.WISHPOOL_SHARE);
+      router.push(PATH.WISHPOOL_SHARE(res.wishpoolId));
     } catch (e) {
       console.log(e);
       alert('생성에 실패했습니다. 잠시 후 다시 시도해 주세요.');
