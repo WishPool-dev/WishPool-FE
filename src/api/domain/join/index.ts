@@ -5,7 +5,7 @@ import { WishpoolJoinRequest } from './types';
 
 export const postWishpoolJoin = async (payload: WishpoolJoinRequest) => {
   const res = await axiosInstance.post(
-    `/${END_POINT.WISHPOOLS}/${END_POINT.JOIN}`,
+    `/${END_POINT.WISHPOOLS}/${END_POINT.GUESTS}`,
     payload,
   );
   return res.data;
