@@ -7,7 +7,7 @@ export type WishpoolCreateType = {
 };
 
 export type WishpoolCreateResponse = {
-  wishPoolId: number;
+  wishpoolId: number;
   shareIdentifier: string;
 };
 

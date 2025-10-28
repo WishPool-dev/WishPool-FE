@@ -7,8 +7,8 @@ import Icon from '@/components/common/Icon';
 import { useImageUpload } from '@/hooks/wishpool/useImageUpload';
 
 type ThumnailProps = {
-  imageKey?: string;
-  onChangeImageKey?: (newKey: string) => void;
+  imageKey: string | undefined;
+  onChangeImageKey: (newKey: string) => void;
 };
 
 const Thumbnail = ({ imageKey, onChangeImageKey }: ThumnailProps) => {
@@ -22,14 +22,14 @@ const Thumbnail = ({ imageKey, onChangeImageKey }: ThumnailProps) => {
     error,
     handleImageChange,
     isUploading,
-    imageKey: uploadedImageKey,
+    imageKey: newKey,
   } = useImageUpload();
 
   useEffect(() => {
-    if (uploadedImageKey && onChangeImageKey) {
-      onChangeImageKey(uploadedImageKey);
+    if (newKey) {
+      onChangeImageKey(newKey);
     }
-  }, [uploadedImageKey, onChangeImageKey]);
+  }, [newKey]);
 
   const currentDisplayUrl = preview
     ? preview

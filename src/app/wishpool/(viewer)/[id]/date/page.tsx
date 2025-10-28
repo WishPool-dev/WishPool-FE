@@ -36,8 +36,8 @@ const DatePage = () => {
         pickDate: endDate,
       });
 
-      const chosenURL = res.chosenURL;
-      sessionStorage.setItem('chosenURL', chosenURL);
+      const chosenUrl = res.chosenUrl;
+      sessionStorage.setItem('chosenUrl', chosenUrl);
       router.push(PATH.WISHPOOL_INVITE(wishpoolId));
     } catch {
       alert('선물 고르기 마감일 설정에 실패했습니다.');

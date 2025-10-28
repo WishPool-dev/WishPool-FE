@@ -36,6 +36,7 @@ const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
   };
 
   const isOpenedEvent = cardData.wishPoolStatus === 'OPEN';
+  const isPendingEvent = cardData.wishPoolStatus === 'PENDING';
 
   const imageKey = cardData?.imageKey || '';
 
@@ -54,7 +55,11 @@ const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
           </span>
         )}
         <span className="px-[1.2rem] text-white">
-          {isOpenedEvent ? `${cardData.D_day}일 뒤 마감` : '완료된 위시풀'}
+          {isOpenedEvent
+            ? `${cardData.D_day}일 뒤 마감`
+            : isPendingEvent
+              ? '위시풀 진행중'
+              : '완료된 위시풀'}
         </span>
       </span>
     </>
@@ -77,8 +82,11 @@ const EventCard = ({ currentIndex, cardData }: EventCardProps) => {
       <p className="body2 absolute bottom-[4.5rem] left-[1.6rem] text-white">
         {wishpoolStatusText(cardData.wishPoolStatus)}
       </p>
-      <strong className="title1 absolute bottom-[1.6rem] left-[1.6rem] text-white">
-        {cardData.celebrant}님을 위한 위시풀
+      <strong className="title1 absolute bottom-[1.6rem] left-[1.6rem] line-clamp-1 text-white">
+        {cardData.celebrant.length > 9
+          ? `${cardData.celebrant.slice(0, 9)}…`
+          : cardData.celebrant}
+        님을 위한 위시풀
       </strong>
       <button
         onClick={handleGoDetail}
