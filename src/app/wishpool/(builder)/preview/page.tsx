@@ -74,7 +74,7 @@ const PreviewPage = () => {
           </p>
 
           <div className="bg-background-02 text-text body1 mt-[3.8rem] flex h-[5.6rem] flex-row items-center justify-between rounded-[12px] px-[1.6rem] py-[0.8rem]">
-            <span className="flex flex-row gap-[1.2rem]">
+            <span className="flex items-center gap-[1.2rem]">
               <UserTag>생일자</UserTag>
               {data.celebrant}
             </span>
@@ -109,7 +109,7 @@ const PreviewPage = () => {
 
           <div className="my-[2.8rem] w-full border-b border-gray-300"></div>
           <div className="bg-background-02 text-text body1 flex h-[5.6rem] flex-row items-center justify-between rounded-[12px] px-[1.6rem] py-[0.8rem]">
-            <span className="flex flex-row gap-[1.2rem]">
+            <span className="flex items-center gap-[1.2rem]">
               <UserTag>참여자</UserTag>
               선물 리스트 마감일
             </span>
