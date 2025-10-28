@@ -40,10 +40,11 @@ const DetailPage = () => {
 
   const footerProps = wishpool
     ? getFooterContent({
-        status: wishpool.status,
+        wishpoolStatus: wishpool.status,
         dDay: wishpool.d_day,
         routerPush: router.push,
         wishpoolId: wishpoolId,
+        ownerJoined: wishpool.ownerJoined,
       })
     : null;
 
@@ -60,16 +61,18 @@ const DetailPage = () => {
         />
       </div>
       <section className="text-text p-[2rem]">
-        <div className="flex items-center justify-between">
-          <span className="bg-background-02 caption2 rounded-[6px] px-[1.2rem] py-[0.6rem] text-gray-800">
+        <div className="flex items-center justify-between gap-[3rem]">
+          <span className="bg-background-02 caption2 shrink-0 rounded-[6px] px-[1.2rem] py-[0.6rem] text-gray-800">
             참여자 마감일 {wishpool?.endDate}
           </span>
-          <span className="caption2 text-blue-primary bg-background-02 flex items-center gap-[0.4rem] rounded-[4px] px-[1.2rem] py-[0.6rem]">
+          <span className="bg-background-02 flex items-center gap-[0.4rem] rounded-[4px] px-[1.2rem] py-[0.6rem]">
             <Icon
               name="birthday"
               className="text-blue-4 h-[1.6rem] w-[1.6rem]"
             />
-            {wishpool?.celebrant}
+            <p className="caption2 text-blue-primary line-clamp-1">
+              {wishpool?.celebrant}
+            </p>
           </span>
         </div>
         <div className="mt-[2rem]">

@@ -70,10 +70,10 @@ const PreviewPage = () => {
             위시풀의 정보를 확인해 주세요.
           </p>
 
-          <div className="bg-background-02 text-text body1 mt-[3.8rem] flex h-[5.6rem] flex-row items-center justify-between rounded-[12px] px-[1.6rem] py-[0.8rem]">
-            <span className="flex flex-row gap-[1.2rem]">
+          <div className="bg-background-02 text-text body1 mt-[3.8rem] flex h-[5.6rem] flex-row items-center justify-between gap-[1rem] rounded-[12px] px-[1.6rem] py-[0.8rem]">
+            <span className="flex items-center gap-[1.2rem]">
               <UserTag>생일자</UserTag>
-              {data.celebrant}
+              <span className="line-clamp-1">{data.celebrant}</span>
             </span>
             <span className="flex flex-row gap-[1rem]">
               <Icon
@@ -106,7 +106,7 @@ const PreviewPage = () => {
 
           <div className="my-[2.8rem] w-full border-b border-gray-300"></div>
           <div className="bg-background-02 text-text body1 flex h-[5.6rem] flex-row items-center justify-between rounded-[12px] px-[1.6rem] py-[0.8rem]">
-            <span className="flex flex-row gap-[1.2rem]">
+            <span className="flex items-center gap-[1.2rem]">
               <UserTag>참여자</UserTag>
               선물 리스트 마감일
             </span>

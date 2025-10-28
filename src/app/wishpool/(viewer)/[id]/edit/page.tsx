@@ -64,7 +64,7 @@ const EditPage = () => {
       setTimeout(() => router.back(), 1000);
     } catch (err) {
       console.error(err);
-      alert('위시풀 수정에 실패했습니다.');
+      alert('위시풀 수정에 실패했어요 🥲');
     }
   };
 
