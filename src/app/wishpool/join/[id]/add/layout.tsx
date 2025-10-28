@@ -4,12 +4,14 @@ import { useRouter } from 'next/navigation';
 
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 
 const AddLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
+  const wishpoolId = useGetWishpoolId();
 
   const handleClose = () => {
-    router.push(PATH.WISHPOOL_DETAIL(1));
+    router.push(PATH.WISHPOOL_DETAIL(wishpoolId));
   };
 
   return (
