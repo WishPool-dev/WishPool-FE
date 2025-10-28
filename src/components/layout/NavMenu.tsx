@@ -28,7 +28,9 @@ const NavMenu = () => {
               key={label}
               className={`flex h-[6.3rem] items-center justify-center p-[1rem] ${isActive ? 'bg-background-02 text-blue-primary title1 w-full' : 'subtitle1'}`}
             >
-              <Link href={href}>{label}</Link>
+              <Link className="w-full" href={href}>
+                {label}
+              </Link>
             </li>
           );
         })}
