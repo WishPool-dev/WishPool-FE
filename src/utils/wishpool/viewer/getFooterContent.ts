@@ -2,18 +2,22 @@ import { PATH } from '@/constants/common/path';
 import { WishpoolStatusType } from '@/types/common/wishpoolStatusType';
 
 type getFooterContentProps = {
-  status: WishpoolStatusType;
+  wishpoolStatus: WishpoolStatusType;
   dDay: number;
   routerPush: (path: string) => void;
   wishpoolId: number;
+  ownerJoined: boolean;
 };
 
 const getFooterContent = ({
-  status,
+  wishpoolStatus,
   dDay,
   routerPush,
   wishpoolId,
+  ownerJoined,
 }: getFooterContentProps) => {
+  const status = ownerJoined ? 'JOINED' : wishpoolStatus;
+
   switch (status) {
     case 'OPEN':
       return {

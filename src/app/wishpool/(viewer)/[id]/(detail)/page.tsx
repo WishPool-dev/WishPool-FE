@@ -40,10 +40,11 @@ const DetailPage = () => {
 
   const footerProps = wishpool
     ? getFooterContent({
-        status: wishpool.status,
+        wishpoolStatus: wishpool.status,
         dDay: wishpool.d_day,
         routerPush: router.push,
         wishpoolId: wishpoolId,
+        ownerJoined: wishpool.ownerJoined,
       })
     : null;
 
