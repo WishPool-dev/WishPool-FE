@@ -9,6 +9,7 @@ const CreateLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const handleClose = () => {
     router.push(PATH.HOME);
+    sessionStorage.clear();
   };
 
   return (
