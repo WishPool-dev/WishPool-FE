@@ -22,6 +22,8 @@ export const PATH = {
   WISHPOOL_INVITE: (id: number) => `/wishpool/${id}/invite`,
   WISHPOOL_DATE: (id: number) => `/wishpool/${id}/date`,
 
+  WISHPOOL_FINAL: (id: number) => `/wishpool/${id}/final`,
+
   PICK_INVITE: '/pick/invite',
   PICK_INTRO: '/pick/intro',
   PICK_SELECT: '/pick/select',
