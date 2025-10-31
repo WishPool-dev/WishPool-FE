@@ -65,13 +65,15 @@ const GiftField = ({
     <>
       <div className="mt-[4rem] mb-[0.8rem] flex justify-between">
         <p className="subtitle2 text-text max-w-[430px]">{label}</p>
-        <button
-          className="flex items-center justify-center"
-          type="button"
-          onClick={onRemove}
-        >
-          <Icon name="trash" width={20} height={20} />
-        </button>
+        {index > 0 && (
+          <button
+            className="flex items-center justify-center"
+            type="button"
+            onClick={onRemove}
+          >
+            <Icon name="trash" width={20} height={20} />
+          </button>
+        )}
       </div>
       <div className="relative w-full">
         <input
