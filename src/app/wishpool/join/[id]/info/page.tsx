@@ -55,7 +55,9 @@ const InfoPage = () => {
         />
         <div className="body2 flex gap-[1.2rem] p-[1.6rem]">
           <span className="shrink-0 text-gray-600">소개</span>
-          <p className="text-gray-800">{wishpoolData?.description}</p>
+          <p className="whitespace-pre-line text-gray-800">
+            {wishpoolData?.description}
+          </p>
         </div>
       </div>
 

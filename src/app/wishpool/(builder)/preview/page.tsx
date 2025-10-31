@@ -55,7 +55,6 @@ const PreviewPage = () => {
       router.push(PATH.WISHPOOL_SHARE(res.wishpoolId));
     } catch (e) {
       console.log(e);
-      alert('생성에 실패했습니다. 잠시 후 다시 시도해 주세요.');
     }
   };
 
@@ -100,7 +99,9 @@ const PreviewPage = () => {
           <div className="bg-background-02 body2 w-full rounded-[12px] p-[1.6rem] break-words">
             <div className="flex gap-[1.2rem]">
               <span className="flex-shrink-0 text-gray-600">소개</span>
-              <p className="text-gray-800">{data.description}</p>
+              <p className="whitespace-pre-line text-gray-800">
+                {data.description}
+              </p>
             </div>
           </div>
 
