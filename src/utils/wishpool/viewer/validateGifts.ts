@@ -18,7 +18,5 @@ export const validateGifts = (gifts: GiftItemDto[]) => {
     return '최소 한 개의 선물을 등록해주세요';
   }
 
-  if (gifts.length >= 5) {
-    return '선물은 최대 5개 까지만 등록할 수 있어요';
-  }
+  return null;
 };

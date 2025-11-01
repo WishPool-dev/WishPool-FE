@@ -48,6 +48,10 @@ const AddPage = () => {
   };
 
   const addGift = () => {
+    if (gifts.length >= 5) {
+      setToast('선물은 최대 5개 까지만 등록할 수 있어요');
+      return;
+    }
     const errToast = validateGifts(gifts);
     if (errToast) {
       setToast(errToast);
