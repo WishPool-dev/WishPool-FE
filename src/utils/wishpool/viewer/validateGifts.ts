@@ -2,10 +2,10 @@ import { GiftItemDto } from '@/api/domain/join/types';
 
 export const validateGifts = (gifts: GiftItemDto[]) => {
   for (const gift of gifts) {
-    if (!gift.itemName || gift.itemName === '') {
+    if (!gift.itemName) {
       return '선물 이름을 입력해주세요';
     }
-    if (!gift.itemUrl || gift.itemUrl === '') {
+    if (!gift.itemUrl) {
       return '선물 링크를 입력해주세요';
     }
   }
