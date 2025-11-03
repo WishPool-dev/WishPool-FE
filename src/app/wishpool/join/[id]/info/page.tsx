@@ -9,6 +9,7 @@ import WishpoolCardImage from '@/assets/images/wishpool-card.png';
 import BirthdayInfo from '@/components/common/BirthdayInfo';
 import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
+import Loading from '@/components/common/Loading';
 import { PATH } from '@/constants/common/path';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 import { getSlashDateFmt } from '@/utils/wishpool/builder/dateFmt';
@@ -19,10 +20,14 @@ const InfoPage = () => {
   const param = useSearchParams();
   const shareidentifier = param.get('shareIdentifier') ?? '';
   const { data: wishpoolData } = useGetWishpoolGuestInfo(shareidentifier);
-  const { data: wishpoolImage } = useGetWishpoolImage(
+  const { data: wishpoolImage, isPending } = useGetWishpoolImage(
     wishpoolData?.imageKey ?? '',
   );
   const displayImg = wishpoolImage?.key || WishpoolCardImage;
+
+  if (isPending) {
+    return <Loading />;
+  }
 
   return (
     <>
