@@ -5,6 +5,7 @@ import { useGetChosenGiftList } from '@/api/domain/detail/hooks';
 import Button from '@/components/common/Button';
 import KakaoButton from '@/components/common/Button/KakaoButton';
 import Icon from '@/components/common/Icon';
+import Loading from '@/components/common/Loading';
 import GiftCard from '@/components/pick/list/GiftCard';
 import { PATH } from '@/constants/common/path';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
@@ -13,7 +14,11 @@ const FinalPage = () => {
   const router = useRouter();
   const wishpoolId = useGetWishpoolId();
 
-  const { data: giftData } = useGetChosenGiftList(wishpoolId);
+  const { data: giftData, isPending } = useGetChosenGiftList(wishpoolId);
+
+  if (isPending) {
+    return <Loading />;
+  }
 
   return (
     <>
