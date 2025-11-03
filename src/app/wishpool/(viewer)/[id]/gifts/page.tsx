@@ -12,9 +12,9 @@ import { GiftCardType } from '@/types/common/giftCardType';
 const GiftPage = () => {
   const wishpoolId = useGetWishpoolId();
 
-  const { data: giftData, isLoading } = useGetGiftList(wishpoolId);
+  const { data: giftData, isPending } = useGetGiftList(wishpoolId);
 
-  if (isLoading) {
+  if (isPending) {
     return <Loading />;
   }
 
