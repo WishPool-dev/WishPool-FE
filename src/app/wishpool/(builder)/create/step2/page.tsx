@@ -12,7 +12,7 @@ const Step2Page = () => {
   const step = STEPS.STEP2;
 
   const [formData, setFormData] = useState({ description: '' });
-
+  const celebrant = sessionStorage.getItem('wishpool_celebrant');
   useEffect(() => {
     const initialDescription =
       sessionStorage.getItem('wishpool_description') || '';
@@ -30,7 +30,8 @@ const Step2Page = () => {
       <ProgressBar currentStep={step} />
       <div className="mt-[3.9rem]">
         <span className="bg-background-02 caption2 inline-block rounded-[4px] px-[1.2rem] py-[0.6rem] text-gray-600">
-          <span className="text-blue-primary">홍길동</span>에게 보내는 위시풀
+          <span className="text-blue-primary">{celebrant}</span>님에게 보내는
+          위시풀
         </span>
 
         <div className="mt-[1.6rem]">
