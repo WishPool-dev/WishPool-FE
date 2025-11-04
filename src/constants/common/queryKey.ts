@@ -17,6 +17,8 @@ export const QUERY_KEY = {
 
   WISHPOOL_JOIN_URL: (wishpoolId: number) => ['wishpool', wishpoolId],
 
+  WISHPOOL_CHOSEN_GIFTS: (wishpoolId: number) => ['chosenGiftList', wishpoolId],
+
   AUTH: ['auth'],
   PROFILE: ['profile'],
 } as const;

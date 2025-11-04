@@ -2,7 +2,7 @@
 import Image from 'next/image';
 
 import { useGetWishpoolJoinUrl } from '@/api/domain/form/hooks';
-import invite from '@/assets/images/invite.png';
+import share from '@/assets/images/share.png';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { PATH } from '@/constants/common/path';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
@@ -35,7 +35,7 @@ const SharePage = () => {
       </div>
       <div className="mt-[3.6rem] flex items-center justify-center">
         <Image
-          src={invite}
+          src={share}
           alt="위시풀 공유 완료 일러스트"
           width={180}
           height={180}

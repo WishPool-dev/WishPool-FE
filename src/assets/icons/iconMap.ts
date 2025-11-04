@@ -14,6 +14,7 @@ import GiftIcon from '@/assets/icons/svg/icon_gift.svg';
 import GridIcon from '@/assets/icons/svg/icon_grid.svg';
 import HomeIcon from '@/assets/icons/svg/icon_home.svg';
 import KaKaoIcon from '@/assets/icons/svg/icon_kakao.svg';
+import LoadingIcon from '@/assets/icons/svg/icon_loading.svg';
 import MenuIcon from '@/assets/icons/svg/icon_menu.svg';
 import MoreIcon from '@/assets/icons/svg/icon_more.svg';
 import NextIcon from '@/assets/icons/svg/icon_next.svg';
@@ -52,6 +53,7 @@ export const iconMap = {
   star: StarIcon,
   next: NextIcon,
   ribbon: RibbonIcon,
+  loading: LoadingIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;

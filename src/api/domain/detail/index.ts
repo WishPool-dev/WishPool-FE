@@ -1,5 +1,6 @@
 import { axiosInstance } from '@/api/axiosInstance';
 import {
+  WishpoolChosenGiftListResponse,
   WishpoolDetailResponse,
   WishpoolImageResponse,
   WishpoolSelectionUrlRequest,
@@ -40,6 +41,13 @@ export const patchSelectionUrl = async (
   const res = await axiosInstance.patch(
     `/${END_POINT.API}/${END_POINT.WISHPOOLS}/${payload.wishpoolId}/${END_POINT.SELECTION}`,
     payload,
+  );
+  return res.data;
+};
+
+export const getChosenGiftList = async (wishpoolId: number) => {
+  const res = await axiosInstance.get<WishpoolChosenGiftListResponse>(
+    `${END_POINT.WISHPOOLS}/${END_POINT.COMPLETED}/${wishpoolId}`,
   );
   return res.data;
 };

@@ -25,3 +25,14 @@ export type WishpoolSelectionUrlRequest = {
   wishpoolId: number;
   pickDate: string;
 };
+
+export type WishpoolChosenGiftListResponse = {
+  celebrant: string;
+  selectedGiftsListDto: [
+    {
+      giftId: number;
+      giftName: string;
+      giftImage: string;
+    },
+  ];
+};

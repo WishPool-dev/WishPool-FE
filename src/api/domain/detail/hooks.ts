@@ -2,12 +2,14 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 
 import {
   deleteWishpool,
+  getChosenGiftList,
   getWishpoolDetail,
   getWishpoolImage,
   patchSelectionUrl,
   patchStopWishpool,
 } from '@/api/domain/detail';
 import {
+  WishpoolChosenGiftListResponse,
   WishpoolDetailResponse,
   WishpoolImageResponse,
   WishpoolSelectionUrlRequest,
@@ -73,5 +75,13 @@ export const usePatchSelectionUrl = () => {
     mutationFn: (payload) => {
       return patchSelectionUrl(payload);
     },
+  });
+};
+
+export const useGetChosenGiftList = (wishpoolId: number) => {
+  return useQuery<WishpoolChosenGiftListResponse>({
+    queryKey: QUERY_KEY.WISHPOOL_CHOSEN_GIFTS(wishpoolId),
+    queryFn: () => getChosenGiftList(wishpoolId),
+    enabled: !!wishpoolId,
   });
 };

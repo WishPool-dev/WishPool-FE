@@ -20,11 +20,11 @@ export const useImageUpload = () => {
     if (!file) return;
 
     if (!file.type.startsWith('image/')) {
-      setError('이미지 파일만 업로드할 수 있습니다.');
+      setError('이미지 파일만 업로드할 수 있어요');
       return;
     }
     if (file.size > 5 * 1024 * 1024) {
-      setError('최대 5MB까지만 허용합니다.');
+      setError('최대 5MB까지만 허용해요');
       return;
     }
 
@@ -39,7 +39,7 @@ export const useImageUpload = () => {
         setImageKey(res.key);
       }
     } catch {
-      setError('이미지 업로드에 실패했습니다. 다시 시도해주세요.');
+      setError('이미지 업로드에 실패했어요. 다시 시도해주세요.');
     }
   };
 
