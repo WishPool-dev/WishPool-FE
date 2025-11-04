@@ -29,8 +29,9 @@ const Page = () => {
         alt="위시풀 박스 사진"
         className="mx-auto mt-[4.2rem] mb-[2rem] h-[18rem] w-[18rem] object-cover"
       />
-
-      <InfoBox />
+      <div className="mb-[10rem]">
+        <InfoBox />
+      </div>
 
       <div className="fixed right-0 bottom-[2rem] left-0 mx-auto max-w-[43rem] px-[2rem]">
         <IconButton onClick={handleClick}>

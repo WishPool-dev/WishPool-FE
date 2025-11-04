@@ -16,7 +16,8 @@ const getFooterContent = ({
   wishpoolId,
   ownerJoined,
 }: getFooterContentProps) => {
-  const status = ownerJoined ? 'JOINED' : wishpoolStatus;
+  const isWishpoolOpened = wishpoolStatus === 'OPEN';
+  const status = ownerJoined && isWishpoolOpened ? 'JOINED' : wishpoolStatus;
 
   switch (status) {
     case 'OPEN':
@@ -50,6 +51,7 @@ const getFooterContent = ({
         title: '선물이 선택됐어요!',
         content: '어떤 선물을 골랐을까요?',
         buttonContent: '선택 선물 확인하기',
+        onClick: () => routerPush(PATH.WISHPOOL_FINAL(wishpoolId)),
       };
 
     case 'JOINED':

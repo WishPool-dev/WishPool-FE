@@ -96,7 +96,9 @@ const DetailPage = () => {
           </button>
           <div className="bg-background-02 body2 flex gap-[1.2rem] rounded-[12px] p-[1.6rem]">
             <span className="shrink-0 text-gray-600">소개</span>
-            <p className="text-gray-800">{wishpool?.description}</p>
+            <p className="whitespace-pre-line text-gray-800">
+              {wishpool?.description}
+            </p>
           </div>
         </div>
         <button

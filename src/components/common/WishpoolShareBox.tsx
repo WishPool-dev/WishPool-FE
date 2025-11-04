@@ -1,11 +1,10 @@
 'use client';
 import { useState } from 'react';
 
+import KakaoButton from '@/components/common/Button/KakaoButton/KakaoButton';
 import Toast from '@/components/common/Toast';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 import copyText from '@/utils/wishpool/viewer/copyText';
-
-import KakaoButton from './Button/KakaoButton';
 
 const WISHPOOL_SHARE_CONTENT = {
   invite: {
@@ -15,6 +14,10 @@ const WISHPOOL_SHARE_CONTENT = {
   share: {
     linkTitle: '위시풀 링크',
     linkDescription: '생일자에게 위시풀 링크를 공유해 주세요!',
+  },
+  complete: {
+    linkTitle: '위시풀 완료',
+    linkDescription: '위시풀이 완료되었음을 친구들에게 알려주세요!',
   },
 };
 
@@ -53,7 +56,7 @@ const WishpoolShareBox = ({ linkUrl, linkContent }: ShareComponentProps) => {
           </button>
         </div>
         <div className="mt-[1.2rem]">
-          <KakaoButton />
+          <KakaoButton shareType={linkContent} linkUrl={linkUrl} />
         </div>
       </section>
       <p className="body2 mt-[2.8rem] text-center text-gray-600">

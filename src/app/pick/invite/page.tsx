@@ -18,7 +18,7 @@ const InviteHandler = () => {
 
   const identifier = useGetChosenUrl();
 
-  const { data: pickData } = useGetPickGiftList(identifier);
+  const { data: pickData, isPending } = useGetPickGiftList(identifier);
 
   useEffect(() => {
     if (pickData?.wishpoolId) {
@@ -31,6 +31,10 @@ const InviteHandler = () => {
       );
     }
   }, [pickData]);
+
+  if (isPending) {
+    return <Loading />;
+  }
 
   return (
     <>
@@ -67,7 +71,6 @@ const InviteHandler = () => {
           birthDay={pickData?.birthDay || ''}
         />
       </div>
-
       <div className="fixed right-0 bottom-0 left-0 mx-auto max-w-[430px] border-t border-gray-300 bg-white px-[2rem] pb-[2rem]">
         <p className="text-text caption1 my-[1.6rem] text-center">
           선물 고르기 마감일: {pickData?.endPickDate || ''}

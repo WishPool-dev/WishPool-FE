@@ -15,4 +15,5 @@ export const END_POINT = {
   LOGOUT: 'auth/logout',
   SHARED: 'shared',
   STATUS: 'status',
+  COMPLETED: 'completed',
 } as const;

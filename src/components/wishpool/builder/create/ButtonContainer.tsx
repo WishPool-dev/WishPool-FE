@@ -7,14 +7,20 @@ const ButtonContainer = ({
   isNextDisabled,
   next,
   back,
+  onNext,
 }: {
   isNextDisabled: boolean;
   next: string;
   back: string;
+  onNext?: () => void;
 }) => {
   const router = useRouter();
 
   const handleNext = () => {
+    if (onNext) {
+      onNext();
+      return;
+    }
     router.push(next);
   };
 

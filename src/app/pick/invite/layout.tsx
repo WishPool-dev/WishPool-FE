@@ -4,7 +4,7 @@ const InviteLayout = ({ children }: { children: React.ReactNode }) => {
   return (
     <>
       <HomeHeader />
-      <main className="from-Background-02 to-blue-5 pt-header h-[100vh] bg-gradient-to-b px-[2rem]">
+      <main className="from-Background-02 to-blue-5 pt-header min-h-screen bg-gradient-to-b px-[2rem]">
         {children}
       </main>
     </>
