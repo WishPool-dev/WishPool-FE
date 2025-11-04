@@ -1,37 +1,35 @@
 'use client';
 import { useRouter } from 'next/navigation';
 
+import { useGetChosenGiftList } from '@/api/domain/detail/hooks';
 import Button from '@/components/common/Button';
 import KakaoButton from '@/components/common/Button/KakaoButton';
 import Icon from '@/components/common/Icon';
+import Loading from '@/components/common/Loading';
 import GiftCard from '@/components/pick/list/GiftCard';
 import { PATH } from '@/constants/common/path';
-
-const data = [
-  {
-    giftId: 1,
-    itemName: '선물 A',
-    itemUrl: '/images/gift-a.png',
-  },
-  {
-    giftId: 2,
-    itemName: '선물 B',
-    itemUrl: '/images/gift-b.png',
-  },
-];
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 
 const FinalPage = () => {
   const router = useRouter();
+  const wishpoolId = useGetWishpoolId();
+
+  const { data: giftData, isPending } = useGetChosenGiftList(wishpoolId);
+
+  if (isPending) {
+    return <Loading />;
+  }
 
   return (
     <>
       <div className="gap-[0.4rem]">
         <p className="caption1 text-blue-primary">최종 결과</p>
         <p className="head1 text-text pt-[0.4rem]">
-          <span className="text-blue-primary">홍길동</span>님이 최종 선택한 선물
+          <span className="text-blue-primary">{giftData?.celebrant}</span>님이
+          최종 선택한 선물
         </p>
         <p className="body1 text-text">
-          홍길동님이 고른 선물은 바로 이거에요. <br />
+          {giftData?.celebrant}님이 고른 선물은 바로 이거에요. <br />
           생일을 축하해 주세요!
         </p>
       </div>
@@ -43,15 +41,17 @@ const FinalPage = () => {
           height={75}
           className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
-        {data.map(({ giftId, itemName, itemUrl }) => (
-          <GiftCard
-            key={giftId}
-            size="big"
-            giftId={giftId}
-            itemName={itemName}
-            itemUrl={itemUrl}
-          />
-        ))}
+        {giftData?.selectedGiftsListDto.map(
+          ({ giftId, giftName, giftImage }) => (
+            <GiftCard
+              key={giftId}
+              size="big"
+              giftId={giftId}
+              itemName={giftName}
+              itemUrl={giftImage}
+            />
+          ),
+        )}
       </section>
       <div className="fixed inset-x-0 bottom-0 bg-gradient-to-b from-white/0 to-white">
         <div className="mx-auto w-full max-w-[430px] p-[2rem]">
