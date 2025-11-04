@@ -18,8 +18,8 @@ const NameLayout = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const handleClose = () => {
-    if (hasToken) router.push(PATH.JOIN_INTRO(wishpoolId));
-    router.push(PATH.WISHPOOL_DETAIL(wishpoolId));
+    if (!hasToken) router.push(PATH.JOIN_INFO(wishpoolId));
+    else router.push(PATH.WISHPOOL_DETAIL(wishpoolId));
   };
 
   return (
