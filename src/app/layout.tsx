@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 
 import '@/styles/globals.css';
+import KakaoInitializer from '@/components/common/Button/KakaoButton/KakaoInitializer';
 import ReactQueryProvider from '@/components/ReactQueryProvider';
-import KakaoInitializer from '@/lib/KakaoInitializer';
 import { suite } from '@/styles/font';
 
 export const metadata: Metadata = {

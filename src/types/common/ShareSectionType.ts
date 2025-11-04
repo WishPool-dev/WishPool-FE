@@ -1,1 +1,1 @@
-export type ShareSectionType = 'invite' | 'share';
+export type ShareSectionType = 'invite' | 'share' | 'complete';

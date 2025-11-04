@@ -8,10 +8,24 @@ declare global {
       init: (key: string) => void;
       isInitialized: () => boolean;
       Share: {
-        sendScrap: (options: {
-          requestUrl: string;
-          // templateId: number;
-          //templateArgs: Record<string, string>;
+        sendDefault: (options: {
+          objectType: 'feed' | 'list' | 'location' | 'commerce' | 'text';
+          content: {
+            title: string;
+            description: string;
+            imageUrl: string;
+            link: {
+              mobileWebUrl: string;
+              webUrl: string;
+            };
+          };
+          buttons?: Array<{
+            title: string;
+            link: {
+              mobileWebUrl: string;
+              webUrl: string;
+            };
+          }>;
         }) => void;
       };
     };
