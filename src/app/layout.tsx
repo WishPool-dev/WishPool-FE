@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import '@/styles/globals.css';
+import KakaoInitializer from '@/components/common/Button/KakaoButton/KakaoInitializer';
 import ReactQueryProvider from '@/components/ReactQueryProvider';
 import { suite } from '@/styles/font';
 
@@ -19,6 +20,7 @@ export default function RootLayout({
       <body className={`${suite.className} bg-gray-100`}>
         <div className="mx-auto min-h-screen w-full max-w-[430px] bg-white shadow-md">
           <ReactQueryProvider>{children}</ReactQueryProvider>
+          <KakaoInitializer />
         </div>
       </body>
     </html>

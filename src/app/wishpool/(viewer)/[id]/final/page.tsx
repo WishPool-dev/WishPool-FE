@@ -3,7 +3,7 @@ import { useRouter } from 'next/navigation';
 
 import { useGetChosenGiftList } from '@/api/domain/detail/hooks';
 import Button from '@/components/common/Button';
-import KakaoButton from '@/components/common/Button/KakaoButton';
+import KakaoButton from '@/components/common/Button/KakaoButton/KakaoButton';
 import Icon from '@/components/common/Icon';
 import Loading from '@/components/common/Loading';
 import GiftCard from '@/components/pick/list/GiftCard';
@@ -56,7 +56,7 @@ const FinalPage = () => {
       <div className="fixed inset-x-0 bottom-0 bg-gradient-to-b from-white/0 to-white">
         <div className="mx-auto w-full max-w-[430px] p-[2rem]">
           <div className="flex flex-col gap-[1.2rem]">
-            <KakaoButton />
+            <KakaoButton shareType="complete" linkUrl={'dd'} />
             <Button textSize="lg" onClick={() => router.push(PATH.HOME)}>
               위시풀 끝내기
             </Button>
