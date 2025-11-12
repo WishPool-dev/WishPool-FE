@@ -1,22 +1,17 @@
 'use client';
 
 import { useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
 import { PATH } from '@/constants/common/path';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
+import { useHasToken } from '@/hooks/wishpool/useHasToken';
 
 const CompleteLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const wishpoolId = useGetWishpoolId();
 
-  const [hasToken, setHasToken] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    if (token) setHasToken(true);
-  }, []);
+  const hasToken = useHasToken();
 
   const handleClose = () => {
     if (!hasToken) router.push(PATH.INTRO);
