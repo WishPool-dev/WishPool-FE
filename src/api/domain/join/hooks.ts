@@ -15,10 +15,13 @@ export const usePostWishpoolJoin = () => {
   });
 };
 
-export const useGetWishpoolGuestInfo = (shareIdentifier: string) => {
+export const useGetWishpoolGuestInfo = (
+  id: number,
+  shareIdentifier: string,
+) => {
   return useQuery<WishpoolGuestInfoResponse>({
-    queryKey: QUERY_KEY.WISHPOOL_DETAIL_GUEST(shareIdentifier),
+    queryKey: QUERY_KEY.WISHPOOL_DETAIL_GUEST(id),
     queryFn: () => getWishpoolGuestInfo(shareIdentifier),
-    enabled: !!shareIdentifier,
+    enabled: !!shareIdentifier || !!id,
   });
 };

@@ -71,7 +71,7 @@ const DetailPage = () => {
               className="text-blue-4 h-[1.6rem] w-[1.6rem]"
             />
             <p className="caption2 text-blue-primary line-clamp-1">
-              {wishpool?.celebrant}
+              {wishpool?.birthDay}
             </p>
           </span>
         </div>

@@ -19,15 +19,17 @@ const InfoPage = () => {
   const wishpoolId = useGetWishpoolId();
   const param = useSearchParams();
   const shareidentifier = param.get('shareIdentifier') ?? '';
-  const { data: wishpoolData } = useGetWishpoolGuestInfo(shareidentifier);
+  const { data: wishpoolData } = useGetWishpoolGuestInfo(
+    wishpoolId,
+    shareidentifier,
+  );
   const { data: wishpoolImage, isPending } = useGetWishpoolImage(
     wishpoolData?.imageKey ?? '',
   );
   const displayImg = wishpoolImage?.key || WishpoolCardImage;
 
-  if (isPending) {
-    return <Loading />;
-  }
+  if (!wishpoolData) return <Loading />;
+  if (isPending) return <Loading />;
 
   return (
     <>
