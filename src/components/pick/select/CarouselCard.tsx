@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import type { PanInfo } from 'framer-motion';
 import Image from 'next/image';
 
+import { useGetWishpoolImage } from '@/api/domain/detail/hooks';
 import GiftCardImage from '@/assets/images/gift-card.png';
 import { useDeleteCard } from '@/hooks/pick/useDeleteCard';
 import type { GiftCardType } from '@/types/common/giftCardType';
@@ -25,7 +26,7 @@ export default function CarouselCard({
   onRemove,
   giftId,
   itemName,
-  // giftImage,
+  imageUrl: imageKey,
 }: CarouselCardProps) {
   const isActive = index === activeIndex;
 
@@ -38,6 +39,9 @@ export default function CarouselCard({
     handleDrag,
     handleDragEnd,
   } = useDeleteCard({ onRemove, id: giftId });
+
+  const { data: imageData } = useGetWishpoolImage(imageKey);
+  const finalSrc = imageData && imageData.key ? imageData.key : GiftCardImage;
 
   return (
     <>
@@ -73,7 +77,7 @@ export default function CarouselCard({
         ].join(' ')}
       >
         <Image
-          src={GiftCardImage}
+          src={finalSrc}
           alt="선물 카드 이미지"
           width={133}
           height={133}

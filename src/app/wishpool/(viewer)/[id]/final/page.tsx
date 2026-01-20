@@ -49,6 +49,7 @@ const FinalPage = () => {
               giftId={giftId}
               itemName={giftName}
               itemUrl={giftImage}
+              imageUrl={giftImage}
             />
           ),
         )}

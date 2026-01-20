@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
+import { useGetWishpoolImage } from '@/api/domain/detail/hooks';
 import GiftCardImage from '@/assets/images/gift-card.png';
 import UserTag from '@/components/common/UserTag';
 
@@ -8,14 +9,18 @@ type ItemCardProps = {
   guest: string;
   itemName: string;
   itemUrl: string;
+  imageUrl: string;
 };
 
-const ItemCard = ({ guest, itemName, itemUrl }: ItemCardProps) => {
+const ItemCard = ({ guest, itemName, itemUrl, imageUrl }: ItemCardProps) => {
+  const { data: imageData } = useGetWishpoolImage(imageUrl);
+  const finalSrc = imageData && imageData.key ? imageData.key : GiftCardImage;
+
   return (
     <>
       <Link href={itemUrl} className="flex grow-1 flex-col">
         <Image
-          src={GiftCardImage}
+          src={finalSrc}
           alt="프로필 이미지"
           sizes="100vw"
           className="rounded-[12px] object-cover"
