@@ -5,13 +5,17 @@ import { useRouter } from 'next/navigation';
 import RightIconHeader from '@/components/layout/Header/RightIconHeader';
 import { PATH } from '@/constants/common/path';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
+import { useHasToken } from '@/hooks/wishpool/useHasToken';
 
 const NameLayout = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
   const wishpoolId = useGetWishpoolId();
 
+  const hasToken = useHasToken();
+
   const handleClose = () => {
-    router.push(PATH.WISHPOOL_DETAIL(wishpoolId));
+    if (!hasToken) router.push(PATH.JOIN_INFO(wishpoolId));
+    else router.push(PATH.WISHPOOL_DETAIL(wishpoolId));
   };
 
   return (

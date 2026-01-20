@@ -56,7 +56,11 @@ const FinalPage = () => {
       <div className="fixed inset-x-0 bottom-0 bg-gradient-to-b from-white/0 to-white">
         <div className="mx-auto w-full max-w-[430px] p-[2rem]">
           <div className="flex flex-col gap-[1.2rem]">
-            <KakaoButton shareType="complete" linkUrl={'dd'} />
+            <KakaoButton
+              shareType="complete"
+              linkUrl={PATH.WISHPOOL_FINAL(wishpoolId)}
+              name={giftData?.celebrant || ''}
+            />
             <Button textSize="lg" onClick={() => router.push(PATH.HOME)}>
               위시풀 끝내기
             </Button>

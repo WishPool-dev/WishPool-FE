@@ -2,10 +2,10 @@ export const QUERY_KEY = {
   FILES: (fileKey: string) => [`files`, fileKey],
   WISHPOOLS_ALL: ['wishpools'],
   WISHPOOL_DETAIL: (wishpoolId: number) => ['wishpool', wishpoolId],
-  WISHPOOL_DETAIL_GUEST: (shareIdentifier: string) => [
+  WISHPOOL_DETAIL_GUEST: (wishpoolId: number) => [
     'wishpool',
     'guest',
-    shareIdentifier,
+    wishpoolId,
   ],
   WISHPOOL_GIFTS_ALL: (wishpoolId: number) => ['wishpool', 'gifts', wishpoolId],
   WISHPOOL_GIFTS_CELEBRANT: (chosenIdentifier: string | null) => [

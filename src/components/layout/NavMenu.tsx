@@ -1,7 +1,7 @@
 'use client';
 
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
+import { useEffect, useState } from 'react';
 
 import { PATH } from '@/constants/common/path';
 
@@ -13,6 +13,18 @@ const NAV_LIST = [
 
 const NavMenu = () => {
   const pathname = usePathname();
+  const router = useRouter();
+
+  const [token, setToken] = useState<string | null>(null);
+
+  useEffect(() => {
+    setToken(localStorage.getItem('accessToken'));
+  }, []);
+
+  const handleNavClick = (href: string) => {
+    if (!token) router.push(PATH.LOGIN);
+    else router.push(href);
+  };
 
   return (
     <nav
@@ -28,9 +40,9 @@ const NavMenu = () => {
               key={label}
               className={`flex h-[6.3rem] items-center justify-center p-[1rem] ${isActive ? 'bg-background-02 text-blue-primary title1 w-full' : 'subtitle1'}`}
             >
-              <Link className="w-full" href={href}>
+              <button className="w-full" onClick={() => handleNavClick(href)}>
                 {label}
-              </Link>
+              </button>
             </li>
           );
         })}

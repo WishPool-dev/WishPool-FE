@@ -43,7 +43,7 @@ const PreviewPage = () => {
         최종 점검
       </p>
       <p className="head1 text-text h-[3.2rem] max-w-[430px] pt-[0.4rem]">
-        위시풀의 정보를 확인해 주세요.
+        선물의 정보를 확인해 주세요.
       </p>
 
       <div className="bg-background-02 text-text body1 mt-[3.8rem] flex items-center gap-[1.2rem] rounded-[12px] p-[1.6rem]">

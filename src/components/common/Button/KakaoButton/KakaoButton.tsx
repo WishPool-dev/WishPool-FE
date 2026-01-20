@@ -4,43 +4,51 @@ import { ShareSectionType } from '@/types/common/ShareSectionType';
 type KakaoButtonProps = {
   shareType: ShareSectionType;
   linkUrl: string;
+  name: string;
 };
 
-const SHARE_CONTENTS: Record<
+const getShareContents = (
+  name: string,
+): Record<
   ShareSectionType,
   {
     title: string;
     description: string;
     buttonTitle: string;
   }
-> = {
+> => ({
   invite: {
-    title: '위시풀 초대장 도착!',
-    description: '친구야, 위시풀 만들기에 참여해 줄래?',
-    buttonTitle: '위시풀 만들러 가기',
+    title: `${name}님의 위시풀 초대장`,
+    description:
+      '친구 선물, 같이 고민해볼래?\n' +
+      `${name}님이 위시풀 참여 초대장을 보냈어요.`,
+    buttonTitle: '참여하기',
   },
   share: {
-    title: '나의 위시풀 링크입니다.',
-    description: '생일자에게 공유하고 선물을 골라보세요!',
-    buttonTitle: '선물 제안하러 가기',
+    title: `${name}님을 위한 위시리스트`,
+    description:
+      '친구들이 준비한 선물 리스트가 도착했어요.\n받고 싶은 선물을 골라주세요!',
+    buttonTitle: '선물 고르기',
   },
   complete: {
-    title: '🎉 위시풀 완료 안내 🎉',
-    description: '모두가 함께한 위시풀 결과를 확인하세요!',
+    title: '위시풀 완료 🎉',
+    description: `함께 고른 선물이 정해졌어요!\n${name}님의 선택 결과를 확인해보세요.`,
     buttonTitle: '결과 확인하기',
   },
-};
+});
 
-const KakaoButton = ({ shareType, linkUrl }: KakaoButtonProps) => {
+const KakaoButton = ({ shareType, linkUrl, name }: KakaoButtonProps) => {
   const handleKakaoShare = () => {
-    const content = SHARE_CONTENTS[shareType];
+    const content = getShareContents(name)[shareType];
+
+    console.log(`${window.location.origin}/share-card.png`);
 
     window.Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
         title: content.title,
         description: content.description,
-        imageUrl: `${window.location.origin}/share.png`,
+        imageUrl: `${window.location.origin}/share-card.png`,
         link: {
           mobileWebUrl: linkUrl,
           webUrl: linkUrl,

@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { useState } from 'react';
 
 import Icon from '@/components/common/Icon';
@@ -9,6 +9,7 @@ import type { HeaderColor } from '@/components/layout/Header/_types/HeaderColor'
 import BaseHeader from '@/components/layout/Header/BaseHeader';
 import NavMenu from '@/components/layout/NavMenu';
 import { PATH } from '@/constants/common/path';
+import { useHasToken } from '@/hooks/wishpool/useHasToken';
 
 type HomeHeaderProps = {
   hasMenu?: boolean;
@@ -16,23 +17,32 @@ type HomeHeaderProps = {
 };
 
 const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
+  const router = useRouter();
   const [openNav, setOpenNav] = useState(false);
+
   const handleNavMenu = () => {
     setOpenNav((prev) => !prev);
+  };
+
+  const hasToken = useHasToken();
+
+  const handleClose = () => {
+    if (hasToken) router.push(PATH.INTRO);
+    router.push(PATH.HOME);
   };
 
   return (
     <>
       <BaseHeader
         leftSlot={
-          <Link href={PATH.HOME}>
+          <button onClick={handleClose}>
             <Image
               src="/images/logo.svg"
               alt="위시풀 로고"
               width={118}
               height={26}
             />
-          </Link>
+          </button>
         }
         rightSlot={
           hasMenu ? (
