@@ -41,14 +41,12 @@ const KakaoButton = ({ shareType, linkUrl, name }: KakaoButtonProps) => {
   const handleKakaoShare = () => {
     const content = getShareContents(name)[shareType];
 
-    console.log(`${window.location.origin}/images/share-card.png`);
-
     window.Kakao.Share.sendDefault({
       objectType: 'feed',
       content: {
         title: content.title,
         description: content.description,
-        imageUrl: `${window.location.origin}/share-card.png`,
+        imageUrl: `${window.location.origin}/images/share-card.png`,
         link: {
           mobileWebUrl: linkUrl,
           webUrl: linkUrl,
