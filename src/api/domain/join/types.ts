@@ -1,6 +1,7 @@
 export type GiftItemDto = {
   itemUrl: string;
   itemName: string;
+  imageUrl?: string;
 };
 
 export type WishpoolJoinRequest = {
