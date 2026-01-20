@@ -2,6 +2,7 @@
 import Image from 'next/image';
 
 import { useGetWishpoolJoinUrl } from '@/api/domain/form/hooks';
+import { useGetProfile } from '@/api/domain/mypage/hooks';
 import share from '@/assets/images/share.png';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { PATH } from '@/constants/common/path';
@@ -18,6 +19,9 @@ const SharePage = () => {
   const wishpoolId = useGetWishpoolId();
 
   const { data } = useGetWishpoolJoinUrl(wishpoolId);
+  const { data: profile } = useGetProfile();
+  const name = profile?.nickName || '';
+
   const origin = getOrigin();
 
   const inviteUrl =
@@ -42,7 +46,11 @@ const SharePage = () => {
         />
       </div>
 
-      <WishpoolShareSection linkUrl={inviteUrl} linkContent={content} />
+      <WishpoolShareSection
+        linkUrl={inviteUrl}
+        linkContent={content}
+        name={name}
+      />
     </>
   );
 };
