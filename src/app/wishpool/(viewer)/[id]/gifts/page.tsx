@@ -30,6 +30,7 @@ const GiftPage = () => {
             guest={gift.guest || ''}
             itemName={gift.itemName}
             itemUrl={gift.itemUrl}
+            imageUrl={gift.imageUrl}
           />
         ))}
       </div>

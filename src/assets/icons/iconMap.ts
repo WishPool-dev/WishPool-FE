@@ -8,6 +8,7 @@ import CalendarIcon from '@/assets/icons/svg/icon_calender.svg';
 import CameraIcon from '@/assets/icons/svg/icon_camera.svg';
 import CancelIcon from '@/assets/icons/svg/icon_cancel.svg';
 import CheerIcon from '@/assets/icons/svg/icon_cheer.svg';
+import DeleteIcon from '@/assets/icons/svg/icon_delete.svg';
 import DotIcon from '@/assets/icons/svg/icon_dot.svg';
 import DownIcon from '@/assets/icons/svg/icon_down.svg';
 import GiftIcon from '@/assets/icons/svg/icon_gift.svg';
@@ -54,6 +55,7 @@ export const iconMap = {
   next: NextIcon,
   ribbon: RibbonIcon,
   loading: LoadingIcon,
+  delete: DeleteIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;

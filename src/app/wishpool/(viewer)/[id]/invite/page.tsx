@@ -7,6 +7,7 @@ import invite from '@/assets/images/invite.png';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { PATH } from '@/constants/common/path';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
+import { useGetChosenUrl } from '@/hooks/pick/useGetChosenUrl';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 
 const getOrigin = () => {
@@ -17,7 +18,7 @@ const getOrigin = () => {
 const InvitePage = () => {
   const content = 'invite' as ShareSectionType;
 
-  const chosenUrl = sessionStorage.getItem('chosenUrl') || '';
+  const chosenUrl = useGetChosenUrl();
   const origin = getOrigin();
   const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenUrl=${chosenUrl}`;
 

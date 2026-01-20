@@ -9,8 +9,8 @@ import GiftCardImage from '@/assets/images/gift-card.png';
 import Button from '@/components/common/Button';
 import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
+import { WISHPOOL_IMAGE_BASE_URL } from '@/constants/wishpool/image';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
-
 const PreviewPage = () => {
   const router = useRouter();
   const wishpoolId = useGetWishpoolId();
@@ -63,12 +63,23 @@ const PreviewPage = () => {
               key={`${gift.itemName}-${idx}`}
               className="flex flex-col items-center justify-center"
             >
-              <Image
-                src={GiftCardImage}
-                alt="선물 카드 이미지"
-                width={155}
-                height={155}
-              />
+              {gift.imageUrl ? (
+                <div className="relative h-[15.5rem] w-[15.5rem]">
+                  <Image
+                    src={`${WISHPOOL_IMAGE_BASE_URL}/${gift.imageUrl}`}
+                    alt="등록 선물 이미지"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+              ) : (
+                <Image
+                  src={GiftCardImage}
+                  alt="기본 선물 이미지"
+                  width={155}
+                  height={155}
+                />
+              )}
               <span className="subtitle2 text-text mt-[0.7rem] mb-[1rem] line-clamp-2 h-[4.8rem] text-center">
                 {gift.itemName}
               </span>

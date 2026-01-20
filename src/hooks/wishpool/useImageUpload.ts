@@ -43,11 +43,19 @@ export const useImageUpload = () => {
     }
   };
 
+  const reset = () => {
+    if (preview?.startsWith('blob:')) URL.revokeObjectURL(preview);
+    setPreview(null);
+    setImageKey(null);
+    setError(null);
+  };
+
   return {
     preview,
     error,
     imageKey,
     handleImageChange,
     isUploading: uploadMutation.isPending,
+    reset,
   };
 };
