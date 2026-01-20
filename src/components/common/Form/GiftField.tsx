@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import Icon from '@/components/common/Icon';
@@ -33,7 +34,7 @@ const GiftField = ({
   onRemove,
 }: GiftFieldProps) => {
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const { isUploading, preview, imageKey, handleImageChange } =
+  const { isUploading, preview, imageKey, handleImageChange, reset } =
     useImageUpload();
 
   const handleNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -53,6 +54,12 @@ const GiftField = ({
     onChangeImage(imageKey);
     patchGift(index, { imageUrl: imageKey });
   }, [imageKey]);
+
+  const handleDeleteImage = () => {
+    reset();
+    onChangeImage('');
+    patchGift(index, { imageUrl: '' });
+  };
 
   const imageSrc = valueImageUrl
     ? `${WISHPOOL_IMAGE_BASE_URL}/${valueImageUrl}`
@@ -109,13 +116,24 @@ const GiftField = ({
 
       <div className="mt-[1.2rem]">
         {displayImageSrc ? (
-          <img
-            src={displayImageSrc}
-            alt="선물 이미지 미리보기"
-            width={82}
-            height={82}
-            className="border-background-02 h-[8.2rem] w-[8.2rem] rounded-[12px] border"
-          />
+          <div className="relative">
+            <Image
+              src={displayImageSrc}
+              alt="선물 이미지 미리보기"
+              width={82}
+              height={82}
+              className="h-[8.2rem] w-[8.2rem] rounded-[12px] border border-gray-400"
+            />
+            <span className="absolute top-[0.6rem] left-[6rem]">
+              <button
+                type="button"
+                onClick={() => handleDeleteImage()}
+                aria-label="선물 이미지 삭제"
+              >
+                <Icon name="delete" width={16} height={16} />
+              </button>
+            </span>
+          </div>
         ) : (
           <div className="mt-[1.2rem]">
             <div className="flex h-[5.6rem] w-full gap-[1.2rem] rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.6rem] focus:border-gray-400 focus:outline-none">
