@@ -59,6 +59,7 @@ const FinalPage = () => {
             <KakaoButton
               shareType="complete"
               linkUrl={PATH.WISHPOOL_FINAL(wishpoolId)}
+              name={giftData?.celebrant || ''}
             />
             <Button textSize="lg" onClick={() => router.push(PATH.HOME)}>
               위시풀 끝내기
