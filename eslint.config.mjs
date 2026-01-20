@@ -3,19 +3,19 @@ import { fileURLToPath } from 'url';
 
 import { FlatCompat } from '@eslint/eslintrc';
 import eslintPluginImport from 'eslint-plugin-import';
+
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const compat = new FlatCompat({
   baseDirectory: __dirname,
+  resolvePluginsRelativeTo: __dirname,
 });
 
 const eslintConfig = [
-  ...compat.extends(
-    'next/core-web-vitals',
-    'next/typescript',
-    'plugin:prettier/recommended',
-  ),
+  ...compat.extends('next/core-web-vitals'),
+  ...compat.extends('next/typescript'),
+  ...compat.extends('plugin:prettier/recommended'),
 
   {
     plugins: {
