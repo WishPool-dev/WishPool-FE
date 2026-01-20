@@ -16,11 +16,11 @@ const getOrigin = () => {
 };
 
 const InvitePage = () => {
-  const content = 'invite' as ShareSectionType;
+  const content = 'share' as ShareSectionType;
 
   const chosenUrl = useGetChosenUrl();
   const origin = getOrigin();
-  const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenUrl=${chosenUrl}`;
+  const shareUrl = `${origin}${PATH.PICK_INVITE}?chosenUrl=${chosenUrl}`;
 
   const wishpoolId = useGetWishpoolId();
   const { data: wishpool } = useGetWishpoolDetail(wishpoolId);
@@ -50,7 +50,7 @@ const InvitePage = () => {
       </div>
 
       <WishpoolShareSection
-        linkUrl={inviteUrl}
+        linkUrl={shareUrl}
         linkContent={content}
         name={celebrant}
       />
