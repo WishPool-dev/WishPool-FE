@@ -52,7 +52,7 @@ const SelectPage = () => {
         className="no-scrollbar bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7rem] pb-[5rem]"
       >
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
-        {items.map(({ giftId, itemName, itemUrl }, i) => (
+        {items.map(({ giftId, itemName, itemUrl, imageUrl }, i) => (
           <CarouselCard
             key={giftId}
             giftId={giftId}
@@ -61,6 +61,7 @@ const SelectPage = () => {
             itemName={itemName}
             itemUrl={itemUrl}
             onRemove={handleRemove}
+            imageUrl={imageUrl}
           />
         ))}
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
