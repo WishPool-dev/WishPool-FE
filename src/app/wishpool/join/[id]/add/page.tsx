@@ -99,8 +99,10 @@ const AddPage = () => {
               maxLength={20}
               valueItemName={gift.itemName}
               valueLink={gift.itemUrl}
+              valueImageUrl={gift.imageUrl}
               onChangeItemName={(v) => handleGiftChange(idx, 'itemName', v)}
               onChangeLink={(v) => handleGiftChange(idx, 'itemUrl', v)}
+              onChangeImage={(v) => handleGiftChange(idx, 'imageUrl', v)}
               onRemove={() => removeGift(idx)}
             />
           </div>
