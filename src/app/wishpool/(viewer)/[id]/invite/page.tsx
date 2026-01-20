@@ -2,9 +2,11 @@
 import Image from 'next/image';
 import { useEffect } from 'react';
 
+import { useGetWishpoolDetail } from '@/api/domain/detail/hooks';
 import invite from '@/assets/images/invite.png';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { PATH } from '@/constants/common/path';
+import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 
 const getOrigin = () => {
@@ -18,6 +20,11 @@ const InvitePage = () => {
   const chosenUrl = sessionStorage.getItem('chosenUrl') || '';
   const origin = getOrigin();
   const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenUrl=${chosenUrl}`;
+
+  const wishpoolId = useGetWishpoolId();
+  const { data: wishpool } = useGetWishpoolDetail(wishpoolId);
+
+  const celebrant = wishpool?.celebrant || '';
 
   useEffect(() => {
     sessionStorage.clear();
@@ -41,7 +48,11 @@ const InvitePage = () => {
         />
       </div>
 
-      <WishpoolShareSection linkUrl={inviteUrl} linkContent={content} />
+      <WishpoolShareSection
+        linkUrl={inviteUrl}
+        linkContent={content}
+        name={celebrant}
+      />
     </>
   );
 };

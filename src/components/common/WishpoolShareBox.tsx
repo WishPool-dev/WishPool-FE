@@ -24,9 +24,14 @@ const WISHPOOL_SHARE_CONTENT = {
 interface ShareComponentProps {
   linkUrl: string;
   linkContent: ShareSectionType;
+  name: string;
 }
 
-const WishpoolShareBox = ({ linkUrl, linkContent }: ShareComponentProps) => {
+const WishpoolShareBox = ({
+  linkUrl,
+  linkContent,
+  name,
+}: ShareComponentProps) => {
   const [toast, setToast] = useState(false);
 
   const { linkTitle, linkDescription } = WISHPOOL_SHARE_CONTENT[linkContent];
@@ -56,7 +61,7 @@ const WishpoolShareBox = ({ linkUrl, linkContent }: ShareComponentProps) => {
           </button>
         </div>
         <div className="mt-[1.2rem]">
-          <KakaoButton shareType={linkContent} linkUrl={linkUrl} />
+          <KakaoButton shareType={linkContent} linkUrl={linkUrl} name={name} />
         </div>
       </section>
       <p className="body2 mt-[2.8rem] text-center text-gray-600">
