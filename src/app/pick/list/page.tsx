@@ -20,12 +20,13 @@ const ListPage = () => {
         <span>{items.length}개</span>
       </div>
       <section className="grid grid-cols-2 gap-[1.1rem]">
-        {items.map(({ giftId, itemName, itemUrl }) => (
+        {items.map(({ giftId, itemName, itemUrl, imageUrl }) => (
           <GiftCard
             key={giftId}
             giftId={giftId}
             itemName={itemName}
             itemUrl={itemUrl}
+            imageUrl={imageUrl}
           />
         ))}
       </section>
