@@ -1,6 +1,6 @@
 'use client';
 import Image from 'next/image';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 import { useGetWishpoolDetail } from '@/api/domain/detail/hooks';
 import invite from '@/assets/images/invite.png';
@@ -15,11 +15,10 @@ const getOrigin = () => {
 };
 
 const InvitePage = () => {
+  const [chosenUrl, setChosenUrl] = useState('');
   const content = 'invite' as ShareSectionType;
 
-  const chosenUrl = sessionStorage.getItem('chosenUrl') || '';
   const origin = getOrigin();
-  const inviteUrl = `${origin}${PATH.PICK_INVITE}?chosenUrl=${chosenUrl}`;
 
   const wishpoolId = useGetWishpoolId();
   const { data: wishpool } = useGetWishpoolDetail(wishpoolId);
@@ -27,8 +26,13 @@ const InvitePage = () => {
   const celebrant = wishpool?.celebrant || '';
 
   useEffect(() => {
-    sessionStorage.clear();
+    const chosenUrl = sessionStorage.getItem('chosenUrl') || '';
+    setChosenUrl(chosenUrl);
   }, []);
+
+  const inviteUrl = chosenUrl
+    ? `${origin}${PATH.PICK_INVITE}?chosenUrl=${chosenUrl}`
+    : '';
 
   return (
     <>
