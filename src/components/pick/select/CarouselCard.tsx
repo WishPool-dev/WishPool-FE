@@ -81,7 +81,7 @@ export default function CarouselCard({
           alt="선물 카드 이미지"
           width={133}
           height={133}
-          className="rounded-[12px] transition-all duration-300"
+          className="h-[13.3rem] w-[13.3rem] rounded-[12px] object-cover transition-all duration-300"
         />
         <span
           className={[
