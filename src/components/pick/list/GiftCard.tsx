@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useGetWishpoolImage } from '@/api/domain/detail/hooks';
 import GiftCardImage from '@/assets/images/gift-card.png';
 import type { GiftCardType } from '@/types/common/giftCardType';
 
@@ -19,9 +18,6 @@ const GiftCard = ({
   imageUrl,
 }: GiftCardProps) => {
   const isSmall = size === 'small';
-
-  const { data: imageData } = useGetWishpoolImage(imageUrl);
-  const finalSrc = imageData && imageData.key ? imageData.key : GiftCardImage;
 
   return (
     <div

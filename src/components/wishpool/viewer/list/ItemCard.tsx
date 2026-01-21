@@ -1,7 +1,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { useGetWishpoolImage } from '@/api/domain/detail/hooks';
 import GiftCardImage from '@/assets/images/gift-card.png';
 import UserTag from '@/components/common/UserTag';
 type ItemCardProps = {

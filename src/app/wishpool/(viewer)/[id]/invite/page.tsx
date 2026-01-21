@@ -7,7 +7,6 @@ import invite from '@/assets/images/invite.png';
 import WishpoolShareSection from '@/components/common/WishpoolShareBox';
 import { PATH } from '@/constants/common/path';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
-import { useGetChosenUrl } from '@/hooks/pick/useGetChosenUrl';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
 
 const getOrigin = () => {
@@ -54,7 +53,7 @@ const InvitePage = () => {
       </div>
 
       <WishpoolShareSection
-        linkUrl={shareUrl}
+        linkUrl={inviteUrl}
         linkContent={content}
         name={celebrant}
       />
