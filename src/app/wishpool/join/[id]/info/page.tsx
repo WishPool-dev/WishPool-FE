@@ -52,14 +52,15 @@ const InfoPage = () => {
           celebrant={wishpoolData?.celebrant ?? ''}
           birthDay={getSlashDateFmt(wishpoolData?.birthDay) ?? ''}
         />
+        <div className="relative h-[18.7rem] w-[35.3rem] overflow-hidden">
+          <Image
+            src={displayImg}
+            fill
+            className="object-cover"
+            alt="위시풀 대표 이미지"
+          />
+        </div>
 
-        <Image
-          src={displayImg}
-          width={430}
-          height={240}
-          className="w-full"
-          alt="위시풀 대표 이미지"
-        />
         <div className="body2 flex gap-[1.2rem] p-[1.6rem]">
           <span className="shrink-0 text-gray-600">소개</span>
           <p className="whitespace-pre-line text-gray-800">
