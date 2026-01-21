@@ -12,7 +12,6 @@ const ShareLayout = ({ children }: { children: React.ReactNode }) => {
 
   const handleClose = () => {
     router.push(PATH.WISHPOOL_DETAIL(wishpoolId));
-    sessionStorage.clear();
   };
 
   return (
