@@ -9,8 +9,8 @@ import GiftCardImage from '@/assets/images/gift-card.png';
 import Button from '@/components/common/Button';
 import UserTag from '@/components/common/UserTag';
 import { PATH } from '@/constants/common/path';
-import { WISHPOOL_IMAGE_BASE_URL } from '@/constants/wishpool/image';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
+
 const PreviewPage = () => {
   const router = useRouter();
   const wishpoolId = useGetWishpoolId();
@@ -66,9 +66,10 @@ const PreviewPage = () => {
               {gift.imageUrl ? (
                 <div className="relative h-[15.5rem] w-[15.5rem]">
                   <Image
-                    src={`${WISHPOOL_IMAGE_BASE_URL}/${gift.imageUrl}`}
+                    src={`${process.env.NEXT_PUBLIC_WISHPOOL_IMAGE_BASE_URL}/${gift.imageUrl}`}
                     alt="등록 선물 이미지"
-                    fill
+                    width={155}
+                    height={155}
                     className="object-cover"
                   />
                 </div>

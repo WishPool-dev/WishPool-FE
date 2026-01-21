@@ -2,7 +2,6 @@ import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 
 import Icon from '@/components/common/Icon';
-import { WISHPOOL_IMAGE_BASE_URL } from '@/constants/wishpool/image';
 import { useImageUpload } from '@/hooks/wishpool/useImageUpload';
 import { patchGift } from '@/utils/wishpool/viewer/manageGifts';
 
@@ -62,7 +61,7 @@ const GiftField = ({
   };
 
   const imageSrc = valueImageUrl
-    ? `${WISHPOOL_IMAGE_BASE_URL}/${valueImageUrl}`
+    ? `${process.env.NEXT_PUBLIC_WISHPOOL_IMAGE_BASE_URL}/${valueImageUrl}`
     : null;
 
   const displayImageSrc = preview ?? imageSrc;
