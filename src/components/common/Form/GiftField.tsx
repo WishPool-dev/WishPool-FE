@@ -122,7 +122,7 @@ const GiftField = ({
               alt="선물 이미지 미리보기"
               width={82}
               height={82}
-              className="h-[8.2rem] w-[8.2rem] rounded-[12px] border border-gray-400"
+              className="h-[8.2rem] w-[8.2rem] rounded-[12px] border border-gray-400 object-cover"
             />
             <span className="absolute top-[0.6rem] left-[6rem]">
               <button
