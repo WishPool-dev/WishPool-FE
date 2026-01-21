@@ -58,7 +58,7 @@ const FinalPage = () => {
           <div className="flex flex-col gap-[1.2rem]">
             <KakaoButton
               shareType="complete"
-              linkUrl={PATH.WISHPOOL_FINAL(wishpoolId)}
+              linkUrl={`${origin}${PATH.WISHPOOL_FINAL(wishpoolId)}`}
               name={giftData?.celebrant || ''}
             />
             <Button textSize="lg" onClick={() => router.push(PATH.HOME)}>
