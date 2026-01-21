@@ -42,13 +42,14 @@ const FinalPage = () => {
           className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
         {giftData?.selectedGiftsListDto.map(
-          ({ giftId, giftName, giftImage }) => (
+          ({ giftId, giftName, giftImage, imageUrl }) => (
             <GiftCard
               key={giftId}
               size="big"
               giftId={giftId}
               itemName={giftName}
               itemUrl={giftImage}
+              imageUrl={imageUrl}
             />
           ),
         )}

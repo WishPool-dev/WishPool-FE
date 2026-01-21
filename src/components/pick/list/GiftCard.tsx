@@ -15,7 +15,7 @@ const GiftCard = ({
   giftId,
   itemName,
   itemUrl,
-  itemImage,
+  imageUrl,
 }: GiftCardProps) => {
   const isSmall = size === 'small';
 
@@ -26,8 +26,8 @@ const GiftCard = ({
       <Link href={itemUrl} className="flex flex-col gap-[2.8rem]">
         <Image
           src={
-            itemImage
-              ? `${process.env.NEXT_PUBLIC_WISHPOOL_IMAGE_BASE_URL}/${itemImage}`
+            imageUrl
+              ? `${process.env.NEXT_PUBLIC_WISHPOOL_IMAGE_BASE_URL}/${imageUrl}`
               : GiftCardImage
           }
           alt={`선물 카드 이미지 - ${giftId}`}

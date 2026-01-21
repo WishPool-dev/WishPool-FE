@@ -4,5 +4,4 @@ export type GiftCardType = {
   itemName: string;
   giftId: number;
   imageUrl?: string;
-  itemImage?: string;
 };
