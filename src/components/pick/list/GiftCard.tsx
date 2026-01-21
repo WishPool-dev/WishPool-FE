@@ -19,7 +19,8 @@ const GiftCard = ({
   const isSmall = size === 'small';
 
   const { data: imageData } = useGetWishpoolImage(imageUrl);
-  const finalSrc = imageData && imageData.key ? imageData.key : GiftCardImage;
+  const finalSrc =
+    imageUrl && imageData && imageData.key ? imageData.key : GiftCardImage;
 
   return (
     <div
