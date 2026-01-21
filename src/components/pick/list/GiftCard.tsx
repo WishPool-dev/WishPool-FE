@@ -21,7 +21,7 @@ const GiftCard = ({
 
   return (
     <div
-      className={`bg-background-01 flex grow-1 flex-col items-center rounded-[16px] ${isSmall ? 'p-[2.2rem]' : 'p-[6.4rem]'}`}
+      className={`bg-background-01 flex grow-1 flex-col items-center gap-[2.4rem] rounded-[16px] ${isSmall ? 'p-[2.2rem]' : 'p-[6.4rem]'}`}
     >
       <Link href={itemUrl} className="flex flex-col gap-[2.8rem]">
         <Image
