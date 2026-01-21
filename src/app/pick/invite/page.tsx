@@ -36,6 +36,10 @@ const InviteHandler = () => {
     return <Loading />;
   }
 
+  const displayImageSrc = pickData?.imageKey
+    ? `${process.env.NEXT_PUBLIC_WISHPOOL_IMAGE_BASE_URL}/${pickData.imageKey}`
+    : WishpoolCardImage;
+
   return (
     <>
       <div className="relative mt-[6rem] w-full rounded-[16px] bg-white">
@@ -58,7 +62,7 @@ const InviteHandler = () => {
 
         <div className="relative aspect-[353/199] w-full">
           <Image
-            src={WishpoolCardImage}
+            src={displayImageSrc}
             alt="이벤트 카드 이미지"
             fill
             sizes="100vw"
