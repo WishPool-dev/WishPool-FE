@@ -33,7 +33,7 @@ export type WishpoolChosenGiftListResponse = {
       giftId: number;
       giftName: string;
       giftImage: string;
-      imageUrl?: string;
+      imageUrl: string;
     },
   ];
 };
