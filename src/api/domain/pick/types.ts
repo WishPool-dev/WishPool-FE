@@ -6,6 +6,7 @@ export type PickGiftListResponse = {
   celebrant: string;
   birthDay: string;
   endPickDate: string;
+  imageKey: string;
 };
 
 export type PickGiftRequest = {

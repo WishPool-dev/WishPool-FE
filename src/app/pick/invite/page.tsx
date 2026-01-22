@@ -11,6 +11,7 @@ import Button from '@/components/common/Button';
 import Icon from '@/components/common/Icon';
 import Loading from '@/components/common/Loading';
 import { PATH } from '@/constants/common/path';
+import { WISHPOOL_IMAGE_BASE_URL } from '@/constants/wishpool/image';
 import { useGetChosenUrl } from '@/hooks/pick/useGetChosenUrl';
 
 const InviteHandler = () => {
@@ -35,10 +36,12 @@ const InviteHandler = () => {
   if (isPending) {
     return <Loading />;
   }
-
+  const displayImageSrc = pickData?.imageKey
+    ? `${WISHPOOL_IMAGE_BASE_URL}/${pickData.imageKey}`
+    : WishpoolCardImage;
   return (
     <>
-      <div className="relative mt-[6rem] w-full rounded-[16px] bg-white">
+      <div className="relative mt-[14rem] w-full rounded-[16px] bg-white">
         <Icon
           name="ribbon"
           width={120}
@@ -58,7 +61,7 @@ const InviteHandler = () => {
 
         <div className="relative aspect-[353/199] w-full">
           <Image
-            src={WishpoolCardImage}
+            src={displayImageSrc}
             alt="이벤트 카드 이미지"
             fill
             sizes="100vw"

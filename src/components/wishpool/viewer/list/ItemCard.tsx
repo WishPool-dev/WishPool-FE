@@ -20,10 +20,11 @@ const ItemCard = ({ guest, itemName, itemUrl, imageUrl }: ItemCardProps) => {
     <>
       <Link href={itemUrl} className="flex grow-1 flex-col">
         <Image
+          width={171}
+          height={171}
           src={finalSrc}
           alt="프로필 이미지"
-          sizes="100vw"
-          className="rounded-[12px] object-cover"
+          className="h-[17.1rem] w-[17.1rem] rounded-[12px] object-cover"
         />
 
         <div className="mt-[0.8rem] flex items-center gap-[0.8rem]">
