@@ -64,14 +64,13 @@ const PreviewPage = () => {
               className="flex flex-col items-center justify-center"
             >
               {gift.imageUrl ? (
-                <div className="relative h-[15.5rem] w-[15.5rem]">
-                  <Image
-                    src={`${WISHPOOL_IMAGE_BASE_URL}/${gift.imageUrl}`}
-                    alt="등록 선물 이미지"
-                    fill
-                    className="object-cover"
-                  />
-                </div>
+                <Image
+                  src={`${WISHPOOL_IMAGE_BASE_URL}/${gift.imageUrl}`}
+                  alt="등록 선물 이미지"
+                  width={155}
+                  height={155}
+                  className="h-[15.5rem] w-[15.5rem] rounded-[12px] object-cover"
+                />
               ) : (
                 <Image
                   src={GiftCardImage}

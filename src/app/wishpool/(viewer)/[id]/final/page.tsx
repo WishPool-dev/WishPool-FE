@@ -42,14 +42,14 @@ const FinalPage = () => {
           className="absolute -top-5 left-1/2 -translate-x-1/2 -translate-y-1/2"
         />
         {giftData?.selectedGiftsListDto.map(
-          ({ giftId, giftName, giftImage }) => (
+          ({ giftId, giftName, giftImage, imageUrl }) => (
             <GiftCard
               key={giftId}
               size="big"
               giftId={giftId}
               itemName={giftName}
               itemUrl={giftImage}
-              imageUrl={giftImage}
+              imageUrl={imageUrl}
             />
           ),
         )}
@@ -59,7 +59,7 @@ const FinalPage = () => {
           <div className="flex flex-col gap-[1.2rem]">
             <KakaoButton
               shareType="complete"
-              linkUrl={PATH.WISHPOOL_FINAL(wishpoolId)}
+              linkUrl={`${origin}${PATH.WISHPOOL_FINAL(wishpoolId)}`}
               name={giftData?.celebrant || ''}
             />
             <Button textSize="lg" onClick={() => router.push(PATH.HOME)}>
