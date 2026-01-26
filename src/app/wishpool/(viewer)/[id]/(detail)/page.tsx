@@ -77,7 +77,7 @@ const DetailPage = () => {
         </div>
         <div className="mt-[2rem]">
           <h2 className="head1 mb-[0.4rem]">
-            {wishpool?.celebrant}에게 보내는 위시풀
+            {wishpool?.celebrant}님을 위한 위시풀
           </h2>
           <span className="body1 flex items-center gap-[0.8rem]">
             {wishpool?.joinCount}명 참여
