@@ -25,7 +25,7 @@ const CompleteLayout = ({ children }: { children: React.ReactNode }) => {
         onClick={handleClose}
         bgColor="white"
       />
-      <main className="mt-header p-[2rem]">{children}</main>
+      <main className="mt-header px-[2rem] pb-[2rem]">{children}</main>
     </>
   );
 };
