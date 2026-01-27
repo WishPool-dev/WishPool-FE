@@ -47,6 +47,8 @@ const PreviewPage = () => {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (createMutation.isPending || createMutation.isSuccess) return;
+
     try {
       const res = await createMutation.mutateAsync(data);
 
@@ -120,6 +122,7 @@ const PreviewPage = () => {
               textColor="black"
               backgroundColor="light"
               textSize="sm"
+              type="button"
               onClick={() => {
                 history.back();
               }}
