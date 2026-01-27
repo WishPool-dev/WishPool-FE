@@ -25,7 +25,6 @@ const DetailPage = () => {
   const { isOpen, onOpen, onClose } = useModal();
 
   const [isError, setIsError] = useState(false);
-
   const { data: wishpool } = useGetWishpoolDetail(wishpoolId);
   const imageKey = wishpool?.imageKey || '';
   const { data: wishpoolImage } = useGetWishpoolImage(imageKey);
@@ -77,14 +76,18 @@ const DetailPage = () => {
         </div>
         <div className="mt-[2rem]">
           <h2 className="head1 mb-[0.4rem]">
-            {wishpool?.celebrant}에게 보내는 위시풀
+            {wishpool?.celebrant}님을 위한 위시풀
           </h2>
           <span className="body1 flex items-center gap-[0.8rem]">
             {wishpool?.joinCount}명 참여
-            <Icon
-              name="plus"
-              className="h-[1.8rem] w-[1.8rem] rounded-[3px] bg-gray-400 text-white"
-            />
+            <button
+              onClick={() => router.push(PATH.WISHPOOL_SHARE(wishpoolId))}
+            >
+              <Icon
+                name="plus"
+                className="h-[1.8rem] w-[1.8rem] rounded-[3px] bg-gray-400 text-white"
+              />
+            </button>
           </span>
           <button
             type="button"

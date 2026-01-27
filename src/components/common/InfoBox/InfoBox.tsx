@@ -10,7 +10,7 @@ const INFO_MESSAGE = {
 
 export const INFO_NOTICE_LIST = [
   {
-    title: '생일자는 진짜 필요한 걸 고를 수 있어요.',
+    title: '생일자는 진짜 필요한 선물을 고를 수 있어요.',
     content: (
       <>
         친구들이 제안한 선물 중에서 <br />
