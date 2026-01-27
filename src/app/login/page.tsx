@@ -5,7 +5,7 @@ import logoIcon from '@/assets/images/logo-icon.png';
 
 const LoginPage = () => {
   return (
-    <div className="bg-background-01 flex h-[100vh] flex-col items-center px-[2rem] pb-[4rem]">
+    <div className="bg-background-01 flex flex-col items-center px-[2rem] pt-[22rem] pb-[4rem]">
       <div className="text-text flex h-full flex-col items-center justify-center self-center text-center">
         <Image
           className="mb-[4rem]"
