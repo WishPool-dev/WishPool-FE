@@ -9,11 +9,7 @@ import { PATH } from '@/constants/common/path';
 import { useGetWishpoolId } from '@/hooks/common/useGetWishpoolId';
 import { useGetChosenUrl } from '@/hooks/pick/useGetChosenUrl';
 import { ShareSectionType } from '@/types/common/ShareSectionType';
-
-const getOrigin = () => {
-  if (typeof window !== 'undefined') return window.location.origin;
-  return process.env.NEXT_PUBLIC_API_URL;
-};
+import { getOrigin } from '@/utils/commons/getOrigin';
 
 const InvitePage = () => {
   const content = 'share' as ShareSectionType;

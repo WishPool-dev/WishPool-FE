@@ -41,7 +41,7 @@ const InviteHandler = () => {
     : WishpoolCardImage;
   return (
     <>
-      <div className="relative mt-[14rem] w-full rounded-[16px] bg-white">
+      <div className="relative mt-[9rem] w-full rounded-[16px] bg-white">
         <Icon
           name="ribbon"
           width={120}

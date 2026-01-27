@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 import Button from '@/components/common/Button';
+import Toast from '@/components/common/Toast';
 import CarouselCard from '@/components/pick/select/CarouselCard';
 import GiftLoading from '@/components/pick/select/GiftLoading';
 import { PATH } from '@/constants/common/path';
@@ -17,6 +18,7 @@ const SelectPage = () => {
 
   const [items, setItems] = useState<GiftCardType[]>([]);
   const [loading, setLoading] = useState(false);
+  const [toast, setToast] = useState(false);
 
   useEffect(() => {
     const initialItems = getInitialItems();
@@ -26,6 +28,16 @@ const SelectPage = () => {
   const { ref, active } = useCarouselCard<HTMLDivElement>();
 
   const handleRemove = (id: number) => {
+    if (items.length <= 1) {
+      setToast(true);
+
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+
+      return;
+    }
+
     const updatedItems = items.filter((item) => item.giftId !== id);
     setItems(updatedItems);
   };
@@ -47,6 +59,7 @@ const SelectPage = () => {
 
   return (
     <div className="flex flex-col">
+      {toast && <Toast>선물은 최소 1개 이상 선택해야 해요!</Toast>}
       <section
         ref={ref}
         className="no-scrollbar bg-blue-5 flex snap-x snap-mandatory gap-[2.4rem] overflow-x-auto overflow-y-hidden px-[2rem] pt-[7rem] pb-[5rem]"
@@ -67,7 +80,7 @@ const SelectPage = () => {
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
       </section>
 
-      <section className="bg-background-02 relative">
+      <section className="bg-background-02 relative pb-[12rem]">
         <div className="flex flex-col items-center py-[3rem]">
           <Image
             src="/images/hole.svg"
