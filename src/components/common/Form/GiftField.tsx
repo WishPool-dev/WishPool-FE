@@ -122,7 +122,7 @@ const GiftField = ({
               alt="선물 이미지 미리보기"
               width={82}
               height={82}
-              className="h-[8.2rem] w-[8.2rem] rounded-[12px] border border-gray-400"
+              className="h-[8.2rem] w-[8.2rem] rounded-[12px] border border-gray-400 object-cover"
             />
             <span className="absolute top-[0.6rem] left-[6rem]">
               <button
@@ -136,22 +136,24 @@ const GiftField = ({
           </div>
         ) : (
           <div className="mt-[1.2rem]">
-            <div className="flex h-[5.6rem] w-full gap-[1.2rem] rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.6rem] focus:border-gray-400 focus:outline-none">
-              <button
-                type="button"
-                onClick={() => fileInputRef.current?.click()}
-                aria-label="선물 이미지 추가"
-                disabled={isUploading}
-              >
+            <button
+              type="button"
+              className="w-full"
+              onClick={() => fileInputRef.current?.click()}
+              aria-label="선물 이미지 추가"
+              disabled={isUploading}
+            >
+              <div className="flex h-[5.6rem] gap-[1.2rem] rounded-[12px] border border-gray-400 px-[1.6rem] py-[1.6rem] focus:border-gray-400 focus:outline-none">
                 <Icon
                   name="photo"
                   width={24}
                   height={24}
                   className="text-gray-600"
                 />
-              </button>
-              <p className="body1 text-text">선물 사진 추가</p>
-            </div>
+
+                <p className="body1 text-text">선물 사진 추가</p>
+              </div>
+            </button>
             <p className="caption2 text-blue-primary mt-[0.8rem]">
               *사진을 추가하지 않을 때는 기본 이미지로 보여줄게요.
             </p>

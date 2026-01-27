@@ -20,7 +20,7 @@ const KakaoLoginButton = () => {
           <span className="title2 text-text w-full text-center">
             카카오 로그인
           </span>
-        </button>{' '}
+        </button>
       </div>
     </div>
   );

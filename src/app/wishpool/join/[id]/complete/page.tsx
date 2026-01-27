@@ -1,17 +1,10 @@
 'use client';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
 import CongratsImage from '@/assets/images/congrats.png';
 import FeedbackBox from '@/components/common/FeedbackBox';
 
 const CompletePage = () => {
-  const [hasToken, setHasToken] = useState(false);
-  useEffect(() => {
-    const token = localStorage.getItem('accessToken');
-    if (token) setHasToken(true);
-  }, []);
-
   return (
     <>
       <div className="flex flex-col items-center">
@@ -26,7 +19,7 @@ const CompletePage = () => {
           height={180}
         />
       </div>
-      {hasToken ? null : <FeedbackBox />}
+      <FeedbackBox />
     </>
   );
 };
