@@ -51,8 +51,8 @@ const InviteHandler = () => {
 
         <div className="space-y-[0.4rem] px-[2.4rem] py-[3.2rem]">
           <h1 className="head1 text-blue-primary">
-            {pickData?.celebrant}님을 위해 친구들이 함께 만든 <br />
-            위시리스트가 도착했어요!
+            {pickData?.celebrant}님을 위해 친구들이 함께 만든 위시리스트가
+            도착했어요!
           </h1>
           <p className="text-text body1">
             위시풀을 통해 원하는 선물을 알려 주세요.
@@ -61,6 +61,7 @@ const InviteHandler = () => {
 
         <div className="relative h-[18.7rem] w-full">
           <Image
+            fill
             src={displayImageSrc}
             alt="이벤트 카드 이미지"
             className="object-cover"

@@ -55,6 +55,7 @@ const InfoPage = () => {
 
         <div className="relative h-[18.7rem] w-full">
           <Image
+            fill
             src={displayImg}
             className="object-cover"
             alt="위시풀 대표 이미지"
