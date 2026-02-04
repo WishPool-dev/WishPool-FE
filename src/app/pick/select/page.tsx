@@ -80,7 +80,7 @@ const SelectPage = () => {
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
       </section>
 
-      <section className="bg-background-02 relative pb-[12rem]">
+      <section className="relative pb-[12rem]">
         <div className="flex flex-col items-center py-[3rem]">
           <Image
             src="/images/hole.svg"
