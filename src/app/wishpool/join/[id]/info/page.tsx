@@ -53,10 +53,9 @@ const InfoPage = () => {
           birthDay={getSlashDateFmt(wishpoolData?.birthDay) ?? ''}
         />
 
-        <div className="relative h-[18.7rem] w-[35.3rem] overflow-hidden">
+        <div className="relative h-[18.7rem] w-full">
           <Image
             src={displayImg}
-            fill
             className="object-cover"
             alt="위시풀 대표 이미지"
           />

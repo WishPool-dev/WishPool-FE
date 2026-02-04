@@ -59,12 +59,10 @@ const InviteHandler = () => {
           </p>
         </div>
 
-        <div className="relative aspect-[353/199] w-full">
+        <div className="relative h-[18.7rem] w-full">
           <Image
             src={displayImageSrc}
             alt="이벤트 카드 이미지"
-            fill
-            sizes="100vw"
             className="object-cover"
           />
         </div>
