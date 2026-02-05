@@ -80,7 +80,7 @@ const SelectPage = () => {
         <div aria-hidden className="w-[calc(50vw-9rem)] shrink-0 snap-none" />
       </section>
 
-      <section className="relative pb-[12rem]">
+      <section className="relative pt-[4.2rem]">
         <div className="flex flex-col items-center py-[3rem]">
           <Image
             src="/images/hole.svg"
@@ -95,19 +95,19 @@ const SelectPage = () => {
             <br />
             아래로 드래그하면 리스트에서 제외돼요.
           </p>
-          <div className="flex w-full flex-col gap-[0.8rem] p-[2rem]">
-            <Button
-              backgroundColor="transparent"
-              textColor="gray"
-              textSize="md"
-              onClick={() => window.location.reload()}
-            >
-              <span className="underline">처음부터 다시 고르기</span>
-            </Button>
-            <Button onClick={handleComplete}>완료하기</Button>
-          </div>
         </div>
       </section>
+      <div className="fixed right-0 bottom-0 left-0 mx-auto flex max-w-[430px] flex-col gap-[0.8rem] p-[2rem]">
+        <Button
+          backgroundColor="transparent"
+          textColor="gray"
+          textSize="md"
+          onClick={() => window.location.reload()}
+        >
+          <span className="underline">처음부터 다시 고르기</span>
+        </Button>
+        <Button onClick={handleComplete}>완료하기</Button>
+      </div>
     </div>
   );
 };
