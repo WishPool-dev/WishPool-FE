@@ -34,7 +34,7 @@ const InfoPage = () => {
   return (
     <>
       <div className="text-text">
-        <h1 className="head1">
+        <h1 className="head1 break-words break-keep">
           {wishpoolData?.owner}님이 보낸 <br />
           위시풀 초대장이 도착했어요! <br />
           <span className="text-blue-primary">{wishpoolData?.celebrant}</span>

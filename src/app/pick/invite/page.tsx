@@ -50,7 +50,7 @@ const InviteHandler = () => {
         />
 
         <div className="space-y-[0.4rem] px-[2.4rem] py-[3.2rem]">
-          <h1 className="head1 text-blue-primary">
+          <h1 className="head1 text-blue-primary break-words break-keep">
             {pickData?.celebrant}님을 위해 친구들이 함께 만든 위시리스트가
             도착했어요!
           </h1>
