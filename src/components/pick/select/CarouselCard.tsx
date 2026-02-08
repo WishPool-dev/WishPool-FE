@@ -26,6 +26,7 @@ export default function CarouselCard({
   onRemove,
   giftId,
   itemName,
+  itemUrl,
   imageUrl: imageKey,
 }: CarouselCardProps) {
   const isActive = index === activeIndex;
@@ -60,6 +61,9 @@ export default function CarouselCard({
         dragMomentum={false}
         onDragStart={handleDragStart}
         onDrag={handleDrag}
+        onClick={() => {
+          window.open(itemUrl, '_blank');
+        }}
         onDragEnd={
           handleDragEnd as unknown as (
             e: MouseEvent | TouchEvent | PointerEvent,
