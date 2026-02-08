@@ -28,7 +28,7 @@ const FinalPage = () => {
           <span className="text-blue-primary">{giftData?.celebrant}</span>님이
           최종 선택한 선물
         </p>
-        <p className="body1 text-text">
+        <p className="body1 text-text break-words break-keep">
           {giftData?.celebrant}님이 고른 선물은 바로 이거에요. <br />
           생일을 축하해 주세요!
         </p>
