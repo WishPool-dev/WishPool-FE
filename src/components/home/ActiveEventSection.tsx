@@ -68,8 +68,8 @@ const ActiveEventSection = ({ planType, wishpools }: activeEventProps) => {
         </>
       ) : (
         <>
-          <div className="mt-[3.5rem] flex items-center justify-center py-[2.6rem]">
-            <Icon name="photo" width={28} height={28} />
+          <div className="mt-[2rem] flex items-center justify-center py-[2.6rem]">
+            <Icon name="vacant" width={56} height={56} />
           </div>
           <p className="body2 text-text mb-[10.7rem] py-[0.4rem] text-center">
             지금 진행되고 있는 이벤트가 없어요 <br />
