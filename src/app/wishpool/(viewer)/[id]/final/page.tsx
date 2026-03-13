@@ -34,7 +34,7 @@ const FinalPage = () => {
         </p>
       </div>
 
-      <section className="relative mt-[9.1rem] space-y-[1.2rem] pb-[20rem]">
+      <section className="relative mt-[9.1rem] flex flex-col space-y-[1.2rem] pb-[20rem]">
         <Icon
           name="ribbon"
           width={120}
