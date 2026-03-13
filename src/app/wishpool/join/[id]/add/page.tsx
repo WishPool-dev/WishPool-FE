@@ -119,7 +119,7 @@ const AddPage = () => {
             title="선물 추가 버튼 아이콘"
             className="text-text"
           />
-          <span className="text-text title1">선물 더 제안</span>
+          <span className="text-text title1">선물 더 제안하기</span>
         </div>
       </button>
       <ButtonContainer
