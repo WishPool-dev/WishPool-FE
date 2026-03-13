@@ -26,6 +26,7 @@ import StarIcon from '@/assets/icons/svg/icon_star.svg';
 import SwipeIcon from '@/assets/icons/svg/icon_swipe.svg';
 import TrashIcon from '@/assets/icons/svg/icon_trash.svg';
 import UpIcon from '@/assets/icons/svg/icon_up.svg';
+import VacantIcon from '@/assets/icons/svg/icon_vacant.svg';
 import WishIcon from '@/assets/icons/svg/icon_wish.svg';
 
 export const iconMap = {
@@ -56,6 +57,7 @@ export const iconMap = {
   ribbon: RibbonIcon,
   loading: LoadingIcon,
   delete: DeleteIcon,
+  vacant: VacantIcon,
 } as const;
 
 export type IconName = keyof typeof iconMap;
