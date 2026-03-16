@@ -26,7 +26,7 @@ const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
 
   const hasToken = useHasToken();
 
-  const handleClose = () => {
+  const handleLogoClick = () => {
     if (hasToken) router.push(PATH.INTRO);
     router.push(PATH.HOME);
   };
@@ -35,7 +35,7 @@ const HomeHeader = ({ hasMenu = false, bgColor }: HomeHeaderProps) => {
     <>
       <BaseHeader
         leftSlot={
-          <button onClick={handleClose}>
+          <button onClick={handleLogoClick}>
             <Image
               src="/images/logo.svg"
               alt="위시풀 로고"
