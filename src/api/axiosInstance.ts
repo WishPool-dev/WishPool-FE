@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 import { HTTP_STATUS } from '@/constants/common/httpStatus';
+import { PATH } from '@/constants/common/path';
 
 export const axiosInstance = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_URL,
@@ -26,6 +27,8 @@ axiosInstance.interceptors.response.use(
     const { response, config } = error;
 
     if (response?.status === HTTP_STATUS.UNAUTHORIZED) {
+      localStorage.removeItem('accessToken');
+      window.location.href = PATH.INTRO;
     }
 
     if (response) {
@@ -36,6 +39,7 @@ axiosInstance.interceptors.response.use(
     } else {
       console.error('🚨[API NETWORK ERROR], error.message');
     }
+
     return Promise.reject(error);
   },
 );
