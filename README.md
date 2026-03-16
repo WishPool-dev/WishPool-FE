@@ -1,36 +1,84 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎁 WishPool
 
-## Getting Started
+WishPool은 여러 사람이 제안한 선물 중에서 생일자가 직접 선택할 수 있도록 돕는 **선물 선택 과정 중심의 큐레이션 서비스**입니다.
 
-First, run the development server:
+선물 결과보다 **선물을 고르는 과정의 경험**에 집중하여, 생일자와 참여자 모두가 만족할 수 있는 선물 준비를 돕습니다.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🔗 배포 링크
+- 서비스 URL: https://wishpool.store
+- GitHub Repository: https://github.com/WishPool-dev
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 💡 기획 배경
 
-## Learn More
+여러 명이 함께 생일 선물을 준비할수록 생일자의 취향을 정확히 반영하기 어렵고, 선택 과정에서 의견이 분산되는 문제가 발생합니다.
 
-To learn more about Next.js, take a look at the following resources:
+WishPool은 선물 제안 과정을 열어두고 최종 선택 권한을 생일자에게 맡김으로써, 선물 준비 과정의 부담을 줄이고 선물 만족도를 높이고자 기획되었습니다.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+---
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## ✨ 주요 기능
 
-## Deploy on Vercel
+### 📝 위시풀 생성
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+대표자는 생일자의 생일과 선물 수령 날짜를 선택하여 위시풀을 생성할 수 있습니다.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+위시풀 생성이 완료되면 참여자를 초대할 수 있는 링크가 발급되며, 카카오톡 공유 기능을 통해 간편하게 전달할 수 있습니다.
+
+---
+
+### 🎁 선물 제안
+
+대표자와 참여자는 생성된 위시풀에 생일자에게 주고 싶은 선물을 자유롭게 제안할 수 있습니다.
+
+각 선물은 **이미지, 링크, 이름** 정보를 포함하여 등록되며, 여러 개의 선물을 제안하는 것도 가능합니다.
+
+이를 통해 참여자들의 다양한 아이디어가 자연스럽게 모이도록 설계했습니다.
+
+---
+
+### 🎯 생일자 선물 선택
+
+생일자는 참여자들이 제안한 선물 목록을 확인한 뒤, 원하지 않는 선물을 **드래그 인터랙션으로 제거**하며 최종적으로 받고 싶은 선물만 선택할 수 있습니다.
+
+선물 선택 과정을 단순한 결정이 아닌, 부담 없이 즐길 수 있는 하나의 경험으로 제공합니다.
+
+---
+
+### 📣 선택 결과 공유
+
+생일자의 선택이 완료되면 대표자의 홈 화면에서 선택 완료 상태를 확인할 수 있습니다.
+
+선택된 선물 목록은 카카오톡 공유 버튼을 통해 참여자들과 간편하게 공유할 수 있어, 선물 준비 과정을 자연스럽게 마무리할 수 있습니다.
+
+---
+
+## 🛠️ 기술 스택
+
+### Frontend
+- Next.js
+- React
+- TypeScript
+- TanStack Query
+- Tailwind CSS
+
+### Tooling
+- ESLint
+- Prettier
+- Husky
+
+---
+
+## 📂 프로젝트 구조
+
+```text
+src/
+├─ api/          # API 요청 및 TanStack Query hooks
+├─ components/   # 공통 UI 컴포넌트
+├─ pages/        # 페이지 단위 컴포넌트
+├─ styles/       # 스타일 및 디자인 토큰
+├─ types/        # 공통 타입 정의
+└─ utils/        # 공통 유틸 함수

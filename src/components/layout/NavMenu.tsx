@@ -1,9 +1,9 @@
 'use client';
 
 import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
 
 import { PATH } from '@/constants/common/path';
+import { useHasToken } from '@/hooks/wishpool/useHasToken';
 
 const NAV_LIST = [
   { label: 'WishPool 소개', href: PATH.INTRO },
@@ -14,15 +14,10 @@ const NAV_LIST = [
 const NavMenu = () => {
   const pathname = usePathname();
   const router = useRouter();
-
-  const [token, setToken] = useState<string | null>(null);
-
-  useEffect(() => {
-    setToken(localStorage.getItem('accessToken'));
-  }, []);
+  const hasToken = useHasToken();
 
   const handleNavClick = (href: string) => {
-    if (!token) router.push(PATH.LOGIN);
+    if (!hasToken) router.push(PATH.LOGIN);
     else router.push(href);
   };
 
