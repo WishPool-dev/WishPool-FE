@@ -1,58 +1,56 @@
-# 🎁 WishPool
+# 🎁 WishPooL: 마음이 모여, 넘쳐 흐르는 곳
+<div align="center"><img src="https://github.com/user-attachments/assets/76bd6881-b437-48cb-8867-f26279038a03" width="500"/></div>
 
-WishPool은 여러 사람이 제안한 선물 중에서 생일자가 직접 선택할 수 있도록 돕는 **선물 선택 과정 중심의 큐레이션 서비스**입니다.
+---
 
-선물 결과보다 **선물을 고르는 과정의 경험**에 집중하여, 생일자와 참여자 모두가 만족할 수 있는 선물 준비를 돕습니다.
+## 🎁 WishPooL 서비스 소개
+
+친구들과 함께 만드는 위시리스트로, **선물을 준비하는 과정을 편리하고 즐거운 경험**으로 만들어주는 서비스입니다. <br>
+**생일자의 취향에 맞는 선물**을 고르는 과정에 집중하여, 생일자와 참여자 모두가 만족할 수 있는 선물 준비 경험을 제공합니다.
 
 ---
 
 ## 🔗 배포 링크
-- 서비스 URL: https://wishpool.store
-- GitHub Repository: https://github.com/WishPool-dev
+| | |
+|---|---|
+| 🌐 WishpooL 서비스 | [WishpoooL](https://wishpool.store) |
+| **Frontend** Repository | [WishPool-FE](https://github.com/WishPool-dev/WishPool-FE) |
+| **Backend** Repository | [WishPool-BE](https://github.com/WishPool-dev/WishPool-BE) |
 
 ---
 
-## 💡 기획 배경
-
-여러 명이 함께 생일 선물을 준비할수록 생일자의 취향을 정확히 반영하기 어렵고, 선택 과정에서 의견이 분산되는 문제가 발생합니다.
-
-WishPool은 선물 제안 과정을 열어두고 최종 선택 권한을 생일자에게 맡김으로써, 선물 준비 과정의 부담을 줄이고 선물 만족도를 높이고자 기획되었습니다.
-
----
 
 ## ✨ 주요 기능
 
-### 📝 위시풀 생성
+### 위시풀 생성
+한 사람이 대표로 위시풀을 생성합니다. 
+<br> 선물을 함께 준비할 사람들에게 카카오톡 초대 링크를 공유합니다.
 
-대표자는 생일자의 생일과 선물 수령 날짜를 선택하여 위시풀을 생성할 수 있습니다.
-
-위시풀 생성이 완료되면 참여자를 초대할 수 있는 링크가 발급되며, 카카오톡 공유 기능을 통해 간편하게 전달할 수 있습니다.
+<div align="">
+<img src="https://github.com/user-attachments/assets/985762e8-0f64-404f-b726-4ff4fd43ed1e" width="320"/>
+<img src="https://github.com/user-attachments/assets/852aadf7-7411-48d8-9257-7f021fb426f9" width="320"/>
+</div>
+ 
 
 ---
 
-### 🎁 선물 제안
-
-대표자와 참여자는 생성된 위시풀에 생일자에게 주고 싶은 선물을 자유롭게 제안할 수 있습니다.
-
-각 선물은 **이미지, 링크, 이름** 정보를 포함하여 등록되며, 여러 개의 선물을 제안하는 것도 가능합니다.
-
-이를 통해 참여자들의 다양한 아이디어가 자연스럽게 모이도록 설계했습니다.
+### 선물 제안
+위시풀에서는 생일자에게 주고 싶은 선물을 자유롭게 제안할 수 있습니다.<br>
+상품 이미지, 링크, 이름 정보를 포함하여 여러 개의 선물을 등록할 수 있습니다.
+<div align="">
+<img src="https://github.com/user-attachments/assets/0ff0d1c1-448e-4fc3-98fb-f020efe93d6b" width="320"/>
+<img src="https://github.com/user-attachments/assets/8b26bf75-9339-4c4b-93f2-b683913ae3e3" width="320"/>
+</div>
 
 ---
 
 ### 🎯 생일자 선물 선택
 
-생일자는 참여자들이 제안한 선물 목록을 확인한 뒤, 원하지 않는 선물을 **드래그 인터랙션으로 제거**하며 최종적으로 받고 싶은 선물만 선택할 수 있습니다.
-
-선물 선택 과정을 단순한 결정이 아닌, 부담 없이 즐길 수 있는 하나의 경험으로 제공합니다.
-
----
-
-### 📣 선택 결과 공유
-
-생일자의 선택이 완료되면 대표자의 홈 화면에서 선택 완료 상태를 확인할 수 있습니다.
-
-선택된 선물 목록은 카카오톡 공유 버튼을 통해 참여자들과 간편하게 공유할 수 있어, 선물 준비 과정을 자연스럽게 마무리할 수 있습니다.
+생일자는 친구들이 제안한 선물 중 취향에 맞지 않는 선물을 드래그로 제거하며 부담 없이 원하는 선물을 선택할 수 있습니다.
+<div align="">
+<img src="https://github.com/user-attachments/assets/3834eb8d-2a04-4548-a6ec-ae9dc6e9fd0c" width="320"/>
+<img src="https://github.com/user-attachments/assets/b99ba069-778e-4408-bf9b-e5f4cb3efcdb" width="320"/>
+</div>
 
 ---
 
