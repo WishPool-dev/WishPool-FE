@@ -1,24 +1,9 @@
-'use client';
-
 import Image from 'next/image';
-import { useRouter } from 'next/navigation';
-
 import Onboarding1Image from '@/assets/images/onboarding-1.jpg';
-import Button from '@/components/common/Button';
-import { PATH } from '@/constants/common/path';
 import { ONBOARDING_CONTENT } from '@/constants/intro/onBoardingContent';
+import StartButton from '@/components/common/Button/StartButton';
 
 const OnBoardingPage = () => {
-  const router = useRouter();
-
-  const handleStart = () => {
-    const token = localStorage.getItem('accessToken');
-    if (!token) {
-      router.push(PATH.LOGIN);
-      return;
-    }
-    router.push(PATH.HOME);
-  };
   return (
     <div className="w-full text-center">
       <div>
@@ -65,7 +50,7 @@ const OnBoardingPage = () => {
       ))}
       <div className="fixed inset-x-0 bottom-0">
         <div className="bottom-0 mx-auto w-full max-w-[430px] bg-[linear-gradient(180deg,_rgba(255,255,255,0)_0%,_#fff_100%)] p-[2rem]">
-          <Button onClick={handleStart}>WishpooL 시작하기</Button>
+          <StartButton />
         </div>
       </div>
     </div>
