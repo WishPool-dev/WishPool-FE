@@ -37,7 +37,6 @@ const OnBoardingPage = () => {
               src={section.imageSrc}
               alt={section.imageAlt}
               fill
-              priority
               sizes="100vw"
               className="object-cover"
             />
