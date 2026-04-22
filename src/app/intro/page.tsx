@@ -1,7 +1,8 @@
 import Image from 'next/image';
+
 import Onboarding1Image from '@/assets/images/onboarding-1.jpg';
-import { ONBOARDING_CONTENT } from '@/constants/intro/onBoardingContent';
 import StartButton from '@/components/common/Button/StartButton';
+import { ONBOARDING_CONTENT } from '@/constants/intro/onBoardingContent';
 
 const OnBoardingPage = () => {
   return (
@@ -24,7 +25,7 @@ const OnBoardingPage = () => {
             alt="온보딩 - 위시풀 이미지"
             fill
             priority
-            fetchPriority='high'
+            fetchPriority="high"
             sizes="(max-width: 430px) 100vw, 430px"
             className="object-cover"
           />
