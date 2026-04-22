@@ -24,7 +24,8 @@ const OnBoardingPage = () => {
             alt="온보딩 - 위시풀 이미지"
             fill
             priority
-            sizes="100vw"
+            fetchPriority='high'
+            sizes="(max-width: 430px) 100vw, 430px"
             className="object-cover"
           />
         </div>
@@ -37,7 +38,7 @@ const OnBoardingPage = () => {
               src={section.imageSrc}
               alt={section.imageAlt}
               fill
-              sizes="100vw"
+              sizes="(max-width: 430px) 100vw, 430px"
               className="object-cover"
             />
           </div>
